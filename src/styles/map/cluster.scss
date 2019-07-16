@@ -1,0 +1,21 @@
+@import '../../variables';
+
+.marker-cluster {
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: $royal-blue;
+}
+.marker-cluster div {
+    background-color: $white;
+    width: 28px;
+    height: 28px;
+    margin-left: 6px;
+    margin-top: 6px;
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.marker-cluster span {
+    line-height: 30px;
+}
