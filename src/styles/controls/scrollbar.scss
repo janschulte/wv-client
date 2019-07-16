@@ -1,26 +1,26 @@
-@import "../../variables";
+// @import "../../variables";
 
-// http://stackoverflow.com/questions/9251354/css-customized-scroll-bar-in-div
+// // http://stackoverflow.com/questions/9251354/css-customized-scroll-bar-in-div
 
-::-webkit-scrollbar {
-    width: 7px;
-}
+// ::-webkit-scrollbar {
+//     width: 7px;
+// }
 
-/* Track */
-::-webkit-scrollbar-track {
-    /*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;*/
-}
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     /*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+//     -webkit-border-radius: 10px;
+//     border-radius: 10px;*/
+// }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    /*-webkit-border-radius: 10px;*/
-    /*border-radius: 10px;*/
-    background: fadeOut($slate-gray, 50%);
-    /*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); */
-}
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     /*-webkit-border-radius: 10px;*/
+//     /*border-radius: 10px;*/
+//     background: fadeOut($slate-gray, 50%);
+//     /*    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); */
+// }
 
-::-webkit-scrollbar-thumb:window-inactive {
-    /*	background: fadeOut(@slate-gray, 80%);*/
-}
+// ::-webkit-scrollbar-thumb:window-inactive {
+//     /*	background: fadeOut(@slate-gray, 80%);*/
+// }
