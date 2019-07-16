@@ -21,7 +21,7 @@
   </div>
   <div class="center">
     <div class="navigation">
-      <div class="timeseries" ng-class="{'active': check('/diagram')}" ng-click="navigateTo('/diagram');">
+      <div class="timeseries" routerLinkActive="active" [routerLink]="['/diagram']">
         <div class="navTool">
           <div class="icon icon-timeline">
             <p class="small counter" ng-controller="TimeseriesCounterCtrl" ng-class="{'active': count > 0}">
@@ -31,7 +31,7 @@
           <p class="mid" translate="main.timeseries"></p>
         </div>
       </div>
-      <div class="favorites" ng-class="{'active': check('/favorite')}" ng-click="navigateTo('/favorite');">
+      <div class="favorites" routerLinkActive="active" [routerLink]="['/favorite']">
         <div class="navTool">
           <div class="icon icon-star-filled">
             <p class="small counter" ng-controller="WvFavoritesCounterCtrl" ng-class="{'active': count > 0}">
@@ -42,6 +42,6 @@
         </div>
       </div>
     </div>
-    <div class="addTsButton" ng-class="{'active': check('/selection')}" ng-click="addTsClick();"></div>
+    <div class="addTsButton" [ngClass]="{'active': selectionMode()}" (click)="openSelection();"></div>
   </div>
 </div>

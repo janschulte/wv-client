@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-navigation',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  openSelection() {
+    this.router.navigate(['/selection-map']);
+  }
+
+  selectionMode(): boolean {
+    return this.router.routerState.snapshot.url.startsWith('/selection');
   }
 
 }

@@ -166,6 +166,7 @@
 	"main": {
 		"addTimeseriesNavigation": {
 			"category": "Category",
+			"list": "List",
 			"map": "Map",
 			"phenomenon": "Phenomenon",
 			"station": "Station"

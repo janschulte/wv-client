@@ -17,10 +17,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
+import { FavoriteComponent } from './views/favorite/favorite.component';
 import { MainNavigationComponent } from './views/main-navigation/main-navigation.component';
 import { SelectionListComponent } from './views/selection-list/selection-list.component';
 import { SelectionMapComponent } from './views/selection-map/selection-map.component';
+import { SelectionMenuComponent } from './views/selection-menu/selection-menu.component';
 import { StartComponent } from './views/start/start.component';
+import { ProviderSelectorComponent } from './views/selection-menu/provider-selector/provider-selector.component';
+import { SelectionEntriesComponent } from './views/selection-menu/selection-entries/selection-entries.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -33,7 +37,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       SelectionMapComponent,
       SelectionListComponent,
       DiagramComponent,
-      MainNavigationComponent
+      MainNavigationComponent,
+      FavoriteComponent,
+      SelectionMenuComponent,
+      ProviderSelectorComponent,
+      SelectionEntriesComponent
    ],
    imports: [
       HttpClientModule,
