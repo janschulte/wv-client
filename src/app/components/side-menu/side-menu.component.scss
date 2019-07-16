@@ -1,0 +1,82 @@
+@import '../../../variables';
+
+:host {
+    .side-menu {
+        .expand-button {
+            position: absolute;
+            top: 15px;
+            right: 0px;
+            width: 49px;
+            height: 54px;
+            text-align: center;
+            background-color: $slate-gray;
+            z-index: 100;
+
+            .icon {
+                color: $white;
+                font-size: 20px;
+                line-height: 52px;
+            }
+
+            &.right {
+                border-radius: 3px 0 0 3px;
+                box-shadow: inset -3px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            &.left {
+                border-radius: 0 3px 3px 0;
+                box-shadow: inset 3px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            &.active {
+                background-color: $royal-blue;
+            }
+        }
+
+        .side-menu-content {
+            overflow: auto;
+            display: none;
+            position: absolute;
+            top: 1px;
+            bottom: 0;
+            background-color: $slate-gray;
+
+            &.right {
+                right: 0;
+            }
+
+            &.left {
+                left: 0;
+            }
+
+            &.active {
+                display: block;
+
+                .entry {
+                    height: 52px;
+                    color: $white;
+                    padding: 18px 25px;
+
+                    +.entry {
+                        border-top: solid 1px $geyser-gray;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &.selected {
+                        background-color: $royal-blue;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobile-max-width) {
+            .expand-button {
+                top: 13px + $mobile-header-height;
+            }
+        }
+    }
+
+}

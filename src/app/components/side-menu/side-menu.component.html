@@ -1,0 +1,8 @@
+<div class="side-menu">
+  <div #buttonRef class="expand-button" [ngClass]="classes" (click)="toggle()">
+    <span class="icon" [ngClass]="arrowClass"></span>
+  </div>
+  <div #contentRef class="side-menu-content" [ngClass]="classes">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </div>
+</div>
