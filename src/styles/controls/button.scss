@@ -1,0 +1,50 @@
+@import '../../variables';
+
+.wv-button {
+    height: 38px;
+    line-height: 30px;
+    text-align: center;
+    color: $white;
+    background-color: $slate-gray;
+    border-radius: 3px;
+    padding: 4px 8px;
+
+    &.active {
+        background-color: $royal-blue;
+    }
+
+    .icon {
+        font-size: 26px;
+    }
+
+    span {
+        vertical-align: middle;
+    }
+
+    .description-mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: $mobile-max-width) {
+        height: 40px;
+        min-width: 40px;
+        line-height: 32px;
+
+        .description {
+            display: none;
+        }
+
+        .description-mobile {
+            display: inline;
+        }
+    }
+}
+
+.desktopScreen {
+    .wv-button {
+        &:hover {
+            cursor: pointer;
+            background-color: $light-slate-gray;
+        }
+    }
+}

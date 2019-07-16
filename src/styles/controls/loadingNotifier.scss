@@ -1,0 +1,19 @@
+@import "../../variables";
+
+.loadingNotifier {
+    position:absolute; 
+    width: 142px;
+    height: 90px;
+    padding: 5px;
+    opacity: 0.8;
+    background-color: $slate-gray;
+    border-radius: 10px;
+    text-align: center;
+    color: $white;
+    .loader {
+        margin-top: 8px;
+        margin-bottom: 6px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

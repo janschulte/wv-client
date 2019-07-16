@@ -1,0 +1,295 @@
+// Since icons are fonts, they can be placed anywhere text is placed and are
+// thus automatically sized to match the surrounding child. To use, create an
+// inline element with the appropriate classes, like so:
+//
+// <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+
+@import "../../variables";
+
+// Import the fonts
+@font-face {
+    font-family: 'Sensorweb';
+    src: url($icon-font-path+$icon-font-name+'.eot');
+    src: url($icon-font-path+$icon-font-name+'.eot?#iefix') format('embedded-opentype'),
+        url($icon-font-path+$icon-font-name+'.woff') format('woff'),
+        url($icon-font-path+$icon-font-name+'.ttf') format('truetype'),
+        url($icon-font-path+$icon-font-name+'.svg#'+$icon-font-svg-id) format('svg');
+}
+
+// Catchall baseclass
+.icon {
+    position: relative;
+    //top: 1px; // TODO warum?
+    display: inline-block;
+    font-family: 'Sensorweb';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Individual icons
+.icon-arrow-down {
+    &:before {
+        content: "\0041";
+    }
+}
+
+.icon-arrow-left {
+    &:before {
+        content: "\0042";
+    }
+}
+
+.icon-arrow-right {
+    &:before {
+        content: "\0043";
+    }
+}
+
+.icon-arrow-up {
+    &:before {
+        content: "\0044";
+    }
+}
+
+.icon-cancel {
+    &:before {
+        content: "\0045";
+    }
+}
+
+.icon-uncheck {
+    &:before {
+        content: "\0046";
+    }
+}
+
+.icon-check {
+    &:before {
+        content: "\0047";
+    }
+}
+
+.icon-provider {
+    &:before {
+        content: "\0048";
+    }
+}
+
+.icon-timeline-start {
+    &:before {
+        content: "\0049";
+    }
+}
+
+.icon-category {
+    &:before {
+        content: "\004A";
+    }
+}
+
+.icon-map {
+    &:before {
+        content: "\004B";
+    }
+}
+
+.icon-phenomenon {
+    &:before {
+        content: "\004C";
+    }
+}
+
+.icon-sensor {
+    &:before {
+        content: "\004D";
+    }
+}
+
+.icon-complete-data {
+    &:before {
+        content: "\004E";
+    }
+}
+
+.icon-star-filled {
+    &:before {
+        content: "\004F";
+    }
+}
+
+.icon-star-empty {
+    &:before {
+        content: "\0050";
+    }
+}
+
+.icon-help {
+    &:before {
+        content: "\0051";
+    }
+}
+
+.icon-settings {
+    &:before {
+        content: "\0052";
+    }
+}
+
+.icon-imprint {
+    &:before {
+        content: "\0053";
+    }
+}
+
+.icon-calendar-check {
+    &:before {
+        content: "\0054";
+    }
+}
+
+.icon-calendar {
+    &:before {
+        content: "\0055";
+    }
+}
+
+.icon-graph-view {
+    &:before {
+        content: "\0056";
+    }
+}
+
+.icon-table-view {
+    &:before {
+        content: "\0057";
+    }
+}
+
+.icon-hide-y-axis {
+    &:before {
+        content: "\0058";
+    }
+}
+
+.icon-show-y-axis {
+    &:before {
+        content: "\0059";
+    }
+}
+
+.icon-visibility {
+    &:before {
+        content: "\005A";
+    }
+}
+
+.icon-search {
+    &:before {
+        content: "\005B";
+    }
+}
+
+.icon-map-options {
+    &:before {
+        content: "\005C";
+    }
+}
+
+.icon-plus {
+    &:before {
+        content: "\005D";
+    }
+}
+
+.icon-minus {
+    &:before {
+        content: "\005E";
+    }
+}
+
+.icon-current-location {
+    &:before {
+        content: "\005F";
+    }
+}
+
+.icon-marker-location {
+    &:before {
+        content: "\0060";
+    }
+}
+
+.icon-share {
+    &:before {
+        content: "\0061";
+    }
+}
+
+.icon-qrcode {
+    &:before {
+        content: "\0062";
+    }
+}
+
+.icon-mail {
+    &:before {
+        content: "\0063";
+    }
+}
+
+.icon-edit {
+    &:before {
+        content: "\0064";
+    }
+}
+
+.icon-new-tab {
+    &:before {
+        content: "\0065";
+    }
+}
+
+.icon-copy {
+    &:before {
+        content: "\0066";
+    }
+}
+
+.icon-timeline {
+    &:before {
+        content: "\0067";
+    }
+}
+
+.icon-timeline-add {
+    &:before {
+        content: "\0068";
+    }
+}
+
+.icon-timeline-checked {
+    &:before {
+        content: "\0069";
+    }
+}
+
+.icon-timeline-show {
+    &:before {
+        content: "\006A";
+    }
+}
+
+.icon-warning {
+    &:before {
+        content: "\006B";
+    }
+}
+
+.icon-csv-export {
+    &:before {
+        content: "\006C";
+    }
+}

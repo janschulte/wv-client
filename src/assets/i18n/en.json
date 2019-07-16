@@ -1,0 +1,310 @@
+{
+	"chart": {
+		"allHidden": {
+			"description": "The timeseries can be switch visible again in the legend by the icon <span class='icon icon-visibility'></span>  on the right site.",
+			"header": "All timeseries are hidden"
+		},
+		"annotation": "Data without warranty!",
+		"empty": {
+			"description": "Click the “+”-button and select an option to select timeseries",
+			"header": "Currently no timeseries are loaded"
+		},
+		"hasNoData": "Outside the data range",
+		"hotkeys": {
+			"day": "Day",
+			"month": "Month",
+			"week": "Week"
+		},
+		"loading": "Timeseries will be loaded",
+		"monthNames": {
+			"apr": "Apr",
+			"aug": "Aug",
+			"dec": "Dec",
+			"feb": "Feb",
+			"jan": "Jan",
+			"jul": "Jul",
+			"jun": "Jun",
+			"mar": "Mar",
+			"may": "May",
+			"nov": "Nov",
+			"oct": "Oct",
+			"sep": "Sep"
+		},
+		"reachedMaxTimeperiod": "The maximum selectable time period is exceeded and was adjusted."
+	},
+	"code": "en",
+	"favorite": {
+		"edit": {
+			"header": "edit favorite"
+		},
+		"empty": {
+			"description": "To add a timeseries as a favorite, navigate to the timeseries view and select the star symbol found in the timeseries details.<br> With the import Button you can reload previously exported favorites.",
+			"header": "No favorites have been added to the list"
+		},
+		"export": {
+			"header": "Export favorites",
+			"text": "Here you can export your favorites. Just copy the JSON out of this textbox and save it in a file to import it later:"
+		},
+		"exportFavorites": "export",
+		"group": {
+			"add": "&#39;{0}&#39; is created as favorite.",
+			"noTimeseries": "Currently no timeseries are selected."
+		},
+		"import": {
+			"header": "Import favorites",
+			"noValidJson": "The JSON file is not valid!",
+			"override": "Do you want to override your current favorites?",
+			"text": "Here you can import your exported favorites. Just paste the JSON in this text field:",
+			"wrongFile": "Could not read the file"
+		},
+		"importFavorites": "import",
+		"label": "Timeseries collection",
+		"lastValue": "Last value",
+		"provider": "Provider",
+		"single": {
+			"add": "A new favorite &#39;{0}&#39; has been added to the list.",
+			"notSupported": "The provider of the favorite &#39;{0}&#39; isn&#39;t supported and can&#39;t be loaded.",
+			"remove": "The favorite has been removed."
+		}
+	},
+	"fullName": "English",
+	"help": {
+		"diagram": {
+			"header": "Chart view",
+			"text": {
+				"desktop": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame, or the data values can be displayed in a table.",
+				"mobile": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame, or the data values can be displayed in a table."
+			}
+		},
+		"favorites": {
+			"header": "Favorites view",
+			"text": {
+				"desktop": "Here the user gets the list of all created favorites. The user can share his favorites list by an im- and export function between different devices.",
+				"mobile": "Here the user gets the list of all created favorites. The user can share his favorites list by an im- and export function between different devices."
+			}
+		},
+		"header": "Help",
+		"intro": "This help page provides a short overview to all functions of this application:",
+		"legend": {
+			"header": "Legend",
+			"text": {
+				"desktop": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend.",
+				"mobile": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend."
+			}
+		},
+		"list-selection": {
+			"header": "Timeseries selection by list",
+			"text": {
+				"desktop": "With the list selection the user has the possibility to select time series based on different parameters (e.g. station name, observed property...).",
+				"mobile": "With the list selection the user has the possibility to select time series based on different parameters (e.g. station name, observed property...)."
+			}
+		},
+		"map-selection": {
+			"header": "Timeseries selection by map",
+			"text": {
+				"desktop": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected phenomenon. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table.",
+				"mobile": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected phenomenon. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table."
+			}
+		},
+		"settings": {
+			"header": "Settings menu",
+			"text": {
+				"desktop": "Besides the language there are some further settings, which can be adjusted in this menu.",
+				"mobile": "Besides the language there are some further settings, which can be adjusted in this menu."
+			}
+		},
+		"start": {
+			"header": "Start view",
+			"text": {
+				"desktop": "The upper navigation bar is the main navigation bar. From here the users can access the diagram view, the timeseries selection and the favorites view.",
+				"mobile": "The icons in the upper navigation bar lead to the settings, the help and the imprint. The bottom bar guides the user to the diagram, the selection of new timeseries or to the favorites view."
+			}
+		}
+	},
+	"imprint": {
+		"fundingAdditional": "The development of this software version was funded by the BMBF in the special program &#34;Geotechnologien&#34; under the label 03G0854B.",
+		"header": "Imprint",
+		"text": "<p>The <a href='http://www.wupperverband.de/' target='_blank'>Wupperverband</a> is responsible for this website.</p><p>Untere Lichtenplatzer Str. 100<br>42289 Wuppertal, Germany</p><p><a href='mailto:info@wupperverband.de'>info@wupperverband.de</a></p>This web application is based on open source software. Find this project at <a href='https://github.com/52North/sensorweb-client-core' target='_blank'>GitHub</a>"
+	},
+	"legend": {
+		"deleteAll": {
+			"confirm": "Yes",
+			"deny": "No",
+			"header": "Remove all timeseries",
+			"question": "Should all timeseries be removed?"
+		},
+		"entry": {
+			"firstValue": "First value:",
+			"jumpToLastValue": "jump to last measurement",
+			"lastValue": "Last value:",
+			"noDataWarning": "No data available to the selected time frame",
+			"procedure": "Measurement interval:",
+			"provider": "Provider:"
+		},
+		"footer": {
+			"all": "all"
+		},
+		"share": {
+			"headerAll": "share timeseries",
+			"headerSingle": "share timeseries",
+			"inClipboard": "link in the clipboard",
+			"inMail": "Open in an empty e-mail",
+			"inQrCode": "show qr-code",
+			"inWindow": "Open in a new tab"
+		}
+	},
+	"listSelection": {
+		"goBack": "back",
+		"headers": {
+			"category": "Category",
+			"phenomenon": "Phenomenon",
+			"procedure": "Sensor",
+			"station": "Station"
+		},
+		"noSelection": "- please select -"
+	},
+	"main": {
+		"addTimeseriesNavigation": {
+			"category": "Category",
+			"map": "Map",
+			"phenomenon": "Phenomenon",
+			"station": "Station"
+		},
+		"allPhenomena": "All phenomenons",
+		"favorite": "Favorites",
+		"help": "Help",
+		"settings": "Settings",
+		"timeseries": "Timeseries"
+	},
+	"map": {
+		"layers": {
+			"baselayerHeader": "Base layer",
+			"overlayHeader": "Overlay layer"
+		},
+		"loading": "Stations will be loaded",
+		"providerList": {
+			"phenomena": "Phenomenons",
+			"provider": "Datenanbieter",
+			"source": "Provider",
+			"stations": "Stations",
+			"timeseries": "Timeseries"
+		},
+		"search": {
+			"label": "Search adress ..."
+		},
+		"station": {
+			"add": "Timeseries successfully added",
+			"addMulti": "Timeseries successfully added",
+			"category": "Category",
+			"lastValue": "Last value:",
+			"loading": "Timeseries will be loaded...",
+			"remove": "Timeseries removed",
+			"showAll": "further phenomenons",
+			"showChart": "Open chart view"
+		},
+		"stationLocation": {
+			"jumpBackToChart": "back to chart",
+			"provider": "Provider",
+			"station": "Station",
+			"timeseries": "Timeseries"
+		}
+	},
+	"ok": "OK",
+	"originalValues": {
+		"active": "Original values are used to display the data",
+		"areDeactivated": "The display of the original values is deactivated, because the selected time period is greater than a month.",
+		"header": "original values",
+		"notActive": "Generalized values are used to display the data",
+		"notAllowed": "To display original values limit the time period to less than a month."
+	},
+	"settings": {
+		"captions": {
+			"general": "General settings",
+			"map": "Map settings",
+			"reset": "Reset"
+		},
+		"chooseLanguage": "Select language",
+		"clusterMarker": {
+			"description": "Info: While markers on the are close to each other, they will be grouped for a better overview.",
+			"header": "Group marker"
+		},
+		"header": "Settings",
+		"lastValueMarker": {
+			"description": "Attention: some data provider are very slow.",
+			"header": "Marker with last value information"
+		},
+		"permalink": {
+			"clipboardInfo": "Please copy the following link by yourself to clipboard:"
+		},
+		"reset": {
+			"description": "Attention: Your selected timeseries and favorites will be deleted permanently.",
+			"header": "Reset timeseries and favorites"
+		}
+	},
+	"start": {
+		"category": {
+			"button": "Show categories and find timeseries",
+			"description": "The available categories (such as waters or dams) are listed, by mouse click you can select a measuring station of a category and a measured phenomenon at this station (such as water level or precipitation). At the end you can add the selected timeseries to the diagram.",
+			"header": "Select timeseries by categorie"
+		},
+		"map": {
+			"button": "Show map and find timeseries",
+			"description": "The available measuring stations are located on a map, after selecting a station you will see all available timeseries which can be displayed in the diagram view.",
+			"header": "Select timeseries by map"
+		},
+		"phenomenon": {
+			"button": "Show phenomenons and find timeseries",
+			"description": "The available phenomena (such as water level or precipitation) are listed, by mouse click you can select the category (such as raw data or validated data) and station of a phenomenon. At the end you can add the selected timeseries to the diagram.",
+			"header": "Select timeseries by phenomenon"
+		},
+		"station": {
+			"button": "Show stations and find timeseries",
+			"description": "The available stations are listed, by mouse click you can select the category (such as waters or dams) of a station and the phenomenon at the station (such as water level or precipitation). At the end you can add the selected timeseries to the diagram.",
+			"header": "Select timeseries by station"
+		}
+	},
+	"styleChange": {
+		"alignmentHeader": "Alignment",
+		"colorHeader": "Color selection",
+		"currentColor": "Current color",
+		"groupedAxis": {
+			"description": "Cluster or release a measured phenomenon (water level, humidity, pH-value, ...), with the same unit, to one or more y-axis.",
+			"header": "grouped axis"
+		},
+		"header": "Timeseries settings",
+		"selectColor": "Select new color",
+		"zeroScaled": {
+			"description": "Sets or release a fixed, zero based axis scale.",
+			"header": "zero scaled Y-axis"
+		}
+	},
+	"table": {
+		"time": "Time"
+	},
+	"timeSelection": {
+		"custom": {
+			"end": "End",
+			"header": "Custom",
+			"start": "Start",
+			"time": "Time"
+		},
+		"header": "Time range",
+		"presets": {
+			"lastHour": "last hour",
+			"lastMonth": "last month",
+			"lastWeek": "last week",
+			"lastYear": "last year",
+			"thisMonth": "this month",
+			"thisWeek": "this week",
+			"thisYear": "this year",
+			"today": "today",
+			"todayYesterday": "today & yesterday",
+			"yesterday": "yesterday"
+		},
+		"presetsHeader": "Presets",
+		"warning": {
+			"maxTimeRange": "The time range can not be greater then one year",
+			"startBeforeEnd": "The start date can not be greater then the end date"
+		}
+	}
+}

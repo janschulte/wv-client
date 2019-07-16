@@ -1,0 +1,76 @@
+@import "../../variables";
+
+input[type=radio].wv-toggle {
+    position:absolute; 
+    z-index:-1000; 
+    left:-1000px; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0; 
+    border:0;
+}
+
+input[type=radio].wv-toggle + label.wv-label {
+    background-size: contain;
+    padding-left:48px;
+    height:24px; 
+    display:inline-block;
+    line-height:20px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-weight: normal;
+    vertical-align:middle;
+    cursor:pointer;
+    background-image: url($image-path+'off.png');
+    @media only screen and (-webkit-min-device-pixel-ration: 1.5),
+        only screen and (min-resolution: 1.5dppx),
+        only screen and (min-resolution: 144dpi) {
+        background-image: url($image-path+'off@2x.png');
+    }
+}
+
+input[type=radio].wv-toggle:checked + label.wv-label {
+    background-image: url($image-path+'on.png');
+    @media only screen and (-webkit-min-device-pixel-ration: 1.5),
+        only screen and (min-resolution: 1.5dppx),
+        only screen and (min-resolution: 144dpi) {
+        background-image: url($image-path+'on@2x.png');
+    }
+}
+
+label.wv-label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* toggle block */
+.toggle-block {
+    padding: 13px;
+    background-color: $white;
+    @media screen and (min-width: $tablet-min-width) {
+        &:hover {
+            cursor: pointer;
+            background-color: fadeOut($light-slate-gray, 75%);
+        }
+    }
+    .wv-label {
+        float: right;
+    }
+    .toggle-header {
+        color: $smoke-black;
+        line-height: 24px;
+    }
+    .toggle-description {
+        color: $light-slate-gray;
+        border-top: 1px solid $geyser-gray;
+        margin-top: 13px;
+        padding-top: 13px;
+    }
+}

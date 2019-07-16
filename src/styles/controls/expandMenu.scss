@@ -1,0 +1,174 @@
+@import "../../variables";
+
+$legend-width-desktop: 400px;
+$legend-width-mobile: 300px;
+.legend,
+.phenomena {
+    .expand-button {
+        position: absolute;
+        top: 15px + $desktop-header-height;
+        right: 0px;
+        width: 49px;
+        height: 54px;
+        border-radius: 3px 0 0 3px;
+        box-shadow: inset -3px 0 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        background-color: $slate-gray;
+        z-index: 100;
+        .icon {
+            color: $white;
+            font-size: 20px;
+            line-height: 52px;
+        }
+        &.active {
+            right: $legend-width-desktop;
+            background-color: $royal-blue;
+        }
+    }
+    .list {
+        overflow: auto;
+        display: none;
+        &.active {
+            display: inline;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $slate-gray;
+            width: $legend-width-desktop;
+            .entry{
+                height: 52px;
+                color: $white;
+                padding: 18px 25px;
+                +.entry {
+                    border-top: solid 1px $geyser-gray;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+                &.selected {
+                    background-color: $royal-blue;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: $mobile-max-width) {
+        .expand-button {
+            top: 13px + $mobile-header-height;
+        }
+    }
+}
+
+.desktopScreen {
+    .legend,
+    .phenomena {
+        .expand-button {
+            &:hover {
+                cursor: pointer;
+                background-color: $light-slate-gray;
+            }
+            &.active {
+                &:hover {
+                    background-color: $lavender-blue;
+                }
+            }
+        }
+    }
+}
+
+.legend-active {
+    .content {
+        right: $legend-width-desktop;
+        left: 0;
+    }
+    .legend,
+    .phenomena {
+        .list {
+            &.active {
+                top: $desktop-header-height + 10px;
+                width: $legend-width-desktop;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobile-max-width) {
+        .content {
+            right: $legend-width-mobile;
+        }
+        .legend,
+        .phenomena {
+            .expand-button {
+                &.active {
+                    right: $legend-width-mobile;
+                    background-color: $royal-blue;
+                }
+            }
+            .list {
+                &.active {
+                    top: 0;
+                    width: $legend-width-mobile;
+                }
+            }
+        }
+        .header,
+        .content,
+        .footer {
+            left: -$legend-width-mobile;
+        }
+    }
+}
+
+.phenomena {
+    .expand-button{
+        top: $desktop-header-height + $selection-menu-height + 15px;
+    }
+    @media screen and (max-width: $mobile-max-width) {
+        .expand-button{
+            top: $mobile-header-height + 15px;
+        }
+    }
+}
+
+.phenomenon-list-active {
+    .mapContent {
+        right: $legend-width-desktop;
+        left: 0;
+    }
+    .phenomena {
+        .list {
+            &.active {
+                top: $desktop-header-height + $selection-menu-height + 3px;
+                width: $legend-width-desktop;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobile-max-width) {
+        .content {
+            right: $legend-width-mobile;
+            .mapContent {
+                right: 0;
+            }
+        }
+        .phenomena {
+            .expand-button {
+                &.active {
+                    right: $legend-width-mobile;
+                    background-color: $royal-blue;
+                }
+            }
+            .list {
+                &.active {
+                    top: 0;
+                    width: $legend-width-mobile;
+                }
+            }
+        }
+        .header,
+        .content,
+        .footer {
+            left: -$legend-width-mobile;
+        }
+    }
+}
+

@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i18n-extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/*.json --sort --format namespaced-json"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,8 @@
     "@angular/router": "~8.1.1",
     "@helgoland/core": "file:../../helgoland-toolbox/helgoland-core-0.0.1-alpha.79.tgz",
     "@helgoland/map": "file:../../helgoland-toolbox/helgoland-map-0.0.1-alpha.79.tgz",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "leaflet": "^1.5.1",
     "moment": "^2.24.0",
     "rxjs": "~6.4.0",
@@ -32,6 +35,7 @@
     "@angular/cli": "~8.1.1",
     "@angular/compiler-cli": "~8.1.1",
     "@angular/language-service": "~8.0.3",
+    "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/leaflet": "^1.4.5",

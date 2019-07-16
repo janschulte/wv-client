@@ -1,4 +1,7 @@
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'wv-client-new';
+
+  constructor(
+    private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('de');
+
+    // necessary to load information on e.g. what 'medium' date format should look like in German etc.
+    registerLocaleData(localeDe);
+  }
+
 }

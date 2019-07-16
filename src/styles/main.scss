@@ -1,0 +1,189 @@
+@import '../variables';
+
+body {
+    overflow: hidden;
+    background-color: $geyser-gray;
+    margin: 0;
+}
+
+.big {
+    font-size: 15px;
+    line-height: 18px;
+
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+.mid {
+    font-size: 13px;
+    line-height: 18px;
+
+    &.bold {
+        font-weight: bold;
+        line-height: 16px;
+    }
+}
+
+.small {
+    font-size: 11px;
+    line-height: 12px;
+
+    &.bold {
+        font-weight: bold;
+        line-height: 13px;
+    }
+}
+
+h1 {
+    font-size: 35px;
+    line-height: 42px;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 32px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+    h1 {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    h2 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
+.content {
+    position: absolute;
+    top: $desktop-header-height;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+@media screen and (max-width: $mobile-max-width) {
+    .content {
+        top: $mobile-header-height;
+        bottom: $mobile-footer-height;
+    }
+}
+
+/* controls */
+
+.navTool {
+    text-align: center;
+    margin: 0px 10px;
+    line-height: 24px;
+    font-size: 24px;
+
+    .icon {
+        color: $slate-gray;
+    }
+
+    p {
+        color: $smoke-black;
+        margin: 0px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.navigation {
+    .navTool {
+        margin-top: 8px;
+    }
+
+    .active {
+        background-color: $royal-blue;
+
+        .navTool {
+
+            .icon,
+            p {
+                color: $white;
+            }
+        }
+    }
+
+    .timeseries {
+        float: left;
+
+        .counter {
+            background-color: $brick-red !important;
+        }
+
+        :hover {
+            cursor: pointer;
+        }
+    }
+
+    .favorites {
+        float: right;
+
+        .counter {
+            background-color: $gold !important;
+        }
+
+        :hover {
+            cursor: pointer;
+        }
+    }
+
+    .counter {
+        display: none;
+        position: absolute;
+        top: -2px;
+        right: -15px;
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+        padding: 4px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: $white;
+
+        &.active {
+            display: inline;
+        }
+    }
+}
+
+.addTsButton {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 84px;
+    height: 82px;
+    background-size: contain;
+    background-image: url($image-path+'button-open.png');
+
+    &.active {
+        background-image: url($image-path+'button-close.png');
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ration: 1.5),
+    only screen and (min-resolution: 1.5dppx),
+    only screen and (min-resolution: 144dpi) {
+        background-image: url($image-path+'button-open@2x.png');
+
+        &.active {
+            background-image: url($image-path+'button-close@2x.png');
+        }
+    }
+}

@@ -1,0 +1,29 @@
+@import "../../variables";
+
+@-webkit-keyframes loaderSprite {
+    from { background-position: 0px; }
+    to { background-position: -(24 * $loader-icon-size); }
+}
+
+@-moz-keyframes loaderSprite {
+    from { background-position: 0px; }
+    to { background-position: -(24 * $loader-icon-size); }
+}
+
+@keyframes loaderSprite {
+    from { background-position: 0px; }
+    to { background-position: -(24 * $loader-icon-size); }
+}
+
+.loader {
+    width: 30px;
+    height: 30px;
+    background-size: auto 100%;
+    background-image: url($loader-file-path);
+    -webkit-animation: loaderSprite 0.85s steps(24, end) infinite;
+    -moz-animation: loaderSprite 0.85s steps(24, end) infinite;
+    animation: loaderSprite 0.85s steps(24, end) infinite;
+    &.dark {
+        background-image: url($dark-loader-file-path);
+    }
+}

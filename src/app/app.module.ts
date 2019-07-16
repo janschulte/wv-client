@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,14 +11,20 @@ import {
    HelgolandMapViewModule,
    NominatimGeoSearchService,
 } from '@helgoland/map';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
+import { MainNavigationComponent } from './views/main-navigation/main-navigation.component';
 import { SelectionListComponent } from './views/selection-list/selection-list.component';
 import { SelectionMapComponent } from './views/selection-map/selection-map.component';
 import { StartComponent } from './views/start/start.component';
-import { MainNavigationComponent } from './views/main-navigation/main-navigation.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
    declarations: [
@@ -34,6 +40,13 @@ import { MainNavigationComponent } from './views/main-navigation/main-navigation
       CommonModule,
       FormsModule,
       BrowserModule,
+      TranslateModule.forRoot({
+         loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+         }
+      }),
       AppRoutingModule,
       HelgolandCoreModule,
       HelgolandMapModule,

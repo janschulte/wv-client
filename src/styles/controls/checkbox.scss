@@ -1,0 +1,40 @@
+@import "../../variables";
+
+input[type=checkbox].wv-checkbox {
+    position:absolute; 
+    z-index:-1000; 
+    left:-1000px; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height:1px; 
+    width:1px; 
+    margin:-1px; 
+    padding:0; 
+    border:0;
+}
+
+input[type=checkbox].wv-checkbox + label.wv-label {
+    background-image: url($image-path+'checkbox.png');
+    padding-left:25px;
+    height:20px; 
+    display:inline-block;
+    line-height:20px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-weight: normal;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].wv-checkbox:checked + label.wv-label {
+    background-image: url($image-path+'checkbox-checked.png');
+}
+
+label.wv-label {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

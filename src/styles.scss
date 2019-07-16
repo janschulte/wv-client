@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~leaflet/dist/leaflet.css';
-@import 'styles/icons.scss';
+
+@import 'styles/main.scss';
+
+@import 'styles/controls/button.scss';
+@import 'styles/controls/checkbox.scss';
+@import 'styles/controls/expandMenu.scss';
+@import 'styles/controls/icons.scss';
+@import 'styles/controls/loader.scss';
+@import 'styles/controls/loadingNotifier.scss';
+@import 'styles/controls/modal.scss';
+@import 'styles/controls/radio.scss';
+@import 'styles/controls/scrollbar.scss';
+@import 'styles/controls/toggle.scss';
