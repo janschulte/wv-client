@@ -14,18 +14,13 @@ export class SelectionMapComponent implements OnInit {
 
   public categoryType: ParameterFacetType = ParameterFacetType.category;
   public featureType: ParameterFacetType = ParameterFacetType.feature;
-  public offeringType: ParameterFacetType = ParameterFacetType.offering;
   public phenomenonType: ParameterFacetType = ParameterFacetType.phenomenon;
-  public procedureType: ParameterFacetType = ParameterFacetType.procedure;
 
   public categoryAutocomplete: string;
   public featureAutocomplete: string;
-  public offeringAutocomplete: string;
   public phenomenonAutocomplete: string;
-  public procedureAutocomplete: string;
 
   public resultCount: number;
-  public showMap = true;
 
   constructor(
     private api: DatasetApiInterface,
@@ -50,10 +45,6 @@ export class SelectionMapComponent implements OnInit {
 
   public onSelectedTs(ts: Timeseries) {
     alert(`Clicked: ${ts.label}`);
-  }
-
-  public toggleResultView() {
-    this.showMap = !this.showMap;
   }
 
 }
