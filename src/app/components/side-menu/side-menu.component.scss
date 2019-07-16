@@ -10,7 +10,7 @@
             height: 54px;
             text-align: center;
             background-color: $slate-gray;
-            z-index: 100;
+            z-index: 500;
 
             .icon {
                 color: $white;
@@ -34,6 +34,7 @@
         }
 
         .side-menu-content {
+            z-index: 500;
             overflow: auto;
             display: none;
             position: absolute;

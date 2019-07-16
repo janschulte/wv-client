@@ -1,20 +1,72 @@
 <app-selection-menu></app-selection-menu>
 <div class="mapContent">
-  <!-- <div id="map" ng-controller="SwcBasicMapCtrl">
-    <leaflet id="stationMap" bounds="map.bounds" markers="map.markers" layers="map.layers" paths="map.paths"
-      center="map.center" controls="map.controls" width="100%" height="100%">
-    </leaflet>
-    <swc-station-loading></swc-station-loading>
-  </div>
-  <swc-modal-station-opener mapid="'stationMap'" controller="'WvModalStationCtrl'"></swc-modal-station-opener>
-  <div ng-include="'templates/map/locate-button.html'"></div>
-  <div ng-include="'templates/map/zoom-controls.html'"></div>
-  <div ng-include="'templates/map/layers-controls.html'"></div>
-  <div ng-include="'templates/map/search-control.html'"></div> -->
   <app-side-menu [content]="facetContent" width=500 side=left isActive=true></app-side-menu>
   <ng-template #facetContent>
-    <div class="custom-class">
+    <div class="facets col">
+      <div class="facet">
+        <div class="facet-header">
+          <div class="facet-header-label">Category</div>
+          <div class="autocomplete mb-1 mr-1">
+            <input type="text" class="form-control" placeholder="Autocomplete"
+              (input)="categoryAutocomplete = $event.target.value">
+          </div>
+        </div>
+        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="categoryType"
+          [textualFilter]="categoryAutocomplete"></n52-parameter-facet>
+      </div>
+      <div class="facet">
+        <div class="facet-header">
+          <div class="facet-header-label mr-1">Procedure</div>
+          <div class="autocomplete mb-1">
+            <input type="text" class="form-control" placeholder="Autocomplete"
+              (input)="procedureAutocomplete = $event.target.value">
+          </div>
+        </div>
+        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="procedureType"
+          [textualFilter]="procedureAutocomplete"></n52-parameter-facet>
+      </div>
+      <div class="facet">
+        <div class="facet-header">
+          <div class="facet-header-label mr-1">Feature</div>
+          <div class="autocomplete mb-1">
+            <input type="text" class="form-control" placeholder="Autocomplete"
+              (input)="featureAutocomplete = $event.target.value">
+          </div>
+        </div>
+        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="featureType"
+          [textualFilter]="featureAutocomplete" [sort]="'ascAlphabet'"></n52-parameter-facet>
+      </div>
+      <div class="facet">
+        <div class="facet-header">
+          <div class="facet-header-label mr-1">Phenomenon</div>
+          <div class="autocomplete mb-1">
+            <input type="text" class="form-control" placeholder="Autocomplete"
+              (input)="phenomenonAutocomplete = $event.target.value">
+          </div>
+        </div>
+        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="phenomenonType"
+          [textualFilter]="phenomenonAutocomplete"></n52-parameter-facet>
+      </div>
+      <div class="facet">
+        <div class="facet-header">
+          <div class="facet-header-label mr-1">Offering</div>
+          <div class="autocomplete mb-1">
+            <input type="text" class="form-control" placeholder="Autocomplete"
+              (input)="offeringAutocomplete = $event.target.value">
+          </div>
+        </div>
+        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="offeringType"
+          [textualFilter]="offeringAutocomplete"></n52-parameter-facet>
+      </div>
+      <div class="facet">
+        <div class="facet-header">
+          <div class="facet-header-label">Timeframe</div>
+        </div>
+        <!-- <app-time-facet [facetSearchService]="facetSearch"></app-time-facet> -->
+      </div>
     </div>
   </ng-template>
 
+  <n52-result-map *ngIf="showMap" [facetSearchService]="facetSearch" [cluster]="true" (selected)="onSelectedTs($event)">
+    </n52-result-map>
 </div>

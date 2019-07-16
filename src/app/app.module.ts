@@ -3,7 +3,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HelgolandCoreModule } from '@helgoland/core';
+import { DatasetApiInterface, DatasetImplApiInterface, HelgolandCoreModule } from '@helgoland/core';
+import { FacetSearchModule } from '@helgoland/facet-search';
 import {
    GeoSearch,
    HelgolandMapControlModule,
@@ -61,12 +62,17 @@ export function HttpLoaderFactory(http: HttpClient) {
       HelgolandCoreModule,
       HelgolandMapModule,
       HelgolandMapViewModule,
-      HelgolandMapControlModule
+      HelgolandMapControlModule,
+      FacetSearchModule
    ],
    providers: [
       {
          provide: GeoSearch,
          useClass: NominatimGeoSearchService
+      },
+      {
+         useClass: DatasetImplApiInterface,
+         provide: DatasetApiInterface
       }
    ],
    bootstrap: [
