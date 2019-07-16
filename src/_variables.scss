@@ -1,0 +1,54 @@
+/* colors */
+$lavender-blue: rgba(132, 138, 178, 1.0);
+$royal-blue: rgba(44, 72, 105, 1.0); // TODO änder zu rgba
+$slate-gray: rgba(113, 130, 150, 1.0);
+$light-slate-gray: rgba(139, 156, 174, 1.0);
+$geyser-gray: rgba(223, 228, 230, 1.0);
+$snow-grey: rgba(240, 241, 243, 1.0);
+
+$white: rgba(255, 255, 255, 1.0);
+$smoke-black: rgba(44, 51, 63, 1.0);
+$platinum-grey: rgba(144, 144, 144, 1.0);
+
+$brick-red: rgba(215, 67, 60, 1.0);
+$gold: rgba(234, 200, 66, 1.0);
+$lime-green: rgba(89, 196, 117, 1.0);
+
+/* extents */
+
+/* mobile */
+$mobile-max-width: 768px;
+$tablet-min-width: 769px;
+$tablet-max-width: 992px;
+
+$mobile-header-height: 52px;
+$mobile-footer-height: 50px;
+
+/* tablet */
+
+/* desktop */
+$desktop-width: 1200px;
+$desktop-header-height: 60px;
+$desktop-footer-height: 30px;
+
+//** Load fonts from this directory.
+$icon-font-path: "/assets/fonts/";
+//** File name for all font files.
+$icon-font-name: "Sensorweb";
+//** Element ID within SVG icon file.
+$icon-font-svg-id: "glyphicons_halflingsregular";
+
+$loader-icon-size: 60px;
+$loader-file-path: "../images/loader-sprite@2x.png";
+$dark-loader-file-path: "../images/dark-loader-sprite@2x.png";
+
+$image-path: "/assets/images/";
+
+$selection-menu-height: 48px;
+
+// transitions
+// .transition(@transition) {
+//     -webkit-transition: @transition;
+//     -o-transition: @transition;
+//     transition: @transition;
+// }

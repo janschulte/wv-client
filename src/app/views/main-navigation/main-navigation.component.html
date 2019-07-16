@@ -1,0 +1,47 @@
+<div class="header">
+  <div class="left">
+    <div class="banner" ng-click="navigateTo('/start');">
+    </div>
+  </div>
+  <div class="right">
+    <div class="menu">
+      <div class="navTool" ng-controller="WvImprintOpenerCtrl" ng-click="open();">
+        <div class="icon icon-imprint"></div>
+        <p class="mid" translate="imprint.header"></p>
+      </div>
+      <div class="navTool" ng-click="navigateTo('/help');">
+        <span class="icon icon-help"></span>
+        <p class="mid" translate="main.help"></p>
+      </div>
+      <div class="navTool" ng-controller="WvSettingsOpenerCtrl" ng-click="open();">
+        <span class="icon icon-settings"></span>
+        <p class="mid" translate="main.settings"></p>
+      </div>
+    </div>
+  </div>
+  <div class="center">
+    <div class="navigation">
+      <div class="timeseries" ng-class="{'active': check('/diagram')}" ng-click="navigateTo('/diagram');">
+        <div class="navTool">
+          <div class="icon icon-timeline">
+            <p class="small counter" ng-controller="TimeseriesCounterCtrl" ng-class="{'active': count > 0}">
+              {{count}}
+            </p>
+          </div>
+          <p class="mid" translate="main.timeseries"></p>
+        </div>
+      </div>
+      <div class="favorites" ng-class="{'active': check('/favorite')}" ng-click="navigateTo('/favorite');">
+        <div class="navTool">
+          <div class="icon icon-star-filled">
+            <p class="small counter" ng-controller="WvFavoritesCounterCtrl" ng-class="{'active': count > 0}">
+              {{count}}
+            </p>
+          </div>
+          <p class="mid" translate="main.favorite"></p>
+        </div>
+      </div>
+    </div>
+    <div class="addTsButton" ng-class="{'active': check('/selection')}" ng-click="addTsClick();"></div>
+  </div>
+</div>

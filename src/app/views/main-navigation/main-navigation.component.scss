@@ -1,0 +1,184 @@
+@import '../../../variables';
+
+:host {
+    .header {
+        position: absolute;
+        height: $desktop-header-height;
+        width: 100%;
+        top: 0;
+        z-index: 9;
+        background-color: $white;
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .banner {
+            float: left;
+            width: 142px;
+            height: 44px;
+            background-image: url($image-path+'Logo.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-top: 7px;
+            margin-left: 20px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            @media only screen and (-webkit-min-device-pixel-ration: 1.5),
+            only screen and (min-resolution: 1.5dppx),
+            only screen and (min-resolution: 144dpi) {
+                background-image: url($image-path+'Logo@2x.png');
+            }
+        }
+
+        .addTsButton {
+            top: -3px;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            width: 84px;
+            height: 82px;
+            background-size: contain;
+            background-image: url($image-path+'button-open.png');
+
+            &.active {
+                background-image: url($image-path+'button-close.png');
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            @media only screen and (-webkit-min-device-pixel-ration: 1.5),
+            only screen and (min-resolution: 1.5dppx),
+            only screen and (min-resolution: 144dpi) {
+                background-image: url($image-path+'button-open@2x.png');
+
+                &.active {
+                    background-image: url($image-path+'button-close@2x.png');
+                }
+            }
+        }
+
+        $element-width: 190px;
+
+        .navigation {
+            margin-left: auto;
+            margin-right: auto;
+            width: $element-width * 2;
+            height: $desktop-header-height;
+
+            .navTool {
+                margin-top: 8px;
+            }
+
+            .active {
+                background-color: $royal-blue;
+
+                .navTool {
+
+                    .icon,
+                    p {
+                        color: $white;
+                    }
+                }
+            }
+
+            .timeseries,
+            .favorites {
+                width: $element-width;
+                height: $desktop-header-height;
+
+                @media screen and (min-width: $tablet-min-width) {
+                    &:hover {
+                        background-color: $light-slate-gray;
+
+                        .navTool {
+
+                            .icon,
+                            p {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+            $element-width: 150px;
+
+            .navigation {
+                width: $element-width * 2;
+
+                .timeseries,
+                .favorites {
+                    width: $element-width;
+                }
+            }
+        }
+
+        .menu {
+            float: right;
+            font-size: 26px;
+
+            /*        margin-top: 8px;*/
+            .icon {}
+
+            .navTool {
+                float: right;
+                padding: 8px 10px;
+                margin: 0px;
+
+                @media screen and (min-width: $tablet-min-width) {
+                    &:hover {
+                        background-color: $light-slate-gray;
+
+                        .icon,
+                        p {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobile-max-width) {
+            height: $mobile-header-height;
+
+            .banner {
+                height: $mobile-header-height;
+                width: 142px;
+                height: 44px;
+                margin-top: 4px;
+                margin-left: 12px;
+            }
+
+            .menu {
+                font-size: 24px;
+                margin-top: 10px;
+            }
+
+            .navigation,
+            .addTsButton {
+                display: none;
+            }
+
+            .navTool {
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
