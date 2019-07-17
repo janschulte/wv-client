@@ -1,6 +1,6 @@
 <app-selection-menu></app-selection-menu>
 <div class="mapContent">
-  <app-side-menu [content]="facetContent" width=500 side=left isActive=true></app-side-menu>
+  <app-side-menu [content]="facetContent" width=400 side=left [isActive]="sideMenuActive" (toggled)="sideMenuActive = $event"></app-side-menu>
   <ng-template #facetContent>
     <div class="facets col">
       <div class="facet">
@@ -44,7 +44,8 @@
       </div>
     </div>
   </ng-template>
-
-  <n52-result-map [facetSearchService]="facetSearch" [cluster]="true" (selected)="onSelectedTs($event)">
-  </n52-result-map>
+  <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
+    <n52-result-map [facetSearchService]="facetSearch" [cluster]="true" (selected)="onSelectedTs($event)">
+    </n52-result-map>
+  </div>
 </div>

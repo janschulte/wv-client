@@ -20,6 +20,8 @@ export class SelectionMapComponent implements OnInit {
   public featureAutocomplete: string;
   public phenomenonAutocomplete: string;
 
+  public sideMenuActive = true;
+
   public resultCount: number;
 
   constructor(
@@ -45,6 +47,10 @@ export class SelectionMapComponent implements OnInit {
 
   public onSelectedTs(ts: Timeseries) {
     alert(`Clicked: ${ts.label}`);
+  }
+
+  public setValue(event) {
+    this.categoryAutocomplete = event.target.value;
   }
 
 }
