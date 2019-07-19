@@ -1,56 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { DatasetApiInterface, Timeseries } from '@helgoland/core';
-import { FacetSearchService, ParameterFacetType } from '@helgoland/facet-search';
-import { forkJoin } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Timeseries } from '@helgoland/core';
+import { FacetSearchService } from '@helgoland/facet-search';
+import { MapCache } from '@helgoland/map';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-selection-map',
   templateUrl: './selection-map.component.html',
   styleUrls: ['./selection-map.component.scss']
 })
-export class SelectionMapComponent implements OnInit {
+export class SelectionMapComponent implements OnInit, OnDestroy {
 
   public timeseries: Timeseries[];
-
-  public categoryType: ParameterFacetType = ParameterFacetType.category;
-  public featureType: ParameterFacetType = ParameterFacetType.feature;
-  public phenomenonType: ParameterFacetType = ParameterFacetType.phenomenon;
-
-  public categoryAutocomplete: string;
-  public featureAutocomplete: string;
-  public phenomenonAutocomplete: string;
 
   public sideMenuActive = true;
 
   public resultCount: number;
 
+  public resultSubs: Subscription;
+
   constructor(
-    private api: DatasetApiInterface,
-    public facetSearch: FacetSearchService
+    public facetSearch: FacetSearchService,
+    private mapCache: MapCache
   ) { }
 
   ngOnInit() {
-    forkJoin([
-      this.api.getTimeseries('https://fluggs.wupperverband.de/sos2/api/v1/', { expanded: true }),
-      // this.api.getTimeseries('http://sensorweb.demo.52north.org/sensorwebtestbed/api/v1/', { expanded: true }),
-      // this.api.getTimeseries('http://sensorweb.demo.52north.org/sensorwebclient-webapp-stable/api/v1/', { expanded: true }),
-      // this.api.getTimeseries('http://geo.irceline.be/sos/api/v1/', { expanded: true }),
-      // this.api.getTimeseries('http://monalisasos.eurac.edu/sos/api/v1/', { expanded: true }),
-    ]).subscribe(res => {
-      const complete = [];
-      res.forEach(e => complete.push(...e));
-      this.facetSearch.setTimeseries(complete);
-    });
+    this.resultSubs = this.facetSearch.getResults().subscribe(ts => this.resultCount = ts.length);
+  }
 
-    this.facetSearch.onResultsChanged.subscribe(ts => this.resultCount = ts.length);
+  ngOnDestroy(): void {
+    this.resultSubs.unsubscribe();
   }
 
   public onSelectedTs(ts: Timeseries) {
     alert(`Clicked: ${ts.label}`);
   }
 
-  public setValue(event) {
-    this.categoryAutocomplete = event.target.value;
+  public updateSideMenu(active: boolean) {
+    this.sideMenuActive = active;
+    setTimeout(() => this.mapCache.getMap('facet-search').invalidateSize(), 100);
   }
 
 }

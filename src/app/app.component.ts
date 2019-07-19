@@ -3,6 +3,7 @@ import localeDe from '@angular/common/locales/de';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Icon } from 'leaflet';
+import { InitializeService } from './initialize.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { Icon } from 'leaflet';
 export class AppComponent {
 
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    private init: InitializeService
   ) {
     this.translate.setDefaultLang('en');
     this.translate.use('de');
@@ -20,7 +22,7 @@ export class AppComponent {
     // necessary to load information on e.g. what 'medium' date format should look like in German etc.
     registerLocaleData(localeDe);
 
-    // L.Icon.Default.prototype.options
+    this.init.init();
 
     Icon.Default.mergeOptions({
       iconRetinaUrl: './assets/images/marker@2x.png',

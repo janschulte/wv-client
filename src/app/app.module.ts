@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatasetApiInterface, DatasetImplApiInterface, HelgolandCoreModule } from '@helgoland/core';
-import { FacetSearchModule } from '@helgoland/facet-search';
+import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import {
    GeoSearch,
    HelgolandMapControlModule,
@@ -17,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FacetsComponent } from './components/facets/facets.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { FavoriteComponent } from './views/favorite/favorite.component';
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       SelectionMenuComponent,
       ProviderSelectorComponent,
       SelectionEntriesComponent,
-      SideMenuComponent
+      SideMenuComponent,
+      FacetsComponent
    ],
    imports: [
       HttpClientModule,
@@ -63,7 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       HelgolandMapModule,
       HelgolandMapViewModule,
       HelgolandMapControlModule,
-      FacetSearchModule
+      HelgolandFacetSearchModule
    ],
    providers: [
       {

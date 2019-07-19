@@ -1,51 +1,12 @@
 <app-selection-menu></app-selection-menu>
 <div class="mapContent">
-  <app-side-menu [content]="facetContent" width=400 side=left [isActive]="sideMenuActive" (toggled)="sideMenuActive = $event"></app-side-menu>
+  <app-side-menu [content]="facetContent" width=400 side=left [isActive]="sideMenuActive"
+    (toggled)="updateSideMenu($event)"></app-side-menu>
   <ng-template #facetContent>
-    <div class="facets col">
-      <div class="facet">
-        <div class="facet-header">
-          <div class="facet-header-label">Category</div>
-          <div class="autocomplete mb-1 mr-1">
-            <input type="text" class="form-control" placeholder="Autocomplete"
-              (input)="categoryAutocomplete = $event.target.value">
-          </div>
-        </div>
-        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="categoryType"
-          [textualFilter]="categoryAutocomplete"></n52-parameter-facet>
-      </div>
-      <div class="facet">
-        <div class="facet-header">
-          <div class="facet-header-label mr-1">Phenomenon</div>
-          <div class="autocomplete mb-1">
-            <input type="text" class="form-control" placeholder="Autocomplete"
-              (input)="phenomenonAutocomplete = $event.target.value">
-          </div>
-        </div>
-        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="phenomenonType"
-          [textualFilter]="phenomenonAutocomplete"></n52-parameter-facet>
-      </div>
-      <div class="facet">
-        <div class="facet-header">
-          <div class="facet-header-label mr-1">Station</div>
-          <div class="autocomplete mb-1">
-            <input type="text" class="form-control" placeholder="Autocomplete"
-              (input)="featureAutocomplete = $event.target.value">
-          </div>
-        </div>
-        <n52-parameter-facet [facetSearchService]="facetSearch" [type]="featureType"
-          [textualFilter]="featureAutocomplete" [sort]="'ascAlphabet'"></n52-parameter-facet>
-      </div>
-      <div class="facet">
-        <div class="facet-header">
-          <div class="facet-header-label">Timeframe</div>
-        </div>
-        <!-- <app-time-facet [facetSearchService]="facetSearch"></app-time-facet> -->
-      </div>
-    </div>
+    <app-facets></app-facets>
   </ng-template>
   <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
-    <n52-result-map [facetSearchService]="facetSearch" [cluster]="true" (selected)="onSelectedTs($event)">
-    </n52-result-map>
+    <n52-result-map [facetSearchService]="facetSearch" [cluster]="true" mapId="facet-search"
+      (selected)="onSelectedTs($event)"> </n52-result-map>
   </div>
 </div>

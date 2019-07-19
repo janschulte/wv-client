@@ -1,0 +1,10 @@
+:host {
+    .list {
+        width: 100%;
+        height: 100%;
+
+        &.withSideMenu {
+            padding-left: 400px;
+        }
+    }
+}

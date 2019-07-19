@@ -1,6 +1,11 @@
 <app-selection-menu></app-selection-menu>
 <div class="selectionContent" ng-controller="WvPhenomenonParameterListCtrl">
-  <p>selection-list works!</p>
-  <!-- <swc-list-selection ng-if="!hasTabletSize" parameters="phenomenonParams" provider-list="providerList" listselectionid="'phenomenon'"></swc-list-selection>
-        <wv-mobile-list-selection ng-if="hasTabletSize" parameters="phenomenonParams" provider-list="providerList" listselectionid="'phenomenon'"></wv-mobile-list-selection> -->
+  <app-side-menu [content]="facetContent" width=400 side=left [isActive]="sideMenuActive"
+    (toggled)="sideMenuActive = $event"></app-side-menu>
+  <ng-template #facetContent>
+    <app-facets></app-facets>
+  </ng-template>
+  <div class="list container" [ngClass]="{'withSideMenu': sideMenuActive}">
+    <n52-result-list [facetSearchService]="facetSearch" (selected)="onSelectedTs($event)"></n52-result-list>
+  </div>
 </div>
