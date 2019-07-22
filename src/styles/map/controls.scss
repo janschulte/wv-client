@@ -1,0 +1,16 @@
+@import '../../variables';
+
+.wv-button {
+    background-color: $white;
+    color: $smoke-black;
+    &.selected{
+        background-color: $royal-blue;
+        color: $white;
+        &:hover {
+            background-color: $lavender-blue;
+        }
+    }
+    &:hover {
+        background-color: $geyser-gray;
+    }
+}

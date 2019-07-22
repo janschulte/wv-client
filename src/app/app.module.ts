@@ -17,6 +17,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LocateButtonComponent } from './components/controls/locate-button/locate-button.component';
+import { ZoomButtonsComponent } from './components/controls/zoom-buttons/zoom-buttons.component';
 import { FacetsComponent } from './components/facets/facets.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { DiagramComponent } from './views/diagram/diagram.component';
@@ -46,7 +48,9 @@ export function HttpLoaderFactory(http: HttpClient) {
       ProviderSelectorComponent,
       SelectionEntriesComponent,
       SideMenuComponent,
-      FacetsComponent
+      FacetsComponent,
+      LocateButtonComponent,
+      ZoomButtonsComponent
    ],
    imports: [
       HttpClientModule,

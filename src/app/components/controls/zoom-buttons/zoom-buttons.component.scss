@@ -1,0 +1,11 @@
+:host {
+    .wv-button:first-child {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .wv-button:last-child {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+}
