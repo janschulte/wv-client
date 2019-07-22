@@ -5,28 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatasetApiInterface, DatasetImplApiInterface, HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
-import {
-   GeoSearch,
-   HelgolandMapControlModule,
-   HelgolandMapModule,
-   HelgolandMapViewModule,
-   NominatimGeoSearchService,
-} from '@helgoland/map';
+import { GeoSearch, NominatimGeoSearchService } from '@helgoland/map';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LocateButtonComponent } from './components/controls/locate-button/locate-button.component';
-import { ZoomButtonsComponent } from './components/controls/zoom-buttons/zoom-buttons.component';
-import { FacetsComponent } from './components/facets/facets.component';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { ComponentsModule } from './components/components.module';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { FavoriteComponent } from './views/favorite/favorite.component';
 import { MainNavigationComponent } from './views/main-navigation/main-navigation.component';
 import { SelectionListComponent } from './views/selection-list/selection-list.component';
 import { SelectionMapComponent } from './views/selection-map/selection-map.component';
-import { ProviderSelectorComponent } from './views/selection-menu/provider-selector/provider-selector.component';
 import { SelectionEntriesComponent } from './views/selection-menu/selection-entries/selection-entries.component';
 import { SelectionMenuComponent } from './views/selection-menu/selection-menu.component';
 import { StartComponent } from './views/start/start.component';
@@ -45,18 +35,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       MainNavigationComponent,
       FavoriteComponent,
       SelectionMenuComponent,
-      ProviderSelectorComponent,
       SelectionEntriesComponent,
-      SideMenuComponent,
-      FacetsComponent,
-      LocateButtonComponent,
-      ZoomButtonsComponent
    ],
    imports: [
       HttpClientModule,
       CommonModule,
       FormsModule,
       BrowserModule,
+      ComponentsModule,
       TranslateModule.forRoot({
          loader: {
             provide: TranslateLoader,
@@ -66,9 +52,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       }),
       AppRoutingModule,
       HelgolandCoreModule,
-      HelgolandMapModule,
-      HelgolandMapViewModule,
-      HelgolandMapControlModule,
       HelgolandFacetSearchModule
    ],
    providers: [
