@@ -1,0 +1,40 @@
+@import '../../../../variables';
+
+:host {
+    .input-field {
+        float: left;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        input {
+            height: 30px;
+            border: none;
+        }
+    }
+
+    .search-button {
+        float: right;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .close-button {
+        float: right;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        display: none;
+    }
+
+    .input-field,
+    .search-button {
+        opacity: 0.5;
+
+        &.active {
+            opacity: 1;
+        }
+
+        &:hover {
+            background-color: $white;
+        }
+    }
+}

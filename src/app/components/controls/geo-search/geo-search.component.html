@@ -1,0 +1,13 @@
+<div class="search">
+  <div class="wv-button input-field" [ngClass]="{'active': active}">
+    <input type="text" [(ngModel)]="searchTerm" (focus)="active = true" (focusout)="active = false"
+      (keyup.enter)="triggerSearch()" placeholder="{{'map.search.label'| translate}}" />
+  </div>
+  <div class="wv-button close-button" (click)="active = false" [ngClass]="{'active': active}">
+    <span class="icon icon-arrow-left"></span>
+  </div>
+  <div class="wv-button search-button" (click)="!active ? active = true : triggerSearch()"
+    [ngClass]="{'active': active}">
+    <span class="icon icon-search"></span>
+  </div>
+</div>

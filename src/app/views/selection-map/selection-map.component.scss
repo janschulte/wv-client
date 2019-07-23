@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 :host {
     .map {
         width: 100%;
@@ -8,18 +10,26 @@
             padding-left: 400px;
         }
 
-        .zoom-control {
+        .zoom-control,
+        .locate-control,
+        .search-control {
             position: absolute;
-            right: 20px;
-            top: 20px;
             z-index: 500;
         }
 
+        .zoom-control {
+            right: 20px;
+            top: 20px;
+        }
+
         .locate-control {
-            position: absolute;
             right: 20px;
             top: 115px;
-            z-index: 500;
+        }
+
+        .search-control {
+            right: 80px;
+            top: 20px;
         }
     }
 }
