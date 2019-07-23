@@ -1,19 +1,18 @@
 <div class="header">
   <div class="left">
-    <div class="banner" ng-click="navigateTo('/start');">
-    </div>
+    <div class="banner" routerLink="/start"> </div>
   </div>
   <div class="right">
     <div class="menu">
-      <div class="navTool" ng-controller="WvImprintOpenerCtrl" ng-click="open();">
+      <div class="navTool">
         <div class="icon icon-imprint"></div>
         <p class="mid" translate="imprint.header"></p>
       </div>
-      <div class="navTool" ng-click="navigateTo('/help');">
+      <div class="navTool">
         <span class="icon icon-help"></span>
         <p class="mid" translate="main.help"></p>
       </div>
-      <div class="navTool" ng-controller="WvSettingsOpenerCtrl" ng-click="open();">
+      <div class="navTool">
         <span class="icon icon-settings"></span>
         <p class="mid" translate="main.settings"></p>
       </div>
@@ -21,27 +20,28 @@
   </div>
   <div class="center">
     <div class="navigation">
-      <div class="timeseries" routerLinkActive="active" [routerLink]="['/diagram']">
+      <div class="timeseries" routerLinkActive="active" routerLink="/diagram">
         <div class="navTool">
           <div class="icon icon-timeline">
-            <p class="small counter" ng-controller="TimeseriesCounterCtrl" ng-class="{'active': count > 0}">
-              {{count}}
+            <p class="small counter" [ngClass]="{'active': datasetCount}">
+              {{datasetCount}}
             </p>
           </div>
           <p class="mid" translate="main.timeseries"></p>
         </div>
       </div>
-      <div class="favorites" routerLinkActive="active" [routerLink]="['/favorite']">
+      <div class="favorites" routerLinkActive="active" routerLink="/favorite">
         <div class="navTool">
           <div class="icon icon-star-filled">
-            <p class="small counter" ng-controller="WvFavoritesCounterCtrl" ng-class="{'active': count > 0}">
-              {{count}}
+            <p class="small counter" [ngClass]="{'active': favCount}">
+              <!-- {{favCount}} -->
             </p>
           </div>
           <p class="mid" translate="main.favorite"></p>
         </div>
       </div>
     </div>
-    <div class="addTsButton" [ngClass]="{'active': selectionMode()}" (click)="openSelection();"></div>
+    <div class="addTsButton" [ngClass]="{'active': selectionNavigation.selectionMode()}"
+      (click)="selectionNavigation.openSelection();"></div>
   </div>
 </div>

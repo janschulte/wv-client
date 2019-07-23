@@ -1,26 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+
+import { SelectionNavigationService } from './selection-navigation.service';
 
 @Component({
   selector: 'app-main-navigation',
   templateUrl: './main-navigation.component.html',
   styleUrls: ['./main-navigation.component.scss']
 })
-export class MainNavigationComponent implements OnInit {
+export class MainNavigationComponent {
+
+  public datasetCount: number; // TODO set count;
 
   constructor(
-    private router: Router
+    public selectionNavigation: SelectionNavigationService
   ) { }
-
-  ngOnInit() {
-  }
-
-  openSelection() {
-    this.router.navigate(['/selection-map']);
-  }
-
-  selectionMode(): boolean {
-    return this.router.routerState.snapshot.url.startsWith('/selection');
-  }
 
 }
