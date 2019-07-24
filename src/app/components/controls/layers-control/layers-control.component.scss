@@ -1,0 +1,19 @@
+@import '../../../../variables';
+
+:host {
+    .menu {
+        background-color: $white;
+        padding: 10px;
+        border-radius: 3px;
+
+        .layers-header {
+            border-bottom: 1px solid $geyser-gray;
+        }
+
+        .layers-entry {
+            &.layers-entry {
+                padding-top: 7px;
+            }
+        }
+    }
+}

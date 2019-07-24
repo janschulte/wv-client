@@ -12,7 +12,8 @@
 
         .zoom-control,
         .locate-control,
-        .search-control {
+        .search-control,
+        .layers-control {
             position: absolute;
             z-index: 500;
         }
@@ -30,6 +31,11 @@
         .search-control {
             right: 80px;
             top: 20px;
+        }
+
+        .layers-control {
+            right: 20px;
+            top: 170px;
         }
     }
 }
