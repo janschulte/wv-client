@@ -1,9 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Timeseries } from '@helgoland/core';
+import { Station, Timeseries } from '@helgoland/core';
 import { FacetSearchService } from '@helgoland/facet-search';
 import { LayerOptions, MapCache } from '@helgoland/map';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tileLayer } from 'leaflet';
 import { Subscription } from 'rxjs';
+
+import { StationSelectionComponent } from './../../components/station-selection/station-selection.component';
 
 @Component({
   selector: 'app-selection-map',
@@ -28,6 +31,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
 
   constructor(
     public facetSearch: FacetSearchService,
+    private modalService: NgbModal,
     private mapCache: MapCache
   ) { }
 
@@ -60,8 +64,10 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     this.resultSubs.unsubscribe();
   }
 
-  public onSelectedTs(ts: Timeseries) {
-    alert(`Clicked: ${ts.label}`);
+  public onSelectedTs(elem: { station: Station, url: string }) {
+    const modalRef = this.modalService.open(StationSelectionComponent);
+    (modalRef.componentInstance as StationSelectionComponent).station = elem.station;
+    (modalRef.componentInstance as StationSelectionComponent).url = elem.url;
   }
 
   public updateSideMenu(active: boolean) {

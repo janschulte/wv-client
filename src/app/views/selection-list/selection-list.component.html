@@ -5,7 +5,9 @@
   <ng-template #facetContent>
     <app-facets></app-facets>
   </ng-template>
-  <div class="list container" [ngClass]="{'withSideMenu': sideMenuActive}">
-    <n52-result-list [facetSearchService]="facetSearch" (selected)="onSelectedTs($event)"></n52-result-list>
+  <div class="list" [ngClass]="{'withSideMenu': sideMenuActive}">
+    <div class="container">
+      <app-result-list [facetSearchService]="facetSearch" (selected)="onSelectedTs($event)"></app-result-list>
+    </div>
   </div>
 </div>

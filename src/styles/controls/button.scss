@@ -25,6 +25,11 @@
         display: none;
     }
 
+    &:hover {
+        cursor: pointer;
+        background-color: $light-slate-gray;
+    }
+
     @media screen and (max-width: $mobile-max-width) {
         height: 40px;
         min-width: 40px;
@@ -36,15 +41,6 @@
 
         .description-mobile {
             display: inline;
-        }
-    }
-}
-
-.desktopScreen {
-    .wv-button {
-        &:hover {
-            cursor: pointer;
-            background-color: $light-slate-gray;
         }
     }
 }

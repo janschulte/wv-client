@@ -1,0 +1,21 @@
+<div class="ts-item" [ngClass]="{'selected': selected}">
+  <div class="loader dark" *ngIf="!timeseries.lastValue.timestamp"></div>
+  <div>
+    <div class="big">{{timeseries.parameters.procedure.label}}</div>
+    <div class="mid">
+      <span translate="map.station.category"></span>:
+      <span>{{timeseries.parameters.category.label}}</span>
+    </div>
+    <div class="mid" *ngIf="timeseries.lastValue.timestamp">
+      <span translate="map.station.lastValue"></span>
+      <span class="last-value"></span>
+      <span>{{timeseries.lastValue.value}}</span>
+      <span>{{timeseries.uom}}</span>
+      <span>| {{timeseries.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} h </span>
+    </div>
+  </div>
+  <div class="wv-button add" (click)="addTs()" [ngClass]="{'active': added}">
+    <span class="icon icon-timeline-add"
+      [ngClass]="{'icon-timeline-checked':added, 'icon-timeline-add':!added}"></span>
+  </div>
+</div>

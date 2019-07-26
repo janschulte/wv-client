@@ -1,46 +1,58 @@
 @import "../../variables";
 
 $radius: 8px;
-.modal-dialog{
+
+.modal-dialog {
     top: 0px;
     bottom: 0px;
     left: 0px;
     right: 0px;
     position: absolute;
+
     .modal-content {
         overflow: hidden;
         border-radius: $radius;
         background-color: $geyser-gray;
+
         .modal-header {
             background-color: $snow-grey;
-            box-shadow: inset 0 -1px 0 fadeOut($slate-gray, 75%);
+            box-shadow: inset 0 -1px 0 fade-out($slate-gray, 0.75);
+
             .modal-title {
+                flex: 1;
                 text-align: center;
                 text-transform: uppercase;
             }
         }
+
         .modal-body {
-            overflow: auto; 
+            overflow: auto;
             border-radius: 8px;
+
             .modal-inline-header {
                 text-transform: uppercase;
                 margin: 10px 0px 3px;
             }
+
             .modal-inline-block {
-                &+ .modal-inline-block {
+                &+.modal-inline-block {
                     margin-top: 10px;
                 }
             }
         }
+
         .modal-footer {
             background-color: $geyser-gray;
-            border-top: 1px solid fadeOut($slate-gray, 75%);
+            border-top: 1px solid fade-out($slate-gray, 0.75);
             padding: 10px 15px;
+
             .wv-button {
                 float: right;
-                &:hover{
+
+                &:hover {
                     cursor: pointer;
                 }
+
                 &+.wv-button {
                     margin-right: 10px;
                 }
@@ -50,13 +62,13 @@ $radius: 8px;
 }
 
 @media screen and (max-width: $mobile-max-width) {
-    .modal-dialog{
+    .modal-dialog {
         .modal-header {
             .modal-title {
                 text-align: left;
             }
         }
-    }   
+    }
 }
 
 // .loop($counter) when ($counter < 106) {

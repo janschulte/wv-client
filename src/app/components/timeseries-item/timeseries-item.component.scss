@@ -1,0 +1,40 @@
+@import '../../../variables';
+
+:host {
+    .ts-item {
+        padding: 8px 10px;
+        position: relative;
+        background-color: $white;
+
+        .add {
+            float: right;
+            margin: 8px 2px;
+        }
+
+        .mid {
+            color: $platinum-grey;
+        }
+
+        +.ts-item {
+            margin-top: 10px;
+        }
+
+        .loader {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .wv-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -19px;
+        }
+
+        @media screen and (max-width: $mobile-max-width) {
+            .last-value {
+                display: block;
+            }
+        }
+    }
+}

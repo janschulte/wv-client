@@ -1,0 +1,97 @@
+@import '../../../variables';
+
+:host {
+    .modal-title {
+        text-transform: none !important;
+
+        @media screen and (max-width: $mobile-max-width) {
+            text-align: left !important;
+        }
+    }
+
+    .modal-body {
+        &>div:first-child {
+            margin-top: -17px;
+        }
+
+        &>.loading {
+            line-height: 30px;
+            margin-top: 0px !important;
+
+            .loader {
+                float: left;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .ts-header {
+        text-transform: uppercase;
+        margin: 17px 0px 5px;
+    }
+
+    .show-all {
+        margin: 10px 0px;
+        color: $slate-gray;
+
+        .icon {
+            float: right;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .station-footer {
+
+        .addAll {
+            float: right;
+            margin: 0px 12px;
+        }
+
+        .showChart {
+            flex: 1;
+            float: none !important;
+            padding: 2px 0px;
+            background-color: $geyser-gray;
+            color: $slate-gray;
+
+            &:hover {
+                background-color: inherit;
+            }
+
+            @media screen and (max-width: $mobile-max-width) {
+                .description {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    .ts-selection-notifier {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 165px;
+        height: 90px;
+        padding: 5px;
+        background-color: $slate-gray;
+        border-radius: 10px;
+        text-align: center;
+        color: $white;
+
+        .icon {
+            margin-top: 8px;
+            margin-bottom: 6px;
+            font-size: 25px;
+        }
+
+        &.add {
+            background-color: $lime-green;
+        }
+    }
+}
