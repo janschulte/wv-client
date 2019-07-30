@@ -3,7 +3,7 @@ import localeDe from '@angular/common/locales/de';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Icon } from 'leaflet';
-import { InitializeService } from './initialize.service';
+import { InitializeService } from './services/initialize/initialize.service';
 
 @Component({
   selector: 'app-root',

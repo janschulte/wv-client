@@ -14,7 +14,7 @@
       <span>| {{timeseries.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} h </span>
     </div>
   </div>
-  <div class="wv-button add" (click)="addTs()" [ngClass]="{'active': added}">
+  <div class="wv-button add" (click)="toggleTs()" [ngClass]="{'active': added}">
     <span class="icon icon-timeline-add"
       [ngClass]="{'icon-timeline-checked':added, 'icon-timeline-add':!added}"></span>
   </div>
