@@ -1,0 +1,160 @@
+@import '../../../../../variables';
+
+:host {
+    .legend-item {
+        position: relative;
+        margin: 0px;
+        padding: 8px 3px;
+        color: fade-out($white, 0.5);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.visible {
+            color: $white;
+        }
+
+        &.selected {
+            padding: 6px 1px;
+            border-width: 2px;
+            border-style: solid;
+        }
+
+        .legend-header {
+            margin-left: 4px;
+            padding-left: 4px;
+            border-left: 4px solid;
+        }
+
+        .delete {
+            float: right;
+            font-size: 26px;
+            color: $white;
+
+            .icon:hover {
+                cursor: pointer;
+                color: $light-slate-gray;
+            }
+        }
+
+        .warning {
+            float: left;
+            font-size: 30px;
+            line-height: 30px;
+            padding-right: 10px;
+            padding-left: 15px;
+        }
+
+        .loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: fade-out($slate-gray, 0.25);
+            text-align: -webkit-center;
+
+            .loader {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -15px;
+                margin-top: -15px;
+            }
+        }
+
+        &.collapsed {
+            background-color: $royal-blue;
+        }
+
+        .addition {
+            padding: 5px 5px 5px 16px;
+
+            .noDataWarning {
+                background-color: $slate-gray;
+                padding: 10px;
+                border-radius: 10px;
+
+                .icon {
+                    font-size: 13px;
+                }
+            }
+
+            .jumpToValue {
+                &:hover {
+                    cursor: pointer;
+                    color: $light-slate-gray;
+                }
+
+                >span {
+                    vertical-align: super;
+                }
+            }
+
+            .referenceValues {
+                padding: 3px;
+
+                >div {
+                    margin-bottom: 5px;
+                }
+
+                .referenceCheckBox {
+                    width: 20px;
+                    height: 20px;
+                    float: left;
+                    border-radius: 4px;
+                    margin-right: 5px;
+
+                    .icon {
+                        width: 100%;
+                        height: 100%;
+                        background-color: $royal-blue;
+                        border: 2px solid $slate-gray;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        padding: 2px;
+
+                        &.icon-check {
+                            border: none;
+                            background-color: inherit;
+                        }
+                    }
+                }
+            }
+
+            .icon {
+                font-size: 26px;
+
+                &:hover {
+                    color: $geyser-gray;
+                }
+            }
+
+            .controls {
+                margin-top: 10px;
+                color: $light-slate-gray;
+
+                .icon {
+                    padding-right: 15px;
+
+                    &.active {
+                        color: white;
+
+                        &:hover {
+                            color: $geyser-gray;
+                        }
+                    }
+                }
+
+                .icon-star-filled {
+                    color: $gold;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+}

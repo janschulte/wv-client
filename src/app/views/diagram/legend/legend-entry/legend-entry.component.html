@@ -1,0 +1,85 @@
+<div class="legend-item"
+  [ngClass]="{'collapsed': informationVisible, 'visible': datasetOptions?.visible, 'selected': selected}"
+  [ngStyle]="{'border-color': datasetOptions?.color}">
+  <div class="loading" *ngIf="loading">
+    <div class="loader"></div>
+  </div>
+  <div class="delete">
+    <span class="icon icon-cancel" (click)="removeDataset(); $event.stopPropagation();">
+    </span>
+  </div>
+  <div class="warning" *ngIf="!hasData">
+    <span class="icon icon-warning"></span>
+  </div>
+  <div class="legend-header" [ngStyle]="{'border-color': datasetOptions?.color}"
+    (click)="toggleInformation(); $event.stopPropagation();">
+    <div class="mid bold">{{platformLabel}}</div>
+    <div class="mid">
+      <span>{{phenomenonLabel}}</span>
+      <span ng-if="timeseries.uom"> ({{uom}})</span>
+    </div>
+  </div>
+  <div class="addition" *ngIf="informationVisible">
+    <!-- <div class="noDataWarning" ng-show="timeseries.hasNoDataInCurrentExtent">
+      <div class="mid bold" translate="legend.entry.noDataWarning"></div>
+      <div class="jumpToValue" ng-controller="SwcJumpToFirstLatestValuesCtrl"
+        ng-click="$event.stopPropagation(); jumpToLastTimeStamp(timeseries.lastValue)">
+        <span class="mid icon icon-arrow-right"></span>
+        <span class="mid" translate="legend.entry.jumpToLastValue"></span>
+      </div>
+    </div> -->
+    <div>
+      <span class="small bold" translate="legend.entry.procedure"></span>
+      <span class="small"> {{procedureLabel}}</span>
+    </div>
+    <div>
+      <span class="small bold" translate="legend.entry.provider"></span>
+      <span class="small"> {{dataset.parameters.service.label}}</span>
+    </div>
+    <div class="jumpToValue" (click)="jumpToFirstTimeStamp(dataset.firstValue); $event.stopPropagation()">
+      <div class="icon"
+        [ngClass]="{'icon-calendar-check':isInTimeSpan(dataset.firstValue.timestamp),'icon-calendar':!isInTimeSpan(dataset.firstValue.timestamp)}">
+      </div>
+      <span>
+        <span class="small bold" translate="legend.entry.firstValue"></span>
+        <span class="small">{{dataset.firstValue.timestamp| date: 'dd.MM.yy | HH:mm'}} h |
+          {{dataset.firstValue.value}} {{uom}}</span>
+      </span>
+    </div>
+    <div class="jumpToValue" (click)="jumpToLastTimeStamp(dataset.lastValue); $event.stopPropagation()">
+      <div class="icon"
+        [ngClass]="{'icon-calendar-check':isInTimeSpan(dataset.lastValue.timestamp),'icon-calendar':!isInTimeSpan(dataset.lastValue.timestamp)}">
+      </div>
+      <span>
+        <span class="small bold" translate="legend.entry.lastValue"></span>
+        <span class="small">{{dataset.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} h |
+          {{dataset.lastValue.value}} {{uom}}</span>
+      </span>
+    </div>
+    <!-- <div class="referenceValues" ng-controller="SwcToggleRefValueCtrl">
+      <div ng-repeat="refValue in timeseries.referenceValues | orderBy:'+label'"
+        ng-click="$event.stopPropagation(); selectRefValue(refValue, timeseries)">
+        <div class="referenceCheckBox" ng-style="{'background-color': refValue.color}">
+          <div class="icon" [ngClass]="{'icon-check':refValue.visible}"></div>
+        </div>
+        <span class="small">{{refValue.label}}</span>
+      </div>
+    </div> -->
+    <div class="controls">
+      <span class="icon icon-visibility" [ngClass]="{'active': datasetOptions?.visible}"
+        (click)="toggleVisibility(); $event.stopPropagation()">
+      </span>
+      <span class="icon icon-settings" (click)="editDatasetOptions(); $event.stopPropagation()">
+      </span>
+      <span class="icon icon-marker-location" (click)="showGeometry(); $event.stopPropagation()">
+      </span>
+      <!-- <span class="icon icon-share" (click)="shareTimeseries(timeseries); $event.stopPropagation()">
+      </span> -->
+      <!-- <span class="icon" [ngClass]="{'icon-star-filled':isFavorite,'icon-star-empty':!isFavorite}"
+        (click)="toggleFavorite();$event.stopPropagation()">
+      </span> -->
+      <!-- <span class="icon icon-csv-export" (click)="createExportCsv(timeseries);$event.stopPropagation()">
+      </span> -->
+    </div>
+  </div>
+</div>

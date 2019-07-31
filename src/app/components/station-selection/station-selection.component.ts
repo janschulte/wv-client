@@ -21,7 +21,7 @@ export class StationSelectionComponent extends DatasetByStationSelectorComponent
 
   public navigateToDiagram() {
     this.activeModal.dismiss();
-    this.router.navigate(['/start']);
+    this.router.navigate(['/diagram']);
   }
 
 }

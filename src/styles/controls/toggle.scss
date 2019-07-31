@@ -57,7 +57,7 @@ label.wv-label {
     @media screen and (min-width: $tablet-min-width) {
         &:hover {
             cursor: pointer;
-            background-color: fadeOut($light-slate-gray, 75%);
+            background-color: fade-out($light-slate-gray, 0.75);
         }
     }
     .wv-label {

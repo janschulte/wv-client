@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatasetApiInterface, DatasetImplApiInterface, HelgolandCoreModule } from '@helgoland/core';
+import { HelgolandD3Module } from '@helgoland/d3';
+import { HelgolandDatasetlistModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { GeoSearch, NominatimGeoSearchService } from '@helgoland/map';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -13,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { DiagramComponent } from './views/diagram/diagram.component';
+import { LegendEntryComponent } from './views/diagram/legend/legend-entry/legend-entry.component';
 import { FavoriteComponent } from './views/favorite/favorite.component';
 import { MainNavigationComponent } from './views/main-navigation/main-navigation.component';
 import { SelectionListComponent } from './views/selection-list/selection-list.component';
@@ -36,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       FavoriteComponent,
       SelectionMenuComponent,
       SelectionEntriesComponent,
+      LegendEntryComponent,
    ],
    imports: [
       HttpClientModule,
@@ -52,6 +56,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }),
       AppRoutingModule,
       HelgolandCoreModule,
+      HelgolandD3Module,
+      HelgolandDatasetlistModule,
       HelgolandFacetSearchModule
    ],
    providers: [

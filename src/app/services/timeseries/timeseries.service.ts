@@ -12,6 +12,7 @@ import {
 const TIMESERIES_OPTIONS_CACHE_PARAM = 'timeseriesOptions';
 const TIMESERIES_IDS_CACHE_PARAM = 'timeseriesIds';
 const TIME_CACHE_PARAM = 'timeseriesTime';
+const GENERALIZE_CACHE_PARAM = 'generalize';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ const TIME_CACHE_PARAM = 'timeseriesTime';
 export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptions> {
 
   private _timespan: Timespan;
+  private _generalize: boolean;
 
   constructor(
     protected localStorage: LocalStorage,
@@ -31,11 +33,20 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   }
 
   get timespan(): Timespan {
-    return this._timespan;
+    return this._timespan || this.timeSrvc.initTimespan();
   }
 
   set timespan(timespan: Timespan) {
     this._timespan = timespan;
+    this.saveState();
+  }
+
+  get generalize(): boolean {
+    return this._generalize;
+  }
+
+  set generalize(g: boolean) {
+    this._generalize = g;
     this.saveState();
   }
 
@@ -48,6 +59,7 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   protected saveState(): void {
     this.localStorage.save(TIMESERIES_IDS_CACHE_PARAM, this.datasetIds);
     this.localStorage.save(TIMESERIES_OPTIONS_CACHE_PARAM, Array.from(this.datasetOptions.values()));
+    this.localStorage.save(GENERALIZE_CACHE_PARAM, this._generalize);
     this.timeSrvc.saveTimespan(TIME_CACHE_PARAM, this._timespan);
   }
 
@@ -55,7 +67,8 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
     const options = this.localStorage.loadArray<DatasetOptions>(TIMESERIES_OPTIONS_CACHE_PARAM);
     if (options) { options.forEach(e => this.datasetOptions.set(e.internalId, e)); }
     this.datasetIds = this.localStorage.loadArray<string>(TIMESERIES_IDS_CACHE_PARAM) || [];
-    this._timespan = this.timeSrvc.loadTimespan(TIME_CACHE_PARAM) || this.timeSrvc.initTimespan();
+    this._timespan = this.timeSrvc.loadTimespan(TIME_CACHE_PARAM);
+    this._generalize = this.localStorage.load<boolean>(GENERALIZE_CACHE_PARAM);
   }
 
 }

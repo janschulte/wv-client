@@ -1,1 +1,106 @@
-<p>diagram works!</p>
+<div class="timeseries-view" [ngClass]="{'legendActive': legendActive}">
+  <app-side-menu [content]="legendContent" width=400 side=right [isActive]="legendActive"
+    (toggled)="toggleLegend($event)"></app-side-menu>
+  <ng-template #legendContent>
+    <div class="legend">
+      <div class="legend-body">
+        <div class="legend-entry" *ngFor="let id of timeseriesService.datasetIds">
+          <app-legend-entry [datasetId]="id" [selected]="isSelected(id)" [highlight]="id === highlightId"
+            [datasetOptions]="timeseriesService.datasetOptions.get(id)" [timeInterval]="timespan"
+            (onDeleteDataset)="timeseriesService.removeDataset(id)" (onSelectDataset)="selectTimeseries($event, id)"
+            (onUpdateOptions)="updateOptions($event, id)" (onEditOptions)="editOption($event)"
+            (onShowGeometry)="showGeometry($event)" (onSelectDate)="centerTime($event)"></app-legend-entry>
+        </div>
+      </div>
+      <div class="legend-footer-shadow"></div>
+      <div class="legend-footer">
+        <div class="navTool active" (click)="shareTimeseries()">
+          <div class="icon icon-share"></div>
+          <p class="mid" translate="legend.footer.all"></p>
+        </div>
+        <div class="navTool active" (click)="createFavoriteGroup()">
+          <span class="icon" [ngClass]="{'clicked icon-star-filled': isClicked, 'icon-star-empty': !isClicked}"></span>
+          <p class="mid" translate="legend.footer.all"></p>
+        </div>
+        <div class="navTool" (click)="toggleGeneralization()" [ngClass]="{'active': timeseriesService.generalize}">
+          <span class="icon icon-graph-view"></span>
+          <p class="mid" translate="originalValues.header"></p>
+        </div>
+        <div class="navTool delete-all active" (click)="deleteAll()">
+          <span class="icon icon-cancel"></span>
+          <p class="mid" translate="legend.footer.all"></p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <div class="empty" *ngIf="!timeseriesService.hasDatasets()">
+    <h1 translate="chart.empty.header"></h1>
+    <div class="pic"></div>
+    <h3 translate="chart.empty.description"></h3>
+  </div>
+  <div class="view" *ngIf="timeseriesService.hasDatasets()">
+    <div class="controls">
+      <!-- <div class="wv-button hide-y-axis" (click)="toggleYAxis()" [ngClass]="{'active':behaviour.showYAxis}">
+        <span class="icon"
+          [ngClass]="{'icon-hide-y-axis':behaviour.showYAxis, 'icon-show-y-axis':!behaviour.showYAxis}"></span>
+      </div> -->
+      <!-- <div class="wv-button graph-view" [ngClass]="{'selected':!isToggled}" (click)="toggle()">
+        <span class="icon icon-graph-view"></span>
+      </div>
+      <div class="wv-button table-view" [ngClass]="{'selected':isToggled}" (click)="toggle()">
+        <span class="icon icon-table-view"></span>
+      </div> -->
+      <div style="float: left;" ng-controller="SwcForwardBackButtonsCtrl">
+        <div class="wv-button calendar" ng-controller="SwcTimeRangeCtrl" (click)="open()">
+          <span class="icon icon-calendar"></span>
+        </div>
+        <div class="wv-button calendar-prev" (click)="back()">
+          <span class="icon icon-arrow-left"></span>
+        </div>
+        <div class="wv-button calendar-dates" ng-controller="SwcTimeRangeCtrl" (click)="open()">
+          <!-- <span class="mid description">{{time.start.toDate() | date : 'dd.MM.yy'}} -
+            {{time.end.toDate() | date : 'dd.MM.yy'}}</span> -->
+        </div>
+        <div class="wv-button calendar-next" (click)="forward()">
+          <span class="icon icon-arrow-right"></span>
+        </div>
+      </div>
+      <div class="wv-button one-day" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 1})">
+        <span class="mid description">1 {{'chart.hotkeys.day' | translate}}</span>
+        <span class="mid description-mobile">1T</span>
+      </div>
+      <div class="wv-button one-week" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 7})">
+        <span class="mid description">1 {{'chart.hotkeys.week' | translate}}</span>
+        <span class="mid description-mobile">1W</span>
+      </div>
+      <div class="wv-button one-month" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 30})">
+        <span class="mid description">1 {{'chart.hotkeys.month' | translate}}</span>
+        <span class="mid description-mobile">1M</span>
+      </div>
+    </div>
+    <!-- <div class="empty hidden-series" ng-if="!hasVisibleTimeseries()">
+      <h1 translate="chart.allHidden.header"></h1>
+      <h3 translate="chart.allHidden.description"></h3>
+    </div> -->
+    <div class="chart">
+      <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
+        [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
+        [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
+        (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)" #diagram>
+      </n52-d3-timeseries-graph>
+    </div>
+    <div class="overviewChart">
+      <n52-d3-overview-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [rangefactor]="2"
+        [datasetOptions]="timeseriesService.datasetOptions" [presenterOptions]="overviewOptions"
+        [timeInterval]="timespan" (onTimespanChanged)="timespanChanged($event)"
+        (onContentLoading)="onOverviewLoading($event)">
+      </n52-d3-overview-timeseries-graph>
+    </div>
+    <!-- <div class="tableView" ng-if="isToggled">
+      <div ng-include="'templates/table/table.html'"></div>
+    </div> -->
+  </div>
+  <!-- <div ng-include="'templates/views/diagram/no-data-warning.html'" /> -->
+  <!-- <swc-data-loading>
+    </swv-data-loading> -->
+</div>
