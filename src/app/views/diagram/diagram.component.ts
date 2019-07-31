@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Time, Timespan } from '@helgoland/core';
+import { DatasetOptions, Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
@@ -26,7 +26,8 @@ export class DiagramComponent implements OnInit {
   };
 
   public diagramOptions: D3PlotOptions = {
-    showTimeLabel: false
+    showTimeLabel: false,
+    generalizeAllways: false
   };
 
   constructor(
@@ -51,6 +52,26 @@ export class DiagramComponent implements OnInit {
   shareTimeseries() { }
 
   createFavoriteGroup() { }
+
+  updateOptions(options: DatasetOptions, id: string) {
+    // TODO implement
+  }
+
+  editOption(options: DatasetOptions) {
+    // TODO implement
+  }
+
+  setSelected(ids: string[]) {
+    // TODO implement
+  }
+
+  selectDatase(selection: boolean, id: string) {
+    // TODO implement
+  }
+
+  showGeometry(geometry: GeoJSON.GeoJsonObject) {
+    // TODO implement
+  }
 
   toggleGeneralization() {
     this.timeseriesService.generalize = !this.timeseriesService.generalize;
