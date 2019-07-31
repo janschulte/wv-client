@@ -9,7 +9,8 @@
             [datasetOptions]="timeseriesService.datasetOptions.get(id)" [timeInterval]="timespan"
             (onDeleteDataset)="timeseriesService.removeDataset(id)" (onSelectDataset)="selectTimeseries($event, id)"
             (onUpdateOptions)="updateOptions($event, id)" (onEditOptions)="editOption($event)"
-            (onShowGeometry)="showGeometry($event)" (onSelectDate)="centerTime($event)"></app-legend-entry>
+            (onShowGeometry)="showGeometry($event)" (onSelectDate)="centerTime($event)"
+            (highlighted)="onHighlighted($event)"></app-legend-entry>
         </div>
       </div>
       <div class="legend-footer-shadow"></div>

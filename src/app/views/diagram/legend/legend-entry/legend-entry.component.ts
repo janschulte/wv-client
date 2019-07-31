@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { TimeseriesEntryComponent, ReferenceValueColorCache } from '@helgoland/depiction';
 import { DatasetApiInterface, Time, InternalIdHandler, ColorService } from '@helgoland/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./legend-entry.component.scss']
 })
 export class LegendEntryComponent extends TimeseriesEntryComponent {
+
+  @Output() highlighted: EventEmitter<string> = new EventEmitter();
 
   constructor(
     api: DatasetApiInterface,
@@ -24,6 +26,14 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
   public isInTimeSpan(timespan: number) {
     // TODO implement, perhaps add to toolbox
     return true;
+  }
+
+  public toggleHighlight() {
+    if (!this.highlight) {
+      this.highlighted.emit(this.dataset.internalId);
+    } else {
+      this.highlighted.emit();
+    }
   }
 
 }

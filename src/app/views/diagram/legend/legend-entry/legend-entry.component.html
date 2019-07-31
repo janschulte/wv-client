@@ -1,5 +1,5 @@
 <div class="legend-item"
-  [ngClass]="{'collapsed': informationVisible, 'visible': datasetOptions?.visible, 'selected': selected}"
+  [ngClass]="{'collapsed': highlight, 'visible': datasetOptions?.visible, 'selected': selected}"
   [ngStyle]="{'border-color': datasetOptions?.color}">
   <div class="loading" *ngIf="loading">
     <div class="loader"></div>
@@ -12,14 +12,14 @@
     <span class="icon icon-warning"></span>
   </div>
   <div class="legend-header" [ngStyle]="{'border-color': datasetOptions?.color}"
-    (click)="toggleInformation(); $event.stopPropagation();">
+    (click)="toggleHighlight(); $event.stopPropagation();">
     <div class="mid bold">{{platformLabel}}</div>
     <div class="mid">
       <span>{{phenomenonLabel}}</span>
-      <span ng-if="timeseries.uom"> ({{uom}})</span>
+      <span *ngIf="uom"> ({{uom}})</span>
     </div>
   </div>
-  <div class="addition" *ngIf="informationVisible">
+  <div class="addition" *ngIf="highlight">
     <!-- <div class="noDataWarning" ng-show="timeseries.hasNoDataInCurrentExtent">
       <div class="mid bold" translate="legend.entry.noDataWarning"></div>
       <div class="jumpToValue" ng-controller="SwcJumpToFirstLatestValuesCtrl"

@@ -17,6 +17,7 @@ export class DiagramComponent implements OnInit {
   public legendActive = true;
 
   public selectedIds: string[] = [];
+  public highlightId: string;
   public timespan: Timespan;
 
   public overviewOptions: D3PlotOptions = {
@@ -56,6 +57,17 @@ export class DiagramComponent implements OnInit {
     this.timeseriesService.datasetOptions.forEach(v => {
       v.generalize = this.timeseriesService.generalize;
     });
+  }
+
+  onHighlighted(id: string) {
+    // reset old one
+    if (this.highlightId) {
+      this.timeseriesService.datasetOptions.get(this.highlightId).lineWidth = 1;
+    }
+    this.highlightId = id;
+    if (id) {
+      this.timeseriesService.datasetOptions.get(id).lineWidth = 3;
+    }
   }
 
   deleteAll() {
