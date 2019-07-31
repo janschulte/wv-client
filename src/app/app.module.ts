@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DatasetApiInterface, DatasetImplApiInterface, HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
+import { HelgolandCachingModule } from '@helgoland/caching';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { GeoSearch, NominatimGeoSearchService } from '@helgoland/map';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -57,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       AppRoutingModule,
       HelgolandCoreModule,
       HelgolandD3Module,
+      HelgolandCachingModule,
       HelgolandDatasetlistModule,
       HelgolandFacetSearchModule
    ],
