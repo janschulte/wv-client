@@ -16,6 +16,7 @@ import { WvResultListComponent } from './facets/result-list/result-list.componen
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { StationSelectionComponent } from './station-selection/station-selection.component';
 import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.component';
+import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 
 const COMPONENTS = [
@@ -23,12 +24,13 @@ const COMPONENTS = [
   GeoSearchComponent,
   LayersControlComponent,
   LocateButtonComponent,
-  WvResultListComponent,
-  StationSelectionComponent,
   SideMenuComponent,
-  ZoomButtonsComponent,
+  StationSelectionComponent,
   TimeseriesItemComponent,
-  TimespanShifterComponent
+  TimespanShifterComponent,
+  WvResultListComponent,
+  WvTimespanButtonComponent,
+  ZoomButtonsComponent,
 ];
 
 @NgModule({

@@ -52,18 +52,12 @@
       </div> -->
       <app-timespan-shifter [timespan]="timespan" (onTimespanChange)="timespanChanged($event)"
         (onOpenTimeSettings)="openTimeSettings()"></app-timespan-shifter>
-      <div class="wv-button one-day" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 1})">
-        <span class="mid description">1 {{'chart.hotkeys.day' | translate}}</span>
-        <span class="mid description-mobile">1T</span>
-      </div>
-      <div class="wv-button one-week" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 7})">
-        <span class="mid description">1 {{'chart.hotkeys.week' | translate}}</span>
-        <span class="mid description-mobile">1W</span>
-      </div>
-      <div class="wv-button one-month" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 30})">
-        <span class="mid description">1 {{'chart.hotkeys.month' | translate}}</span>
-        <span class="mid description-mobile">1M</span>
-      </div>
+      <app-timespan-button label="1 {{'chart.hotkeys.day' | translate}}" [timespanFunc]="oneDay"
+        (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
+      <app-timespan-button label="1 {{'chart.hotkeys.week' | translate}}" [timespanFunc]="oneWeek"
+        (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
+      <app-timespan-button label="1 {{'chart.hotkeys.month' | translate}}" [timespanFunc]="oneMonth"
+        (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
     </div>
     <!-- <div class="empty hidden-series" ng-if="!hasVisibleTimeseries()">
       <h1 translate="chart.allHidden.header"></h1>

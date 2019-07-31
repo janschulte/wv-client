@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
+import moment from 'moment';
 
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 
@@ -74,6 +75,18 @@ export class DiagramComponent implements OnInit {
   timespanChanged(timespan: Timespan) {
     this.timespan = timespan;
     this.timeseriesService.timespan = this.timespan;
+  }
+
+  oneDay = (): Timespan => {
+    return this.time.centerTimespanWithDuration(this.timespan, moment.duration(1, 'day'));
+  }
+
+  oneWeek = (): Timespan => {
+    return this.time.centerTimespanWithDuration(this.timespan, moment.duration(7, 'day'));
+  }
+
+  oneMonth = (): Timespan => {
+    return this.time.centerTimespanWithDuration(this.timespan, moment.duration(30, 'day'));
   }
 
 }
