@@ -1,0 +1,37 @@
+@import '../variables';
+
+n52-d3-timeseries-graph {
+    .graph-background {
+        fill: $white;
+    }
+
+    .axisDiv {
+        fill: $royal-blue;
+    }
+
+    .x.axis.top {
+        stroke-width: 0;
+    }
+
+    .y.axis .domain {
+        stroke: $light-slate-gray;
+    }
+
+    .y.axis.right .domain {
+        stroke: $royal-blue;
+        stroke-width: 2;
+    }
+
+    .grid.y-grid .domain{
+        stroke-width: 0;
+    }
+}
+
+n52-d3-timeseries-graph {
+    .brush {
+        .handle {
+            fill: $royal-blue !important;
+            opacity: 1.0 !important;
+        }
+    }
+}
