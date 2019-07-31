@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <div class="modal-title" translate="timeSelection.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body time">
+  <div class="modal-inline-header" translate="timeSelection.presetsHeader"></div>
+  <div class="modal-inline-block">
+    <div class="preset-button">
+      <app-timespan-button label="{{'timeselection.preset.last6hours' | translate}}" [timespanFunc]="last6Hours"
+        (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
+    </div>
+    <div class="preset-button">
+      <app-timespan-button label="{{'timeselection.preset.last24hours' | translate}}" [timespanFunc]="last24Hours"
+        (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
+    </div>
+    <div class="preset-button">
+      <app-timespan-button label="{{'timeselection.preset.lastWeek' | translate}}" [timespanFunc]="lastWeek"
+        (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
+    </div>
+    <div class="preset-button">
+      <app-timespan-button label="{{'timeselection.preset.lastMonth' | translate}}" [timespanFunc]="lastMonth"
+        (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
+    </div>
+    <div class="preset-button">
+      <app-timespan-button label="{{'timeselection.preset.last3Months' | translate}}" [timespanFunc]="last3Months"
+        (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
+    </div>
+  </div>
+  <!-- <div class="modal-inline-header" translate="timeSelection.custom.header"></div>
+  <div class="modal-inline-block">
+    <div ng-include="'templates/time/custom-time-range-selection.html'" />
+  </div> -->
+</div>

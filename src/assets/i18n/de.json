@@ -264,6 +264,7 @@
 			"header": "Zeitreihen über eine Station auswählen"
 		}
 	},
+	"stations": "",
 	"styleChange": {
 		"alignmentHeader": "Ausrichtung",
 		"barChartInterval": {
@@ -313,6 +314,15 @@
 		"warning": {
 			"maxTimeRange": "Der ausgewählte Zeitraum darf nicht größer als ein Jahr sein",
 			"startBeforeEnd": "Der Startzeitpunkt darf nicht größer als der Endzeitpunkt sein"
+		}
+	},
+	"timeselection": {
+		"preset": {
+			"last24hours": "24 Stunden zurück",
+			"last3Months": "3 Monate zurück",
+			"last6hours": "6 Stunden zurück",
+			"lastMonth": "einen Monat zurück",
+			"lastWeek": "eine Woche zurück"
 		}
 	}
 }

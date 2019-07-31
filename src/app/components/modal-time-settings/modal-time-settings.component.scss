@@ -1,0 +1,85 @@
+@import '../../../variables';
+
+:host {
+    .modal-body.time {
+        .modal-inline-block {
+            background-color: $white;
+            padding: 10px;
+        }
+
+        .preset-button {
+            width: 30%;
+            margin: 3px 5px;
+            display: inline-block;
+
+            @media screen and (max-width: $mobile-max-width) {
+                width: 100%;
+                margin: 5px 0px;
+            }
+        }
+
+        // .custom {
+        //     .wv-button {
+        //         .icon {
+        //             float: right;
+        //         }
+        //     }
+
+        //     .custom-entry {
+        //         &+.custom-entry {
+        //             margin-top: 10px;
+        //         }
+        //     }
+
+        //     .datetimepicker {
+        //         padding-top: 10px;
+        //         display: table;
+        //         margin: auto;
+
+        //         .datepicker {
+        //             margin-top: 5px;
+        //             display: table-cell;
+        //         }
+
+        //         .timepicker {
+        //             padding: 10px;
+        //             display: table-cell;
+        //             vertical-align: middle;
+        //         }
+
+        //         .btn-info {
+        //             &.active {
+        //                 color: $white;
+        //                 background-color: $royal-blue;
+        //                 border-color: $royal-blue;
+        //             }
+        //         }
+
+        //         .btn-link {
+        //             color: $slate-gray;
+        //         }
+        //     }
+
+        //     @media screen and (max-width: $mobile-max-width) {
+        //         .datetimepicker {
+        //             .datepicker {
+        //                 display: block;
+
+        //                 table {
+        //                     margin: auto;
+        //                 }
+
+        //                 .btn-sm {
+        //                     font-size: 10px;
+        //                 }
+        //             }
+
+        //             .timepicker {
+        //                 display: table;
+        //                 margin: auto;
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}

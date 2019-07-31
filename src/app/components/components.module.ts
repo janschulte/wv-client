@@ -13,6 +13,7 @@ import { LocateButtonComponent } from './controls/locate-button/locate-button.co
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
 import { FacetsComponent } from './facets/facets.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
+import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { StationSelectionComponent } from './station-selection/station-selection.component';
 import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.component';
@@ -24,6 +25,7 @@ const COMPONENTS = [
   GeoSearchComponent,
   LayersControlComponent,
   LocateButtonComponent,
+  ModalTimeSettingsComponent,
   SideMenuComponent,
   StationSelectionComponent,
   TimeseriesItemComponent,

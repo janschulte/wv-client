@@ -264,6 +264,7 @@
 			"header": "Select timeseries by station"
 		}
 	},
+	"stations": "",
 	"styleChange": {
 		"alignmentHeader": "Alignment",
 		"colorHeader": "Color selection",
@@ -306,6 +307,15 @@
 		"warning": {
 			"maxTimeRange": "The time range can not be greater then one year",
 			"startBeforeEnd": "The start date can not be greater then the end date"
+		}
+	},
+	"timeselection": {
+		"preset": {
+			"last24hours": "past 24h",
+			"last3Months": "past 3 months",
+			"last6hours": "past 6h",
+			"lastMonth": "past month",
+			"lastWeek": "past week"
 		}
 	}
 }

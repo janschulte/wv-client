@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
 
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
+import { ModalTimeSettingsComponent } from './../../components/modal-time-settings/modal-time-settings.component';
 
 @Component({
   selector: 'app-diagram',
@@ -28,6 +30,7 @@ export class DiagramComponent implements OnInit {
 
   constructor(
     public timeseriesService: TimeseriesService,
+    private modalService: NgbModal,
     private time: Time
   ) { }
 
@@ -65,6 +68,14 @@ export class DiagramComponent implements OnInit {
 
   onOverviewLoading(loading: boolean) {
     // TODO implement
+  }
+
+  openTimeSettings() {
+    const modalRef = this.modalService.open(ModalTimeSettingsComponent);
+    (modalRef.componentInstance as ModalTimeSettingsComponent).timespan = this.timespan;
+    modalRef.result.then((res: Timespan) => {
+      this.timespanChanged(res);
+    });
   }
 
   centerTime(date: Date) {
