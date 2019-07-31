@@ -1,0 +1,12 @@
+<div class="wv-button calendar" (click)="open()">
+  <span class="icon icon-calendar"></span>
+</div>
+<div class="wv-button calendar-prev" (click)="back()">
+  <span class="icon icon-arrow-left"></span>
+</div>
+<div class="wv-button calendar-dates" (click)="open()">
+  <span class="mid description">{{timespan.from | date : 'dd.MM.yy'}} - {{timespan.to | date : 'dd.MM.yy'}}</span>
+</div>
+<div class="wv-button calendar-next" (click)="forward()">
+  <span class="icon icon-arrow-right"></span>
+</div>

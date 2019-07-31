@@ -14,7 +14,7 @@ export class DiagramComponent implements OnInit {
   public legendActive = true;
 
   public selectedIds: string[] = [];
-  private timespan: Timespan;
+  public timespan: Timespan;
 
   public overviewOptions: D3PlotOptions = {
     overview: true,
@@ -38,7 +38,7 @@ export class DiagramComponent implements OnInit {
     this.legendActive = active;
   }
 
-  isSelected() {
+  isSelected(id: string) {
     // TODO implement
     return false;
   }
@@ -58,11 +58,11 @@ export class DiagramComponent implements OnInit {
     // TODO implement
   }
 
-  onGraphLoading() {
+  onGraphLoading(loading: boolean) {
     // TODO implement
   }
 
-  onOverviewLoading() {
+  onOverviewLoading(loading: boolean) {
     // TODO implement
   }
 

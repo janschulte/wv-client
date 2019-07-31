@@ -50,21 +50,8 @@
       <div class="wv-button table-view" [ngClass]="{'selected':isToggled}" (click)="toggle()">
         <span class="icon icon-table-view"></span>
       </div> -->
-      <div style="float: left;" ng-controller="SwcForwardBackButtonsCtrl">
-        <div class="wv-button calendar" ng-controller="SwcTimeRangeCtrl" (click)="open()">
-          <span class="icon icon-calendar"></span>
-        </div>
-        <div class="wv-button calendar-prev" (click)="back()">
-          <span class="icon icon-arrow-left"></span>
-        </div>
-        <div class="wv-button calendar-dates" ng-controller="SwcTimeRangeCtrl" (click)="open()">
-          <!-- <span class="mid description">{{time.start.toDate() | date : 'dd.MM.yy'}} -
-            {{time.end.toDate() | date : 'dd.MM.yy'}}</span> -->
-        </div>
-        <div class="wv-button calendar-next" (click)="forward()">
-          <span class="icon icon-arrow-right"></span>
-        </div>
-      </div>
+      <app-timespan-shifter [timespan]="timespan" (onTimespanChange)="timespanChanged($event)"
+        (onOpenTimeSettings)="openTimeSettings()"></app-timespan-shifter>
       <div class="wv-button one-day" ng-controller="SwcCenterTimeCtrl" (click)="centerTime({days: 1})">
         <span class="mid description">1 {{'chart.hotkeys.day' | translate}}</span>
         <span class="mid description-mobile">1T</span>

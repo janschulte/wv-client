@@ -36,7 +36,7 @@
       <span class="small bold" translate="legend.entry.provider"></span>
       <span class="small"> {{dataset.parameters.service.label}}</span>
     </div>
-    <div class="jumpToValue" (click)="jumpToFirstTimeStamp(dataset.firstValue); $event.stopPropagation()">
+    <div class="jumpToValue" (click)="jumpToFirstTimeStamp(); $event.stopPropagation()">
       <div class="icon"
         [ngClass]="{'icon-calendar-check':isInTimeSpan(dataset.firstValue.timestamp),'icon-calendar':!isInTimeSpan(dataset.firstValue.timestamp)}">
       </div>
@@ -46,7 +46,7 @@
           {{dataset.firstValue.value}} {{uom}}</span>
       </span>
     </div>
-    <div class="jumpToValue" (click)="jumpToLastTimeStamp(dataset.lastValue); $event.stopPropagation()">
+    <div class="jumpToValue" (click)="jumpToLastTimeStamp(); $event.stopPropagation()">
       <div class="icon"
         [ngClass]="{'icon-calendar-check':isInTimeSpan(dataset.lastValue.timestamp),'icon-calendar':!isInTimeSpan(dataset.lastValue.timestamp)}">
       </div>

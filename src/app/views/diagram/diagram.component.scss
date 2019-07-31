@@ -42,14 +42,10 @@
             flex-direction: column;
 
             .controls {
-                // position: absolute;
+                display: flex;
                 top: 0px;
                 height: $controls-height-desktop;
                 padding: 28px 20px 14px;
-
-                .wv-button {
-                    float: left;
-                }
 
                 .hide-y-axis {
                     display: none;
@@ -76,29 +72,6 @@
 
                 .table-view {
                     margin-right: 30px;
-                }
-
-                .calendar {
-                    border-top-right-radius: 0px;
-                    border-bottom-right-radius: 0px;
-                }
-
-                .calendar-prev {
-                    border-radius: 0px;
-                }
-
-                .calendar-dates {
-                    border-radius: 0px;
-
-                    .description {
-                        display: inline;
-                    }
-                }
-
-                .calendar-next {
-                    border-top-left-radius: 0px;
-                    border-bottom-left-radius: 0px;
-                    margin-right: 1px;
                 }
 
                 .one-day {
