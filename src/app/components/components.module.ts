@@ -11,6 +11,7 @@ import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
 import { LayersControlComponent } from './controls/layers-control/layers-control.component';
 import { LocateButtonComponent } from './controls/locate-button/locate-button.component';
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
+import { DiagramExportButtonComponent } from './diagram-export-button/diagram-export-button.component';
 import { FacetsComponent } from './facets/facets.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
@@ -33,6 +34,7 @@ const COMPONENTS = [
   WvResultListComponent,
   WvTimespanButtonComponent,
   ZoomButtonsComponent,
+  DiagramExportButtonComponent,
 ];
 
 @NgModule({

@@ -33,6 +33,7 @@
 		"reachedMaxTimeperiod": "The maximum selectable time period is exceeded and was adjusted."
 	},
 	"code": "en",
+	"export": "Export diagram",
 	"favorite": {
 		"edit": {
 			"header": "edit favorite"
