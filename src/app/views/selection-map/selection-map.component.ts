@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Station, Timeseries } from '@helgoland/core';
 import { FacetSearchService } from '@helgoland/facet-search';
-import { LayerOptions, MapCache } from '@helgoland/map';
+import { LayerOptions } from '@helgoland/map';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tileLayer } from 'leaflet';
 import { Subscription } from 'rxjs';
@@ -31,8 +31,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
 
   constructor(
     public facetSearch: FacetSearchService,
-    private modalService: NgbModal,
-    private mapCache: MapCache
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -72,7 +71,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
 
   public updateSideMenu(active: boolean) {
     this.sideMenuActive = active;
-    setTimeout(() => this.mapCache.getMap('facet-search').invalidateSize(), 100);
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 10);
   }
 
 }

@@ -44,8 +44,9 @@
             .controls {
                 display: flex;
                 top: 0px;
-                height: $controls-height-desktop;
-                padding: 28px 20px 14px;
+                justify-content: center;
+                // height: $controls-height-desktop;
+                padding: 28px 15px 0px;
 
                 .hide-y-axis {
                     display: none;

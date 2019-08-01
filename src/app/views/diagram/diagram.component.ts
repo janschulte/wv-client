@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { DatasetOptions, Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -42,6 +42,7 @@ export class DiagramComponent implements OnInit {
 
   toggleLegend(active: boolean) {
     this.legendActive = active;
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 10);
   }
 
   isSelected(id: string) {
