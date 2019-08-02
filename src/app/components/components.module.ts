@@ -13,6 +13,7 @@ import { LocateButtonComponent } from './controls/locate-button/locate-button.co
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
 import { DiagramExportButtonComponent } from './diagram-export-button/diagram-export-button.component';
 import { FacetsComponent } from './facets/facets.component';
+import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -35,6 +36,7 @@ const COMPONENTS = [
   WvTimespanButtonComponent,
   ZoomButtonsComponent,
   DiagramExportButtonComponent,
+  WvParameterFacetComponent,
 ];
 
 @NgModule({
