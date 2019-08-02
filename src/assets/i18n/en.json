@@ -284,6 +284,12 @@
 	"table": {
 		"time": "Time"
 	},
+	"time-facet": {
+		"from": "From",
+		"reset-timespan": "Reset timefilter",
+		"to": "To",
+		"today": "Today"
+	},
 	"timeSelection": {
 		"custom": {
 			"end": "End",

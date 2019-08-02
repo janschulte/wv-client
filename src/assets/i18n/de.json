@@ -291,6 +291,12 @@
 	"table": {
 		"time": "Zeit"
 	},
+	"time-facet": {
+		"from": "Von",
+		"reset-timespan": "Zeitraum zurücksetzen",
+		"to": "Bis",
+		"today": "Heute"
+	},
 	"timeSelection": {
 		"custom": {
 			"end": "Ende",

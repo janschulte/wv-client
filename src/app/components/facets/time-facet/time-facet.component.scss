@@ -1,0 +1,33 @@
+@import '../../../../variables';
+
+:host {
+
+    .input-group-text {
+        background-color: $slate-gray;
+        color: $geyser-gray;
+        border: none;
+    }
+
+    .wv-button {
+        background-color: $royal-blue;
+        color: $white;
+
+        &:hover {
+            background-color: $light-slate-gray;
+        }
+        
+        &.calendar {
+            border-radius: 0px;
+        }
+
+        &.today {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+    }
+
+    .reset-timespan {
+        float: right;
+    }
+
+}
