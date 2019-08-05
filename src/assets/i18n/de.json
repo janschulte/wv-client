@@ -34,6 +34,12 @@
 	},
 	"code": "de",
 	"export": "Diagram exportieren",
+	"facets": {
+		"category": "Kategorie",
+		"phenomenon": "Phänomen",
+		"station": "Station",
+		"timeframe": "Zeitraum"
+	},
 	"favorite": {
 		"edit": {
 			"header": "Favorit editieren"

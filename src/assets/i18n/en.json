@@ -34,6 +34,12 @@
 	},
 	"code": "en",
 	"export": "Export diagram",
+	"facets": {
+		"category": "Category",
+		"phenomenon": "Phenomenon",
+		"station": "Station",
+		"timeframe": "Timeframe"
+	},
 	"favorite": {
 		"edit": {
 			"header": "edit favorite"

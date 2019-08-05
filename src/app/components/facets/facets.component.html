@@ -1,7 +1,7 @@
 <div class="facets col">
   <div class="facet">
     <div class="facet-header">
-      <div class="facet-header-label">Category</div>
+      <div class="facet-header-label">{{'facets.category' | translate}}</div>
       <div class="autocomplete mb-1 mr-1">
         <input type="text" class="form-control" placeholder="Autocomplete"
           (input)="categoryAutocomplete = $event.target.value">
@@ -12,7 +12,7 @@
   </div>
   <div class="facet">
     <div class="facet-header">
-      <div class="facet-header-label mr-1">Phenomenon</div>
+      <div class="facet-header-label mr-1">{{'facets.phenomenon' | translate}}</div>
       <div class="autocomplete mb-1">
         <input type="text" class="form-control" placeholder="Autocomplete"
           (input)="phenomenonAutocomplete = $event.target.value">
@@ -23,7 +23,7 @@
   </div>
   <div class="facet">
     <div class="facet-header">
-      <div class="facet-header-label mr-1">Station</div>
+      <div class="facet-header-label mr-1">{{'facets.station' | translate}}</div>
       <div class="autocomplete mb-1">
         <input type="text" class="form-control" placeholder="Autocomplete"
           (input)="featureAutocomplete = $event.target.value">
@@ -34,7 +34,7 @@
   </div>
   <div class="facet">
     <div class="facet-header">
-      <div class="facet-header-label">Timeframe</div>
+      <div class="facet-header-label">{{'facets.timeframe' | translate}}</div>
     </div>
     <app-time-facet [facetSearchService]="facetSearch"></app-time-facet>
   </div>
