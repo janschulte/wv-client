@@ -1,10 +1,13 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatasetOptions, Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
 
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
+import {
+  ModalDatasetoptionsEditorComponent,
+} from './../../components/modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { ModalTimeSettingsComponent } from './../../components/modal-time-settings/modal-time-settings.component';
 
 @Component({
@@ -59,14 +62,15 @@ export class DiagramComponent implements OnInit {
   }
 
   editOption(options: DatasetOptions) {
-    // TODO implement
+    const modalRef = this.modalService.open(ModalDatasetoptionsEditorComponent);
+    (modalRef.componentInstance as ModalDatasetoptionsEditorComponent).options = options;
   }
 
   setSelected(ids: string[]) {
     // TODO implement
   }
 
-  selectDatase(selection: boolean, id: string) {
+  selectDataset(selection: boolean, id: string) {
     // TODO implement
   }
 
@@ -93,7 +97,7 @@ export class DiagramComponent implements OnInit {
   }
 
   deleteAll() {
-    // TODO implement
+    this.timeseriesService.removeAllDatasets();
   }
 
   onGraphLoading(loading: boolean) {
@@ -107,9 +111,7 @@ export class DiagramComponent implements OnInit {
   openTimeSettings() {
     const modalRef = this.modalService.open(ModalTimeSettingsComponent);
     (modalRef.componentInstance as ModalTimeSettingsComponent).timespan = this.timespan;
-    modalRef.result.then((res: Timespan) => {
-      this.timespanChanged(res);
-    });
+    modalRef.result.then((res: Timespan) => this.timespanChanged(res));
   }
 
   centerTime(date: Date) {

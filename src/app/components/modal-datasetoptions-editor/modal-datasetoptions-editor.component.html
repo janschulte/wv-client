@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <div class="modal-title" translate="styleChange.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body style-change">
+  <div class="modal-inline-header" translate="styleChange.colorHeader"></div>
+  <div class="modal-inline-block">
+    <div class="color-block">
+      <div class="wv-button color-button" *ngFor="let color of colorList" [ngStyle]="{'background-color': color}"
+        (click)="setColor(color)">
+        <span class="icon" ng-class="{'icon-check': options.color === color}"></span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-inline-header" translate="styleChange.alignmentHeader"></div>
+  <div class="modal-inline-block">
+    <div class="toggle-block" (click)="setZeroScaled()">
+      <input class="wv-toggle" type="radio" [checked]="options.zeroBasedYAxis"><label class="wv-label"></label>
+      <div class="toggle-header" translate="styleChange.zeroScaled.header"></div>
+      <div class="toggle-description" translate="styleChange.zeroScaled.description"></div>
+    </div>
+  </div>
+  <div class="modal-inline-block">
+    <div class="toggle-block" (click)="setSeperateAxis()">
+      <input class="wv-toggle" type="radio" [checked]="!options.separateYAxis"><label class="wv-label"></label>
+      <div class="toggle-header" translate="styleChange.groupedAxis.header"></div>
+      <div class="toggle-description" translate="styleChange.groupedAxis.description"></div>
+    </div>
+  </div>
+</div>

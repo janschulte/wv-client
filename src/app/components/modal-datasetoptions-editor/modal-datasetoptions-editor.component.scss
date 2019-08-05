@@ -1,0 +1,24 @@
+@import '../../../variables';
+
+:host {
+    .style-block {
+        &+.style-block {
+            margin-top: 10px;
+        }
+    }
+
+    .color-block {
+        background-color: $white;
+        padding: 5px;
+
+        .color-button {
+            width: 38px;
+            display: inline-block;
+            margin: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

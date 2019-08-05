@@ -7,7 +7,7 @@
         <div class="legend-entry" *ngFor="let id of timeseriesService.datasetIds">
           <app-legend-entry [datasetId]="id" [selected]="isSelected(id)" [highlight]="id === highlightId"
             [datasetOptions]="timeseriesService.datasetOptions.get(id)" [timeInterval]="timespan"
-            (onDeleteDataset)="timeseriesService.removeDataset(id)" (onSelectDataset)="selectDatase($event, id)"
+            (onDeleteDataset)="timeseriesService.removeDataset(id)" (onSelectDataset)="selectDataset($event, id)"
             (onUpdateOptions)="updateOptions($event, id)" (onEditOptions)="editOption($event)"
             (onShowGeometry)="showGeometry($event)" (onSelectDate)="centerTime($event)"
             (highlighted)="onHighlighted($event)"></app-legend-entry>
@@ -23,7 +23,7 @@
           <span class="icon" [ngClass]="{'clicked icon-star-filled': isClicked, 'icon-star-empty': !isClicked}"></span>
           <p class="mid" translate="legend.footer.all"></p>
         </div> -->
-        <div class="navTool" (click)="toggleGeneralization()" [ngClass]="{'active': timeseriesService.generalize}">
+        <div class="navTool" (click)="toggleGeneralization()" [ngClass]="{'active': !timeseriesService.generalize}">
           <span class="icon icon-graph-view"></span>
           <p class="mid" translate="originalValues.header"></p>
         </div>

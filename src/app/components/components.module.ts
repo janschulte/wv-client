@@ -16,6 +16,7 @@ import { FacetsComponent } from './facets/facets.component';
 import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
+import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { StationSelectionComponent } from './station-selection/station-selection.component';
@@ -24,21 +25,22 @@ import { WvTimespanButtonComponent } from './timespan-button/timespan-button.com
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 
 const COMPONENTS = [
+  DiagramExportButtonComponent,
   FacetsComponent,
   GeoSearchComponent,
   LayersControlComponent,
   LocateButtonComponent,
+  ModalDatasetoptionsEditorComponent,
   ModalTimeSettingsComponent,
   SideMenuComponent,
   StationSelectionComponent,
+  TimeFacetComponent,
   TimeseriesItemComponent,
   TimespanShifterComponent,
+  WvParameterFacetComponent,
   WvResultListComponent,
   WvTimespanButtonComponent,
   ZoomButtonsComponent,
-  DiagramExportButtonComponent,
-  WvParameterFacetComponent,
-  TimeFacetComponent
 ];
 
 @NgModule({
