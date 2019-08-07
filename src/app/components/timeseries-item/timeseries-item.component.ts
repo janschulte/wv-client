@@ -27,9 +27,8 @@ export class TimeseriesItemComponent implements OnInit {
       this.timeseriesService.removeDataset(this.timeseries.internalId);
       this.added = this.timeseriesService.hasDataset(this.timeseries.internalId);
     } else {
-      this.timeseriesService.addDataset(this.timeseries.internalId).subscribe(() => {
-        this.added = this.timeseriesService.hasDataset(this.timeseries.internalId);
-      });
+      this.timeseriesService.addDataset(this.timeseries.internalId)
+        .then(() => this.added = this.timeseriesService.hasDataset(this.timeseries.internalId));
     }
   }
 
