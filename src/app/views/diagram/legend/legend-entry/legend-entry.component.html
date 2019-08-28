@@ -1,7 +1,7 @@
 <div class="legend-item"
   [ngClass]="{'collapsed': highlight, 'visible': datasetOptions?.visible, 'selected': selected}"
   [ngStyle]="{'border-color': datasetOptions?.color}">
-  <div class="loading" *ngIf="loading || datasetOptions?.loadData">
+  <div class="loading" *ngIf="loading || loadingData">
     <div class="loader"></div>
   </div>
   <div class="delete">

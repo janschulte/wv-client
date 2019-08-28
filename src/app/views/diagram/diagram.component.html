@@ -10,7 +10,7 @@
             (onDeleteDataset)="timeseriesService.removeDataset(id)" (onSelectDataset)="selectDataset($event, id)"
             (onUpdateOptions)="updateOptions($event, id)" (onEditOptions)="editOption($event)"
             (onShowGeometry)="showGeometry($event)" (onSelectDate)="centerTime($event)"
-            (highlighted)="onHighlighted($event)"></app-legend-entry>
+            (highlighted)="onHighlighted($event)" [loadingData]="loadData.has(id)"></app-legend-entry>
         </div>
       </div>
       <div class="legend-footer-shadow"></div>
@@ -70,7 +70,8 @@
       <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
         [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
         [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
-        (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)" #diagram>
+        (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)"
+        (dataLoaded)="loadData = $event" #diagram>
       </n52-d3-timeseries-graph>
     </div>
     <div class="overviewChart">

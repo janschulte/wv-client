@@ -23,6 +23,8 @@ export class DiagramComponent implements OnInit {
   public highlightId: string;
   public timespan: Timespan;
 
+  public loadData: Set<string> = new Set();
+
   public overviewOptions: D3PlotOptions = {
     overview: true,
     showTimeLabel: false
@@ -59,6 +61,10 @@ export class DiagramComponent implements OnInit {
 
   updateOptions(options: DatasetOptions, id: string) {
     // TODO implement
+  }
+
+  dataLoaded(loaded) {
+    debugger;
   }
 
   editOption(options: DatasetOptions) {

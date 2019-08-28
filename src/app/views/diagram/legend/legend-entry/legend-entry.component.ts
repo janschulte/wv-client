@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { TimeseriesEntryComponent, ReferenceValueColorCache } from '@helgoland/depiction';
 import { DatasetApiInterface, Time, InternalIdHandler, ColorService } from '@helgoland/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -9,6 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./legend-entry.component.scss']
 })
 export class LegendEntryComponent extends TimeseriesEntryComponent {
+
+  @Input() loadingData: boolean;
 
   @Output() highlighted: EventEmitter<string> = new EventEmitter();
 
