@@ -6,6 +6,7 @@ import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule } from '@helgoland/map';
 import { NgbDatepickerModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { Ng5SliderModule } from 'ng5-slider';
 
 import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
 import { LayersControlComponent } from './controls/layers-control/layers-control.component';
@@ -16,6 +17,7 @@ import { FacetsComponent } from './facets/facets.component';
 import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
+import { TimeSliderComponent } from './facets/time-slider/time-slider.component';
 import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -50,12 +52,13 @@ const COMPONENTS = [
     TranslateModule,
     NgbModalModule,
     NgbDatepickerModule,
+    Ng5SliderModule,
     HelgolandCoreModule,
     HelgolandMapControlModule,
     HelgolandFacetSearchModule
   ],
   entryComponents: [COMPONENTS],
   exports: [COMPONENTS],
-  declarations: [COMPONENTS]
+  declarations: [COMPONENTS, TimeSliderComponent]
 })
 export class ComponentsModule { }

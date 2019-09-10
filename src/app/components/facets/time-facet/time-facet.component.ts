@@ -31,7 +31,7 @@ export class TimeFacetComponent implements OnInit {
 
   private fetchTime() {
     if (!this.selectedTimespan) {
-      const timespan = this.facetSearchService.getTimespan();
+      const timespan = this.facetSearchService.getCompleteTimespan();
       const from = new Date(timespan.from);
       this.from = {
         day: from.getDate(),
@@ -49,7 +49,7 @@ export class TimeFacetComponent implements OnInit {
 
   public clearTimespan() {
     this.selectedTimespan = null;
-    this.facetSearchService.setTimespan(this.selectedTimespan);
+    this.facetSearchService.setCurrentTimespan(this.selectedTimespan);
   }
 
   public selectFromToday() {
@@ -66,7 +66,7 @@ export class TimeFacetComponent implements OnInit {
     const from = new Date(this.from.year, this.from.month - 1, this.from.day);
     const to = new Date(this.to.year, this.to.month - 1, this.to.day);
     this.selectedTimespan = { from: from.getTime(), to: to.getTime() };
-    this.facetSearchService.setTimespan(this.selectedTimespan);
+    this.facetSearchService.setCurrentTimespan(this.selectedTimespan);
   }
 
 }
