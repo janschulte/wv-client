@@ -36,7 +36,7 @@
 	"export": "Diagram exportieren",
 	"facets": {
 		"category": "Kategorie",
-		"phenomenon": "Phänomen",
+		"phenomenon": "Messparameter",
 		"station": "Station",
 		"timeframe": "Zeitraum"
 	},
@@ -164,7 +164,7 @@
 		"goBack": "zurück",
 		"headers": {
 			"category": "Kategorie",
-			"phenomenon": "Phänomen",
+			"phenomenon": "Messparameter",
 			"procedure": "Sensor",
 			"station": "Station"
 		},
@@ -175,10 +175,10 @@
 			"category": "Kategorie",
 			"list": "Liste",
 			"map": "Karte",
-			"phenomenon": "Phänomen",
+			"phenomenon": "Messparameter",
 			"station": "Station"
 		},
-		"allPhenomena": "Alle Phänomene",
+		"allPhenomena": "Alle Messparameter",
 		"favorite": "Favoriten",
 		"help": "Hilfe",
 		"settings": "Einstellungen",
@@ -191,7 +191,7 @@
 		},
 		"loading": "Stationen werden geladen",
 		"providerList": {
-			"phenomena": "Phänomene",
+			"phenomena": "Messparameter",
 			"provider": "Datenanbieter",
 			"source": "Quelle",
 			"stations": "Stationen",
@@ -207,7 +207,7 @@
 			"lastValue": "letzter Messwert:",
 			"loading": "Zeitreihen werden geladen...",
 			"remove": "Zeitreihe entfernt",
-			"showAll": "weitere Phänomene hier",
+			"showAll": "weitere Messparameter hier",
 			"showChart": "zur Zeitreihenansicht"
 		},
 		"stationLocation": {
@@ -252,7 +252,7 @@
 	"start": {
 		"category": {
 			"button": "Kategorie wählen und Zeitreihen finden",
-			"description": "Die verfügbaren Kategorien (wie z.B. Gewässer oder Talsperren) werden als Liste angezeigt, mittels Mausklicks können Sie die Messstationen einer Kategorie wählen sowie die an einer Station gemessenen Phänomene (wie z.B. Wasserstand oder Niederschlag) und sich die entsprechenden Ganglinien anzeigen lassen.",
+			"description": "Die verfügbaren Kategorien (wie z.B. Gewässer oder Talsperren) werden als Liste angezeigt, mittels Mausklicks können Sie die Messstationen einer Kategorie wählen sowie die an einer Station gemessenen Messwerte (wie z.B. Wasserstand oder Niederschlag) und sich die entsprechenden Ganglinien anzeigen lassen.",
 			"header": "Zeitreihen über eine Kategorie auswählen"
 		},
 		"map": {
@@ -261,13 +261,13 @@
 			"header": "Zeitreihen über die Karte auswählen"
 		},
 		"phenomenon": {
-			"button": "Phänomen wählen und Zeitreihen finden",
-			"description": "Die verfügbaren Phänomene (wie z.B. Wasserstand oder Niederschlag) werden als Liste angezeigt, mittels Mausklicks können Sie die Kategorien (wie z.B. Rohdaten oder validierte Daten) eines Phänomens wählen sowie die Stationen sehen, an denen das gewählte Phänomene gemessen wird und sich die entsprechenden Ganglinien anzeigen lassen.",
-			"header": "Zeitreihen über ein Phänomen auswählen"
+			"button": "Messparameter wählen und Zeitreihen finden",
+			"description": "Die verfügbaren Messparameter (wie z.B. Wasserstand oder Niederschlag) werden als Liste angezeigt, mittels Mausklicks können Sie die Kategorien (wie z.B. Rohdaten oder validierte Daten) eines Messwerts wählen sowie die Stationen sehen, an denen der gewählte Messparameter ermittelt wird und sich die entsprechenden Ganglinien anzeigen lassen.",
+			"header": "Zeitreihen über ein Messparameter auswählen"
 		},
 		"station": {
 			"button": "Station wählen und Zeitreihen finden",
-			"description": "Die verfügbaren Stationen werden als Liste angezeigt, mittels Mausklicks können Sie die Kategorien (wie z.B. Gewässer oder Talsperren) einer Station wählen sowie die an einer Station gemessenen Phänomene (wie z.B. Wasserstand oder Niederschlag) und sich die entsprechenden Ganglinien anzeigen lassen.",
+			"description": "Die verfügbaren Stationen werden als Liste angezeigt, mittels Mausklicks können Sie die Kategorien (wie z.B. Gewässer oder Talsperren) einer Station wählen sowie die an einer Station ermittelten Messparameter (wie z.B. Wasserstand oder Niederschlag) und sich die entsprechenden Ganglinien anzeigen lassen.",
 			"header": "Zeitreihen über eine Station auswählen"
 		}
 	},
@@ -283,7 +283,7 @@
 		"colorHeader": "Farbwahl",
 		"currentColor": "Derzeitige Farbe",
 		"groupedAxis": {
-			"description": "Gruppiert oder löst ein gemessenes Phänomen (Wasserstand, Luftfeuchte, Ph-Wert, ...), mit gleicher Einheit, auf eine oder mehrere Y-Achsen.",
+			"description": "Gruppiert oder löst ein gemessenes Messparameter (Wasserstand, Luftfeuchte, Ph-Wert, ...), mit gleicher Einheit, auf eine oder mehrere Y-Achsen.",
 			"header": "Gruppierte Achse"
 		},
 		"header": "Zeitreihen Einstellungen",
