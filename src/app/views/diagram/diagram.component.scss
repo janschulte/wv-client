@@ -31,7 +31,7 @@
                 height: 136px;
                 margin-left: auto;
                 margin-right: auto;
-                background-image: data-uri('@{image-path}zeitreihen-leer.png');
+                background-image: url($image-path+'zeitreihen-leer.png');
             }
         }
 

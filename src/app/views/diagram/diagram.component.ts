@@ -33,7 +33,6 @@ export class DiagramComponent implements OnInit {
   public diagramOptions: D3PlotOptions = {
     showTimeLabel: false,
     showReferenceValues: true,
-    yAxisStepper: true,
     generalizeAllways: false
   };
 
