@@ -131,7 +131,7 @@
 	"imprint": {
 		"fundingAdditional": "Die Entwicklung dieser Softwareversion wurde gefördert durch das BMBF im Sonderprogramm &#34;Geotechnologien&#34; unter der Kennung 03G0854B.",
 		"header": "Impressum",
-		"text": "<p>Der <a href='http://www.wupperverband.de/' target='_blank'>Wupperverband</a> ist für diese Website verantwortlich.</p><p>Untere Lichtenplatzer Str. 100<br>42289 Wuppertal, Deutschland</p><p><a href='mailto:info@wupperverband.de'>info@wupperverband.de</a></p>Diese Webanwendung basiert auf Open Source Software. Zur <a href='https://github.com/52North/sensorweb-client-core' target='_blank'>GitHub</a>-Seite dieses Projektes."
+		"text": "<p>Der <a href='http://www.wupperverband.de/' target='_blank'>Wupperverband</a> ist für diese Website verantwortlich.</p><p>Untere Lichtenplatzer Str. 100<br>42289 Wuppertal, Deutschland</p><p><a href='mailto:info@wupperverband.de'>info@wupperverband.de</a></p>Diese Webanwendung basiert auf Open Source Software. Zur <a href='https://github.com/52North/helgoland-toolbox' target='_blank'>GitHub</a>-Seite dieses Projektes."
 	},
 	"legend": {
 		"deleteAll": {

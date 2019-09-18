@@ -1,0 +1,8 @@
+<div class="modal-header">
+  <div class="modal-title" translate="imprint.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body">
+  <p [innerHTML]="'imprint.text' | translate"></p>
+  <p [innerHTML]="'imprint.fundingAdditional' | translate"></p>
+</div>

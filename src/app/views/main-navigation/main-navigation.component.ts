@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { ModalImprintComponent } from '../../components/modal-imprint/modal-imprint.component';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import { SelectionNavigationService } from './selection-navigation.service';
 
@@ -14,7 +16,8 @@ export class MainNavigationComponent implements OnInit {
 
   constructor(
     public selectionNavigation: SelectionNavigationService,
-    private timeseriesService: TimeseriesService
+    private timeseriesService: TimeseriesService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +25,10 @@ export class MainNavigationComponent implements OnInit {
     this.timeseriesService.datasetIdsChanged.subscribe(ids => {
       this.datasetCount = ids.length;
     });
+  }
+
+  public openImprint() {
+    this.modalService.open(ModalImprintComponent);
   }
 
 }

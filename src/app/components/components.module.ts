@@ -19,6 +19,7 @@ import { WvResultListComponent } from './facets/result-list/result-list.componen
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
 import { TimeSliderComponent } from './facets/time-slider/time-slider.component';
 import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-editor/modal-datasetoptions-editor.component';
+import { ModalImprintComponent } from './modal-imprint/modal-imprint.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { StationSelectionComponent } from './station-selection/station-selection.component';
@@ -33,10 +34,12 @@ const COMPONENTS = [
   LayersControlComponent,
   LocateButtonComponent,
   ModalDatasetoptionsEditorComponent,
+  ModalImprintComponent,
   ModalTimeSettingsComponent,
   SideMenuComponent,
   StationSelectionComponent,
   TimeFacetComponent,
+  TimeSliderComponent,
   TimeseriesItemComponent,
   TimespanShifterComponent,
   WvParameterFacetComponent,
@@ -59,6 +62,6 @@ const COMPONENTS = [
   ],
   entryComponents: [COMPONENTS],
   exports: [COMPONENTS],
-  declarations: [COMPONENTS, TimeSliderComponent]
+  declarations: [COMPONENTS]
 })
 export class ComponentsModule { }
