@@ -1,0 +1,178 @@
+@import '../../../variables';
+
+.help {
+    overflow: auto;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+
+    .wv-button {
+        margin: 0px 3px;
+    }
+
+    .contents {
+        a {
+            display: block;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .image {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: solid 1px $royal-blue;
+        margin-left: auto;
+        margin-right: auto;
+
+        &.mobile {
+            max-width: 360px;
+            height: 570px;
+        }
+
+        &.desktop {
+            max-width: 1024px;
+            height: 640px;
+        }
+    }
+
+    .text {
+        padding-top: 10px;
+    }
+
+    @media screen and (min-width: $tablet-min-width) {
+
+        .image.mobile,
+        .text.mobile {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: $mobile-max-width) {
+
+        .image.desktop,
+        .text.desktop {
+            display: none;
+        }
+    }
+
+    &.de {
+        .diagram-mobile {
+            background-image: url($image-path+'help/de/diagram-mobile.png');
+            background-image: url($image-path+'zeitreihen-leer.png');
+        }
+
+        .diagram-desktop {
+            background-image: url($image-path+'help/de/diagram-desktop.png');
+        }
+
+        .favorites-mobile {
+            background-image: url($image-path+'help/de/favorites-mobile.png');
+        }
+
+        .favorites-desktop {
+            background-image: url($image-path+'help/de/favorites-desktop.png');
+        }
+
+        .legend-mobile {
+            background-image: url($image-path+'help/de/legend-mobile.png');
+        }
+
+        .legend-desktop {
+            background-image: url($image-path+'help/de/legend-desktop.png');
+        }
+
+        .list-selection-mobile {
+            background-image: url($image-path+'help/de/list-selection-mobile.png');
+        }
+
+        .list-selection-desktop {
+            background-image: url($image-path+'help/de/list-selection-desktop.png');
+        }
+
+        .map-selection-mobile {
+            background-image: url($image-path+'help/de/map-selection-mobile.png');
+        }
+
+        .map-selection-desktop {
+            background-image: url($image-path+'help/de/map-selection-desktop.png');
+        }
+
+        .settings-mobile {
+            background-image: url($image-path+'help/de/settings-mobile.png');
+        }
+
+        .settings-desktop {
+            background-image: url($image-path+'help/de/settings-desktop.png');
+        }
+
+        .start-mobile {
+            background-image: url($image-path+'help/de/start-mobile.png');
+        }
+
+        .start-desktop {
+            background-image: url($image-path+'help/de/start-desktop.png');
+        }
+    }
+
+    &.en {
+        .diagram-mobile {
+            background-image: url($image-path+'help/en/diagram-mobile.png');
+        }
+
+        .diagram-desktop {
+            background-image: url($image-path+'help/en/diagram-desktop.png');
+        }
+
+        .favorites-mobile {
+            background-image: url($image-path+'help/en/favorites-mobile.png');
+        }
+
+        .favorites-desktop {
+            background-image: url($image-path+'help/en/favorites-desktop.png');
+        }
+
+        .legend-mobile {
+            background-image: url($image-path+'help/en/legend-mobile.png');
+        }
+
+        .legend-desktop {
+            background-image: url($image-path+'help/en/legend-desktop.png');
+        }
+
+        .list-selection-mobile {
+            background-image: url($image-path+'help/en/list-selection-mobile.png');
+        }
+
+        .list-selection-desktop {
+            background-image: url($image-path+'help/en/list-selection-desktop.png');
+        }
+
+        .map-selection-mobile {
+            background-image: url($image-path+'help/en/map-selection-mobile.png');
+        }
+
+        .map-selection-desktop {
+            background-image: url($image-path+'help/en/map-selection-desktop.png');
+        }
+
+        .settings-mobile {
+            background-image: url($image-path+'help/en/settings-mobile.png');
+        }
+
+        .settings-desktop {
+            background-image: url($image-path+'help/en/settings-desktop.png');
+        }
+
+        .start-mobile {
+            background-image: url($image-path+'help/en/start-mobile.png');
+        }
+
+        .start-desktop {
+            background-image: url($image-path+'help/en/start-desktop.png');
+        }
+    }
+}
