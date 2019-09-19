@@ -6,7 +6,7 @@
     <app-facets></app-facets>
   </ng-template>
   <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
-    <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="true"
+    <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="clusterStations"
       mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps" (selected)="onSelectedTs($event)">
     </n52-result-map>
     <app-zoom-buttons class="zoom-control" mapId="facet-search"></app-zoom-buttons>

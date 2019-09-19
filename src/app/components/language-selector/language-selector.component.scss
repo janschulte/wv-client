@@ -1,0 +1,49 @@
+@import '../../../variables';
+
+.language-chooser {
+    float: right;
+
+    .dropdown-toggle {
+        text-align: left;
+        width: 160px;
+
+        .icon {
+            float: right;
+            padding-top: 3px;
+        }
+    }
+
+    .menu-item {
+        padding: 5px;
+        line-height: 13px;
+
+        .flag {
+            float: left;
+            margin-right: 5px;
+        }
+
+        &:hover {
+            background-color: $geyser-gray;
+            cursor: pointer;
+        }
+    }
+}
+
+.flag {
+    margin-bottom: 3px;
+    margin-right: 8px;
+}
+
+.flag {
+    width: 16px;
+    height: 12px;
+    background-image: url($image-path+'flags.png');
+}
+
+.flag.flag-de {
+    background-position: -80px -33px;
+}
+
+.flag.flag-en {
+    background-position: -176px -44px
+}

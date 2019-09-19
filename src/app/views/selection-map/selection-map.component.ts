@@ -6,7 +6,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tileLayer } from 'leaflet';
 import { Subscription } from 'rxjs';
 
+import { StateHandlerService } from '../../services/state-handler/state-handler.service';
 import { StationSelectionComponent } from './../../components/station-selection/station-selection.component';
+import { KEY_STORAGE_CLUSTER_STATIONS } from './../../services/state-handler/state-handler.service';
 
 @Component({
   selector: 'app-selection-map',
@@ -29,12 +31,17 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
 
   public toggleMarker = true;
 
+  public clusterStations: boolean;
+
   constructor(
     public facetSearch: FacetSearchService,
+    private stateHandler: StateHandlerService,
     private modalService: NgbModal
   ) { }
 
   ngOnInit() {
+    this.clusterStations = this.stateHandler.load(KEY_STORAGE_CLUSTER_STATIONS);
+
     this.resultSubs = this.facetSearch.getResults().subscribe(ts => this.resultCount = ts.length);
 
     this.baseMaps.set('OM', {

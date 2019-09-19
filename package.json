@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "^8.2.0",
     "@angular/router": "^8.2.0",
     "@helgoland/caching": "1.0.0-beta.2",
-    "@helgoland/core": "1.0.0-beta.2",
+    "@helgoland/core": "file:../../helgoland-toolbox/helgoland-core-1.0.0-beta.2.tgz",
     "@helgoland/d3": "file:../../helgoland-toolbox/helgoland-d3-1.0.0-beta.2.tgz",
     "@helgoland/depiction": "1.0.0-beta.2",
     "@helgoland/facet-search": "file:../../helgoland-toolbox/helgoland-facet-search-1.0.0-beta.2.tgz",

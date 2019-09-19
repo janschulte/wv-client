@@ -1,10 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HelgolandCachingModule } from '@helgoland/caching';
-import { DatasetApiInterface, DatasetImplApiInterface, HelgolandCoreModule } from '@helgoland/core';
+import {
+   DatasetApiInterface,
+   DatasetImplApiInterface,
+   HelgolandCoreModule,
+   Settings,
+   SettingsService,
+} from '@helgoland/core';
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
@@ -12,6 +18,7 @@ import { GeoSearch, NominatimGeoSearchService } from '@helgoland/map';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { settings } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
@@ -28,6 +35,14 @@ import { StartComponent } from './views/start/start.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+@Injectable()
+export class ExtendedSettingsService extends SettingsService<Settings> {
+   constructor() {
+      super();
+      this.setSettings(settings);
+   }
 }
 
 @NgModule({
@@ -68,6 +83,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       {
          provide: GeoSearch,
          useClass: NominatimGeoSearchService
+      },
+      {
+         provide: SettingsService,
+         useClass: ExtendedSettingsService
       },
       {
          useClass: DatasetImplApiInterface,

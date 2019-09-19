@@ -1,0 +1,11 @@
+{
+  "languages": [{
+      "label": "Deutsch",
+      "code": "de"
+    },
+    {
+      "label": "English",
+      "code": "en"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ModalImprintComponent } from '../../components/modal-imprint/modal-imprint.component';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
+import { ModalSettingsComponent } from './../../components/modal-settings/modal-settings.component';
 import { SelectionNavigationService } from './selection-navigation.service';
 
 @Component({
@@ -29,6 +30,10 @@ export class MainNavigationComponent implements OnInit {
 
   public openImprint() {
     this.modalService.open(ModalImprintComponent);
+  }
+
+  public openSettings() {
+    this.modalService.open(ModalSettingsComponent);
   }
 
 }

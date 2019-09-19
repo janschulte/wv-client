@@ -1,9 +1,12 @@
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import { Component } from '@angular/core';
+import { Settings, SettingsService } from '@helgoland/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Icon } from 'leaflet';
+
 import { InitializeService } from './services/initialize/initialize.service';
+import { KEY_STORAGE_LANGUAGE, StateHandlerService } from './services/state-handler/state-handler.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +17,12 @@ export class AppComponent {
 
   constructor(
     private translate: TranslateService,
-    private init: InitializeService
+    private init: InitializeService,
+    private settings: SettingsService<Settings>,
+    private stateHandler: StateHandlerService
   ) {
-    this.translate.setDefaultLang('en');
-    this.translate.use('de');
+
+    this.setLanguage();
 
     // necessary to load information on e.g. what 'medium' date format should look like in German etc.
     registerLocaleData(localeDe);
@@ -33,4 +38,23 @@ export class AppComponent {
     });
   }
 
+
+  private setLanguage() {
+    // fetch save language
+    const savedLang = this.stateHandler.load<string>(KEY_STORAGE_LANGUAGE);
+    if (savedLang) {
+      if (this.settings.getSettings().languages.find(e => e.code === savedLang)) {
+        this.translate.use(savedLang);
+      }
+    } else {
+      // else choose browser language
+      const browserLang = this.translate.getBrowserLang();
+      if (this.settings.getSettings().languages.find(e => e.code === browserLang)) {
+        this.translate.use(browserLang);
+      } else {
+        // else set first configured language
+        this.translate.use(this.settings.getSettings().languages[0].code);
+      }
+    }
+  }
 }

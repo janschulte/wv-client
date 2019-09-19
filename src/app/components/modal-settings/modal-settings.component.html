@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <div class="modal-title" translate="settings.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body">
+  <div class="modal-inline-header" translate="settings.captions.general"></div>
+  <div class="language-block">
+    <app-language-selector [languageList]="languageList"></app-language-selector>
+    <div translate="settings.chooseLanguage"></div>
+  </div>
+  <div class="modal-inline-header" translate="settings.captions.map"></div>
+  <div class="modal-inline-block toggle-block" (click)="toggleMarkerCluster()">
+    <input class="wv-toggle" type="radio" [checked]="clusterMarker"><label class="wv-label"></label>
+    <div class="toggle-header" translate="settings.clusterMarker.header"></div>
+    <div class="toggle-description" translate="settings.clusterMarker.description"></div>
+  </div>
+  <div class="modal-inline-block toggle-block" (click)="toggleValuedMarker()">
+    <input class="wv-toggle" type="radio" [checked]="valuedMarker"><label class="wv-label"></label>
+    <div class="toggle-header" translate="settings.lastValueMarker.header"></div>
+    <div class="toggle-description" translate="settings.lastValueMarker.description"></div>
+  </div>
+  <div class="modal-inline-header" translate="settings.captions.reset"></div>
+  <div class="modal-inline-block toggle-block reset">
+    <div class="wv-button" (click)="resetStatus()">
+      <div translate="settings.captions.reset"></div>
+    </div>
+    <div class="toggle-header" translate="settings.reset.header"></div>
+    <div class="toggle-description" translate="settings.reset.description"></div>
+  </div>
+</div>

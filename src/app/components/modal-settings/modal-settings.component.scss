@@ -1,0 +1,21 @@
+@import '../../../variables';
+
+.language-block {
+    height: 50px;
+    line-height: 50px-8px-8px;
+    background-color: $white;
+    padding: 8px;
+}
+
+.toggle-block.reset {
+    .wv-button {
+        background-color: $brick-red;
+        float: right;
+        margin: -7px 0px;
+    }
+
+    &:hover {
+        cursor: default;
+        background-color: $white !important;
+    }
+}
