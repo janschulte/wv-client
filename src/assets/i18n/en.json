@@ -45,7 +45,7 @@
 			"header": "edit favorite"
 		},
 		"empty": {
-			"description": "To add a timeseries as a favorite, navigate to the timeseries view and select the star symbol found in the timeseries details.<br> With the import Button you can reload previously exported favorites.",
+			"description": "To add a timeseries as a favorite, navigate to the diagram view and select the star symbol found in the timeseries details.<br> With the import Button you can reload previously exported favorites.",
 			"header": "No favorites have been added to the list"
 		},
 		"export": {
@@ -179,10 +179,10 @@
 			"station": "Station"
 		},
 		"allPhenomena": "All phenomenons",
+		"diagram": "Diagram",
 		"favorite": "Favorites",
 		"help": "Help",
-		"settings": "Settings",
-		"timeseries": "Timeseries"
+		"settings": "Settings"
 	},
 	"map": {
 		"layers": {
@@ -208,7 +208,7 @@
 			"loading": "Timeseries will be loaded...",
 			"remove": "Timeseries removed",
 			"showAll": "further phenomenons",
-			"showChart": "Open chart view"
+			"showChart": "Open diagram view"
 		},
 		"stationLocation": {
 			"jumpBackToChart": "back to chart",

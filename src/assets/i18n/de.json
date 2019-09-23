@@ -45,7 +45,7 @@
 			"header": "Favorit editieren"
 		},
 		"empty": {
-			"description": "Klicken Sie in der Zeitreihenansicht auf das Sternsymbol in den Details einer Zeitreihe, um sie als Favorit hinzuzufügen.<br>Über den Importieren Button können vorher exportierte Favoriten wieder eingeladen werden.",
+			"description": "Klicken Sie in der Diagrammansicht auf das Sternsymbol in den Details einer Zeitreihe, um sie als Favorit hinzuzufügen.<br>Über den Importieren Button können vorher exportierte Favoriten wieder eingeladen werden.",
 			"header": "Es wurden bisher keine Favoriten gesammelt"
 		},
 		"export": {
@@ -179,10 +179,10 @@
 			"station": "Station"
 		},
 		"allPhenomena": "Alle Messparameter",
+		"diagram": "Diagramm",
 		"favorite": "Favoriten",
 		"help": "Hilfe",
-		"settings": "Einstellungen",
-		"timeseries": "Zeitreihen"
+		"settings": "Einstellungen"
 	},
 	"map": {
 		"layers": {
@@ -208,7 +208,7 @@
 			"loading": "Zeitreihen werden geladen...",
 			"remove": "Zeitreihe entfernt",
 			"showAll": "weitere Messparameter hier",
-			"showChart": "zur Zeitreihenansicht"
+			"showChart": "zur Diagrammansicht"
 		},
 		"stationLocation": {
 			"jumpBackToChart": "zurück zum Diagramm",
