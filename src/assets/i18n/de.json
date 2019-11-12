@@ -33,7 +33,7 @@
 		"reachedMaxTimeperiod": "Der maximal auswählbare Zeitraum wurde überschritten und wurde angepasst."
 	},
 	"code": "de",
-	"export": "Diagram exportieren",
+	"export": "Diagramm exportieren",
 	"facets": {
 		"category": "Kategorie",
 		"phenomenon": "Messparameter",
