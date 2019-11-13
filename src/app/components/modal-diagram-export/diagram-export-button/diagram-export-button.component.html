@@ -1,3 +1,6 @@
 <div class="wv-button" (click)="exportImage()">
   <span class="mid description">{{'export' | translate}}</span>
 </div>
+<div *ngIf="loading" style="padding-left: 10px;">
+  <div class="loader dark"></div>
+</div>

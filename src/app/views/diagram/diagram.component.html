@@ -59,8 +59,9 @@
         (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
       <app-timespan-button label="1 {{'chart.hotkeys.month' | translate}}" [timespanFunc]="oneMonth"
         (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
-      <app-diagram-export-button svgSelector=".chart n52-d3-timeseries-graph" title="Exported by WV-Client"
-        [datasetOptions]="timeseriesService.datasetOptions" showLegend="true"></app-diagram-export-button>
+      <div class="wv-button" (click)="openModalExportImage()">
+        <span class="mid description">{{'export' | translate}}</span>
+      </div>
     </div>
     <!-- <div class="empty hidden-series" ng-if="!hasVisibleTimeseries()">
       <h1 translate="chart.allHidden.header"></h1>

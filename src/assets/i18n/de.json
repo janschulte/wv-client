@@ -33,6 +33,16 @@
 		"reachedMaxTimeperiod": "Der maximal auswählbare Zeitraum wurde überschritten und wurde angepasst."
 	},
 	"code": "de",
+	"controls": {
+		"cancel": "Abbrechen"
+	},
+	"diagram-export": {
+		"end": "Ende",
+		"header": "Exportiere Diagramm",
+		"no-data-hint": "hat keine Daten im ausgewählten Zeitraum",
+		"start": "Start",
+		"title": "Titel"
+	},
 	"export": "Diagramm exportieren",
 	"facets": {
 		"category": "Kategorie",
@@ -124,7 +134,7 @@
 			"header": "Start-Ansicht",
 			"text": {
 				"desktop": "Die obere Leiste dient als Hauptnavigation. Von hier aus gelangt der Nutzer zur Darstellung der Zeitreihendaten und der Auswahl von Zeitreihen und der Verwaltung der Favoriten.",
-				"mobile": "Über die Icons in der oberen Leiste gelangen Sie zu den Einstellungen, der Hilfe und dem Impressum. Über die untere Leiste gelangen Sie zur Zeitreihen-Diagram-Ansicht, zur Auswahl neuer Zeitreihen und zur Verwaltung der von Ihnen erstellten Favoriten. Über den mittleren Bereich gelangen Sie direkt zu verschiedenen Methoden der Zeitreihenauswahl."
+				"mobile": "Über die Icons in der oberen Leiste gelangen Sie zu den Einstellungen, der Hilfe und dem Impressum. Über die untere Leiste gelangen Sie zur Zeitreihen-Diagramm-Ansicht, zur Auswahl neuer Zeitreihen und zur Verwaltung der von Ihnen erstellten Favoriten. Über den mittleren Bereich gelangen Sie direkt zu verschiedenen Methoden der Zeitreihenauswahl."
 			}
 		}
 	},

@@ -8,6 +8,7 @@ import { TimeseriesService } from '../../services/timeseries/timeseries.service'
 import {
   ModalDatasetoptionsEditorComponent,
 } from './../../components/modal-datasetoptions-editor/modal-datasetoptions-editor.component';
+import { ModalDiagramExportComponent } from './../../components/modal-diagram-export/modal-diagram-export.component';
 import { ModalTimeSettingsComponent } from './../../components/modal-time-settings/modal-time-settings.component';
 
 @Component({
@@ -66,6 +67,11 @@ export class DiagramComponent implements OnInit {
 
   dataLoaded(loaded) {
     debugger;
+  }
+
+  openModalExportImage() {
+    const modalRef = this.modalService.open(ModalDiagramExportComponent);
+    // (modalRef.componentInstance as ModalDatasetoptionsEditorComponent).options = options;
   }
 
   editOption(options: DatasetOptions) {

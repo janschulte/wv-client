@@ -6,10 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HelgolandCachingModule } from '@helgoland/caching';
 import {
    DatasetApiInterface,
-   DatasetImplApiInterface,
    HelgolandCoreModule,
    Settings,
    SettingsService,
+   SplittedDataDatasetApiInterface,
 } from '@helgoland/core';
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
@@ -75,7 +75,7 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       AppRoutingModule,
       HelgolandCoreModule,
       HelgolandD3Module,
-      HelgolandCachingModule,
+      HelgolandCachingModule.forRoot({ cachingDurationInMilliseconds: 300000 }),
       HelgolandDatasetlistModule,
       HelgolandFacetSearchModule
    ],
@@ -89,7 +89,7 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
          useClass: ExtendedSettingsService
       },
       {
-         useClass: DatasetImplApiInterface,
+         useClass: SplittedDataDatasetApiInterface,
          provide: DatasetApiInterface
       }
    ],

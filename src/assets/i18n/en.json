@@ -33,6 +33,16 @@
 		"reachedMaxTimeperiod": "The maximum selectable time period is exceeded and was adjusted."
 	},
 	"code": "en",
+	"controls": {
+		"cancel": "Cancel"
+	},
+	"diagram-export": {
+		"end": "End",
+		"header": "Export diagram",
+		"no-data-hint": "has no date in selected timeframe.",
+		"start": "Start",
+		"title": "Title"
+	},
 	"export": "Export diagram",
 	"facets": {
 		"category": "Category",
