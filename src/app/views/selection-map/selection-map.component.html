@@ -7,7 +7,8 @@
   </ng-template>
   <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
     <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="clusterStations"
-      mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps" (selected)="onSelectedTs($event)">
+      [selectSingleStation]="true" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps"
+      (selected)="onSelectedTs($event)">
     </n52-result-map>
     <app-zoom-buttons class="zoom-control" mapId="facet-search"></app-zoom-buttons>
     <app-locate-button class="locate-control" mapId="facet-search"></app-locate-button>
