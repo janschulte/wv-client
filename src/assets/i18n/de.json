@@ -44,6 +44,19 @@
 		"title": "Titel"
 	},
 	"export": "Diagramm exportieren",
+	"export-timeseries-data": {
+		"csv-export-button": "CSV",
+		"header": "Datasatz Download",
+		"labels": {
+			"first-value": "Erster Wert",
+			"from": "Von",
+			"last-value": "Letzter Wert",
+			"measure-parameter": "Messparameter",
+			"to": "Bis",
+			"unit": "Einheit"
+		},
+		"xls-export-button": "Excel"
+	},
 	"facets": {
 		"category": "Kategorie",
 		"phenomenon": "Messparameter",

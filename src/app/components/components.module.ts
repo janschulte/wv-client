@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HelgolandCoreModule } from '@helgoland/core';
+import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule } from '@helgoland/map';
 import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +23,7 @@ import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-edito
 import { DiagramExportButtonComponent } from './modal-diagram-export/diagram-export-button/diagram-export-button.component';
 import { ModalDiagramExportComponent } from './modal-diagram-export/modal-diagram-export.component';
 import { NoDataHintComponent } from './modal-diagram-export/no-data-hint/no-data-hint.component';
+import { ModalExportTimeseriesDataComponent } from './modal-export-timeseries-data/modal-export-timeseries-data.component';
 import { ModalImprintComponent } from './modal-imprint/modal-imprint.component';
 import { ModalSettingsComponent } from './modal-settings/modal-settings.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
@@ -40,6 +42,7 @@ const COMPONENTS = [
   LocateButtonComponent,
   ModalDatasetoptionsEditorComponent,
   ModalDiagramExportComponent,
+  ModalExportTimeseriesDataComponent,
   ModalImprintComponent,
   ModalSettingsComponent,
   ModalTimeSettingsComponent,
@@ -67,6 +70,7 @@ const COMPONENTS = [
     Ng5SliderModule,
     HelgolandCoreModule,
     HelgolandMapControlModule,
+    HelgolandDatasetDownloadModule,
     HelgolandFacetSearchModule
   ],
   entryComponents: [COMPONENTS],

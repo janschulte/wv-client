@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <div class="modal-title" translate="export-timeseries-data.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body">
+  <n52-dataset-export [inputId]="internalId" [exportOptions]="exportOptions" (onMetadataChange)="onMetadata($event)"
+    (onLoadingChange)="onLoading($event)"></n52-dataset-export>
+
+  <table style="width:100%">
+    <tr>
+      <td class="label">{{'export-timeseries-data.labels.measure-parameter' | translate}}</td>
+      <td>{{dataset.parameters.phenomenon.label}}</td>
+    </tr>
+    <tr>
+      <td class="label">{{'export-timeseries-data.labels.unit' | translate}}</td>
+      <td>{{dataset.uom}}</td>
+    </tr>
+    <tr>
+      <td class="label">{{'export-timeseries-data.labels.first-value' | translate}}</td>
+      <td>{{dataset.firstValue.timestamp | date: 'medium'}}</td>
+    </tr>
+    <tr>
+      <td class="label">{{'export-timeseries-data.labels.last-value' | translate}}</td>
+      <td>{{dataset.lastValue.timestamp | date: 'medium'}}</td>
+    </tr>
+    <tr>
+      <td class="label">{{'export-timeseries-data.labels.from' | translate}}</td>
+      <td>
+        <input type="datetime-local" class="form-control" [ngModel]="start | date:'yyyy-MM-ddThh:mm'"
+          (ngModelChange)="start = $event">
+      </td>
+    </tr>
+    <tr>
+      <td class="label">{{'export-timeseries-data.labels.to' | translate}}</td>
+      <td>
+        <input type="datetime-local" class="form-control" [ngModel]="end | date:'yyyy-MM-ddThh:mm'"
+          (ngModelChange)="end = $event">
+      </td>
+    </tr>
+  </table>
+
+  <div class="footer">
+    <div class="wv-button" (click)="onDownload('csv')">
+      <span class="mid description">{{'export-timeseries-data.csv-export-button' | translate}}</span>
+    </div>
+    <div class="wv-button" (click)="onDownload('xlsx')">
+      <span class="mid description">{{'export-timeseries-data.xls-export-button' | translate}}</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="wv-button" (click)="activeModal.dismiss()">
+      <span class="mid description">{{'controls.cancel' | translate}}</span>
+    </div>
+  </div>
+
+</div>

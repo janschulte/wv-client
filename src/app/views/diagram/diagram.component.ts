@@ -70,8 +70,7 @@ export class DiagramComponent implements OnInit {
   }
 
   openModalExportImage() {
-    const modalRef = this.modalService.open(ModalDiagramExportComponent);
-    // (modalRef.componentInstance as ModalDatasetoptionsEditorComponent).options = options;
+    this.modalService.open(ModalDiagramExportComponent);
   }
 
   editOption(options: DatasetOptions) {

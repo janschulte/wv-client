@@ -1,7 +1,12 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { TimeseriesEntryComponent, ReferenceValueColorCache } from '@helgoland/depiction';
-import { DatasetApiInterface, Time, InternalIdHandler, ColorService } from '@helgoland/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ColorService, DatasetApiInterface, InternalIdHandler, Time } from '@helgoland/core';
+import { ReferenceValueColorCache, TimeseriesEntryComponent } from '@helgoland/depiction';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+
+import {
+  ModalExportTimeseriesDataComponent,
+} from './../../../../components/modal-export-timeseries-data/modal-export-timeseries-data.component';
 
 @Component({
   selector: 'app-legend-entry',
@@ -20,7 +25,8 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
     internalIdHandler: InternalIdHandler,
     color: ColorService,
     refValCache: ReferenceValueColorCache,
-    translateSrvc: TranslateService
+    translateSrvc: TranslateService,
+    private modalService: NgbModal,
   ) {
     super(api, timeSrvc, internalIdHandler, color, refValCache, translateSrvc);
   }
@@ -36,6 +42,11 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
     } else {
       this.highlighted.emit();
     }
+  }
+
+  public openDataExport() {
+    const modalRef = this.modalService.open(ModalExportTimeseriesDataComponent);
+    (modalRef.componentInstance as ModalExportTimeseriesDataComponent).internalId = this.dataset.internalId;
   }
 
 }

@@ -44,6 +44,19 @@
 		"title": "Title"
 	},
 	"export": "Export diagram",
+	"export-timeseries-data": {
+		"csv-export-button": "CSV",
+		"header": "Download dataset",
+		"labels": {
+			"first-value": "First value",
+			"from": "From",
+			"last-value": "Last value",
+			"measure-parameter": "Measure Parameter",
+			"to": "To",
+			"unit": "Unit"
+		},
+		"xls-export-button": "Excel"
+	},
 	"facets": {
 		"category": "Category",
 		"phenomenon": "Phenomenon",
