@@ -60,6 +60,7 @@
 	"facets": {
 		"category": "Kategorie",
 		"phenomenon": "Messparameter",
+		"reset-all": "Suche zurücksetzen",
 		"station": "Station",
 		"timeframe": "Zeitraum"
 	},

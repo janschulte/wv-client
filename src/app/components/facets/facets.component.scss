@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .facets {
     display: flex;
     flex-direction: column;
@@ -8,21 +10,24 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        // border: 2px solid blue;
         margin: 5px;
         padding: 5px;
 
         .facet-header {
             display: flex;
             flex-direction: row;
-            // border-bottom: 2px solid blue;
 
             .facet-header-label {
-                font-size: 150%;
+                font-size: 120%;
+                color: $white;
             }
 
             .autocomplete {
                 margin-left: auto;
+                input {
+                    padding: 0px 5px;
+                    height: initial;
+                }
             }
         }
 
@@ -30,5 +35,9 @@
             flex: 1;
             overflow: auto;
         }
+    }
+
+    .reset.wv-button {
+        margin-bottom: 10px;
     }
 }

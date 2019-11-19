@@ -30,6 +30,15 @@
         background-color: $light-slate-gray;
     }
 
+    &:disabled {
+        opacity: 0.65;
+        &:hover {
+            cursor: inherit;
+            color: $white;
+            background-color: inherit;
+        }
+    }
+
     @media screen and (max-width: $mobile-max-width) {
         height: 40px;
         min-width: 40px;

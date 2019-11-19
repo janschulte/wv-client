@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FacetSearchService, ParameterFacetType } from '@helgoland/facet-search';
 
 @Component({
@@ -6,7 +6,7 @@ import { FacetSearchService, ParameterFacetType } from '@helgoland/facet-search'
   templateUrl: './facets.component.html',
   styleUrls: ['./facets.component.scss']
 })
-export class FacetsComponent {
+export class FacetsComponent implements OnInit {
 
   public categoryType: ParameterFacetType = ParameterFacetType.category;
   public featureType: ParameterFacetType = ParameterFacetType.feature;
@@ -16,8 +16,20 @@ export class FacetsComponent {
   public featureAutocomplete: string;
   public phenomenonAutocomplete: string;
 
+  public facetsActive: boolean;
+
   constructor(
     public facetSearch: FacetSearchService
   ) { }
+
+  ngOnInit(): void {
+    this.facetSearch.getResults().subscribe(res => {
+      this.facetsActive = this.facetSearch.areFacetsSelected();
+    });
+  }
+
+  public resetAll() {
+    this.facetSearch.resetAllFacets();
+  }
 
 }

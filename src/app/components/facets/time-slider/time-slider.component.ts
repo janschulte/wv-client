@@ -4,8 +4,6 @@ import { FacetSearch } from '@helgoland/facet-search';
 import moment, { Duration } from 'moment';
 import { ChangeContext, CustomStepDefinition, Options } from 'ng5-slider';
 
-
-
 @Component({
   selector: 'app-time-slider',
   templateUrl: './time-slider.component.html',
@@ -15,8 +13,8 @@ export class TimeSliderComponent implements OnInit {
 
   @Input() public facetSearchService: FacetSearch;
 
-  public minVal;
-  public maxVal;
+  public minVal: number;
+  public maxVal: number;
   public options: Options;
 
   constructor() { }
@@ -30,42 +28,57 @@ export class TimeSliderComponent implements OnInit {
 
   public updateTime(change: ChangeContext) {
     const timespan = new Timespan(change.value, change.highValue);
-    this.facetSearchService.setCurrentTimespan(timespan);
+    this.facetSearchService.setSelectedTimespan(timespan);
   }
 
   private fetchTime() {
-    if (!this.options) {
-      const comleteTs = this.facetSearchService.getCompleteTimespan();
-      const currentTs = this.facetSearchService.getCurrentTimespan();
-      const timestops = this.getTimeStops(comleteTs, moment.duration(6, 'months'));
+    const completeTs = this.facetSearchService.getFilteredTimespan();
+    const duration = this.findDuration(completeTs);
+    const timestops = this.getTimeStops(completeTs, duration);
+    const currentTs = this.facetSearchService.getSelectedTimespan();
+    if (currentTs) {
       this.minVal = currentTs.from;
       this.maxVal = currentTs.to;
+    } else {
+      this.minVal = completeTs.from;
+      this.maxVal = completeTs.to;
+    }
+    if (timestops) {
       this.options = {
         animate: false,
         stepsArray: timestops,
-        floor: timestops[0].value,
-        ceil: timestops[timestops.length - 1].value,
         translate: (value): string => moment(value).format('MMM YYYY')
       };
     }
   }
 
   private getTimeStops(timespan: Timespan, duration: Duration): CustomStepDefinition[] {
-    const startTime = moment(timespan.from);
-    const endTime = moment(timespan.to);
+    if (timespan) {
+      const startTime = moment(timespan.from);
+      const endTime = moment(timespan.to);
 
-    if (endTime.isBefore(startTime)) {
-      endTime.add(1, 'day');
+      if (endTime.isBefore(startTime)) {
+        endTime.add(1, 'day');
+      }
+      const timeStops: CustomStepDefinition[] = [{ value: startTime.valueOf() }];
+
+      do {
+        startTime.add(duration);
+        timeStops.push({ value: startTime.valueOf() });
+      } while (startTime <= endTime);
+
+      return timeStops;
     }
+  }
 
-    const timeStops: CustomStepDefinition[] = [{ value: startTime.valueOf() }];
-
-    do {
-      startTime.add(duration);
-      timeStops.push({ value: startTime.valueOf() });
-    } while (startTime <= endTime);
-
-    return timeStops;
+  private findDuration(timespan: Timespan) {
+    if (timespan) {
+      const diff = timespan.to - timespan.from;
+      if (diff > moment.duration(20, 'years').asMilliseconds()) {
+        return moment.duration(6, 'months');
+      }
+    }
+    return moment.duration(1, 'months');
   }
 
 }

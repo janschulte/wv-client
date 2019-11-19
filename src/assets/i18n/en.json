@@ -60,6 +60,7 @@
 	"facets": {
 		"category": "Category",
 		"phenomenon": "Phenomenon",
+		"reset-all": "Reset search",
 		"station": "Station",
 		"timeframe": "Timeframe"
 	},

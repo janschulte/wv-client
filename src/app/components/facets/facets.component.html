@@ -36,7 +36,9 @@
     <div class="facet-header">
       <div class="facet-header-label">{{'facets.timeframe' | translate}}</div>
     </div>
-    <!-- <app-time-facet [facetSearchService]="facetSearch"></app-time-facet> -->
     <app-time-slider [facetSearchService]="facetSearch"></app-time-slider>
   </div>
+  <button class="btn reset wv-button" (click)="resetAll()" [disabled]="!facetsActive">
+    <span>{{'facets.reset-all' | translate}}</span>
+  </button>
 </div>
