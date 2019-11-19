@@ -9,23 +9,24 @@
     <div class="loader dark"></div>
     <span translate="map.station.loading"></span>
   </div>
-  <div *ngFor="let timeseries of timeseriesList">
+  <div *ngFor="let timeseries of filteredTimeseries">
     <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
     <app-timeseries-item [timeseries]="timeseries"></app-timeseries-item>
   </div>
-  <!-- <div>
-    <div class="show-all big" ng-show="counter > 0" ng-click="showAll()">
-      <div class="icon" ng-class="{'icon-arrow-down': !allShown, 'icon-arrow-up': allShown}"></div>
+  <div>
+    <div class="show-all big" *ngIf="additionalTsCount > 0" (click)="showAdditionalTs = !showAdditionalTs">
+      <div class="icon" [ngClass]="{'icon-arrow-down': !showAdditionalTs, 'icon-arrow-up': showAdditionalTs}"></div>
       <div>
-        <span>{{counter}}</span>
         <span translate="map.station.showAll"></span>
       </div>
     </div>
-    <div ng-show="allShown" ng-repeat="(key, entry) in phenomenonOrdered"
-      ng-if="phenomenonId != null && key !== phenomenonId" ng-init="countUp()">
-      <div ng-include="'templates/map/station-entry.html'"></div>
+    <div *ngIf="showAdditionalTs">
+      <div *ngFor="let timeseries of timeseriesList">
+        <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
+        <app-timeseries-item [timeseries]="timeseries"></app-timeseries-item>
+      </div>
     </div>
-  </div> -->
+  </div>
 </div>
 <div class="modal-footer station-footer">
   <!--<div class="wv-button addAll"

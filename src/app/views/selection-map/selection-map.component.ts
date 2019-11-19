@@ -74,6 +74,8 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     const modalRef = this.modalService.open(StationSelectionComponent);
     (modalRef.componentInstance as StationSelectionComponent).station = elem.station;
     (modalRef.componentInstance as StationSelectionComponent).url = elem.url;
+    (modalRef.componentInstance as StationSelectionComponent).filteredTimeseries =
+      this.facetSearch.getFilteredResults().filter(e => e.url === elem.url && e.station.id === elem.station.id);
   }
 
   public updateSideMenu(active: boolean) {
