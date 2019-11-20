@@ -1,3 +1,9 @@
-<div class="custom-slider" *ngIf="options">
-    <ng5-slider [(value)]="minVal" [(highValue)]="maxVal" [options]="options" (userChangeEnd)="updateTime($event)"></ng5-slider>
+<div class="facet" *ngIf="supportsTimefilter">
+  <div class="facet-header">
+    <div class="facet-header-label">{{'facets.timeframe' | translate}}</div>
+  </div>
+  <div class="custom-slider" *ngIf="options">
+    <ng5-slider [(value)]="minVal" [(highValue)]="maxVal" [options]="options" (userChangeEnd)="updateTime($event)">
+    </ng5-slider>
+  </div>
 </div>

@@ -19,14 +19,18 @@ import { WvResultListComponent } from './facets/result-list/result-list.componen
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
 import { TimeSliderComponent } from './facets/time-slider/time-slider.component';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
+import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { DiagramExportButtonComponent } from './modal-diagram-export/diagram-export-button/diagram-export-button.component';
 import { ModalDiagramExportComponent } from './modal-diagram-export/modal-diagram-export.component';
 import { NoDataHintComponent } from './modal-diagram-export/no-data-hint/no-data-hint.component';
 import { ModalExportTimeseriesDataComponent } from './modal-export-timeseries-data/modal-export-timeseries-data.component';
 import { ModalImprintComponent } from './modal-imprint/modal-imprint.component';
+import { ModalServiceSelectorListComponent } from './modal-service-selector-list/modal-service-selector-list.component';
+import { SortServicesPipe } from './modal-service-selector-list/sort-services.pipe';
 import { ModalSettingsComponent } from './modal-settings/modal-settings.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
+import { ServiceSelectorButtonComponent } from './service-selector-button/service-selector-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { StationSelectionComponent } from './station-selection/station-selection.component';
 import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.component';
@@ -39,14 +43,17 @@ const COMPONENTS = [
   GeoSearchComponent,
   LanguageSelectorComponent,
   LayersControlComponent,
+  LoadingOverlayComponent,
   LocateButtonComponent,
   ModalDatasetoptionsEditorComponent,
   ModalDiagramExportComponent,
   ModalExportTimeseriesDataComponent,
   ModalImprintComponent,
+  ModalServiceSelectorListComponent,
   ModalSettingsComponent,
   ModalTimeSettingsComponent,
   NoDataHintComponent,
+  ServiceSelectorButtonComponent,
   SideMenuComponent,
   StationSelectionComponent,
   TimeFacetComponent,
@@ -57,6 +64,10 @@ const COMPONENTS = [
   WvResultListComponent,
   WvTimespanButtonComponent,
   ZoomButtonsComponent,
+];
+
+const PIPES = [
+  SortServicesPipe
 ];
 
 @NgModule({
@@ -75,6 +86,6 @@ const COMPONENTS = [
   ],
   entryComponents: [COMPONENTS],
   exports: [COMPONENTS],
-  declarations: [COMPONENTS]
+  declarations: [COMPONENTS, PIPES],
 })
 export class ComponentsModule { }

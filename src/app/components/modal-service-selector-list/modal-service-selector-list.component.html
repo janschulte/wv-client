@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <div class="modal-title" translate="service-selector-list.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body">
+
+  <div *ngIf="loadingCount > 0">
+    <span>Requesting {{loadingCount}} providers...</span>
+  </div>
+  <div class="provider-item" *ngFor="let service of services | sortServices">
+    <div class="item" [ngClass]="{'selected': isSelected(service)}" (click)="selectService(service)">
+      <input class="wv-radio" type="radio" [checked]="isSelected(service)">
+      <label class="wv-label mid"></label>
+      <div class="big">{{service.label}}</div>
+      <div class="small">{{service.type}}, {{service.version}}</div>
+      <div class="small">{{service.apiUrl}}</div>
+      <div class="small">
+        <span translate="map.providerList.stations"></span>
+        <span>: {{service.quantities.stations}} </span>
+        <span translate="map.providerList.timeseries"></span>
+        <span>: {{service.quantities.timeseries}} </span>
+        <span translate="map.providerList.phenomena"></span>
+        <span>: {{service.quantities.phenomena}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

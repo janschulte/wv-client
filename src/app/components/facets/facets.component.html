@@ -1,3 +1,4 @@
+<app-loading-overlay *ngIf="loading"></app-loading-overlay>
 <div class="facets col">
   <div class="facet">
     <div class="facet-header">
@@ -32,12 +33,7 @@
     <app-parameter-facet [facetSearchService]="facetSearch" [type]="featureType" [textualFilter]="featureAutocomplete"
       [sort]="'ascAlphabet'"></app-parameter-facet>
   </div>
-  <div class="facet">
-    <div class="facet-header">
-      <div class="facet-header-label">{{'facets.timeframe' | translate}}</div>
-    </div>
-    <app-time-slider [facetSearchService]="facetSearch"></app-time-slider>
-  </div>
+  <app-time-slider [facetSearchService]="facetSearch"></app-time-slider>
   <button class="btn reset wv-button" (click)="resetAll()" [disabled]="!facetsActive">
     <span>{{'facets.reset-all' | translate}}</span>
   </button>

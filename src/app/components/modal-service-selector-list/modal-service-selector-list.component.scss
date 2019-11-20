@@ -1,0 +1,36 @@
+@import '../../../variables';
+
+:host {
+    .provider-item {
+        background-color: $white;
+        padding: 10px;
+
+        // position: relative;
+        // z-index: 0;
+        // -webkit-transition: all 0.5s ease;
+        // -moz-transition: all 0.5s ease;
+        // -o-transition: all 0.5s ease;
+        // transition: all 0.5s ease;
+
+        +.provider-item {
+            margin-top: 10px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: fade-out($color: $light-slate-gray, $amount: 0.75);
+            // z-index: 1000;
+            // box-shadow: rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+            // -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+            // -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+        }
+
+        .wv-label {
+            float: right;
+        }
+
+        .small {
+            color: $slate-gray;
+        }
+    }
+}

@@ -5,36 +5,38 @@
     flex-direction: column;
     height: 100%;
 
-    .facet {
-        flex: 1;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        margin: 5px;
-        padding: 5px;
-
-        .facet-header {
+    ::ng-deep {
+        .facet {
+            flex: 1;
+            overflow: hidden;
             display: flex;
-            flex-direction: row;
-
-            .facet-header-label {
-                font-size: 120%;
-                color: $white;
-            }
-
-            .autocomplete {
-                margin-left: auto;
-                input {
-                    padding: 0px 5px;
-                    height: initial;
+            flex-direction: column;
+            margin: 5px;
+            padding: 5px;
+    
+            .facet-header {
+                display: flex;
+                flex-direction: row;
+    
+                .facet-header-label {
+                    font-size: 120%;
+                    color: $white;
+                }
+    
+                .autocomplete {
+                    margin-left: auto;
+                    input {
+                        padding: 0px 5px;
+                        height: initial;
+                    }
                 }
             }
-        }
-
-        n52-parameter-facet {
-            flex: 1;
-            overflow: auto;
-        }
+    
+            n52-parameter-facet {
+                flex: 1;
+                overflow: auto;
+            }
+        }   
     }
 
     .reset.wv-button {

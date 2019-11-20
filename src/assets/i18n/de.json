@@ -249,6 +249,9 @@
 		"notActive": "Generalisierte Daten werden zur Darstellung genutzt",
 		"notAllowed": "Zur Anzeige der Originalwerte den Zeitraum bitte auf einen Monat begrenzen."
 	},
+	"service-selector-list": {
+		"header": "Datenanbieter"
+	},
 	"settings": {
 		"captions": {
 			"general": "Allgemeine Einstellungen",

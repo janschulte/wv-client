@@ -17,6 +17,8 @@ export class TimeSliderComponent implements OnInit {
   public maxVal: number;
   public options: Options;
 
+  public supportsTimefilter : boolean;
+
   constructor() { }
 
   ngOnInit() {
@@ -32,23 +34,27 @@ export class TimeSliderComponent implements OnInit {
   }
 
   private fetchTime() {
+    this.supportsTimefilter = false;
     const completeTs = this.facetSearchService.getFilteredTimespan();
-    const duration = this.findDuration(completeTs);
-    const timestops = this.getTimeStops(completeTs, duration);
-    const currentTs = this.facetSearchService.getSelectedTimespan();
-    if (currentTs) {
-      this.minVal = currentTs.from;
-      this.maxVal = currentTs.to;
-    } else {
-      this.minVal = completeTs.from;
-      this.maxVal = completeTs.to;
-    }
-    if (timestops) {
-      this.options = {
-        animate: false,
-        stepsArray: timestops,
-        translate: (value): string => moment(value).format('MMM YYYY')
-      };
+    if (completeTs) {
+      this.supportsTimefilter = true;
+      const duration = this.findDuration(completeTs);
+      const timestops = this.getTimeStops(completeTs, duration);
+      const currentTs = this.facetSearchService.getSelectedTimespan();
+      if (currentTs) {
+        this.minVal = currentTs.from;
+        this.maxVal = currentTs.to;
+      } else {
+        this.minVal = completeTs.from;
+        this.maxVal = completeTs.to;
+      }
+      if (timestops) {
+        this.options = {
+          animate: false,
+          stepsArray: timestops,
+          translate: (value): string => moment(value).format('MMM YYYY')
+        };
+      }
     }
   }
 

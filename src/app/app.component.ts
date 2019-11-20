@@ -5,7 +5,6 @@ import { Settings, SettingsService } from '@helgoland/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Icon } from 'leaflet';
 
-import { InitializeService } from './services/initialize/initialize.service';
 import { KEY_STORAGE_LANGUAGE, StateHandlerService } from './services/state-handler/state-handler.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class AppComponent {
 
   constructor(
     private translate: TranslateService,
-    private init: InitializeService,
     private settings: SettingsService<Settings>,
     private stateHandler: StateHandlerService
   ) {
@@ -26,8 +24,6 @@ export class AppComponent {
 
     // necessary to load information on e.g. what 'medium' date format should look like in German etc.
     registerLocaleData(localeDe);
-
-    this.init.init();
 
     Icon.Default.mergeOptions({
       iconRetinaUrl: './assets/images/marker@2x.png',

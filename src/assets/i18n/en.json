@@ -249,6 +249,9 @@
 		"notActive": "Generalized values are used to display the data",
 		"notAllowed": "To display original values limit the time period to less than a month."
 	},
+	"service-selector-list": {
+		"header": "Dataprovider"
+	},
 	"settings": {
 		"captions": {
 			"general": "General settings",
