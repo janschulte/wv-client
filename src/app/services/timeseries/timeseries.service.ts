@@ -5,9 +5,12 @@ import {
   DatasetOptions,
   LocalStorage,
   RenderingHintsDatasetService,
+  SettingsService,
   Time,
   Timespan,
 } from '@helgoland/core';
+
+import { WvSettings } from '../../models/wv-settings';
 
 const TIMESERIES_OPTIONS_CACHE_PARAM = 'timeseriesOptions';
 const TIMESERIES_IDS_CACHE_PARAM = 'timeseriesIds';
@@ -26,6 +29,7 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
     protected localStorage: LocalStorage,
     protected timeSrvc: Time,
     protected api: DatasetApiInterface,
+    private settings: SettingsService<WvSettings>,
     private color: ColorService
   ) {
     super(api);
@@ -57,19 +61,23 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   }
 
   protected saveState(): void {
-    this.localStorage.save(TIMESERIES_IDS_CACHE_PARAM, this.datasetIds);
-    this.localStorage.save(TIMESERIES_OPTIONS_CACHE_PARAM, Array.from(this.datasetOptions.values()));
-    this.localStorage.save(GENERALIZE_CACHE_PARAM, this._generalize);
-    this.timeSrvc.saveTimespan(TIME_CACHE_PARAM, this._timespan);
+    if (this.settings.getSettings().saveState) {
+      this.localStorage.save(TIMESERIES_IDS_CACHE_PARAM, this.datasetIds);
+      this.localStorage.save(TIMESERIES_OPTIONS_CACHE_PARAM, Array.from(this.datasetOptions.values()));
+      this.localStorage.save(GENERALIZE_CACHE_PARAM, this._generalize);
+      this.timeSrvc.saveTimespan(TIME_CACHE_PARAM, this._timespan);
+    }
   }
 
   protected loadState(): void {
-    const options = this.localStorage.loadArray<DatasetOptions>(TIMESERIES_OPTIONS_CACHE_PARAM);
-    if (options) { options.forEach(e => this.datasetOptions.set(e.internalId, e)); }
-    this.datasetIds = this.localStorage.loadArray<string>(TIMESERIES_IDS_CACHE_PARAM) || [];
-    this._timespan = this.timeSrvc.loadTimespan(TIME_CACHE_PARAM);
-    this._generalize = this.localStorage.load<boolean>(GENERALIZE_CACHE_PARAM);
-    if (this._generalize === undefined) { this._generalize = true; }
+    if (this.settings.getSettings().saveState) {
+      const options = this.localStorage.loadArray<DatasetOptions>(TIMESERIES_OPTIONS_CACHE_PARAM);
+      if (options) { options.forEach(e => this.datasetOptions.set(e.internalId, e)); }
+      this.datasetIds = this.localStorage.loadArray<string>(TIMESERIES_IDS_CACHE_PARAM) || [];
+      this._timespan = this.timeSrvc.loadTimespan(TIME_CACHE_PARAM);
+      this._generalize = this.localStorage.load<boolean>(GENERALIZE_CACHE_PARAM);
+      if (this._generalize === undefined) { this._generalize = true; }
+    }
   }
 
 }

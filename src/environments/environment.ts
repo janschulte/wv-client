@@ -1,4 +1,4 @@
-import { Settings } from '@helgoland/core';
+import { WvSettings } from '../app/models/wv-settings';
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -17,9 +17,9 @@ export const environment = {
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
-export let settings: Settings;
+export let settings: WvSettings;
 
-export const settingsPromise = new Promise<Settings>((resolve, reject) => {
+export const settingsPromise = new Promise<WvSettings>((resolve, reject) => {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', './assets/settings.json');
   xhr.onload = () => {
