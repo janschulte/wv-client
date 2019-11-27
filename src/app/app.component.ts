@@ -2,6 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 import { Component } from '@angular/core';
 import { Settings, SettingsService } from '@helgoland/core';
+import { D3TimeFormatLocaleService } from '@helgoland/d3';
 import { TranslateService } from '@ngx-translate/core';
 import { Icon } from 'leaflet';
 
@@ -17,10 +18,13 @@ export class AppComponent {
   constructor(
     private translate: TranslateService,
     private settings: SettingsService<Settings>,
-    private stateHandler: StateHandlerService
+    private stateHandler: StateHandlerService,
+    private d3translate: D3TimeFormatLocaleService
   ) {
 
     this.setLanguage();
+
+    this.addD3Language();
 
     // necessary to load information on e.g. what 'medium' date format should look like in German etc.
     registerLocaleData(localeDe);
@@ -52,5 +56,20 @@ export class AppComponent {
         this.translate.use(this.settings.getSettings().languages[0].code);
       }
     }
+  }
+
+  private addD3Language() {
+    this.d3translate.addTimeFormatLocale('de',
+      {
+        dateTime: '%a %b %e %X %Y',
+        date: '%d-%m-%Y',
+        time: '%H:%M:%S',
+        periods: ['AM', 'PM'],
+        days: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        shortDays: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        shortMonths: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+      }
+    );
   }
 }

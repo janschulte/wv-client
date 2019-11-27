@@ -61,6 +61,7 @@
 		"category": "Category",
 		"phenomenon": "Phenomenon",
 		"reset-all": "Reset search",
+		"search-placeholder": "Search",
 		"station": "Station",
 		"timeframe": "Timeframe"
 	},

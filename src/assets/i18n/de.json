@@ -61,6 +61,7 @@
 		"category": "Kategorie",
 		"phenomenon": "Messparameter",
 		"reset-all": "Suche zurücksetzen",
+		"search-placeholder": "Suche",
 		"station": "Station",
 		"timeframe": "Zeitraum"
 	},
