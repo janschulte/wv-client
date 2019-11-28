@@ -14,6 +14,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+### Deployment
+
+Please check the [server-configuration](https://angular.io/guide/deployment#server-configuration) section in the angular documentation for your deployment to support routed apps, because:
+
+```
+Angular apps are perfect candidates for serving with a simple static HTML server. You don't need a server-side engine to dynamically compose application pages because Angular does that on the client-side.
+
+If the app uses the Angular router, you must configure the server to return the application's host page (index.html) when asked for a file that it does not have.
+
+A routed application should support "deep links". A deep link is a URL that specifies a path to a component inside the app. For example, http://www.mysite.com/heroes/42 is a deep link to the hero detail page that displays the hero with id: 42.
+```
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
