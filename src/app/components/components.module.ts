@@ -18,6 +18,10 @@ import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-fa
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
 import { TimeSliderComponent } from './facets/time-slider/time-slider.component';
+import { FavoriteExportButtonComponent } from './favorite/favorite-export-button/favorite-export-button.component';
+import { FavoriteImportButtonComponent } from './favorite/favorite-import-button/favorite-import-button.component';
+import { FavoriteListComponent } from './favorite/favorite-list/favorite-list.component';
+import { ModalEditFavoriteComponent } from './favorite/modal-edit-favorite/modal-edit-favorite.component';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-editor/modal-datasetoptions-editor.component';
@@ -40,6 +44,9 @@ import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.co
 const COMPONENTS = [
   DiagramExportButtonComponent,
   FacetsComponent,
+  FavoriteExportButtonComponent,
+  FavoriteImportButtonComponent,
+  FavoriteListComponent,
   GeoSearchComponent,
   LanguageSelectorComponent,
   LayersControlComponent,
@@ -47,6 +54,7 @@ const COMPONENTS = [
   LocateButtonComponent,
   ModalDatasetoptionsEditorComponent,
   ModalDiagramExportComponent,
+  ModalEditFavoriteComponent,
   ModalExportTimeseriesDataComponent,
   ModalImprintComponent,
   ModalServiceSelectorListComponent,

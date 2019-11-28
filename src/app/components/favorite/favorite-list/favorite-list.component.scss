@@ -1,0 +1,57 @@
+@import '../../../../variables';
+
+.favorite-entry {
+    margin: 20px auto;
+    width: 660px;
+
+    .favorite-header {
+        background-color: $snow-grey;
+        height: 50px;
+        line-height: 50px;
+
+        .favorite-title {
+            padding: 15px;
+            color: $smoke-black;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .favorite-icons {
+            float: right;
+            color: $light-slate-gray;
+            font-size: 25px;
+
+            .icon {
+                margin-right: 10px;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $slate-gray;
+                }
+            }
+        }
+    }
+
+    .favorite-body {
+        background-color: $white;
+
+        &>div:first-child div {
+            border-left: 4px solid $slate-gray;
+            padding-left: 10px;
+        }
+
+        &>.favorite-block {
+            width: 49%;
+            display: inline-block;
+        }
+
+        .favorite-block {
+            padding: 15px;
+        }
+
+        &+.favorite-body {
+            border-top: 1px solid $geyser-gray;
+        }
+    }
+}

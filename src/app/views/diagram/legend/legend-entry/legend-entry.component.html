@@ -1,5 +1,4 @@
-<div class="legend-item"
-  [ngClass]="{'collapsed': highlight, 'visible': datasetOptions?.visible, 'selected': selected}"
+<div class="legend-item" [ngClass]="{'collapsed': highlight, 'visible': datasetOptions?.visible, 'selected': selected}"
   [ngStyle]="{'border-color': datasetOptions?.color}">
   <div class="loading" *ngIf="loading || loadingData">
     <div class="loader"></div>
@@ -20,14 +19,6 @@
     </div>
   </div>
   <div class="addition" *ngIf="highlight">
-    <!-- <div class="noDataWarning" ng-show="timeseries.hasNoDataInCurrentExtent">
-      <div class="mid bold" translate="legend.entry.noDataWarning"></div>
-      <div class="jumpToValue" ng-controller="SwcJumpToFirstLatestValuesCtrl"
-        ng-click="$event.stopPropagation(); jumpToLastTimeStamp(timeseries.lastValue)">
-        <span class="mid icon icon-arrow-right"></span>
-        <span class="mid" translate="legend.entry.jumpToLastValue"></span>
-      </div>
-    </div> -->
     <div>
       <span class="small bold" translate="legend.entry.procedure"></span>
       <span class="small"> {{procedureLabel}}</span>
@@ -36,7 +27,7 @@
       <span class="small bold" translate="legend.entry.provider"></span>
       <span class="small"> {{dataset.parameters.service.label}}</span>
     </div>
-    <div class="jumpToValue" (click)="jumpToFirstTimeStamp(); $event.stopPropagation()">
+    <div *ngIf="dataset.firstValue" class="jumpToValue" (click)="jumpToFirstTimeStamp(); $event.stopPropagation()">
       <div class="icon"
         [ngClass]="{'icon-calendar-check':isInTimeSpan(dataset.firstValue.timestamp),'icon-calendar':!isInTimeSpan(dataset.firstValue.timestamp)}">
       </div>
@@ -46,7 +37,7 @@
           {{dataset.firstValue.value}} {{uom}}</span>
       </span>
     </div>
-    <div class="jumpToValue" (click)="jumpToLastTimeStamp(); $event.stopPropagation()">
+    <div *ngIf="dataset.lastValue" class="jumpToValue" (click)="jumpToLastTimeStamp(); $event.stopPropagation()">
       <div class="icon"
         [ngClass]="{'icon-calendar-check':isInTimeSpan(dataset.lastValue.timestamp),'icon-calendar':!isInTimeSpan(dataset.lastValue.timestamp)}">
       </div>
@@ -75,9 +66,9 @@
       </span>
       <!-- <span class="icon icon-share" (click)="shareTimeseries(timeseries); $event.stopPropagation()">
       </span> -->
-      <!-- <span class="icon" [ngClass]="{'icon-star-filled':isFavorite,'icon-star-empty':!isFavorite}"
-        (click)="toggleFavorite();$event.stopPropagation()">
-      </span> -->
+      <span class="icon" [ngClass]="{'icon-star-filled':isFavorite(dataset),'icon-star-empty':!isFavorite(dataset)}"
+        (click)="toggleFavorite(dataset);$event.stopPropagation()">
+      </span>
       <span class="icon icon-csv-export" (click)="openDataExport();$event.stopPropagation()">
       </span>
     </div>

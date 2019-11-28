@@ -14,6 +14,7 @@ import {
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
+import { HelgolandFavoriteModule } from '@helgoland/favorite';
 import { GeoSearch, NominatimGeoSearchService } from '@helgoland/map';
 import { HelgolandSelectorModule } from '@helgoland/selector';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -77,7 +78,11 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       HelgolandCoreModule,
       HelgolandD3Module,
       HelgolandSelectorModule,
-      HelgolandCachingModule.forRoot({ cachingDurationInMilliseconds: 300000 }),
+      HelgolandFavoriteModule,
+      HelgolandCachingModule.forRoot({
+         cachingDurationInMilliseconds: 300000,
+         getDataCacheActive: false
+      }),
       HelgolandDatasetlistModule,
       HelgolandFacetSearchModule
    ],

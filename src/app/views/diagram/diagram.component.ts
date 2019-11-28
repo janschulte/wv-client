@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DatasetOptions, Time, Timespan } from '@helgoland/core';
+import { DatasetApiInterface, DatasetOptions, Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
+import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
+import { forkJoin } from 'rxjs';
 
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import {
@@ -40,7 +42,9 @@ export class DiagramComponent implements OnInit {
   constructor(
     public timeseriesService: TimeseriesService,
     private modalService: NgbModal,
-    private time: Time
+    private time: Time,
+    private favoriteSrvc: FavoriteService,
+    private api: DatasetApiInterface
   ) { }
 
   ngOnInit() {
@@ -59,7 +63,10 @@ export class DiagramComponent implements OnInit {
 
   shareTimeseries() { }
 
-  createFavoriteGroup() { }
+  createFavoriteGroup() {
+    forkJoin(this.timeseriesService.datasetIds.map(id => this.api.getSingleTimeseriesByInternalId(id)))
+      .subscribe(datasets => this.favoriteSrvc.addFavoriteGroup(datasets));
+  }
 
   updateOptions(options: DatasetOptions, id: string) {
     // TODO implement

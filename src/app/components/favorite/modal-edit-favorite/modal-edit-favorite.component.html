@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <div class="modal-title" translate="favorite.edit.header"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body style-change">
+  <input type="text" class="form-control" maxlength="60" [(ngModel)]="label">
+</div>
+<div class="modal-footer">
+  <div class="wv-button" (click)="setNewLabel()">
+    <span class="description" translate="ok"></span>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div id="favorites-list">
+
+  <div class="favorite-entry" *ngFor="let group of groups">
+    <div class="favorite-header">
+      <div class="favorite-icons">
+        <span class="icon icon-timeline-add" (click)="addGroupToChart(group)"></span>
+        <span class="icon icon-edit" (click)="edit(group)"></span>
+        <span class="icon icon-cancel" (click)="delete(group)"></span>
+      </div>
+      <div class="mid bold favorite-title">{{group.label}}</div>
+    </div>
+    <div>
+      <div class="favorite-body" *ngFor="let ts of group.favorites">
+        <div class="favorite-block">
+          <div class="mid bold">{{ts.parameters.feature.label}}</div>
+          <div class="mid">{{ts.parameters.phenomenon.label}} ({{ts.uom}})</div>
+        </div>
+        <div class="favorite-block small">
+          <div *ngIf="ts.lastValue">
+            <span class="small bold" translate='favorite.lastValue'></span>:
+            {{ts.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} | {{ts.lastValue.value}}
+            {{ts.uom}}
+          </div>
+          <div>
+            <span class="small bold" translate='favorite.provider'></span>: {{ts.parameters.service.label}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="favorite-entry" *ngFor="let fav of singles">
+    <div class="favorite-header">
+      <div class="favorite-icons">
+        <span class="icon icon-timeline-add" (click)="addSingleToChart(fav)"></span>
+        <span class="icon icon-edit" (click)="edit(fav)"></span>
+        <span class="icon icon-cancel" (click)="delete(fav)"></span>
+      </div>
+      <div class="mid bold favorite-title">{{fav.label}}</div>
+    </div>
+    <div class="favorite-body">
+      <div class="favorite-block">
+        <div class="mid bold">{{fav.favorite.parameters.feature.label}}</div>
+        <div class="mid">{{fav.favorite.parameters.phenomenon.label}} ({{fav.favorite.uom}})</div>
+      </div>
+      <div class="favorite-block small">
+        <div *ngIf="fav.favorite.lastValue">
+          <span class="small bold" translate='favorite.lastValue'></span>:
+          {{fav.favorite.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} |
+          {{fav.favorite.lastValue.value}} {{fav.favorite.uom}}
+        </div>
+        <div>
+          <span class="small bold" translate='favorite.provider'></span>:
+          {{fav.favorite.parameters.service.label}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

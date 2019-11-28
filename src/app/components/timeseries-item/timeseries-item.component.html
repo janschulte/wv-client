@@ -1,12 +1,11 @@
 <div class="ts-item" [ngClass]="{'selected': added}">
-  <div class="loader dark" *ngIf="!timeseries.lastValue.timestamp"></div>
   <div>
     <div class="big">{{timeseries.parameters.procedure.label}}</div>
     <div class="mid">
       <span translate="map.station.category"></span>:
       <span>{{timeseries.parameters.category.label}}</span>
     </div>
-    <div class="mid" *ngIf="timeseries.lastValue.timestamp">
+    <div class="mid" *ngIf="timeseries.lastValue">
       <span translate="map.station.lastValue"></span>
       <span class="last-value"></span>
       <span>{{timeseries.lastValue.value}}</span>

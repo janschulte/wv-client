@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ColorService, DatasetApiInterface, InternalIdHandler, Time } from '@helgoland/core';
+import { ColorService, DatasetApiInterface, IDataset, InternalIdHandler, Time } from '@helgoland/core';
 import { ReferenceValueColorCache, TimeseriesEntryComponent } from '@helgoland/depiction';
+import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -27,12 +28,13 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
     refValCache: ReferenceValueColorCache,
     translateSrvc: TranslateService,
     private modalService: NgbModal,
+    private favoriteSrvc: FavoriteService
   ) {
     super(api, timeSrvc, internalIdHandler, color, refValCache, translateSrvc);
   }
 
-  public isInTimeSpan(timespan: number) {
-    // TODO implement, perhaps add to toolbox
+  public isInTimeSpan(timestamp: number) {
+    // TODO: implement, perhaps add to toolbox
     return true;
   }
 
@@ -47,6 +49,18 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
   public openDataExport() {
     const modalRef = this.modalService.open(ModalExportTimeseriesDataComponent);
     (modalRef.componentInstance as ModalExportTimeseriesDataComponent).internalId = this.dataset.internalId;
+  }
+
+  public toggleFavorite(dataset: IDataset) {
+    if (this.favoriteSrvc.hasFavorite(dataset)) {
+      this.favoriteSrvc.removeFavorite(dataset.internalId);
+    } else {
+      this.favoriteSrvc.addFavorite(dataset);
+    }
+  }
+
+  public isFavorite(dataset: IDataset) {
+    return this.favoriteSrvc.hasFavorite(dataset);
   }
 
 }
