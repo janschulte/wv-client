@@ -29,11 +29,11 @@ export class FavoriteListComponent implements OnInit {
   }
 
   public addSingleToChart(single: SingleFavorite) {
-    this.timeseriesSrvc.addDataset(single.id);
+    this.timeseriesSrvc.addDataset(single.id, single.options);
   }
 
   public addGroupToChart(group: GroupFavorite) {
-    group.favorites.forEach(e => this.timeseriesSrvc.addDataset(e.internalId));
+    group.favorites.forEach(e => this.timeseriesSrvc.addDataset(e.dataset.internalId, e.options));
   }
 
   public edit(favorite: Favorite) {

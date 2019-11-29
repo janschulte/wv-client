@@ -30,17 +30,17 @@ export class ModalDatasetoptionsEditorComponent {
 
   setSeperateAxis() {
     this.options.separateYAxis = !this.options.separateYAxis;
-    this.activeModal.close();
+    this.activeModal.close(this.options);
   }
 
   setZeroScaled() {
     this.options.zeroBasedYAxis = !this.options.zeroBasedYAxis;
-    this.activeModal.close();
+    this.activeModal.close(this.options);
   }
 
   setColor(color: string) {
     this.options.color = color;
-    this.activeModal.close();
+    this.activeModal.close(this.options);
   }
 
 }

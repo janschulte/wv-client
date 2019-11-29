@@ -3,9 +3,11 @@ import { DatasetApiInterface, DatasetOptions, Time, Timespan } from '@helgoland/
 import { D3PlotOptions } from '@helgoland/d3';
 import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import moment from 'moment';
 import { forkJoin } from 'rxjs';
 
+import { ToastService } from '../../components/toast/toast-container/toast-container.service';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import {
   ModalDatasetoptionsEditorComponent,
@@ -44,7 +46,9 @@ export class DiagramComponent implements OnInit {
     private modalService: NgbModal,
     private time: Time,
     private favoriteSrvc: FavoriteService,
-    private api: DatasetApiInterface
+    private api: DatasetApiInterface,
+    private toast: ToastService,
+    private translateSrvc: TranslateService
   ) { }
 
   ngOnInit() {
@@ -65,7 +69,12 @@ export class DiagramComponent implements OnInit {
 
   createFavoriteGroup() {
     forkJoin(this.timeseriesService.datasetIds.map(id => this.api.getSingleTimeseriesByInternalId(id)))
-      .subscribe(datasets => this.favoriteSrvc.addFavoriteGroup(datasets));
+      .subscribe(datasets => {
+        const label = this.translateSrvc.instant('favorite.label') + ' ' + (this.favoriteSrvc.getFavoriteGroups().length + 1);
+        this.toast.show(this.translateSrvc.instant('favorite.group.add', { label }), { classname: 'positive' });
+        const group = datasets.map(e => ({ dataset: e, options: this.timeseriesService.datasetOptions.get(e.internalId) }));
+        this.favoriteSrvc.addFavoriteGroup(group, label);
+      });
   }
 
   updateOptions(options: DatasetOptions, id: string) {
@@ -83,6 +92,9 @@ export class DiagramComponent implements OnInit {
   editOption(options: DatasetOptions) {
     const modalRef = this.modalService.open(ModalDatasetoptionsEditorComponent);
     (modalRef.componentInstance as ModalDatasetoptionsEditorComponent).options = options;
+    modalRef.result.then((editedOptions: DatasetOptions) =>
+      this.timeseriesService.updateDatasetOptions(editedOptions, editedOptions.internalId)
+    );
   }
 
   setSelected(ids: string[]) {

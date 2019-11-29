@@ -79,7 +79,7 @@
 		},
 		"exportFavorites": "Exportieren",
 		"group": {
-			"add": "&#39;{0}&#39; ist in den Favoriten erstellt worden.",
+			"add": "'{{label}}' ist in den Favoriten erstellt worden.",
 			"noTimeseries": "Derzeit sind keine Zeitreihen ausgewählt."
 		},
 		"import": {
@@ -94,8 +94,8 @@
 		"lastValue": "Letzter Wert",
 		"provider": "Quelle",
 		"single": {
-			"add": "Einer neuer Favorit mit dem Name &#39;{0}&#39; ist abgelegt worden.",
-			"notSupported": "Der Datenanbieter des Favoriten &#39;{0}&#39; wird nicht unterstützt und kann deswegen nicht eingeladen werden.",
+			"add": "Einer neuer Favorit mit dem Name '{{label}}' ist abgelegt worden.",
+			"notSupported": "Der Datenanbieter des Favoriten '{{label}}' wird nicht unterstützt und kann deswegen nicht eingeladen werden.",
 			"remove": "Der Favorit ist entfernt worden."
 		}
 	},

@@ -79,7 +79,7 @@
 		},
 		"exportFavorites": "export",
 		"group": {
-			"add": "&#39;{0}&#39; is created as favorite.",
+			"add": "'{label}' is created as favorite.",
 			"noTimeseries": "Currently no timeseries are selected."
 		},
 		"import": {
@@ -94,8 +94,8 @@
 		"lastValue": "Last value",
 		"provider": "Provider",
 		"single": {
-			"add": "A new favorite &#39;{0}&#39; has been added to the list.",
-			"notSupported": "The provider of the favorite &#39;{0}&#39; isn&#39;t supported and can&#39;t be loaded.",
+			"add": "A new favorite '{label}' has been added to the list.",
+			"notSupported": "The provider of the favorite '{0}' isn't supported and can't be loaded.",
 			"remove": "The favorite has been removed."
 		}
 	},

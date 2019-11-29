@@ -10,19 +10,19 @@
       <div class="mid bold favorite-title">{{group.label}}</div>
     </div>
     <div>
-      <div class="favorite-body" *ngFor="let ts of group.favorites">
+      <div class="favorite-body" *ngFor="let fav of group.favorites">
         <div class="favorite-block">
-          <div class="mid bold">{{ts.parameters.feature.label}}</div>
-          <div class="mid">{{ts.parameters.phenomenon.label}} ({{ts.uom}})</div>
+          <div class="mid bold">{{fav.dataset.parameters.feature.label}}</div>
+          <div class="mid">{{fav.dataset.parameters.phenomenon.label}} ({{fav.dataset.uom}})</div>
         </div>
         <div class="favorite-block small">
-          <div *ngIf="ts.lastValue">
+          <div *ngIf="fav.dataset.lastValue">
             <span class="small bold" translate='favorite.lastValue'></span>:
-            {{ts.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} | {{ts.lastValue.value}}
-            {{ts.uom}}
+            {{fav.dataset.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} | {{fav.dataset.lastValue.value}}
+            {{fav.dataset.uom}}
           </div>
           <div>
-            <span class="small bold" translate='favorite.provider'></span>: {{ts.parameters.service.label}}
+            <span class="small bold" translate='favorite.provider'></span>: {{fav.dataset.parameters.service.label}}
           </div>
         </div>
       </div>

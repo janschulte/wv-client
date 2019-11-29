@@ -1,0 +1,19 @@
+:host {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: .5em;
+    z-index: 1200;
+    width: 400px;
+    margin-left: -200px;
+
+    .positive {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+
+    .negative {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+}

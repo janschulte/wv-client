@@ -5,7 +5,7 @@ import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule } from '@helgoland/map';
-import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { Ng5SliderModule } from 'ng5-slider';
 
@@ -40,6 +40,7 @@ import { StationSelectionComponent } from './station-selection/station-selection
 import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.component';
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
+import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
 
 const COMPONENTS = [
   DiagramExportButtonComponent,
@@ -68,6 +69,7 @@ const COMPONENTS = [
   TimeSliderComponent,
   TimeseriesItemComponent,
   TimespanShifterComponent,
+  ToastContainerComponent,
   WvParameterFacetComponent,
   WvResultListComponent,
   WvTimespanButtonComponent,
@@ -84,6 +86,7 @@ const PIPES = [
     FormsModule,
     TranslateModule,
     NgbModalModule,
+    NgbToastModule,
     NgbDropdownModule,
     NgbDatepickerModule,
     Ng5SliderModule,
