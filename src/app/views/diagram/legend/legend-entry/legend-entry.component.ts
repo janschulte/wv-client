@@ -36,8 +36,7 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
   }
 
   public isInTimeSpan(timestamp: number) {
-    // TODO: implement, perhaps add to toolbox
-    return true;
+    return this.timeSrvc.containsIn(this.timeInterval, timestamp);
   }
 
   public toggleHighlight() {
