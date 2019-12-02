@@ -20,7 +20,7 @@
           <p class="mid" translate="legend.footer.all"></p>
         </div>
         <div class="navTool active" (click)="createFavoriteGroup()">
-          <span class="icon" [ngClass]="{'clicked icon-star-filled': isClicked, 'icon-star-empty': !isClicked}"></span>
+          <span class="icon" [ngClass]="{'clicked icon-star-filled': favoriteGroupAdded, 'icon-star-empty': !favoriteGroupAdded}"></span>
           <p class="mid" translate="legend.footer.all"></p>
         </div>
         <div class="navTool" (click)="toggleGeneralization()" [ngClass]="{'active': !timeseriesService.generalize}">

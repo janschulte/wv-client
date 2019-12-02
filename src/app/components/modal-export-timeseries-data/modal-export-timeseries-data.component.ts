@@ -33,11 +33,12 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
     this.end = new Date(this.timeseriesService.timespan.to);
   }
 
-  public onDownload(dwType: DownloadType): void {
-    this.exportOptions = {
-      downloadType: dwType,
-      timeperiod: new Timespan(this.start, this.end)
-    };
+  public onCSVDownload() {
+    this.onDownload(DownloadType.CSV);
+  }
+
+  public onXSLXDownload() {
+    this.onDownload(DownloadType.XSLX);
   }
 
   public onMetadata(dataset: IDataset): void {
@@ -47,6 +48,13 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
 
   public onLoading(loading: boolean): void {
     this.loading = loading;
+  }
+
+  private onDownload(dwType: DownloadType): void {
+    this.exportOptions = {
+      downloadType: dwType,
+      timeperiod: new Timespan(this.start, this.end)
+    };
   }
 
 }
