@@ -14,6 +14,9 @@ import {
 } from './../../components/modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { ModalDiagramExportComponent } from './../../components/modal-diagram-export/modal-diagram-export.component';
 import { ModalTimeSettingsComponent } from './../../components/modal-time-settings/modal-time-settings.component';
+import {
+  ModalShowPhenomenonLocationComponent,
+} from './../../components/modal-show-phenomenon-location/modal-show-phenomenon-location.component';
 
 @Component({
   selector: 'app-diagram',
@@ -106,7 +109,8 @@ export class DiagramComponent implements OnInit {
   }
 
   showGeometry(geometry: GeoJSON.GeoJsonObject) {
-    // TODO implement
+    const modalRef = this.modalService.open(ModalShowPhenomenonLocationComponent);
+    (modalRef.componentInstance as ModalShowPhenomenonLocationComponent).geometry = geometry;
   }
 
   toggleGeneralization() {

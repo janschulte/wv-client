@@ -210,6 +210,7 @@
 		"settings": "Settings"
 	},
 	"map": {
+		"show-phenomenon-location": "Position of the Station",
 		"layers": {
 			"baselayerHeader": "Base layer",
 			"overlayHeader": "Overlay layer"

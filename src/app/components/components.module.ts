@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
-import { HelgolandMapControlModule } from '@helgoland/map';
+import { HelgolandMapControlModule, HelgolandMapViewModule } from '@helgoland/map';
 import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { Ng5SliderModule } from 'ng5-slider';
@@ -41,6 +41,7 @@ import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.compo
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
+import { ModalShowPhenomenonLocationComponent } from './modal-show-phenomenon-location/modal-show-phenomenon-location.component';
 
 const COMPONENTS = [
   DiagramExportButtonComponent,
@@ -60,6 +61,7 @@ const COMPONENTS = [
   ModalImprintComponent,
   ModalServiceSelectorListComponent,
   ModalSettingsComponent,
+  ModalShowPhenomenonLocationComponent,
   ModalTimeSettingsComponent,
   NoDataHintComponent,
   ServiceSelectorButtonComponent,
@@ -92,6 +94,7 @@ const PIPES = [
     Ng5SliderModule,
     HelgolandCoreModule,
     HelgolandMapControlModule,
+    HelgolandMapViewModule,
     HelgolandDatasetDownloadModule,
     HelgolandFacetSearchModule
   ],
