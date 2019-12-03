@@ -20,7 +20,7 @@ export class FacetsComponent implements OnInit, OnDestroy {
   public phenomenonAutocomplete: string;
 
   public facetsActive: boolean;
-  public loading = true;
+  public loading: boolean;
 
   public subscriptions: Subscription[] = [];
 

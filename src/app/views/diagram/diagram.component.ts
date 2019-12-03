@@ -33,6 +33,8 @@ export class DiagramComponent implements OnInit {
 
   public loadData: Set<string> = new Set();
 
+  public favoriteGroupAdded: boolean;
+
   public overviewOptions: D3PlotOptions = {
     overview: true,
     showTimeLabel: false
@@ -77,6 +79,8 @@ export class DiagramComponent implements OnInit {
         this.toast.show(this.translateSrvc.instant('favorite.group.add', { label }), { classname: 'positive' });
         const group = datasets.map(e => ({ dataset: e, options: this.timeseriesService.datasetOptions.get(e.internalId) }));
         this.favoriteSrvc.addFavoriteGroup(group, label);
+        this.favoriteGroupAdded = true;
+        setTimeout(() => this.favoriteGroupAdded = false, 2000);
       });
   }
 
