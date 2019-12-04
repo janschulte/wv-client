@@ -64,8 +64,8 @@
       </span>
       <span class="icon icon-marker-location" (click)="showGeometry(); $event.stopPropagation()">
       </span>
-      <!-- <span class="icon icon-share" (click)="shareTimeseries(timeseries); $event.stopPropagation()">
-      </span> -->
+      <span class="icon icon-share" (click)="shareTimeseries(dataset); $event.stopPropagation()">
+      </span>
       <span class="icon" [ngClass]="{'icon-star-filled':isFavorite(dataset),'icon-star-empty':!isFavorite(dataset)}"
         (click)="toggleFavorite(dataset, datasetOptions);$event.stopPropagation()">
       </span>

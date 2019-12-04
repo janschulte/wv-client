@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import moment from 'moment';
 import { forkJoin } from 'rxjs';
 
+import { ModalSharePermalinkComponent } from '../../components/modal-share-permalink/modal-share-permalink.component';
 import { ToastService } from '../../components/toast/toast-container/toast-container.service';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import {
@@ -14,6 +15,7 @@ import {
 } from './../../components/modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { ModalDiagramExportComponent } from './../../components/modal-diagram-export/modal-diagram-export.component';
 import { ModalTimeSettingsComponent } from './../../components/modal-time-settings/modal-time-settings.component';
+import { DiagramPermalinkService } from './diagram-permalink.service';
 
 @Component({
   selector: 'app-diagram',
@@ -50,10 +52,14 @@ export class DiagramComponent implements OnInit {
     private favoriteSrvc: FavoriteService,
     private api: DatasetApiInterface,
     private toast: ToastService,
-    private translateSrvc: TranslateService
+    private translateSrvc: TranslateService,
+    private diagramPermalinkSrvc: DiagramPermalinkService
   ) { }
 
   ngOnInit() {
+    if (!this.diagramPermalinkSrvc.canValidatePermalink()) {
+      this.timeseriesService.initFromState();
+    }
     this.timespan = this.timeseriesService.timespan;
   }
 
@@ -67,7 +73,12 @@ export class DiagramComponent implements OnInit {
     return false;
   }
 
-  shareTimeseries() { }
+  shareTimeseries() {
+    const permalink = this.diagramPermalinkSrvc.generatePermalink();
+    const modalRef = this.modalService.open(ModalSharePermalinkComponent);
+    (modalRef.componentInstance as ModalSharePermalinkComponent).link = permalink;
+    (modalRef.componentInstance as ModalSharePermalinkComponent).multi = true;
+  }
 
   createFavoriteGroup() {
     forkJoin(this.timeseriesService.datasetIds.map(id => this.api.getSingleTimeseriesByInternalId(id)))

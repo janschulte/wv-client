@@ -33,7 +33,6 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
     private color: ColorService
   ) {
     super(api);
-    this.loadState();
   }
 
   get timespan(): Timespan {
@@ -52,6 +51,10 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   set generalize(g: boolean) {
     this._generalize = g;
     this.saveState();
+  }
+
+  public initFromState() {
+    this.loadState();
   }
 
   protected createStyles(internalId: string) {

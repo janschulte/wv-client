@@ -177,6 +177,7 @@
 			"all": "Alle"
 		},
 		"share": {
+			"copyToClipboard": "Link ist in der Zwischenablage",
 			"headerAll": "Zeitreihen teilen",
 			"headerSingle": "Zeitreihe teilen",
 			"inClipboard": "Link für Zwischenablage",

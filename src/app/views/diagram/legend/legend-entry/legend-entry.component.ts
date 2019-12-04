@@ -5,7 +5,9 @@ import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
+import { ModalSharePermalinkComponent } from '../../../../components/modal-share-permalink/modal-share-permalink.component';
 import { ToastService } from '../../../../components/toast/toast-container/toast-container.service';
+import { DiagramPermalinkService } from '../../diagram-permalink.service';
 import {
   ModalExportTimeseriesDataComponent,
 } from './../../../../components/modal-export-timeseries-data/modal-export-timeseries-data.component';
@@ -30,7 +32,8 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
     translateSrvc: TranslateService,
     private modalService: NgbModal,
     private favoriteSrvc: FavoriteService,
-    private toast: ToastService
+    private toast: ToastService,
+    private diagramPermalinkSrvc: DiagramPermalinkService
   ) {
     super(api, timeSrvc, internalIdHandler, color, refValCache, translateSrvc);
   }
@@ -64,6 +67,12 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
 
   public isFavorite(dataset: IDataset) {
     return this.favoriteSrvc.hasFavorite(dataset);
+  }
+
+  public shareTimeseries(dataset: IDataset) {
+    const permalink = this.diagramPermalinkSrvc.generatePermalink(dataset);
+    const modalRef = this.modalService.open(ModalSharePermalinkComponent);
+    (modalRef.componentInstance as ModalSharePermalinkComponent).link = permalink;
   }
 
 }

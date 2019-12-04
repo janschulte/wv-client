@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <div class="modal-title" translate="{{header}}"></div>
+  <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
+</div>
+<div class="modal-body">
+  <div class="share-entry" (click)="openInNewWindow()">
+    <div class="description" translate="legend.share.inWindow"></div>
+    <div class="wv-button">
+      <span class="icon icon-new-tab"></span>
+    </div>
+  </div>
+  <div class="share-entry" (click)="openInMail()">
+    <div class="description" translate="legend.share.inMail"></div>
+    <div class="wv-button">
+      <span class="icon icon-mail"></span>
+    </div>
+  </div>
+  <div class="share-entry" ngxClipboard [cbContent]="link" (cbOnSuccess)="copyToClipboard()">
+    <div class="description" translate="legend.share.inClipboard"></div>
+    <div class="wv-button">
+      <span class="icon icon-copy"></span>
+    </div>
+  </div>
+  <div class="share-entry" (click)="showQrCode = !showQrCode">
+    <span class="description" translate="legend.share.inQrCode"></span>
+    <div class="wv-button" ng-class="{'active': dataUrl}">
+      <span class="icon icon-qrcode"></span>
+    </div>
+  </div>
+  <div class="result-code" *ngIf="showQrCode">
+    <qr-code [value]="link" size="150"></qr-code>
+  </div>
+</div>

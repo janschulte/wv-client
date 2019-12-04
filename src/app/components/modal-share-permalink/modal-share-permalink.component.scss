@@ -1,0 +1,34 @@
+@import '../../../variables';
+
+.share-entry {
+    min-height: 50px;
+    background-color: $white;
+    display: flex;
+
+    +.share-entry,
+    &.qr-code {
+        margin-top: 10px;
+    }
+
+    .description {
+        line-height: 50px;
+        padding-left: 10px;
+        flex: 1;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .wv-button {
+        width: 40px;
+        margin: 6px 10px 6px;
+    }
+}
+
+.result-code {
+    background-color: $white;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}

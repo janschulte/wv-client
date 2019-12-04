@@ -177,6 +177,7 @@
 			"all": "all"
 		},
 		"share": {
+			"copyToClipboard": "Copied link to clipboard",
 			"headerAll": "share timeseries",
 			"headerSingle": "share timeseries",
 			"inClipboard": "link in the clipboard",

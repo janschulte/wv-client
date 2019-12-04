@@ -7,7 +7,9 @@ import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule } from '@helgoland/map';
 import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { QRCodeModule } from 'angular2-qrcode';
 import { Ng5SliderModule } from 'ng5-slider';
+import { ClipboardModule } from 'ngx-clipboard';
 
 import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
 import { LayersControlComponent } from './controls/layers-control/layers-control.component';
@@ -33,6 +35,7 @@ import { ModalImprintComponent } from './modal-imprint/modal-imprint.component';
 import { ModalServiceSelectorListComponent } from './modal-service-selector-list/modal-service-selector-list.component';
 import { SortServicesPipe } from './modal-service-selector-list/sort-services.pipe';
 import { ModalSettingsComponent } from './modal-settings/modal-settings.component';
+import { ModalSharePermalinkComponent } from './modal-share-permalink/modal-share-permalink.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { ServiceSelectorButtonComponent } from './service-selector-button/service-selector-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -60,6 +63,7 @@ const COMPONENTS = [
   ModalImprintComponent,
   ModalServiceSelectorListComponent,
   ModalSettingsComponent,
+  ModalSharePermalinkComponent,
   ModalTimeSettingsComponent,
   NoDataHintComponent,
   ServiceSelectorButtonComponent,
@@ -83,8 +87,10 @@ const PIPES = [
 @NgModule({
   imports: [
     CommonModule,
+    ClipboardModule,
     FormsModule,
     TranslateModule,
+    QRCodeModule,
     NgbModalModule,
     NgbToastModule,
     NgbDropdownModule,
