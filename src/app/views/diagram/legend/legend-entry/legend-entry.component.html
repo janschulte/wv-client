@@ -47,15 +47,15 @@
           {{dataset.lastValue.value}} {{uom}}</span>
       </span>
     </div>
-    <!-- <div class="referenceValues" ng-controller="SwcToggleRefValueCtrl">
-      <div ng-repeat="refValue in timeseries.referenceValues | orderBy:'+label'"
-        ng-click="$event.stopPropagation(); selectRefValue(refValue, timeseries)">
-        <div class="referenceCheckBox" ng-style="{'background-color': refValue.color}">
+    <div class="referenceValues">
+      <div *ngFor="let refValue of dataset.referenceValues"
+        (click)="$event.stopPropagation(); toggleReferenceValue(refValue)">
+        <div class="referenceCheckBox" [ngStyle]="{'background-color': refValue.color}">
           <div class="icon" [ngClass]="{'icon-check':refValue.visible}"></div>
         </div>
         <span class="small">{{refValue.label}}</span>
       </div>
-    </div> -->
+    </div>
     <div class="controls">
       <span class="icon icon-visibility" [ngClass]="{'active': datasetOptions?.visible}"
         (click)="toggleVisibility(); $event.stopPropagation()">

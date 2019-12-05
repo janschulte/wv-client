@@ -93,7 +93,7 @@ export class DiagramComponent implements OnInit {
   }
 
   updateOptions(options: DatasetOptions, id: string) {
-    // TODO implement
+    this.timeseriesService.updateDatasetOptions(options, id);
   }
 
   dataLoaded(loaded) {
