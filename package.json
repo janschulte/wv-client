@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "i18n-extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/*.json --sort --format namespaced-json"
+    "i18n-extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/*.json --sort --format namespaced-json",
+    "bundle-war": "./node_modules/ts-node/dist/bin.js scripts/bundle-war.ts",
+    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng"
   },
   "private": true,
   "dependencies": {
@@ -55,6 +57,7 @@
     "@types/leaflet": "^1.5.1",
     "@types/moment": "^2.13.0",
     "@types/node": "~12.7.5",
+    "archiver": "^3.1.1",
     "codelyzer": "^5.1.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
