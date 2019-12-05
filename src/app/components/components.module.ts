@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
-import { HelgolandMapControlModule } from '@helgoland/map';
+import { HelgolandMapControlModule, HelgolandMapViewModule } from '@helgoland/map';
 import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { QRCodeModule } from 'angular2-qrcode';
@@ -36,6 +36,9 @@ import { ModalServiceSelectorListComponent } from './modal-service-selector-list
 import { SortServicesPipe } from './modal-service-selector-list/sort-services.pipe';
 import { ModalSettingsComponent } from './modal-settings/modal-settings.component';
 import { ModalSharePermalinkComponent } from './modal-share-permalink/modal-share-permalink.component';
+import {
+  ModalShowPhenomenonLocationComponent,
+} from './modal-show-phenomenon-location/modal-show-phenomenon-location.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
 import { ServiceSelectorButtonComponent } from './service-selector-button/service-selector-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
@@ -64,6 +67,7 @@ const COMPONENTS = [
   ModalServiceSelectorListComponent,
   ModalSettingsComponent,
   ModalSharePermalinkComponent,
+  ModalShowPhenomenonLocationComponent,
   ModalTimeSettingsComponent,
   NoDataHintComponent,
   ServiceSelectorButtonComponent,
@@ -98,6 +102,7 @@ const PIPES = [
     Ng5SliderModule,
     HelgolandCoreModule,
     HelgolandMapControlModule,
+    HelgolandMapViewModule,
     HelgolandDatasetDownloadModule,
     HelgolandFacetSearchModule
   ],

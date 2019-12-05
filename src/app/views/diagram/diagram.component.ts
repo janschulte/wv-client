@@ -14,6 +14,9 @@ import {
   ModalDatasetoptionsEditorComponent,
 } from './../../components/modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { ModalDiagramExportComponent } from './../../components/modal-diagram-export/modal-diagram-export.component';
+import {
+  ModalShowPhenomenonLocationComponent,
+} from './../../components/modal-show-phenomenon-location/modal-show-phenomenon-location.component';
 import { ModalTimeSettingsComponent } from './../../components/modal-time-settings/modal-time-settings.component';
 import { DiagramPermalinkService } from './diagram-permalink.service';
 
@@ -121,7 +124,8 @@ export class DiagramComponent implements OnInit {
   }
 
   showGeometry(geometry: GeoJSON.GeoJsonObject) {
-    // TODO implement
+    const modalRef = this.modalService.open(ModalShowPhenomenonLocationComponent);
+    (modalRef.componentInstance as ModalShowPhenomenonLocationComponent).geometry = geometry;
   }
 
   toggleGeneralization() {

@@ -32,17 +32,17 @@ $desktop-header-height: 60px;
 $desktop-footer-height: 30px;
 
 //** Load fonts from this directory.
-$icon-font-path: "/assets/fonts/";
+$icon-font-path: "~/assets/fonts/";
 //** File name for all font files.
 $icon-font-name: "Sensorweb";
 //** Element ID within SVG icon file.
 $icon-font-svg-id: "glyphicons_halflingsregular";
 
 $loader-icon-size: 60px;
-$loader-file-path: "/assets/images/loader-sprite@2x.png";
-$dark-loader-file-path: "/assets/images/dark-loader-sprite@2x.png";
+$loader-file-path: "~/assets/images/loader-sprite@2x.png";
+$dark-loader-file-path: "~/assets/images/dark-loader-sprite@2x.png";
 
-$image-path: "/assets/images/";
+$image-path: "~/assets/images/";
 
 $selection-menu-height: 48px;
 

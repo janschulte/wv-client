@@ -211,6 +211,7 @@
 		"settings": "Einstellungen"
 	},
 	"map": {
+		"show-phenomenon-location": "Position der Messstation",
 		"layers": {
 			"baselayerHeader": "Basiskarten",
 			"overlayHeader": "Overlay"
