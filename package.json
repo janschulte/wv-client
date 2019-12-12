@@ -28,7 +28,7 @@
     "@helgoland/depiction": "^1.0.0-beta.8",
     "@helgoland/facet-search": "^1.0.0-beta.8",
     "@helgoland/favorite": "^1.0.0-beta.8",
-    "@helgoland/map": "^1.0.0-beta.8",
+    "@helgoland/map": "file:../../helgoland-toolbox/helgoland-map-1.0.0-beta.7.tgz",
     "@helgoland/permalink": "^1.0.0-beta.8",
     "@helgoland/selector": "^1.0.0-beta.8",
     "@helgoland/time": "^1.0.0-beta.8",

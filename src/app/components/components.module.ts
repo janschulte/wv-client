@@ -5,7 +5,7 @@ import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule, HelgolandMapViewModule } from '@helgoland/map';
-import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbTimepickerModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { QRCodeModule } from 'angular2-qrcode';
 import { Ng5SliderModule } from 'ng5-slider';
@@ -47,8 +47,13 @@ import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.compo
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCustomTimepickerComponent } from './datepicker/ngb-custom-timepicker/ngb-custom-timepicker.component';
 
 const COMPONENTS = [
+  DatepickerComponent,
   DiagramExportButtonComponent,
   FacetsComponent,
   FavoriteExportButtonComponent,
@@ -69,6 +74,7 @@ const COMPONENTS = [
   ModalSharePermalinkComponent,
   ModalShowPhenomenonLocationComponent,
   ModalTimeSettingsComponent,
+  NgbCustomTimepickerComponent,
   NoDataHintComponent,
   ServiceSelectorButtonComponent,
   SideMenuComponent,
@@ -99,6 +105,8 @@ const PIPES = [
     NgbToastModule,
     NgbDropdownModule,
     NgbDatepickerModule,
+    NgbModule,
+    NgbTimepickerModule,
     Ng5SliderModule,
     HelgolandCoreModule,
     HelgolandMapControlModule,
