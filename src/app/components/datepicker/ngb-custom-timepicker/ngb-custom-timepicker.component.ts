@@ -5,18 +5,27 @@ import {
   Input,
   OnChanges,
   SimpleChanges,
-  ViewEncapsulation
+  ViewEncapsulation,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgbTime } from './ngb-custom-time';
 import { isInteger, isNumber, toInteger, padNumber } from './ngb-custom-util-util';
 import { NgbTimepickerConfig, NgbTimeAdapter, NgbTimepickerI18n, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 
-// import { isInteger, isNumber, padNumber, toInteger } from '../util/util';
-// import { NgbTime } from './ngb-time';
-// import { NgbTimepickerConfig } from './timepicker-config';
-// import { NgbTimeAdapter } from './ngb-time-adapter';
-// import { NgbTimepickerI18n } from './timepicker-i18n';
+interface SpinnerValidation {
+  decrease: {
+    hour: boolean;
+    minute: boolean;
+    second: boolean;
+  };
+  increase: {
+    hour: boolean;
+    minute: boolean;
+    second: boolean;
+  };
+}
 
 const FILTER_REGEX = /[^0-9]/g;
 
@@ -38,22 +47,22 @@ const NGB_TIMEPICKER_VALUE_ACCESSOR = {
         <div class="ngb-tp">
           <div class="ngb-tp-input-container ngb-tp-hour">
             <button *ngIf="spinners" tabindex="-1" type="button" (click)="changeHour(hourStep)"
-              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled"
-              [disabled]="disabled">
+              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled || validation.increase.hour"
+              [disabled]="disabled || validation.increase.hour">
               <span class="chevron ngb-tp-chevron"></span>
               <span class="sr-only" i18n="@@ngb.timepicker.increment-hours">Increment hours</span>
             </button>
             <input type="text" class="ngb-tp-input form-control" [class.form-control-sm]="isSmallSize"
               [class.form-control-lg]="isLargeSize"
               maxlength="2" inputmode="numeric" placeholder="HH" i18n-placeholder="@@ngb.timepicker.HH"
-              [value]="formatHour(model?.hour)" (change)="updateHour($event.target.value)"
-              [readOnly]="readonlyInputs" [disabled]="disabled" aria-label="Hours" i18n-aria-label="@@ngb.timepicker.hours"
+              [value]="formatHour(model?.hour)" (change)="updateHour($event.target)"
+              [readOnly]="readonlyInputs" [disabled]="disabled || validation.increase.hour || validation.decrease.hour" aria-label="Hours" i18n-aria-label="@@ngb.timepicker.hours"
               (input)="formatInput($event.target)"
               (keydown.ArrowUp)="changeHour(hourStep); $event.preventDefault()"
               (keydown.ArrowDown)="changeHour(-hourStep); $event.preventDefault()">
             <button *ngIf="spinners" tabindex="-1" type="button" (click)="changeHour(-hourStep)"
-              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled || validation[0]"
-              [disabled]="disabled || validation[0]">
+              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled || validation.decrease.hour"
+              [disabled]="disabled || validation.decrease.hour">
               <span class="chevron ngb-tp-chevron bottom"></span>
               <span class="sr-only" i18n="@@ngb.timepicker.decrement-hours">Decrement hours</span>
             </button>
@@ -61,21 +70,21 @@ const NGB_TIMEPICKER_VALUE_ACCESSOR = {
           <div class="ngb-tp-spacer">:</div>
           <div class="ngb-tp-input-container ngb-tp-minute">
             <button *ngIf="spinners" tabindex="-1" type="button" (click)="changeMinute(minuteStep)"
-              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled"
-              [disabled]="disabled">
+              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled || validation.increase.minute"
+              [disabled]="disabled || validation.increase.minute">
               <span class="chevron ngb-tp-chevron"></span>
               <span class="sr-only" i18n="@@ngb.timepicker.increment-minutes">Increment minutes</span>
             </button>
             <input type="text" class="ngb-tp-input form-control" [class.form-control-sm]="isSmallSize" [class.form-control-lg]="isLargeSize"
               maxlength="2" inputmode="numeric" placeholder="MM" i18n-placeholder="@@ngb.timepicker.MM"
-              [value]="formatMinSec(model?.minute)" (change)="updateMinute($event.target.value)"
-              [readOnly]="readonlyInputs" [disabled]="disabled" aria-label="Minutes" i18n-aria-label="@@ngb.timepicker.minutes"
+              [value]="formatMinSec(model?.minute)" (change)="updateMinute($event.target)"
+              [readOnly]="readonlyInputs" [disabled]="disabled || validation.increase.minute || validation.decrease.minute" aria-label="Minutes" i18n-aria-label="@@ngb.timepicker.minutes"
               (input)="formatInput($event.target)"
               (keydown.ArrowUp)="changeMinute(minuteStep); $event.preventDefault()"
               (keydown.ArrowDown)="changeMinute(-minuteStep); $event.preventDefault()">
             <button *ngIf="spinners" tabindex="-1" type="button" (click)="changeMinute(-minuteStep)"
-              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize"  [class.disabled]="disabled"
-              [disabled]="disabled">
+              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize"  [class.disabled]="disabled || validation.decrease.minute"
+              [disabled]="disabled || validation.decrease.minute">
               <span class="chevron ngb-tp-chevron bottom"></span>
               <span class="sr-only"  i18n="@@ngb.timepicker.decrement-minutes">Decrement minutes</span>
             </button>
@@ -83,21 +92,21 @@ const NGB_TIMEPICKER_VALUE_ACCESSOR = {
           <div *ngIf="seconds" class="ngb-tp-spacer">:</div>
           <div *ngIf="seconds" class="ngb-tp-input-container ngb-tp-second">
             <button *ngIf="spinners" tabindex="-1" type="button" (click)="changeSecond(secondStep)"
-              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled"
-              [disabled]="disabled">
+              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize" [class.disabled]="disabled || validation.increase.second"
+              [disabled]="disabled || validation.increase.second">
               <span class="chevron ngb-tp-chevron"></span>
               <span class="sr-only" i18n="@@ngb.timepicker.increment-seconds">Increment seconds</span>
             </button>
             <input type="text" class="ngb-tp-input form-control" [class.form-control-sm]="isSmallSize" [class.form-control-lg]="isLargeSize"
               maxlength="2" inputmode="numeric" placeholder="SS" i18n-placeholder="@@ngb.timepicker.SS"
-              [value]="formatMinSec(model?.second)" (change)="updateSecond($event.target.value)"
-              [readOnly]="readonlyInputs" [disabled]="disabled" aria-label="Seconds" i18n-aria-label="@@ngb.timepicker.seconds"
+              [value]="formatMinSec(model?.second)" (change)="updateSecond($event.target)"
+              [readOnly]="readonlyInputs" [disabled]="disabled || validation.increase.second || validation.decrease.second" aria-label="Seconds" i18n-aria-label="@@ngb.timepicker.seconds"
               (input)="formatInput($event.target)"
               (keydown.ArrowUp)="changeSecond(secondStep); $event.preventDefault()"
               (keydown.ArrowDown)="changeSecond(-secondStep); $event.preventDefault()">
             <button *ngIf="spinners" tabindex="-1" type="button" (click)="changeSecond(-secondStep)"
-              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize"  [class.disabled]="disabled"
-              [disabled]="disabled">
+              class="btn btn-link" [class.btn-sm]="isSmallSize" [class.btn-lg]="isLargeSize"  [class.disabled]="disabled || validation.decrease.second"
+              [disabled]="disabled || validation.decrease.second">
               <span class="chevron ngb-tp-chevron bottom"></span>
               <span class="sr-only" i18n="@@ngb.timepicker.decrement-seconds">Decrement seconds</span>
             </button>
@@ -125,7 +134,18 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
   private _minuteStep: number;
   private _secondStep: number;
 
-  public validation: [boolean, boolean, boolean] = [false, false, false];
+  public validation: SpinnerValidation = {
+    decrease: {
+      hour: false,
+      minute: false,
+      second: false
+    },
+    increase: {
+      hour: false,
+      minute: false,
+      second: false
+    }
+  };
 
   /**
    * Whether to display 12H or 24H mode.
@@ -183,7 +203,11 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
   @Input() size: 'small' | 'medium' | 'large';
 
   @Input() minDate: Date;
+  @Input() maxDate: Date;
   @Input() currDate: NgbDate;
+
+  @Output()
+  public changeDate: EventEmitter<number> = new EventEmitter();
 
   constructor(
     private readonly _config: NgbTimepickerConfig, private _ngbTimeAdapter: NgbTimeAdapter<any>,
@@ -219,60 +243,206 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
 
   changeHour(step: number) {
     this.model.changeHour(step);
-    this.validation = this.validateTime();
+    this.changedToNewDay(this.model, step, 'hour');
     this.propagateModelChange();
   }
 
   changeMinute(step: number) {
     this.model.changeMinute(step);
-    this.validation = this.validateTime();
+    this.changedToNewDay(this.model, step, 'minute');
     this.propagateModelChange();
   }
 
   changeSecond(step: number) {
     this.model.changeSecond(step);
-    this.validation = this.validateTime();
+    this.changedToNewDay(this.model, step, 'second');
     this.propagateModelChange();
   }
 
-  validateTime(): [boolean, boolean, boolean] {
-    console.log(this.model);
-    console.log(this.minDate);
+  private changedToNewDay(model: NgbTime, step: number, type: string) {
+    const typeInt = (type === 'hour' ? 24 : 60);
+    if (step > 0) {
+      // increase day
+      if (model[type] - Math.abs(step) < 0 && model[type] >= 0) {
+        if (model.hour - Math.abs(this.hourStep) < 0 && model.hour >= 0) {
+          this.changeDate.emit(1);
+        }
+      }
+    } else if (step < 0) {
+      // decrease day
+      if ((model[type] + Math.abs(step)) >= typeInt && model[type] < typeInt) {
+        if (model.hour + Math.abs(this.hourStep) >= 24 && model.hour < 24) {
+          this.changeDate.emit(-1);
+        }
+      }
+    }
+  }
+
+  validateTime(model: NgbTime, spinnerCheck: boolean): SpinnerValidation {
+    const output: SpinnerValidation = {
+      decrease: {
+        hour: false,
+        minute: false,
+        second: false
+      },
+      increase: {
+        hour: false,
+        minute: false,
+        second: false
+      }
+    };
     if (this.minDate && this.currDate) {
       const minDateTs = new Date(this.minDate);
       const minDate = new NgbDate(minDateTs.getFullYear(), minDateTs.getMonth() + 1, minDateTs.getDate());
-      // const currDate = new NgbDate(this.currDate.getFullYear(), this.currDate.getMonth() + 1, this.currDate.getDate());
       if (minDate.equals(this.currDate)) {
-        const minTime = new NgbTime(minDateTs.getHours(), minDateTs.getMinutes(), minDateTs.getSeconds());
-        return this.isAfterTime(this.model, minTime);
-        // if (this.isAfterTime(this.model, this.minDate)) {
-        //   return [false]; // disabled = false
-        // } else {
-        //   return [true];
-        // }
+        output.decrease = this.updateSpinnersMin(model, minDateTs, spinnerCheck).decrease;
       }
     }
-    return [false, false, false];
+    if (this.maxDate && this.currDate) {
+      const maxDateTs = new Date(this.minDate);
+      const maxDate = new NgbDate(maxDateTs.getFullYear(), maxDateTs.getMonth() + 1, maxDateTs.getDate());
+      if (maxDate.equals(this.currDate)) {
+        output.increase = this.updateSpinnersMax(model, maxDateTs, spinnerCheck).increase;
+      }
+    }
+    return output;
   }
 
-  updateHour(newVal: string) {
+  private updateSpinnersMin(currModel: NgbTime, minDate: Date, spinnerCheck: boolean): SpinnerValidation {
+    const curr = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+      currModel.hour, currModel.minute, currModel.second);
+    const duplHourDecrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
+    const duplMinuteDecrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
+    const duplSecondDecrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
+    const output: SpinnerValidation = {
+      decrease: {
+        hour: false,
+        minute: false,
+        second: false
+      },
+      increase: {
+        hour: false,
+        minute: false,
+        second: false
+      }
+    };
+
+    duplHourDecrease.changeHour(-this.hourStep);
+    const manipHourDecrease = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+      duplHourDecrease.hour, duplHourDecrease.minute, duplHourDecrease.second);
+    if (curr < minDate || (spinnerCheck && manipHourDecrease < minDate)) {
+      output.decrease.hour = true;
+    }
+    duplMinuteDecrease.changeMinute(-this.minuteStep);
+    const manipMinuteDecrease = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+      duplMinuteDecrease.hour, duplMinuteDecrease.minute, duplMinuteDecrease.second);
+    if (curr < minDate || (spinnerCheck && manipMinuteDecrease < minDate)) {
+      output.decrease.minute = true;
+    }
+    duplSecondDecrease.changeSecond(-this.secondStep);
+    const manipSecondDecrease = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+      duplSecondDecrease.hour, duplSecondDecrease.minute, duplSecondDecrease.second);
+    if (curr < minDate || (spinnerCheck && manipSecondDecrease < minDate)) {
+      output.decrease.second = true;
+    }
+
+    return output;
+  }
+
+  private updateSpinnersMax(currModel: NgbTime, maxDate: Date, spinnerCheck: boolean): SpinnerValidation {
+    const curr = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+      currModel.hour, currModel.minute, currModel.second);
+    const duplHourIncrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
+    const duplMinuteIncrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
+    const duplSecondIncrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
+    const output: SpinnerValidation = {
+      decrease: {
+        hour: false,
+        minute: false,
+        second: false
+      },
+      increase: {
+        hour: false,
+        minute: false,
+        second: false
+      }
+    };
+
+    duplHourIncrease.changeHour(-this.hourStep);
+    const manipHourIncrease = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+      duplHourIncrease.hour, duplHourIncrease.minute, duplHourIncrease.second);
+    if (curr > maxDate || (spinnerCheck && manipHourIncrease > maxDate)) {
+      output.increase.hour = true;
+    }
+    duplMinuteIncrease.changeMinute(-this.minuteStep);
+    const manipMinuteIncrease = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+      duplMinuteIncrease.hour, duplMinuteIncrease.minute, duplMinuteIncrease.second);
+    if (curr > maxDate || (spinnerCheck && manipMinuteIncrease > maxDate)) {
+      output.increase.minute = true;
+    }
+    duplSecondIncrease.changeSecond(-this.secondStep);
+    const manipSecondIncrease = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+      duplSecondIncrease.hour, duplSecondIncrease.minute, duplSecondIncrease.second);
+    if (curr > maxDate || (spinnerCheck && manipSecondIncrease > maxDate)) {
+      output.increase.second = true;
+    }
+    return output;
+  }
+
+  updateHour(target: any) {
     const isPM = this.model.hour >= 12;
-    const enteredHour = toInteger(newVal);
+    const enteredHour = toInteger(target.value);
     if (this.meridian && (isPM && enteredHour < 12 || !isPM && enteredHour === 12)) {
-      this.model.updateHour(enteredHour + 12);
+      // check if updatedHour would be out of range
+      const updatedModel = new NgbTime(this.model.hour, this.model.minute, this.model.second);
+      updatedModel.updateHour(enteredHour + 12);
+      const output = this.validateTime(updatedModel, false);
+      if (output.decrease.hour || output.decrease.minute || output.decrease.second
+        || output.increase.hour || output.increase.minute || output.increase.second) {
+        target.value = this.model.hour;
+      } else {
+        this.model.updateHour(enteredHour + 12);
+      }
     } else {
-      this.model.updateHour(enteredHour);
+      // check if updatedHour would be out of range
+      const updatedModel = new NgbTime(this.model.hour, this.model.minute, this.model.second);
+      updatedModel.updateHour(enteredHour);
+      const output = this.validateTime(updatedModel, false);
+      if (output.decrease.hour || output.decrease.minute || output.decrease.second
+        || output.increase.hour || output.increase.minute || output.increase.second) {
+        target.value = this.model.hour;
+      } else {
+        this.model.updateHour(enteredHour);
+      }
     }
     this.propagateModelChange();
   }
 
-  updateMinute(newVal: string) {
-    this.model.updateMinute(toInteger(newVal));
+  updateMinute(target: any) {
+    // check if updated minute would be out of range
+    const updatedModel = new NgbTime(this.model.hour, this.model.minute, this.model.second);
+    updatedModel.updateMinute(toInteger(target.value));
+    const output = this.validateTime(updatedModel, false);
+    if (output.decrease.minute || output.decrease.second || output.increase.minute || output.increase.second) {
+      target.value = this.model.minute;
+    } else {
+      this.model.updateMinute(toInteger(target.value));
+    }
+
     this.propagateModelChange();
   }
 
-  updateSecond(newVal: string) {
-    this.model.updateSecond(toInteger(newVal));
+  updateSecond(target: any) {
+    // check if updated second would be out of range
+    const updatedModel = new NgbTime(this.model.hour, this.model.minute, this.model.second);
+    updatedModel.updateSecond(toInteger(target.value));
+    const output = this.validateTime(updatedModel, false);
+    if (output.decrease.hour || output.decrease.minute || output.decrease.second
+      || output.increase.hour || output.increase.minute || output.increase.second) {
+      target.value = this.model.second;
+    } else {
+      this.model.updateSecond(toInteger(target.value));
+    }
     this.propagateModelChange();
   }
 
@@ -307,9 +477,20 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
       this.model.second = 0;
       this.propagateModelChange(false);
     }
+    if (changes.currDate) {
+      console.log(changes.currDate);
+      console.log(this.model);
+      console.log(this.minDate);
+      console.log(this.maxDate);
+      // TODO: on initialize this.model === undefined, but values need to be checked
+      if (this.model) {
+        this.validateTime(this.model, true);
+      }
+    }
   }
 
   private propagateModelChange(touched = true) {
+    this.validation = this.validateTime(this.model, true);
     if (touched) {
       this.onTouched();
     }
@@ -318,22 +499,6 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
         this._ngbTimeAdapter.toModel({ hour: this.model.hour, minute: this.model.minute, second: this.model.second }));
     } else {
       this.onChange(this._ngbTimeAdapter.toModel(null));
-    }
-  }
-
-  private isAfterTime(currTime: NgbTime, minTime: NgbTime): [boolean, boolean, boolean] {
-    const currModelHour = new NgbTime(this.model.hour, this.model. minute, this.model.second);
-    currModelHour.changeHour(-this.hourStep);
-
-    if (currTime.hour > minTime.hour && currModelHour.hour > minTime.hour) {
-      // if (time1.minute > time2.minute) {
-      //   if (time1.second > time2.second) {
-      //     return true;
-      //   }
-      // }
-      return [false, false, false];
-    } else {
-      return [true, false, false];
     }
   }
 }

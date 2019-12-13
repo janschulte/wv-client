@@ -21,16 +21,6 @@ export class NgbTime {
     }
   }
 
-  // checkHour(step = 1): number {
-  //   let currHour = (isNaN(this.hour) ? 0 : this.hour) + step;
-  //   if (isNumber(currHour)) {
-  //     currHour = (currHour < 0 ? 24 + currHour : currHour) % 24;
-  //   } else {
-  //     currHour = NaN;
-  //   }
-  //   return currHour;
-  // }
-
   changeMinute(step = 1) { this.updateMinute((isNaN(this.minute) ? 0 : this.minute) + step); }
 
   updateMinute(minute: number) {

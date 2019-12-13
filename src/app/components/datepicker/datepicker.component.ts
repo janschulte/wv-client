@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTime } from './ngb-custom-timepicker/ngb-custom-time';
 
 @Component({
@@ -25,10 +25,10 @@ export class DatepickerComponent implements OnInit, OnChanges {
   @Output()
   public onDateSelected: EventEmitter<Date> = new EventEmitter();
 
-  public model1;
-  public dateTime;
-  public minDatePrep: NgbDateStruct;
-  public maxDatePrep: NgbDateStruct;
+  public model1: NgbDate;
+  public dateTime: NgbTime;
+  public minDatePrep: NgbDate;
+  public maxDatePrep: NgbDate;
   public minTimeSpinner: NgbTime;
 
   constructor() { }
@@ -36,12 +36,8 @@ export class DatepickerComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (this.timestamp) {
       const ts: Date = new Date(this.timestamp);
-      this.model1 = { year: ts.getFullYear(), month: ts.getMonth() + 1, day: ts.getDate() };
-      this.dateTime = ts ? {
-        hour: ts.getHours(),
-        minute: ts.getMinutes(),
-        second: ts.getSeconds()
-      } : { hour: 0, minute: 0, second: 0 };
+      this.model1 = new NgbDate(ts.getFullYear(), ts.getMonth() + 1, ts.getDate());
+      this.dateTime = ts ? new NgbTime(ts.getHours(), ts.getMinutes(), ts.getSeconds()) : new NgbTime(0, 0, 0);
       this.updateMinMaxDate();
     }
   }
@@ -55,32 +51,35 @@ export class DatepickerComponent implements OnInit, OnChanges {
     }
   }
 
-  public changeDate(value: NgbDateStruct) {
+  public ngModelChangeDate(value: NgbDate) {
     this.updateDate();
-    this.dateTime = { hour: 0, minute: 0, second: 0 };
+    this.dateTime = new NgbTime(0, 0, 0);
+    // check same day
+    if (this.minDate && this.minDatePrep) {
+      if (this.minDatePrep.equals(this.model1)) {
+        const minDt = new Date(this.minDate);
+        this.dateTime = new NgbTime(minDt.getHours(), minDt.getMinutes(), minDt.getSeconds());
+      }
+    }
     const ts = new Date(this.model1.year, this.model1.month - 1, this.model1.day,
       this.dateTime.hour, this.dateTime.minute, this.dateTime.second);
-    // if (this.minDate) {
-    //   console.log('minDate');
-    //   const tsDate = { year: ts.getFullYear(), month: ts.getMonth() + 1, day: ts.getDate() };
-    //   if (this.isEqual(tsDate, this.minDatePrep)) {
-    //     const minDt = new Date(this.minDate);
-    //     const minTime = new NgbTime(minDt.getHours(), minDt.getMinutes(), minDt.getSeconds());
-    //     this.minTimeSpinner = minTime;
-    //   } else {
-    //     this.minTimeSpinner = null;
-    //   }
-    // }
+    this.updateMinMaxDate();
     this.onDateSelected.emit(ts);
   }
 
   public changeTime(value: NgbTime) {
     if (value === null) {
-      this.dateTime = { hour: 0, minute: 0, second: 0 };
+      this.dateTime = new NgbTime(0, 0, 0);
     }
     const ts = new Date(this.model1.year, this.model1.month - 1, this.model1.day,
       this.dateTime.hour, this.dateTime.minute, this.dateTime.second);
     this.onDateSelected.emit(ts);
+  }
+
+  public changeDay($event: number) {
+    const newDay = new Date(this.model1.year, this.model1.month - 1, this.model1.day);
+    newDay.setDate(newDay.getDate() + $event);
+    this.model1 = new NgbDate(newDay.getFullYear() , newDay.getMonth() + 1, newDay.getDate());
   }
 
   private isBefore(dt1: NgbDateStruct, dt2: NgbDateStruct): boolean {
@@ -89,21 +88,6 @@ export class DatepickerComponent implements OnInit, OnChanges {
     }
     return true;
   }
-
-  private isEqual(dt1: NgbDateStruct, dt2: NgbDateStruct): boolean {
-    if (dt1.year === dt2.year && dt1.month === dt2.month && dt1.day === dt2.day) {
-      return true;
-    }
-    return false;
-  }
-
-  // // ts2 should be of type NgbTime, but Class NgbTime does not have a constructor at the moment
-  // private isEqualTime(ts1: NgbTime, ts2: any): boolean {
-  //   if (ts1.hour !== ts2.hour || ts1.minute !== ts2.minute || ts1.second !== ts2.second) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
 
   private updateDate() {
     if (this.model1) {
@@ -119,24 +103,10 @@ export class DatepickerComponent implements OnInit, OnChanges {
   private updateMinMaxDate() {
     if (this.minDate) {
       const minDt = new Date(this.minDate);
-      this.minDatePrep = { year: minDt.getFullYear(), month: minDt.getMonth() + 1, day: minDt.getDate() };
-      // const ts: Date = new Date(this.timestamp);
-      // const tsDate = { year: ts.getFullYear(), month: ts.getMonth() + 1, day: ts.getDate() };
-      // if (this.isEqual(tsDate, this.minDatePrep)) {
-      //   const minTime = new NgbTime(minDt.getHours(), minDt.getMinutes(), minDt.getSeconds());
-      //   // { hour: minDt.getHours(), minute: minDt.getMinutes(), second: minDt.getSeconds() };
-      //   this.minTimeSpinner = minTime;
-      //   // if (this.dateTime) {
-      //   //   if (!this.isEqualTime(this.dateTime, tsTime)) {
-      //   //     this.dateTime = tsTime;
-      //   //   }
-      //   // }
-      // } else {
-      //   this.minTimeSpinner = null;
-      // }
+      this.minDatePrep = new NgbDate(minDt.getFullYear(), minDt.getMonth() + 1, minDt.getDate());
     }
     if (this.maxDate) {
-      this.maxDatePrep = { year: this.maxDate.getFullYear(), month: this.maxDate.getMonth() + 1, day: this.maxDate.getDate() };
+      this.maxDatePrep = new NgbDate(this.maxDate.getFullYear(), this.maxDate.getMonth() + 1, this.maxDate.getDate());
     }
     this.updateDate();
   }

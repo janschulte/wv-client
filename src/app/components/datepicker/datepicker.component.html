@@ -1,12 +1,12 @@
 <div style="align-items: center; display: flex;">
 
-    <ngb-datepicker #d1 [(ngModel)]="model1" (ngModelChange)="changeDate($event)" (navigate)="date = $event.next"
+    <ngb-datepicker #d1 [(ngModel)]="model1" (ngModelChange)="ngModelChangeDate($event)" (navigate)="date = $event.next"
         [minDate]="minDatePrep" [maxDate]="maxDatePrep"></ngb-datepicker>
     <!-- <ngb-timepicker [(ngModel)]="dateTime" (ngModelChange)="changeTime($event)" [minuteStep]="15" [spinners]="true"
         [seconds]="seconds">
     </ngb-timepicker> -->
 
-    <app-ngb-custom-timepicker [(ngModel)]="dateTime" (ngModelChange)="changeTime($event)" [minuteStep]="15"
+    <app-ngb-custom-timepicker [(ngModel)]="dateTime" (ngModelChange)="changeTime($event)" (changeDate)="changeDay($event)" [minuteStep]="15"
         [minDate]="minDate" [currDate]="model1" [spinners]="true" [seconds]="seconds"></app-ngb-custom-timepicker>
 
 </div>
