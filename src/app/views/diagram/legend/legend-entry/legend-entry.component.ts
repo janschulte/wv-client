@@ -6,7 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
 import { ModalSharePermalinkComponent } from '../../../../components/modal-share-permalink/modal-share-permalink.component';
-import { ToastService } from '../../../../components/toast/toast-container/toast-container.service';
+import { ToastService, ToastType } from '../../../../components/toast/toast-container/toast-container.service';
 import { DiagramPermalinkService } from '../../diagram-permalink.service';
 import {
   ModalExportTimeseriesDataComponent,
@@ -58,10 +58,10 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
   public toggleFavorite(dataset: IDataset, options: DatasetOptions) {
     if (this.favoriteSrvc.hasFavorite(dataset)) {
       this.favoriteSrvc.removeFavorite(dataset.internalId);
-      this.toast.show(this.translateSrvc.instant('favorite.single.remove'), { classname: 'negative' });
+      this.toast.show(this.translateSrvc.instant('favorite.single.remove'), { type: ToastType.Warn });
     } else {
       this.favoriteSrvc.addFavorite(dataset, options);
-      this.toast.show(this.translateSrvc.instant('favorite.single.add', { label: dataset.label }), { classname: 'positive' });
+      this.toast.show(this.translateSrvc.instant('favorite.single.add', { label: dataset.label }), { type: ToastType.Info });
     }
   }
 

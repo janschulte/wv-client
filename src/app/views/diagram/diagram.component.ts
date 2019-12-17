@@ -8,7 +8,7 @@ import moment from 'moment';
 import { forkJoin } from 'rxjs';
 
 import { ModalSharePermalinkComponent } from '../../components/modal-share-permalink/modal-share-permalink.component';
-import { ToastService } from '../../components/toast/toast-container/toast-container.service';
+import { ToastService, ToastType } from '../../components/toast/toast-container/toast-container.service';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import {
   ModalDatasetoptionsEditorComponent,
@@ -87,7 +87,7 @@ export class DiagramComponent implements OnInit {
     forkJoin(this.timeseriesService.datasetIds.map(id => this.api.getSingleTimeseriesByInternalId(id)))
       .subscribe(datasets => {
         const label = this.translateSrvc.instant('favorite.label') + ' ' + (this.favoriteSrvc.getFavoriteGroups().length + 1);
-        this.toast.show(this.translateSrvc.instant('favorite.group.add', { label }), { classname: 'positive' });
+        this.toast.show(this.translateSrvc.instant('favorite.group.add', { label }), { type: ToastType.Info });
         const group = datasets.map(e => ({ dataset: e, options: this.timeseriesService.datasetOptions.get(e.internalId) }));
         this.favoriteSrvc.addFavoriteGroup(group, label);
         this.favoriteGroupAdded = true;
