@@ -1,9 +1,12 @@
 @import './../../../variables';
 
-:host {
-    ::ng-deep .ngb-accordion-custom .card .card-header {
-        padding: 0.2rem 1rem !important;
+ngb-datepicker {
 
+    .btn {
+        color: white;
+    }
+
+    ::ng-deep {
         .btn {
             color: $royal-blue;
             &:active {
@@ -14,13 +17,9 @@
                 color: $royal-blue;
             }
         }
-    }
 
-    .footer {
-        display: flex;
-
-        .spacer {
-            flex: 1;
+        .bg-primary.text-white {
+            background-color: $royal-blue !important;
         }
     }
 }

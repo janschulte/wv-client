@@ -23,21 +23,31 @@
       <td class="label">{{'export-timeseries-data.labels.last-value' | translate}}</td>
       <td>{{dataset.lastValue.timestamp | date: 'medium'}}</td>
     </tr>
-    <tr>
-      <td class="label">{{'export-timeseries-data.labels.from' | translate}}</td>
-      <td>
-        <input type="datetime-local" class="form-control" [ngModel]="start | date:'yyyy-MM-ddThh:mm'"
-          (ngModelChange)="start = $event">
-      </td>
-    </tr>
-    <tr>
-      <td class="label">{{'export-timeseries-data.labels.to' | translate}}</td>
-      <td>
-        <input type="datetime-local" class="form-control" [ngModel]="end | date:'yyyy-MM-ddThh:mm'"
-          (ngModelChange)="end = $event">
-      </td>
-    </tr>
   </table>
+
+  <div class="input-group mb-3">
+    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true">
+      <ngb-panel id="static-1">
+        <ng-template ngbPanelTitle>
+          <span>{{'diagram-export.start' | translate}} {{start}}</span>
+        </ng-template>
+        <ng-template class="mid description" ngbPanelContent>
+          <app-datepicker [timestamp]="timespan.from" [seconds]="false"
+            (onDateSelected)="onTimepickerSelected($event, true)">
+          </app-datepicker>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="static-2">
+        <ng-template ngbPanelTitle>
+          <span>{{'diagram-export.end' | translate}} {{end}}</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <app-datepicker [timestamp]="timespan.to" [minDate]="timespan.from" [seconds]="false"
+            (onDateSelected)="onTimepickerSelected($event, false)"></app-datepicker>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
 
   <div class="footer">
     <div class="wv-button" (click)="onCSVDownload()">

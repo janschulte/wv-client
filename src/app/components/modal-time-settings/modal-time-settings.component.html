@@ -31,3 +31,38 @@
     <div ng-include="'templates/time/custom-time-range-selection.html'" />
   </div> -->
 </div>
+
+<div class="modal-body time">
+  <div class="modal-inline-header" translate="timeSelection.custom.header"></div>
+  <div class="modal-inline-block">
+
+    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true">
+      <ngb-panel id="static-1">
+        <ng-template ngbPanelTitle>
+          <span>{{'timeSelection.custom.start' | translate}} {{tsStart}}</span>
+        </ng-template>
+        <ng-template class="mid description" ngbPanelContent>
+          <app-datepicker [timestamp]="timespan.from" [seconds]="false"
+            (onDateSelected)="onTimepickerSelected($event, true)">
+          </app-datepicker>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="static-2">
+        <ng-template ngbPanelTitle>
+          <span>{{'timeSelection.custom.end' | translate}} {{tsEnd}}</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <app-datepicker [timestamp]="timespan.to" [minDate]="timespan.from" [seconds]="false"
+            (onDateSelected)="onTimepickerSelected($event, false)"></app-datepicker>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+
+    <div class="preset-button">
+      <app-timespan-button label="{{'ok' | translate}}" [timespanFunc]="customTime"
+        (onTimespanSelected)="activeModal.close($event)">
+      </app-timespan-button>
+    </div>
+
+  </div>
+</div>

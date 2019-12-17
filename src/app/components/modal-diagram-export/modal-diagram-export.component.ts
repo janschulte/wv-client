@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Timespan } from '@helgoland/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
+import moment from 'moment';
 
 @Component({
   selector: 'app-modal-diagram-export',
@@ -14,8 +14,8 @@ export class ModalDiagramExportComponent implements OnInit {
   public timespan: Timespan;
 
   public title = 'Diagram Export';
-  public start: Date;
-  public end: Date;
+  public start: string;
+  public end: string;
   public showFirstLastDate = true;
   public showLegend = true;
 
@@ -25,23 +25,30 @@ export class ModalDiagramExportComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.start = new Date(this.timeseriesService.timespan.from);
-    this.end = new Date(this.timeseriesService.timespan.to);
-    this.setTimespan();
+    this.timespan = new Timespan(this.timeseriesService.timespan.from, this.timeseriesService.timespan.to);
+    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
+    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
-  setStart(start: Date) {
-    this.start = new Date(start);
-    this.setTimespan();
-  }
-
-  setEnd(end: Date) {
-    this.end = new Date(end);
-    this.setTimespan();
-  }
-
-  private setTimespan() {
-    this.timespan = new Timespan(this.start, this.end);
+  /**
+   * Update timespan.
+   * @param $event current date
+   * @param fromDate indicate if from or to date was changed
+   */
+  onTimepickerSelected($event: Date, fromDate: boolean) {
+    let from = this.timespan.from;
+    let to = this.timespan.to;
+    if (fromDate) {
+      from = moment($event).unix() * 1000;
+      if (from > to) {
+        to = from;
+      }
+    } else {
+      to = moment($event).unix() * 1000;
+    }
+    this.timespan = new Timespan(Math.min(from, to), Math.max(from, to));
+    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
+    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
 }
