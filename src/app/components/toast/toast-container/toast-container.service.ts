@@ -1,7 +1,12 @@
 import { Injectable, TemplateRef } from '@angular/core';
 
+export enum ToastType {
+  Info = 'info',
+  Warn = 'warn'
+}
+
 export interface ToastOptions {
-  classname?: string;
+  type: ToastType;
   delay?: number;
 }
 
@@ -13,7 +18,7 @@ export interface Toast extends ToastOptions {
 export class ToastService {
   toasts: Toast[] = [];
 
-  show(textOrTpl: string | TemplateRef<any>, options: ToastOptions = {}) {
+  show(textOrTpl: string | TemplateRef<any>, options: ToastOptions = { type: ToastType.Info }) {
     this.toasts.push({ textOrTpl, ...options });
   }
 

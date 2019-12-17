@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +24,7 @@ import { settings } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
+import { ErrorInterceptor } from './interceptors/error-interceptor/error-interceptor.service';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { LegendEntryComponent } from './views/diagram/legend/legend-entry/legend-entry.component';
 import { FavoriteComponent } from './views/favorite/favorite.component';
@@ -98,6 +99,11 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       {
          useClass: SplittedDataDatasetApiInterface,
          provide: DatasetApiInterface
+      },
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: ErrorInterceptor,
+         multi: true
       }
    ],
    bootstrap: [

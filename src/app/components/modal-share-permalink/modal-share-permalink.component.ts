@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ToastService } from './../toast/toast-container/toast-container.service';
+import { ToastService, ToastType } from './../toast/toast-container/toast-container.service';
 
 @Component({
   selector: 'app-modal-share-permalink',
@@ -39,7 +39,7 @@ export class ModalSharePermalinkComponent implements OnInit {
   }
 
   public copyToClipboard() {
-    this.toast.show(this.translate.instant('legend.share.copyToClipboard'), { classname: 'positive' });
+    this.toast.show(this.translate.instant('legend.share.copyToClipboard'), { type: ToastType.Info });
     this.activeModal.close();
   }
 
