@@ -12,19 +12,27 @@
   </div>
 
   <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">{{'diagram-export.start' | translate}}</span>
-    </div>
-    <input type="datetime-local" class="form-control" [ngModel]="start | date:'yyyy-MM-ddThh:mm'"
-      (ngModelChange)="setStart($event)">
-  </div>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">{{'diagram-export.end' | translate}}</span>
-    </div>
-    <input type="datetime-local" class="form-control" [ngModel]="end | date:'yyyy-MM-ddThh:mm'"
-      (ngModelChange)="setEnd($event)">
+    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true">
+      <ngb-panel id="static-1">
+        <ng-template ngbPanelTitle>
+          <span>{{'diagram-export.start' | translate}} {{start}}</span>
+        </ng-template>
+        <ng-template class="mid description" ngbPanelContent>
+          <app-datepicker [timestamp]="timespan.from" [seconds]="false"
+            (onDateSelected)="onTimepickerSelected($event, true)">
+          </app-datepicker>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="static-2">
+        <ng-template ngbPanelTitle>
+          <span>{{'diagram-export.end' | translate}} {{end}}</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <app-datepicker [timestamp]="timespan.to" [minDate]="timespan.from" [seconds]="false"
+            (onDateSelected)="onTimepickerSelected($event, false)"></app-datepicker>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
   </div>
 
   <div *ngFor="let id of timeseriesService.datasetIds">

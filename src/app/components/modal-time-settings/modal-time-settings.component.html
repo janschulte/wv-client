@@ -36,8 +36,8 @@
   <div class="modal-inline-header" translate="timeSelection.custom.header"></div>
   <div class="modal-inline-block">
 
-    <ngb-accordion [closeOthers]="true" activeIds="static-1">
-      <ngb-panel id="static-1" class="wv-button">
+    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true">
+      <ngb-panel id="static-1">
         <ng-template ngbPanelTitle>
           <span>{{'timeSelection.custom.start' | translate}} {{tsStart}}</span>
         </ng-template>

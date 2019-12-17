@@ -16,8 +16,8 @@ export class ModalTimeSettingsComponent implements OnInit {
     from: false,
     to: false
   };
-  public tsStart;
-  public tsEnd;
+  public tsStart: string;
+  public tsEnd: string;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -53,6 +53,11 @@ export class ModalTimeSettingsComponent implements OnInit {
     return this.timespan;
   }
 
+  /**
+   * Update timespan.
+   * @param $event current date
+   * @param fromDate indicate if from or to date was changed
+   */
   onTimepickerSelected($event: Date, fromDate: boolean) {
     let from = this.timespan.from;
     let to = this.timespan.to;

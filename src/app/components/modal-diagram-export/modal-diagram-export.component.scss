@@ -1,4 +1,21 @@
+@import './../../../variables';
+
 :host {
+    ::ng-deep .ngb-accordion-custom .card .card-header {
+        padding: 0.2rem 1rem !important;
+
+        .btn {
+            color: $royal-blue;
+            &:active {
+                color: $white;
+                background-color: $royal-blue;
+            }
+            &:focus {
+                color: $royal-blue;
+            }
+        }
+    }
+
     .footer {
         display: flex;
 

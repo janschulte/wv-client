@@ -51,6 +51,9 @@ export class DatepickerComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Function executed whenever the model has changed.
+   */
   public ngModelChangeDate(value: NgbDate) {
     this.updateDate();
     this.dateTime = new NgbTime(0, 0, 0);
@@ -67,6 +70,10 @@ export class DatepickerComponent implements OnInit, OnChanges {
     this.onDateSelected.emit(ts);
   }
 
+  /**
+   * Update time in parent directive.
+   * @param value NgbTime object
+   */
   public changeTime(value: NgbTime) {
     if (value === null) {
       this.dateTime = new NgbTime(0, 0, 0);
@@ -76,37 +83,41 @@ export class DatepickerComponent implements OnInit, OnChanges {
     this.onDateSelected.emit(ts);
   }
 
+  /**
+   * Update time and increase/decrease day, if time crossed 00:00:00.
+   * @param $event Step by which the day has to be increased/decreased (+1, -1)
+   */
   public changeDay($event: number) {
     const newDay = new Date(this.model1.year, this.model1.month - 1, this.model1.day);
     newDay.setDate(newDay.getDate() + $event);
-    this.model1 = new NgbDate(newDay.getFullYear() , newDay.getMonth() + 1, newDay.getDate());
+    this.model1 = new NgbDate(newDay.getFullYear(), newDay.getMonth() + 1, newDay.getDate());
   }
 
-  private isBefore(dt1: NgbDateStruct, dt2: NgbDateStruct): boolean {
-    if (dt1.year >= dt2.year && dt1.month >= dt2.month && dt1.day >= dt2.day) {
-      return false;
-    }
-    return true;
-  }
-
+  /**
+   * Update model value, if it exceeds either minimum or maximum value.
+   */
   private updateDate() {
     if (this.model1) {
-      if (this.maxDate && !this.isBefore(this.model1, this.maxDatePrep)) {
+      if (this.maxDate && this.maxDatePrep.before(this.model1)) {
         this.model1 = this.maxDatePrep;
       }
-      if (this.minDate && this.isBefore(this.model1, this.minDatePrep)) {
+      if (this.minDate && this.minDatePrep.after(this.model1)) {
         this.model1 = this.minDatePrep;
       }
     }
   }
 
+  /**
+   * Update minimum and maximum value.
+   */
   private updateMinMaxDate() {
     if (this.minDate) {
       const minDt = new Date(this.minDate);
       this.minDatePrep = new NgbDate(minDt.getFullYear(), minDt.getMonth() + 1, minDt.getDate());
     }
     if (this.maxDate) {
-      this.maxDatePrep = new NgbDate(this.maxDate.getFullYear(), this.maxDate.getMonth() + 1, this.maxDate.getDate());
+      const maxDt = new Date(this.maxDate);
+      this.maxDatePrep = new NgbDate(maxDt.getFullYear(), maxDt.getMonth() + 1, maxDt.getDate());
     }
     this.updateDate();
   }

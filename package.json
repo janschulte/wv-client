@@ -29,7 +29,7 @@
     "@helgoland/facet-search": "^1.0.0-beta.8",
     "@helgoland/favorite": "^1.0.0-beta.8",
     "@helgoland/map": "file:../../helgoland-toolbox/helgoland-map-1.0.0-beta.7.tgz",
-    "@helgoland/permalink": "^1.0.0-beta.8",
+    "@helgoland/permalink": "file:../../helgoland-toolbox/helgoland-permalink-1.0.0-beta.7.tgz",
     "@helgoland/selector": "^1.0.0-beta.8",
     "@helgoland/time": "^1.0.0-beta.8",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",

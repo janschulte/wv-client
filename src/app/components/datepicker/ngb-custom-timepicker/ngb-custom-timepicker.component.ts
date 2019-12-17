@@ -56,7 +56,7 @@ const NGB_TIMEPICKER_VALUE_ACCESSOR = {
               [class.form-control-lg]="isLargeSize"
               maxlength="2" inputmode="numeric" placeholder="HH" i18n-placeholder="@@ngb.timepicker.HH"
               [value]="formatHour(model?.hour)" (change)="updateHour($event.target)"
-              [readOnly]="readonlyInputs" [disabled]="disabled || validation.increase.hour || validation.decrease.hour" aria-label="Hours" i18n-aria-label="@@ngb.timepicker.hours"
+              [readOnly]="readonlyInputs" [disabled]="disabled" aria-label="Hours" i18n-aria-label="@@ngb.timepicker.hours"
               (input)="formatInput($event.target)"
               (keydown.ArrowUp)="changeHour(hourStep); $event.preventDefault()"
               (keydown.ArrowDown)="changeHour(-hourStep); $event.preventDefault()">
@@ -78,7 +78,7 @@ const NGB_TIMEPICKER_VALUE_ACCESSOR = {
             <input type="text" class="ngb-tp-input form-control" [class.form-control-sm]="isSmallSize" [class.form-control-lg]="isLargeSize"
               maxlength="2" inputmode="numeric" placeholder="MM" i18n-placeholder="@@ngb.timepicker.MM"
               [value]="formatMinSec(model?.minute)" (change)="updateMinute($event.target)"
-              [readOnly]="readonlyInputs" [disabled]="disabled || validation.increase.minute || validation.decrease.minute" aria-label="Minutes" i18n-aria-label="@@ngb.timepicker.minutes"
+              [readOnly]="readonlyInputs" [disabled]="disabled" aria-label="Minutes" i18n-aria-label="@@ngb.timepicker.minutes"
               (input)="formatInput($event.target)"
               (keydown.ArrowUp)="changeMinute(minuteStep); $event.preventDefault()"
               (keydown.ArrowDown)="changeMinute(-minuteStep); $event.preventDefault()">
@@ -100,7 +100,7 @@ const NGB_TIMEPICKER_VALUE_ACCESSOR = {
             <input type="text" class="ngb-tp-input form-control" [class.form-control-sm]="isSmallSize" [class.form-control-lg]="isLargeSize"
               maxlength="2" inputmode="numeric" placeholder="SS" i18n-placeholder="@@ngb.timepicker.SS"
               [value]="formatMinSec(model?.second)" (change)="updateSecond($event.target)"
-              [readOnly]="readonlyInputs" [disabled]="disabled || validation.increase.second || validation.decrease.second" aria-label="Seconds" i18n-aria-label="@@ngb.timepicker.seconds"
+              [readOnly]="readonlyInputs" [disabled]="disabled" aria-label="Seconds" i18n-aria-label="@@ngb.timepicker.seconds"
               (input)="formatInput($event.target)"
               (keydown.ArrowUp)="changeSecond(secondStep); $event.preventDefault()"
               (keydown.ArrowDown)="changeSecond(-secondStep); $event.preventDefault()">
@@ -205,6 +205,7 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
   @Input() minDate: Date;
   @Input() maxDate: Date;
   @Input() currDate: NgbDate;
+  @Input() initialValue: NgbTime;
 
   @Output()
   public changeDate: EventEmitter<number> = new EventEmitter();
@@ -259,6 +260,12 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
     this.propagateModelChange();
   }
 
+  /**
+   * Change model to new Day, if time crosses 00:00:00
+   * @param model current model value
+   * @param step step to increase or decrease time
+   * @param type type of value changed (hour, minute, second)
+   */
   private changedToNewDay(model: NgbTime, step: number, type: string) {
     const typeInt = (type === 'hour' ? 24 : 60);
     if (step > 0) {
@@ -278,6 +285,11 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
     }
   }
 
+  /**
+   * Check if model value is exceeding min or max value.
+   * @param model current mode lvalue
+   * @param spinnerCheck if validation should disable spinners or not
+   */
   validateTime(model: NgbTime, spinnerCheck: boolean): SpinnerValidation {
     const output: SpinnerValidation = {
       decrease: {
@@ -292,24 +304,40 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
       }
     };
     if (this.minDate && this.currDate) {
+      // check if current date equals minimum date or day after minimum date
       const minDateTs = new Date(this.minDate);
       const minDate = new NgbDate(minDateTs.getFullYear(), minDateTs.getMonth() + 1, minDateTs.getDate());
-      if (minDate.equals(this.currDate)) {
+      const dayAfterMinDateTs = new Date(this.minDate);
+      dayAfterMinDateTs.setDate(dayAfterMinDateTs.getDate() + 1);
+      const dayAfterMinDate = new NgbDate(dayAfterMinDateTs.getFullYear(), dayAfterMinDateTs.getMonth() + 1,
+        dayAfterMinDateTs.getDate());
+      if (minDate.equals(this.currDate) || dayAfterMinDate.equals(this.currDate)) {
         output.decrease = this.updateSpinnersMin(model, minDateTs, spinnerCheck).decrease;
       }
     }
     if (this.maxDate && this.currDate) {
-      const maxDateTs = new Date(this.minDate);
+      // check if current date equals maximum date or day before maximum date
+      const maxDateTs = new Date(this.maxDate);
       const maxDate = new NgbDate(maxDateTs.getFullYear(), maxDateTs.getMonth() + 1, maxDateTs.getDate());
-      if (maxDate.equals(this.currDate)) {
+      const dayBeforeMaxDateTs = new Date(this.maxDate);
+      dayBeforeMaxDateTs.setDate(dayBeforeMaxDateTs.getDate() - 1);
+      const dayBeforeMaxDate = new NgbDate(dayBeforeMaxDateTs.getFullYear(), dayBeforeMaxDateTs.getMonth() + 1,
+        dayBeforeMaxDateTs.getDate());
+      if (maxDate.equals(this.currDate) || dayBeforeMaxDate.equals(this.currDate)) {
         output.increase = this.updateSpinnersMax(model, maxDateTs, spinnerCheck).increase;
       }
     }
     return output;
   }
 
+  /**
+   * Return values to disable/enable spinners.
+   * @param currModel current model value
+   * @param minDate minimum date
+   * @param spinnerCheck if validation should disable spinners or not
+   */
   private updateSpinnersMin(currModel: NgbTime, minDate: Date, spinnerCheck: boolean): SpinnerValidation {
-    const curr = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+    const curr = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       currModel.hour, currModel.minute, currModel.second);
     const duplHourDecrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
     const duplMinuteDecrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
@@ -327,21 +355,21 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
       }
     };
 
-    duplHourDecrease.changeHour(-this.hourStep);
-    const manipHourDecrease = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+    const manipHourDecrease = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       duplHourDecrease.hour, duplHourDecrease.minute, duplHourDecrease.second);
+    manipHourDecrease.setHours(manipHourDecrease.getHours() - this.hourStep);
     if (curr < minDate || (spinnerCheck && manipHourDecrease < minDate)) {
       output.decrease.hour = true;
     }
-    duplMinuteDecrease.changeMinute(-this.minuteStep);
-    const manipMinuteDecrease = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+    const manipMinuteDecrease = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       duplMinuteDecrease.hour, duplMinuteDecrease.minute, duplMinuteDecrease.second);
+    manipMinuteDecrease.setMinutes(manipMinuteDecrease.getMinutes() - this.minuteStep);
     if (curr < minDate || (spinnerCheck && manipMinuteDecrease < minDate)) {
       output.decrease.minute = true;
     }
-    duplSecondDecrease.changeSecond(-this.secondStep);
-    const manipSecondDecrease = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(),
+    const manipSecondDecrease = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       duplSecondDecrease.hour, duplSecondDecrease.minute, duplSecondDecrease.second);
+    manipSecondDecrease.setSeconds(manipSecondDecrease.getSeconds() - this.secondStep);
     if (curr < minDate || (spinnerCheck && manipSecondDecrease < minDate)) {
       output.decrease.second = true;
     }
@@ -349,8 +377,14 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
     return output;
   }
 
+  /**
+   * Return values to disable/enable spinners.
+   * @param currModel current model value
+   * @param maxDate maximum date
+   * @param spinnerCheck if validation should disable spinners or not
+   */
   private updateSpinnersMax(currModel: NgbTime, maxDate: Date, spinnerCheck: boolean): SpinnerValidation {
-    const curr = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+    const curr = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       currModel.hour, currModel.minute, currModel.second);
     const duplHourIncrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
     const duplMinuteIncrease = new NgbTime(currModel.hour, currModel.minute, currModel.second);
@@ -368,21 +402,21 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
       }
     };
 
-    duplHourIncrease.changeHour(-this.hourStep);
-    const manipHourIncrease = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+    const manipHourIncrease = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       duplHourIncrease.hour, duplHourIncrease.minute, duplHourIncrease.second);
+    manipHourIncrease.setHours(manipHourIncrease.getHours() + this.hourStep);
     if (curr > maxDate || (spinnerCheck && manipHourIncrease > maxDate)) {
       output.increase.hour = true;
     }
-    duplMinuteIncrease.changeMinute(-this.minuteStep);
-    const manipMinuteIncrease = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+    const manipMinuteIncrease = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       duplMinuteIncrease.hour, duplMinuteIncrease.minute, duplMinuteIncrease.second);
+    manipMinuteIncrease.setMinutes(manipMinuteIncrease.getMinutes() + this.minuteStep);
     if (curr > maxDate || (spinnerCheck && manipMinuteIncrease > maxDate)) {
       output.increase.minute = true;
     }
-    duplSecondIncrease.changeSecond(-this.secondStep);
-    const manipSecondIncrease = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate(),
+    const manipSecondIncrease = new Date(this.currDate.year, this.currDate.month - 1, this.currDate.day,
       duplSecondIncrease.hour, duplSecondIncrease.minute, duplSecondIncrease.second);
+    manipSecondIncrease.setSeconds(manipSecondIncrease.getSeconds() + this.secondStep);
     if (curr > maxDate || (spinnerCheck && manipSecondIncrease > maxDate)) {
       output.increase.second = true;
     }
@@ -478,13 +512,17 @@ export class NgbCustomTimepickerComponent implements ControlValueAccessor,
       this.propagateModelChange(false);
     }
     if (changes.currDate) {
-      console.log(changes.currDate);
-      console.log(this.model);
-      console.log(this.minDate);
-      console.log(this.maxDate);
-      // TODO: on initialize this.model === undefined, but values need to be checked
       if (this.model) {
-        this.validateTime(this.model, true);
+        if (this.initialValue && this.model !== this.initialValue) {
+          this.validation = this.validateTime(this.initialValue, true);
+        } else {
+          this.validation = this.validateTime(this.model, true);
+        }
+      }
+    }
+    if (changes.initialValue) {
+      if (!this.model) {
+        this.validation = this.validateTime(this.initialValue, true);
       }
     }
   }

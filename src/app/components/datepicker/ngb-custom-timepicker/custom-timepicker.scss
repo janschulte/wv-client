@@ -1,3 +1,5 @@
+@import './../../../../variables';
+
 ngb-custom-timepicker {
     font-size: 1rem;
   }
@@ -11,6 +13,7 @@ ngb-custom-timepicker {
     }
   
     &-chevron {
+      color: $royal-blue;
       &::before {
         border-style: solid;
         border-width: 0.29em 0.29em 0 0;
