@@ -20,8 +20,6 @@ export class ErrorInterceptor implements HttpInterceptor {
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           console.log('Http-Response --->>>', event);
-        } else {
-          console.log('Http-Event --->>>', event);
         }
         return event;
       }),

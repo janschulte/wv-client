@@ -78,7 +78,7 @@ export class DiagramPermalinkService {
   private mapOldToCurrentIds(ids: string[]): string[] {
     return ids.map(id => {
       const seperatedId = id.split('__');
-      if (seperatedId.length === 2) {
+      if (seperatedId.length === 2 && !seperatedId[0].startsWith('http')) {
         const matchedService = this.settingsSrvc.getSettings().datasetApis.find(e => e.name === seperatedId[0]);
         id = `${matchedService.url}__${seperatedId[1]}`;
       }
