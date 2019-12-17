@@ -63,7 +63,7 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
   }
 
   public onXSLXDownload() {
-    this.onDownload(DownloadType.XSLX);
+    this.onDownload(DownloadType.XLSX);
   }
 
   public onMetadata(dataset: IDataset): void {
