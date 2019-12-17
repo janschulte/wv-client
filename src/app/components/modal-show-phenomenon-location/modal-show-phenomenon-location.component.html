@@ -5,14 +5,8 @@
 <div class="modal-body">
   <div style="width: 466px;">
     <div style="height: 450px;">
-      <!-- the newest version of helgoland-toolbox supports the Input variable 'customMarkerIcon' -->
       <n52-geometry-map-viewer [customMarkerIcon]="customIcon" [geometry]="geometry" [zoomTo]="geometry"
         [avoidZoomToGeometry]="false"></n52-geometry-map-viewer>
-    </div>
-  </div>
-  <div class="footer">
-    <div class="wv-button" (click)="activeModal.dismiss()">
-      <span class="mid description">{{'ok' | translate}}</span>
     </div>
   </div>
 </div>
