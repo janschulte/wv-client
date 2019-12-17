@@ -1,13 +1,13 @@
 <div style="align-items: center; display: flex;">
 
-    <div style="padding: 0rem 0.3rem 0rem 0rem;">
-        <ngb-datepicker #d1 [(ngModel)]="model1" [startDate]="model1" (ngModelChange)="ngModelChangeDate($event)" (navigate)="date = $event.next"
-        [minDate]="minDatePrep" [maxDate]="maxDatePrep"></ngb-datepicker>
-    </div>
-    <div style="padding: 0rem 0rem 0rem 0.3rem;">
-        <app-ngb-custom-timepicker [(ngModel)]="dateTime" [initialValue]="dateTime" (ngModelChange)="changeTime($event)"
-        (changeDate)="changeDay($event)" [minuteStep]="15" [minDate]="minDate" [maxDate]="maxDate" [currDate]="model1"
-        [spinners]="true" [seconds]="seconds"></app-ngb-custom-timepicker>
-    </div>
+  <div style="padding: 0rem 0.3rem 0rem 0rem;">
+    <ngb-datepicker #d1 [(ngModel)]="model1" [startDate]="model1" (ngModelChange)="ngModelChangeDate($event)"
+      [minDate]="minDatePrep" [maxDate]="maxDatePrep"></ngb-datepicker>
+  </div>
+  <div style="padding: 0rem 0rem 0rem 0.3rem;">
+    <app-ngb-custom-timepicker [(ngModel)]="dateTime" [initialValue]="dateTime" (ngModelChange)="changeTime($event)"
+      (changeDate)="changeDay($event)" [minuteStep]="15" [minDate]="minDate" [maxDate]="maxDate" [currDate]="model1"
+      [spinners]="true" [seconds]="seconds"></app-ngb-custom-timepicker>
+  </div>
 
 </div>
