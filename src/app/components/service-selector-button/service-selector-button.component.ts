@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Service, Settings, SettingsService } from '@helgoland/core';
+import { HelgolandService, Settings, SettingsService } from '@helgoland/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
@@ -12,7 +12,7 @@ import { ModalServiceSelectorListComponent } from './../modal-service-selector-l
 })
 export class ServiceSelectorButtonComponent implements OnInit {
 
-  public selectedService: Service;
+  public selectedService: HelgolandService;
 
   private modalInstance: ModalServiceSelectorListComponent;
 

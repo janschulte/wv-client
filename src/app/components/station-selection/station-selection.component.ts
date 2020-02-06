@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatasetApiInterface, Timeseries } from '@helgoland/core';
-import { DatasetByStationSelectorComponent, ExtendedTimeseries } from '@helgoland/selector';
+import { DatasetType, HelgolandServicesConnector, HelgolandTimeseries } from '@helgoland/core';
+import { DatasetByStationSelectorComponent, SelectableDataset } from '@helgoland/selector';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -11,43 +11,41 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class StationSelectionComponent extends DatasetByStationSelectorComponent implements OnInit {
 
-  @Input() filteredTimeseries: Timeseries[];
+  @Input() filteredTimeseries: HelgolandTimeseries[];
 
   public additionalTsCount: number;
   public showAdditionalTs = false;
 
   constructor(
-    protected apiInterface: DatasetApiInterface,
+    protected servicesConnector: HelgolandServicesConnector,
     public activeModal: NgbActiveModal,
     private router: Router
   ) {
-    super(apiInterface);
+    super(servicesConnector);
   }
 
   ngOnInit() {
     // override ngOnInit and check self, which timeseries are needed to request
     if (this.station) {
-      this.apiInterface.getStation(this.station.id, this.url)
+      this.servicesConnector.getPlatform(this.station.id, this.url)
         .subscribe(station => {
           this.station = station;
           this.additionalTsCount = 0;
           this.counter = 0;
           const additionalTsIDs = [];
-          for (const key in this.station.properties.timeseries) {
-            if (this.station.properties.timeseries.hasOwnProperty(key)) {
-              const filtered = this.filteredTimeseries.find(e => e.id === key);
-              if (!filtered) {
-                this.counter++;
-                this.additionalTsCount++;
-                this.apiInterface.getSingleTimeseries(key, this.url)
-                  .subscribe(
-                    result => this.prepareResult(result as ExtendedTimeseries, this.defaultSelected),
-                    error => console.error(error),
-                    () => this.counter--
-                  );
-              }
+          this.station.datasetIds.forEach(id => {
+            const filtered = this.filteredTimeseries.find(e => e.id === id);
+            if (!filtered) {
+              this.counter++;
+              this.additionalTsCount++;
+              this.servicesConnector.getDataset({ id, url: this.url }, { type: DatasetType.Timeseries })
+                .subscribe(
+                  result => this.prepareResult(result as SelectableDataset, this.defaultSelected),
+                  error => console.error(error),
+                  () => this.counter--
+                );
             }
-          }
+          });
         });
     }
   }

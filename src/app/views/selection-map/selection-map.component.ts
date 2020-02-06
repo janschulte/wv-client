@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Station, Timeseries } from '@helgoland/core';
+import { Timeseries, HelgolandPlatform } from '@helgoland/core';
 import { FacetSearchService } from '@helgoland/facet-search';
 import { LayerOptions } from '@helgoland/map';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -70,12 +70,12 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     this.resultSubs.unsubscribe();
   }
 
-  public onSelectedTs(elem: { station: Station, url: string }) {
+  public onSelectedTs(elem: { station: HelgolandPlatform, url: string }) {
     const modalRef = this.modalService.open(StationSelectionComponent);
     (modalRef.componentInstance as StationSelectionComponent).station = elem.station;
     (modalRef.componentInstance as StationSelectionComponent).url = elem.url;
     (modalRef.componentInstance as StationSelectionComponent).filteredTimeseries =
-      this.facetSearch.getFilteredResults().filter(e => e.url === elem.url && e.station.id === elem.station.id);
+      this.facetSearch.getFilteredResults().filter(e => e.url === elem.url && e.platform.id === elem.station.id);
   }
 
   public updateSideMenu(active: boolean) {

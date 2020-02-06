@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatasetApiInterface, DatasetOptions, Time, Timespan } from '@helgoland/core';
+import { DatasetOptions, HelgolandServicesConnector, Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
 import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -53,7 +53,7 @@ export class DiagramComponent implements OnInit {
     private modalService: NgbModal,
     private time: Time,
     private favoriteSrvc: FavoriteService,
-    private api: DatasetApiInterface,
+    private servicesConnector: HelgolandServicesConnector,
     private toast: ToastService,
     private translateSrvc: TranslateService,
     private diagramPermalinkSrvc: DiagramPermalinkService
@@ -84,7 +84,7 @@ export class DiagramComponent implements OnInit {
   }
 
   createFavoriteGroup() {
-    forkJoin(this.timeseriesService.datasetIds.map(id => this.api.getSingleTimeseriesByInternalId(id)))
+    forkJoin(this.timeseriesService.datasetIds.map(id => this.servicesConnector.getDataset(id)))
       .subscribe(datasets => {
         const label = this.translateSrvc.instant('favorite.label') + ' ' + (this.favoriteSrvc.getFavoriteGroups().length + 1);
         this.toast.show(this.translateSrvc.instant('favorite.group.add', { label }), { type: ToastType.Info });

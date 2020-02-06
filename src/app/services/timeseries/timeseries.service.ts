@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
   ColorService,
-  DatasetApiInterface,
   DatasetOptions,
+  HelgolandServicesConnector,
   LocalStorage,
   RenderingHintsDatasetService,
   SettingsService,
@@ -28,11 +28,11 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   constructor(
     protected localStorage: LocalStorage,
     protected timeSrvc: Time,
-    protected api: DatasetApiInterface,
+    protected servicesConnector: HelgolandServicesConnector,
     private settings: SettingsService<WvSettings>,
     private color: ColorService
   ) {
-    super(api);
+    super(servicesConnector);
   }
 
   get timespan(): Timespan {

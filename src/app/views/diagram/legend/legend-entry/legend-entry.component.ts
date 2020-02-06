@@ -1,5 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ColorService, DatasetApiInterface, DatasetOptions, IDataset, InternalIdHandler, Time } from '@helgoland/core';
+import {
+  ColorService,
+  DatasetOptions,
+  HelgolandServicesConnector,
+  IDataset,
+  InternalIdHandler,
+  Time,
+} from '@helgoland/core';
 import { ReferenceValueColorCache, TimeseriesEntryComponent } from '@helgoland/depiction';
 import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -24,7 +31,7 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
   @Output() highlighted: EventEmitter<string> = new EventEmitter();
 
   constructor(
-    api: DatasetApiInterface,
+    servicesConnector: HelgolandServicesConnector,
     timeSrvc: Time,
     internalIdHandler: InternalIdHandler,
     color: ColorService,
@@ -35,7 +42,7 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
     private toast: ToastService,
     private diagramPermalinkSrvc: DiagramPermalinkService
   ) {
-    super(api, timeSrvc, internalIdHandler, color, refValCache, translateSrvc);
+    super(servicesConnector, timeSrvc, internalIdHandler, color, refValCache, translateSrvc);
   }
 
   public isInTimeSpan(timestamp: number) {

@@ -10,6 +10,7 @@ import {
    Settings,
    SettingsService,
    SplittedDataDatasetApiInterface,
+   DatasetApiV1ConnectorProvider,
 } from '@helgoland/core';
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
@@ -88,6 +89,7 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       HelgolandFacetSearchModule
    ],
    providers: [
+      DatasetApiV1ConnectorProvider,
       {
          provide: GeoSearch,
          useClass: NominatimGeoSearchService
