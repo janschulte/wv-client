@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatasetOptions, HelgolandServicesConnector, Time, Timespan } from '@helgoland/core';
+import { DatasetOptions, DatasetType, HelgolandServicesConnector, Time, Timespan } from '@helgoland/core';
 import { D3PlotOptions } from '@helgoland/d3';
 import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -84,7 +84,7 @@ export class DiagramComponent implements OnInit {
   }
 
   createFavoriteGroup() {
-    forkJoin(this.timeseriesService.datasetIds.map(id => this.servicesConnector.getDataset(id)))
+    forkJoin(this.timeseriesService.datasetIds.map(id => this.servicesConnector.getDataset(id, { type: DatasetType.Timeseries })))
       .subscribe(datasets => {
         const label = this.translateSrvc.instant('favorite.label') + ' ' + (this.favoriteSrvc.getFavoriteGroups().length + 1);
         this.toast.show(this.translateSrvc.instant('favorite.group.add', { label }), { type: ToastType.Info });

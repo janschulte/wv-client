@@ -66,7 +66,7 @@
       </span>
       <span class="icon icon-share" (click)="shareTimeseries(dataset); $event.stopPropagation()">
       </span>
-      <span class="icon" [ngClass]="{'icon-star-filled':isFavorite(dataset),'icon-star-empty':!isFavorite(dataset)}"
+      <span class="icon" [ngClass]="{'icon-star-filled':isFavorite(),'icon-star-empty':!isFavorite()}"
         (click)="toggleFavorite(dataset, datasetOptions);$event.stopPropagation()">
       </span>
       <span class="icon icon-csv-export" (click)="openDataExport();$event.stopPropagation()">

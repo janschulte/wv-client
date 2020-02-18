@@ -62,18 +62,18 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
     (modalRef.componentInstance as ModalExportTimeseriesDataComponent).internalId = this.dataset.internalId;
   }
 
-  public toggleFavorite(dataset: IDataset, options: DatasetOptions) {
-    if (this.favoriteSrvc.hasFavorite(dataset)) {
-      this.favoriteSrvc.removeFavorite(dataset.internalId);
+  public toggleFavorite(options: DatasetOptions) {
+    if (this.favoriteSrvc.hasFavorite(this.dataset)) {
+      this.favoriteSrvc.removeFavorite(this.dataset.internalId);
       this.toast.show(this.translateSrvc.instant('favorite.single.remove'), { type: ToastType.Warn });
     } else {
-      this.favoriteSrvc.addFavorite(dataset, options);
-      this.toast.show(this.translateSrvc.instant('favorite.single.add', { label: dataset.label }), { type: ToastType.Info });
+      this.favoriteSrvc.addFavorite(this.dataset, options);
+      this.toast.show(this.translateSrvc.instant('favorite.single.add', { label: this.dataset.label }), { type: ToastType.Info });
     }
   }
 
-  public isFavorite(dataset: IDataset) {
-    return this.favoriteSrvc.hasFavorite(dataset);
+  public isFavorite() {
+    return this.favoriteSrvc.hasFavorite(this.dataset);
   }
 
   public shareTimeseries(dataset: IDataset) {
