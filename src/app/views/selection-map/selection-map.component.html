@@ -1,25 +1,30 @@
-<app-header></app-header>
+<div class="mobile-wrapper" [ngClass]="{'sideMenuActive': sideMenuActive}">
+  <app-header></app-header>
 
-<div class="content">
-  <app-selection-menu></app-selection-menu>
-  <div class="mapContent">
-    <app-side-menu [content]="facetContent" width=400 side=left [isActive]="sideMenuActive"
+  <app-side-menu class="mobile-sidebar" [content]="facetContent" width=300 side=right [isActive]="sideMenuActive"
       (toggled)="updateSideMenu($event)"></app-side-menu>
-    <ng-template #facetContent>
-      <app-facets></app-facets>
-    </ng-template>
-    <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
-      <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="clusterStations"
-        [selectSingleStation]="true" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps"
-        (selected)="onSelectedTs($event)">
-      </n52-result-map>
-      <app-zoom-buttons class="zoom-control" mapId="facet-search"></app-zoom-buttons>
-      <app-locate-button class="locate-control" mapId="facet-search"></app-locate-button>
-      <app-geo-search class="search-control" mapId="facet-search"></app-geo-search>
-      <app-layers-control class="layers-control" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps">
-      </app-layers-control>
+  
+  <div class="content">
+    <app-selection-menu></app-selection-menu>
+    <div class="mapContent">
+      <app-side-menu class="desktop-sidebar" [content]="facetContent" width=400 side=right [isActive]="sideMenuActive"
+        (toggled)="updateSideMenu($event)"></app-side-menu>
+      <ng-template #facetContent>
+        <app-facets></app-facets>
+      </ng-template>
+      <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
+        <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="clusterStations"
+          [selectSingleStation]="false" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps"
+          (selected)="onSelectedTs($event)">
+        </n52-result-map>
+        <app-zoom-buttons class="zoom-control" mapId="facet-search"></app-zoom-buttons>
+        <app-locate-button class="locate-control" mapId="facet-search"></app-locate-button>
+        <app-geo-search class="search-control" mapId="facet-search"></app-geo-search>
+        <app-layers-control class="layers-control" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps">
+        </app-layers-control>
+      </div>
     </div>
   </div>
+  
+  <app-footer></app-footer>
 </div>
-
-<app-footer></app-footer>

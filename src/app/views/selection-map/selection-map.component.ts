@@ -23,7 +23,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
 
   public baseMaps: Map<string, LayerOptions> = new Map<string, LayerOptions>();
 
-  public sideMenuActive = true;
+  public sideMenuActive = false;
 
   public resultCount: number;
 
@@ -47,9 +47,8 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     this.baseMaps.set('OM', {
       label: 'OM',
       visible: true,
-      layer: tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+      layer: tileLayer('https://maps.omniscale.net/v2/fluggs-d9227d46/style.default/{z}/{x}/{y}.png', {
         maxZoom: 18,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       })
     });
 
