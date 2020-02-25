@@ -54,4 +54,24 @@
             border-top: 1px solid $geyser-gray;
         }
     }
+
+    @media screen and (max-width: $mobile-max-width) {
+        width: 100%;
+
+        .favorite-body {
+            &>.favorite-block {
+                width: 100%;
+                display: block;
+            }
+
+            &>div:nth-child(2) {
+                padding-top: 0px;
+
+                &>div:first-child {
+                    border-top: 1px solid $geyser-gray;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
 }

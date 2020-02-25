@@ -1,14 +1,19 @@
- <div class="favorites-view">
-   <div class="view">
-     <div class="empty" *ngIf="!count">
-       <h1 translate="favorite.empty.header"></h1>
-       <div class="pic"></div>
-       <h3 [innerHtml]="'favorite.empty.description' | translate"></h3>
-     </div>
-     <app-favorite-list></app-favorite-list>
-     <div class="favorite-controls" [ngClass]="{'no-favorites' : count === 0}">
-       <app-favorite-import-button></app-favorite-import-button>
-       <app-favorite-export-button *ngIf="count > 0"></app-favorite-export-button>
-     </div>
-   </div>
- </div>
+<app-header></app-header>
+
+<div class="content">
+  <div class="favorites-view">
+    <div class="empty" *ngIf="!count">
+      <h1 translate="favorite.empty.header"></h1>
+      <div class="pic"></div>
+      <h3 [innerHtml]="'favorite.empty.description' | translate"></h3>
+    </div>
+    <app-favorite-list></app-favorite-list>
+    <div class="favorite-controls" [ngClass]="{'no-favorites' : count === 0}">
+      <app-favorite-import-button></app-favorite-import-button>
+      <div class="spacer"></div>
+      <app-favorite-export-button *ngIf="count > 0"></app-favorite-export-button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

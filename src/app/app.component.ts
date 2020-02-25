@@ -36,8 +36,8 @@ export class AppComponent {
       iconSize: [32, 32],
       iconAnchor: [16, 32]
     });
-  }
 
+  }
 
   private setLanguage() {
     // fetch save language

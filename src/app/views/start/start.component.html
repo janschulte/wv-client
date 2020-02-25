@@ -1,66 +1,72 @@
-<div class="start">
-  <div class="desktop">
-    <div class="sector upLeft">
-      <div class="tile">
-        <span class="icon icon-map"></span>
-        <h2 translate="start.map.header"></h2>
-        <p class="big" translate="start.map.description"></p>
-        <div class="wv-button" routerLink="/selection-map">
-          <span class="mid description" translate="start.map.button"></span>
+  <app-header></app-header>
+
+  <div class="content">
+    <div class="start">
+      <div class="desktop">
+        <div class="sector upLeft">
+          <div class="tile">
+            <span class="icon icon-map"></span>
+            <h2 translate="start.map.header"></h2>
+            <p class="big" translate="start.map.description"></p>
+            <div class="wv-button" routerLink="/selection-map">
+              <span class="mid description" translate="start.map.button"></span>
+            </div>
+          </div>
+        </div>
+        <div class="sector upRight">
+          <div class="tile">
+            <span class="icon icon-category"></span>
+            <h2 translate="start.category.header"></h2>
+            <p class="big" translate="start.category.description"></p>
+            <div class="wv-button" routerLink="/selection-list">
+              <span class="mid description" translate="start.category.button"></span>
+            </div>
+          </div>
+        </div>
+        <div class="sector downLeft">
+          <div class="tile">
+            <span class="icon icon-timeline-start"></span>
+            <h2 translate="start.station.header"></h2>
+            <p class="big" translate="start.station.description"></p>
+            <div class="wv-button" routerLink="/selection-list">
+              <span class="mid description" translate="start.station.button"></span>
+            </div>
+          </div>
+        </div>
+        <div class="sector downRight">
+          <div class="tile">
+            <span class="icon icon-phenomenon"></span>
+            <h2 translate="start.phenomenon.header"></h2>
+            <p class="big" translate="start.phenomenon.description"></p>
+            <div class="wv-button" routerLink="/selection-list">
+              <span class="mid description" translate="start.phenomenon.button"></span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="sector upRight">
-      <div class="tile">
-        <span class="icon icon-category"></span>
-        <h2 translate="start.category.header"></h2>
-        <p class="big" translate="start.category.description"></p>
-        <div class="wv-button" routerLink="/selection-list">
-          <span class="mid description" translate="start.category.button"></span>
-        </div>
-      </div>
-    </div>
-    <div class="sector downLeft">
-      <div class="tile">
-        <span class="icon icon-timeline-start"></span>
-        <h2 translate="start.station.header"></h2>
-        <p class="big" translate="start.station.description"></p>
-        <div class="wv-button" routerLink="/selection-list">
-          <span class="mid description" translate="start.station.button"></span>
-        </div>
-      </div>
-    </div>
-    <div class="sector downRight">
-      <div class="tile">
-        <span class="icon icon-phenomenon"></span>
-        <h2 translate="start.phenomenon.header"></h2>
-        <p class="big" translate="start.phenomenon.description"></p>
-        <div class="wv-button" routerLink="/selection-list">
-          <span class="mid description" translate="start.phenomenon.button"></span>
-        </div>
+      <div class="mobile">
+        <ul>
+          <li routerLink="/selection-list">
+            <span>
+              <span class="icon icon-map"></span>
+              <h2 translate="start.map.header"></h2>
+            </span>
+          </li>
+          <li routerLink="/selection-list">
+            <span class="icon icon-category"></span>
+            <h2 translate="start.category.header"></h2>
+          </li>
+          <li routerLink="/selection-list">
+            <span class="icon icon-timeline-start"></span>
+            <h2 translate="start.station.header"></h2>
+          </li>
+          <li routerLink="/selection-list">
+            <span class="icon icon-phenomenon"></span>
+            <h2 translate="start.phenomenon.header"></h2>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-  <div class="mobile">
-    <ul>
-      <li routerLink="/selection-list">
-        <span>
-          <span class="icon icon-map"></span>
-          <h2 translate="start.map.header"></h2>
-        </span>
-      </li>
-      <li routerLink="/selection-list">
-        <span class="icon icon-category"></span>
-        <h2 translate="start.category.header"></h2>
-      </li>
-      <li routerLink="/selection-list">
-        <span class="icon icon-timeline-start"></span>
-        <h2 translate="start.station.header"></h2>
-      </li>
-      <li routerLink="/selection-list">
-        <span class="icon icon-phenomenon"></span>
-        <h2 translate="start.phenomenon.header"></h2>
-      </li>
-    </ul>
-  </div>
-</div>
+
+  <app-footer></app-footer>

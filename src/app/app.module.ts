@@ -6,11 +6,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HelgolandCachingModule } from '@helgoland/caching';
 import {
    DatasetApiInterface,
+   DatasetApiV1ConnectorProvider,
    HelgolandCoreModule,
    Settings,
    SettingsService,
    SplittedDataDatasetApiInterface,
-   DatasetApiV1ConnectorProvider,
 } from '@helgoland/core';
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
@@ -30,7 +30,8 @@ import { DiagramComponent } from './views/diagram/diagram.component';
 import { LegendEntryComponent } from './views/diagram/legend/legend-entry/legend-entry.component';
 import { FavoriteComponent } from './views/favorite/favorite.component';
 import { HelpComponent } from './views/help/help.component';
-import { MainNavigationComponent } from './views/main-navigation/main-navigation.component';
+import { FooterComponent } from './views/main-navigation/footer/footer.component';
+import { HeaderComponent } from './views/main-navigation/header/header.component';
 import { SelectionListComponent } from './views/selection-list/selection-list.component';
 import { SelectionMapComponent } from './views/selection-map/selection-map.component';
 import { SelectionEntriesComponent } from './views/selection-menu/selection-entries/selection-entries.component';
@@ -56,12 +57,13 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       FavoriteComponent,
       HelpComponent,
       LegendEntryComponent,
-      MainNavigationComponent,
+      HeaderComponent,
       SelectionEntriesComponent,
       SelectionListComponent,
       SelectionMapComponent,
       SelectionMenuComponent,
       StartComponent,
+      FooterComponent,
    ],
    imports: [
       HttpClientModule,

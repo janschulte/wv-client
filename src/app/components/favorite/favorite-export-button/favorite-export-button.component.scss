@@ -1,0 +1,12 @@
+@import '../../../../variables';
+
+:host {
+    @media screen and (max-width: $mobile-max-width) {
+
+        .wv-button {
+            .description {
+                display: block;
+            }
+        }
+    }
+}

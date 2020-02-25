@@ -1,0 +1,57 @@
+@import '../../../../variables';
+
+:host {
+
+    position: absolute;
+    height: $mobile-footer-height;
+    background-color: $white;
+    width: 100%;
+    bottom: 0;
+
+    .addTsButton {
+        top: -14px;
+        height: 64px;
+        width: 69px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url($image-path+'s-button-open@3x.png');
+
+        &.active {
+            background-image: url($image-path+'s-button-close@3x.png');
+        }
+    }
+
+    @media (min-width: $tablet-min-width) {
+        display: none;
+    }
+
+    .navigation {
+        height: $mobile-footer-height;
+
+        .navTool {
+            margin-top: 8px;
+
+            p.mid {
+                line-height: 15px;
+            }
+        }
+
+        .active {
+            background-color: $royal-blue;
+
+            .navTool {
+
+                .icon,
+                p {
+                    color: $white;
+                }
+            }
+        }
+
+        .timeseries,
+        .favorites {
+            width: 50%;
+            height: $mobile-footer-height;
+        }
+    }
+}

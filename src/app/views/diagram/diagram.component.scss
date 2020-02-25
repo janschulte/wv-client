@@ -5,6 +5,10 @@
     $controls-height-desktop: 75px;
     $controls-height-mobile: 65px;
 
+    .mobile-sidebar {
+        display: none;
+    }
+
     .timeseries-view {
         height: 100%;
         width: 100%;
@@ -139,6 +143,29 @@
             }
         }
     }
+
+    @media screen and (max-width: $mobile-max-width) {
+        .desktop-sidebar {
+            display: none;
+        }
+
+        .mobile-sidebar {
+            display: block;
+        }
+
+        .timeseries-view {
+            &.legendActive {
+                padding-right: 0px;
+                margin-left: -300px;
+            }
+        }
+
+        .mobile-wrapper.legendActive {
+            margin-left: -300px;
+        }
+    }
+
+
 
     @media screen and (max-width: $mobile-max-width) {
         .loadingNotifier {

@@ -27,7 +27,7 @@ import { DiagramPermalinkService } from './diagram-permalink.service';
 })
 export class DiagramComponent implements OnInit {
 
-  public legendActive = true;
+  public legendActive = false;
 
   public selectedIds: string[] = [];
   public highlightId: string;

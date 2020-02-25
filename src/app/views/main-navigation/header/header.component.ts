@@ -2,20 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FavoriteService } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ModalImprintComponent } from '../../components/modal-imprint/modal-imprint.component';
-import { TimeseriesService } from '../../services/timeseries/timeseries.service';
-import { ModalSettingsComponent } from './../../components/modal-settings/modal-settings.component';
-import { SelectionNavigationService } from './selection-navigation.service';
+import { ModalImprintComponent } from '../../../components/modal-imprint/modal-imprint.component';
+import { ModalSettingsComponent } from '../../../components/modal-settings/modal-settings.component';
+import { TimeseriesService } from '../../../services/timeseries/timeseries.service';
+import { SelectionNavigationService } from '../selection-navigation.service';
 
 @Component({
-  selector: 'app-main-navigation',
-  templateUrl: './main-navigation.component.html',
-  styleUrls: ['./main-navigation.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class MainNavigationComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   public datasetCount: number;
-
   public favoriteCount: number;
 
   constructor(
