@@ -23,7 +23,7 @@ const GENERALIZE_CACHE_PARAM = 'generalize';
 export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptions> {
 
   private _timespan: Timespan;
-  private _generalize: boolean;
+  private _generalize = true;
 
   constructor(
     protected localStorage: LocalStorage,
@@ -33,6 +33,7 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
     private color: ColorService
   ) {
     super(servicesConnector);
+    this.initFromState();
   }
 
   get timespan(): Timespan {
@@ -59,7 +60,7 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
 
   protected createStyles(internalId: string) {
     const options = new DatasetOptions(internalId, this.color.getColor());
-    options.generalize = false;
+    options.generalize = this._generalize;
     return options;
   }
 
@@ -79,7 +80,6 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
       this.datasetIds = this.localStorage.loadArray<string>(TIMESERIES_IDS_CACHE_PARAM) || [];
       this._timespan = this.timeSrvc.loadTimespan(TIME_CACHE_PARAM);
       this._generalize = this.localStorage.load<boolean>(GENERALIZE_CACHE_PARAM);
-      if (this._generalize === undefined) { this._generalize = true; }
     }
   }
 
