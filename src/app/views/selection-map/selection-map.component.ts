@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Timeseries, HelgolandPlatform } from '@helgoland/core';
+import { HelgolandPlatform, HelgolandTimeseries } from '@helgoland/core';
 import { FacetSearchService } from '@helgoland/facet-search';
 import { LayerOptions } from '@helgoland/map';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tileLayer } from 'leaflet';
 import { Subscription } from 'rxjs';
 
+import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
 import { StateHandlerService } from '../../services/state-handler/state-handler.service';
 import { StationSelectionComponent } from './../../components/station-selection/station-selection.component';
 import { KEY_STORAGE_CLUSTER_STATIONS } from './../../services/state-handler/state-handler.service';
@@ -17,17 +18,19 @@ import { KEY_STORAGE_CLUSTER_STATIONS } from './../../services/state-handler/sta
 })
 export class SelectionMapComponent implements OnInit, OnDestroy {
 
-  public timeseries: Timeseries[];
+  public timeseries: HelgolandTimeseries[];
 
   public overlayMaps: Map<string, LayerOptions> = new Map<string, LayerOptions>();
 
   public baseMaps: Map<string, LayerOptions> = new Map<string, LayerOptions>();
 
-  public sideMenuActive = false;
+  public sideMenuActive = true;
 
   public resultCount: number;
 
-  public resultSubs: Subscription;
+  public subscriptions: Subscription[] = [];
+
+  public loading: boolean;
 
   public toggleMarker = true;
 
@@ -36,13 +39,15 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
   constructor(
     public facetSearch: FacetSearchService,
     private stateHandler: StateHandlerService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public serviceSelectorSrvc: ServiceSelectorService
   ) { }
 
   ngOnInit() {
     this.clusterStations = this.stateHandler.load(KEY_STORAGE_CLUSTER_STATIONS);
 
-    this.resultSubs = this.facetSearch.getResults().subscribe(ts => this.resultCount = ts.length);
+    this.subscriptions.push(this.facetSearch.getResults().subscribe(ts => this.resultCount = ts.length));
+    this.subscriptions.push(this.serviceSelectorSrvc.getLoading().subscribe(loading => this.loading = loading));
 
     this.baseMaps.set('OM', {
       label: 'OM',
@@ -66,7 +71,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.resultSubs.unsubscribe();
+    this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   public onSelectedTs(elem: { station: HelgolandPlatform, url: string }) {

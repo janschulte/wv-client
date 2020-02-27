@@ -4,8 +4,20 @@ $mobile-sidebar-width: 300px;
 
 :host {
 
-    .mobile-sidebar {
+    .mobile-sidebar-toggle {
         display: none;
+    }
+
+    .sidebar-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .selection {
+            flex: 1;
+            overflow: hidden;
+        }
     }
 
     .map {
@@ -71,7 +83,7 @@ $mobile-sidebar-width: 300px;
             display: none;
         }
 
-        .mobile-sidebar {
+        .mobile-sidebar-toggle {
             display: block;
         }
 

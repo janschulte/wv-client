@@ -1,0 +1,15 @@
+@import '../../../../variables';
+
+:host {
+    .toggle-block {
+        border-top: solid 2px $geyser-gray;
+        background-color: unset;
+
+        .toggle-header {
+            color: $white;
+            font-size: 13px;
+            line-height: 18px;
+            padding-left: 12px;
+        }
+    }
+}

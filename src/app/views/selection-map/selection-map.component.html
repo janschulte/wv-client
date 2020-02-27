@@ -1,16 +1,25 @@
 <div class="mobile-wrapper" [ngClass]="{'sideMenuActive': sideMenuActive}">
   <app-header></app-header>
 
-  <app-side-menu class="mobile-sidebar" [content]="facetContent" width=300 side=right [isActive]="sideMenuActive"
-      (toggled)="updateSideMenu($event)"></app-side-menu>
-  
+  <app-side-menu class="mobile-sidebar-toggle" [content]="facetContent" width=300 side=right [isActive]="sideMenuActive"
+    (toggled)="updateSideMenu($event)"></app-side-menu>
+
   <div class="content">
     <app-selection-menu></app-selection-menu>
     <div class="mapContent">
       <app-side-menu class="desktop-sidebar" [content]="facetContent" width=400 side=right [isActive]="sideMenuActive"
         (toggled)="updateSideMenu($event)"></app-side-menu>
       <ng-template #facetContent>
-        <app-facets></app-facets>
+        <div class="sidebar-wrapper">
+          <app-loading-overlay *ngIf="loading"></app-loading-overlay>
+          <div class="selection">
+            <app-parameters-list-selection [facetSearchService]="facetSearch" [type]="'phenomenon'" [sort]="'ascAlphabet'">
+            </app-parameters-list-selection>
+          </div>
+          <div class="time-button">
+            <app-current-time-button [facetSearchService]="facetSearch"></app-current-time-button>
+          </div>
+        </div>
       </ng-template>
       <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
         <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="clusterStations"
@@ -20,11 +29,12 @@
         <app-zoom-buttons class="zoom-control" mapId="facet-search"></app-zoom-buttons>
         <app-locate-button class="locate-control" mapId="facet-search"></app-locate-button>
         <app-geo-search class="search-control" mapId="facet-search"></app-geo-search>
-        <app-layers-control class="layers-control" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps">
+        <app-layers-control class="layers-control" mapId="facet-search" [baseMaps]="baseMaps"
+          [overlayMaps]="overlayMaps">
         </app-layers-control>
       </div>
     </div>
   </div>
-  
+
   <app-footer></app-footer>
 </div>

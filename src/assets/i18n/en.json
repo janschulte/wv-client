@@ -211,7 +211,7 @@
 		"settings": "Settings"
 	},
 	"map": {
-		"show-phenomenon-location": "Position of the Station",
+		"current-datasets": "only timeseries with current values",
 		"layers": {
 			"baselayerHeader": "Base layer",
 			"overlayHeader": "Overlay layer"
@@ -227,6 +227,7 @@
 		"search": {
 			"label": "Search adress ..."
 		},
+		"show-phenomenon-location": "Position of the Station",
 		"station": {
 			"add": "Timeseries successfully added",
 			"addMulti": "Timeseries successfully added",

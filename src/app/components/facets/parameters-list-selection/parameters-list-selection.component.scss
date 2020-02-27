@@ -1,0 +1,61 @@
+@import '../../../../variables';
+
+:host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .list {
+        overflow: auto;
+    }
+
+    .autocomplete {
+        padding: 10px 25px;
+    }
+
+    .entry {
+        color: $white;
+        height: 52px;
+        padding: 18px 25px;
+        font-size: 13px;
+        line-height: 18px;
+        display: flex;
+        flex-direction: row;
+
+        +.entry {
+            border-top: solid 1px $geyser-gray;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $light-slate-gray;
+        }
+
+        &.selected {
+            background-color: $royal-blue;
+        }
+
+        .icon-cancel {
+            font-size: 1.5rem;
+        }
+
+        .label {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 10px;
+        }
+
+        .counter {
+            background-color: $white;
+            color: $smoke-black;
+            border-radius: 3px;
+            min-width: 26px;
+            height: 20px;
+            font-size: 11px;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+}

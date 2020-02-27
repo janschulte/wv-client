@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Timespan } from '@helgoland/core';
-import { FacetSearch } from '@helgoland/facet-search';
+import { FacetSearchService } from '@helgoland/facet-search';
 import moment, { Duration } from 'moment';
 import { ChangeContext, CustomStepDefinition, Options } from 'ng5-slider';
 
@@ -11,13 +11,13 @@ import { ChangeContext, CustomStepDefinition, Options } from 'ng5-slider';
 })
 export class TimeSliderComponent implements OnInit {
 
-  @Input() public facetSearchService: FacetSearch;
+  @Input() public facetSearchService: FacetSearchService;
 
   public minVal: number;
   public maxVal: number;
   public options: Options;
 
-  public supportsTimefilter : boolean;
+  public supportsTimefilter: boolean;
 
   constructor() { }
 

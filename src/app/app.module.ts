@@ -14,7 +14,7 @@ import {
 } from '@helgoland/core';
 import { HelgolandD3Module } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
-import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
+import { FacetSearchConfig, HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandFavoriteModule } from '@helgoland/favorite';
 import { GeoSearch, NominatimGeoSearchService } from '@helgoland/map';
 import { HelgolandSelectorModule } from '@helgoland/selector';
@@ -108,6 +108,10 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
          provide: HTTP_INTERCEPTORS,
          useClass: ErrorInterceptor,
          multi: true
+      },
+      {
+         provide: FacetSearchConfig,
+         useValue: { showZeroValues: true } as FacetSearchConfig
       }
    ],
    bootstrap: [

@@ -5,7 +5,14 @@ import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule, HelgolandMapViewModule } from '@helgoland/map';
-import { NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbTimepickerModule, NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbDatepickerModule,
+  NgbDropdownModule,
+  NgbModalModule,
+  NgbModule,
+  NgbTimepickerModule,
+  NgbToastModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { QRCodeModule } from 'angular2-qrcode';
 import { Ng5SliderModule } from 'ng5-slider';
@@ -15,8 +22,12 @@ import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
 import { LayersControlComponent } from './controls/layers-control/layers-control.component';
 import { LocateButtonComponent } from './controls/locate-button/locate-button.component';
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import { NgbCustomTimepickerComponent } from './datepicker/ngb-custom-timepicker/ngb-custom-timepicker.component';
+import { CurrentTimeButtonComponent } from './facets/current-time-button/current-time-button.component';
 import { FacetsComponent } from './facets/facets.component';
 import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
+import { ParametersListSelectionComponent } from './facets/parameters-list-selection/parameters-list-selection.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
 import { TimeSliderComponent } from './facets/time-slider/time-slider.component';
@@ -47,12 +58,9 @@ import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.compo
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbCustomTimepickerComponent } from './datepicker/ngb-custom-timepicker/ngb-custom-timepicker.component';
 
 const COMPONENTS = [
+  CurrentTimeButtonComponent,
   DatepickerComponent,
   DiagramExportButtonComponent,
   FacetsComponent,
@@ -76,6 +84,7 @@ const COMPONENTS = [
   ModalTimeSettingsComponent,
   NgbCustomTimepickerComponent,
   NoDataHintComponent,
+  ParametersListSelectionComponent,
   ServiceSelectorButtonComponent,
   SideMenuComponent,
   StationSelectionComponent,

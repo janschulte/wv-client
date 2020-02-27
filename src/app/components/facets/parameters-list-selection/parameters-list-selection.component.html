@@ -1,0 +1,16 @@
+<div class="entry" [ngClass]="{'selected': !isParameterSelected}" (click)="clearFacet()">
+  <div class="label">Alle Messparameter</div>
+</div>
+
+<div class="autocomplete">
+  <input type="text" class="form-control" placeholder="{{'facets.search-placeholder' | translate}}"
+    (input)="textualFilter = $event.target.value">
+</div>
+
+<div class="list">
+  <div class="entry" *ngFor="let param of parameterList | matchFacetParameterLabel: textualFilter"
+    [ngClass]="{'selected': param.selected}" (click)="toggleFacet(param)">
+    <div class="label">{{param.label}}</div>
+    <div class="counter">{{param.count}}</div>
+  </div>
+</div>

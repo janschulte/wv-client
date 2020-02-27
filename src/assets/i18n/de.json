@@ -211,7 +211,7 @@
 		"settings": "Einstellungen"
 	},
 	"map": {
-		"show-phenomenon-location": "Position der Messstation",
+		"current-datasets": "nur Messreihen mit aktuellen Werten",
 		"layers": {
 			"baselayerHeader": "Basiskarten",
 			"overlayHeader": "Overlay"
@@ -227,6 +227,7 @@
 		"search": {
 			"label": "Suche Adresse ..."
 		},
+		"show-phenomenon-location": "Position der Messstation",
 		"station": {
 			"add": "Zeitreihe erfolgreich hinzugefügt",
 			"addMulti": "Zeitreihen erfolgreich hinzugefügt",

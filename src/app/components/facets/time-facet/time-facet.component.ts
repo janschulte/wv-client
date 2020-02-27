@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Timespan } from '@helgoland/core';
-import { FacetSearch } from '@helgoland/facet-search';
+import { FacetSearchService } from '@helgoland/facet-search';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -11,7 +11,7 @@ import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 export class TimeFacetComponent implements OnInit {
 
   @Input()
-  public facetSearchService: FacetSearch;
+  public facetSearchService: FacetSearchService;
 
   public from: NgbDateStruct;
   public to: NgbDateStruct;
