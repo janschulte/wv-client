@@ -12,8 +12,10 @@
 		"hasNoData": "Außerhalb des Datenbereichs",
 		"hotkeys": {
 			"day": "Tag",
+			"day-short": "T",
 			"month": "Monat",
-			"week": "Woche"
+			"week": "Woche",
+			"week-short": "W"
 		},
 		"loading": "Zeitreihen werden geladen",
 		"monthNames": {

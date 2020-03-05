@@ -9,6 +9,7 @@ import { forkJoin } from 'rxjs';
 
 import { ModalSharePermalinkComponent } from '../../components/modal-share-permalink/modal-share-permalink.component';
 import { ToastService, ToastType } from '../../components/toast/toast-container/toast-container.service';
+import { LayoutValidatorService } from '../../services/layout-validator/layout-validator.service';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import {
   ModalDatasetoptionsEditorComponent,
@@ -28,6 +29,7 @@ import { DiagramPermalinkService } from './diagram-permalink.service';
 export class DiagramComponent implements OnInit {
 
   public legendActive = false;
+  public hideOverview = true;
 
   public selectedIds: string[] = [];
   public highlightId: string;
@@ -45,7 +47,13 @@ export class DiagramComponent implements OnInit {
   public diagramOptions: D3PlotOptions = {
     showTimeLabel: false,
     showReferenceValues: true,
-    generalizeAllways: false
+    generalizeAllways: false,
+    yaxis: true,
+    copyright: {
+      label: '',
+      positionX: 'right',
+      positionY: 'bottom'
+    }
   };
 
   constructor(
@@ -56,7 +64,8 @@ export class DiagramComponent implements OnInit {
     private servicesConnector: HelgolandServicesConnector,
     private toast: ToastService,
     private translateSrvc: TranslateService,
-    private diagramPermalinkSrvc: DiagramPermalinkService
+    private diagramPermalinkSrvc: DiagramPermalinkService,
+    private layoutValidator: LayoutValidatorService
   ) { }
 
   ngOnInit() {
@@ -64,6 +73,13 @@ export class DiagramComponent implements OnInit {
       this.timeseriesService.initFromState();
     }
     this.timespan = this.timeseriesService.timespan;
+
+    this.legendActive = !this.layoutValidator.isMobile();
+    this.hideOverview = this.layoutValidator.isMobile();
+
+    this.translateSrvc.onLangChange.subscribe(evt => {
+      this.diagramOptions.copyright.label = this.translateSrvc.instant('chart.annotation');
+    });
   }
 
   toggleLegend(active: boolean) {

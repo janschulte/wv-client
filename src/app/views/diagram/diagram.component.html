@@ -54,25 +54,28 @@
       </div>
       <div class="view" *ngIf="timeseriesService.hasDatasets()">
         <div class="controls">
-          <!-- <div class="wv-button hide-y-axis" (click)="toggleYAxis()" [ngClass]="{'active':behaviour.showYAxis}">
+          <div class="wv-button hide-y-axis" (click)="diagramOptions.yaxis = !diagramOptions.yaxis"
+            [ngClass]="{'active':diagramOptions.yaxis}">
             <span class="icon"
-              [ngClass]="{'icon-hide-y-axis':behaviour.showYAxis, 'icon-show-y-axis':!behaviour.showYAxis}"></span>
-          </div> -->
+              [ngClass]="{'icon-hide-y-axis':diagramOptions.yaxis, 'icon-show-y-axis':!diagramOptions.yaxis}"></span>
+          </div>
           <!-- <div class="wv-button graph-view" [ngClass]="{'selected':!isToggled}" (click)="toggle()">
             <span class="icon icon-graph-view"></span>
           </div>
           <div class="wv-button table-view" [ngClass]="{'selected':isToggled}" (click)="toggle()">
             <span class="icon icon-table-view"></span>
           </div> -->
-          <app-timespan-shifter [timespan]="timespan" (onTimespanChange)="timespanChanged($event)"
+          <app-timespan-shifter class="time-shifter" [timespan]="timespan" (onTimespanChange)="timespanChanged($event)"
             (onOpenTimeSettings)="openTimeSettings()"></app-timespan-shifter>
-          <app-timespan-button label="1 {{'chart.hotkeys.day' | translate}}" [timespanFunc]="oneDay"
+          <app-timespan-button class="time-button one-day" label="1 {{'chart.hotkeys.day' | translate}}"
+            shortlabel="1{{'chart.hotkeys.day-short' | translate}}" [timespanFunc]="oneDay"
             (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
-          <app-timespan-button label="1 {{'chart.hotkeys.week' | translate}}" [timespanFunc]="oneWeek"
+          <app-timespan-button class="time-button one-week" label="1 {{'chart.hotkeys.week' | translate}}"
+            shortlabel="1{{'chart.hotkeys.week-short' | translate}}" [timespanFunc]="oneWeek"
             (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
-          <app-timespan-button label="1 {{'chart.hotkeys.month' | translate}}" [timespanFunc]="oneMonth"
-            (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
-          <div class="wv-button" (click)="openModalExportImage()">
+          <app-timespan-button class="time-button one-month" label="1 {{'chart.hotkeys.month' | translate}}"
+            [timespanFunc]="oneMonth" (onTimespanSelected)="timespanChanged($event)"></app-timespan-button>
+          <div class="export-button wv-button" (click)="openModalExportImage()">
             <span class="mid description">{{'export' | translate}}</span>
           </div>
         </div>
@@ -89,7 +92,7 @@
             <n52-d3-y-axis-modifier></n52-d3-y-axis-modifier>
           </n52-d3-timeseries-graph>
         </div>
-        <div class="overviewChart">
+        <div class="overviewChart" *ngIf="!hideOverview">
           <n52-d3-overview-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [rangefactor]="2"
             [datasetOptions]="timeseriesService.datasetOptions" [presenterOptions]="overviewOptions"
             [timeInterval]="timespan" (onTimespanChanged)="timespanChanged($event)"
@@ -101,8 +104,6 @@
         </div> -->
       </div>
       <!-- <div ng-include="'templates/views/diagram/no-data-warning.html'" /> -->
-      <!-- <swc-data-loading>
-        </swv-data-loading> -->
     </div>
   </div>
 

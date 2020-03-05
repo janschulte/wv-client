@@ -5,6 +5,7 @@
 			"header": "All timeseries are hidden"
 		},
 		"annotation": "Data without warranty!",
+		"copyright": "",
 		"empty": {
 			"description": "Click the “+”-button and select an option to select timeseries",
 			"header": "Currently no timeseries are loaded"
@@ -12,8 +13,10 @@
 		"hasNoData": "Outside the data range",
 		"hotkeys": {
 			"day": "Day",
+			"day-short": "D",
 			"month": "Month",
-			"week": "Week"
+			"week": "Week",
+			"week-short": "W"
 		},
 		"loading": "Timeseries will be loaded",
 		"monthNames": {

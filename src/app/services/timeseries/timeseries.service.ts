@@ -79,7 +79,7 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
       if (options) { options.forEach(e => this.datasetOptions.set(e.internalId, e)); }
       this.datasetIds = this.localStorage.loadArray<string>(TIMESERIES_IDS_CACHE_PARAM) || [];
       this._timespan = this.timeSrvc.loadTimespan(TIME_CACHE_PARAM);
-      this._generalize = this.localStorage.load<boolean>(GENERALIZE_CACHE_PARAM);
+      this._generalize = this.localStorage.load<boolean>(GENERALIZE_CACHE_PARAM) || true;
     }
   }
 
