@@ -7,60 +7,151 @@
     width: 100%;
     background-color: $slate-gray;
     color: $white;
+
     .mobile {
         display: none;
-    }
-    .entry {
-        height: $selection-menu-height;
-        line-height: $selection-menu-height;
-        width: $entry-width;
-        float: left;
-        text-align: center;
-        span {
-            vertical-align: middle;
-            +span {
-                padding-left: 5px; 
+
+        .entry {
+            height: $selection-menu-height;
+            line-height: $selection-menu-height;
+            width: $entry-width;
+            float: left;
+            text-align: center;
+
+            span {
+                vertical-align: middle;
+
+                +span {
+                    padding-left: 5px;
+                }
             }
-        }
-        &:hover {
-            cursor: pointer;
-            background-color: $light-slate-gray;
-        }
-        .icon {
-            font-size: 26px;
-        }
-        +.entry {
-            border-left: solid 1px $geyser-gray;
-        }
-        &.provider {
-            border-right: solid 1px $geyser-gray;
-            width: 20%;
-            padding: 10px 5px;
-            .icon-provider {
-                float:left;
-            }
-            .providerlabel {
-                width: 75%;
-                padding: 4px;
-                white-space: nowrap;
-                float: left;
-                overflow: hidden;
-                text-align: left;
-                text-overflow: ellipsis;
-            }
-            .icon-arrow-down {
-                float:right;
-                font-size: 16px;
-                line-height: 26px;
-            }
-        }
-        &.active {
-            background-color: $royal-blue;
+
             &:hover {
-                background-color: $lavender-blue;
+                cursor: pointer;
+                background-color: $light-slate-gray;
+            }
+
+            .icon {
+                font-size: 26px;
+            }
+
+            +.entry {
+                border-left: solid 1px $geyser-gray;
+            }
+
+            &.provider {
+                border-right: solid 1px $geyser-gray;
+                min-width: 20%;
+                padding: 10px 5px;
+
+                .icon-provider {
+                    float: left;
+                }
+
+                .providerlabel {
+                    width: 75%;
+                    padding: 4px;
+                    white-space: nowrap;
+                    float: left;
+                    overflow: hidden;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                }
+
+                .icon-arrow-down {
+                    float: right;
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+            }
+
+            &.active {
+                background-color: $royal-blue;
+
+                &:hover {
+                    background-color: $lavender-blue;
+                }
             }
         }
     }
+
+    .desktop {
+        display: flex;
+        flex-direction: row;
+
+        .spacer {
+            flex: 1;
+
+            .provider {
+                margin-right: 30px;
+                max-width: 500px;
+            }
+        }
+
+        .entry {
+            height: $selection-menu-height;
+            line-height: $selection-menu-height;
+            width: $entry-width;
+            float: left;
+            text-align: center;
+
+            span {
+                vertical-align: middle;
+
+                +span {
+                    padding-left: 5px;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: $light-slate-gray;
+            }
+
+            .icon {
+                font-size: 26px;
+            }
+
+            +.entry {
+                border-left: solid 1px $geyser-gray;
+            }
+
+            &.provider {
+                border-right: solid 1px $geyser-gray;
+                width: 100%;
+                padding: 10px 5px;
+
+                .icon-provider {
+                    float: left;
+                }
+
+                .providerlabel {
+                    width: 75%;
+                    padding: 4px;
+                    white-space: nowrap;
+                    float: left;
+                    overflow: hidden;
+                    text-align: left;
+                    text-overflow: ellipsis;
+                }
+
+                .icon-arrow-down {
+                    float: right;
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+            }
+
+            &.active {
+                background-color: $royal-blue;
+
+                &:hover {
+                    background-color: $lavender-blue;
+                }
+            }
+        }
+    }
+
     .center {
         margin-left: auto;
         margin-right: auto;
@@ -74,70 +165,84 @@
 @media screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
     .selectionsMenu {
         $entry-width: 109px;
+
         .entry {
             width: $entry-width;
+
             &.provider {
                 width: ($tablet-min-width - 4 * $entry-width + 3px) / 2;
+
                 .providerlabel {
                     width: 70%;
                 }
             }
         }
+
         .center {
             width: 4*$entry-width + 5px;
         }
     }
 }
 
-.selectionContent, 
+.selectionContent,
 .mapContent {
     position: absolute;
     right: 0;
     left: 0;
     top: $selection-menu-height;
     bottom: 0;
+
     .loadingNotifier {
         top: 10px;
         left: 10px;
     }
+
     @media screen and (max-width: $mobile-max-width) {
         .loadingNotifier {
             top: inherit;
             bottom: 10px;
-        }    
+        }
     }
 }
 
 @media screen and (max-width: $mobile-max-width) {
     $height: 50px;
+
     .selectionsMenu {
         bottom: 0;
         height: $height;
+
         .desktop {
             display: none;
         }
-        .mobile
-        {
+
+        .mobile {
             display: inline;
+
             .entry {
                 width: 20%;
                 height: $height;
                 line-height: $height;
-                span + span {
+
+                span+span {
                     display: none;
                 }
+
                 div {
                     display: none;
                 }
+
                 &.provider {
                     padding: 0px;
+
                     .icon-provider {
-                        float:none;
+                        float: none;
                     }
                 }
             }
         }
     }
+
     .selectionContent,
     .mapContent {
         top: 0;
