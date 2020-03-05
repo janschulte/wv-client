@@ -19,7 +19,10 @@ export class ServiceSelectorService {
   ) {
     const defService = this.settings.getSettings().defaultService;
     if (defService) {
-      this.servicesConnector.getServices(defService.apiUrl, { service: defService.serviceId }).subscribe(s => this.fetchDatasets(s[0]));
+      this.servicesConnector.getServices(defService.apiUrl, { service: defService.serviceId }).subscribe(
+        service => this.fetchDatasets(service[0]),
+        e => console.error(e)
+      );
     } else {
       console.error(`No 'defaultService' is defined in the settings.`);
     }

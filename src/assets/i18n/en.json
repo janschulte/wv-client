@@ -204,7 +204,7 @@
 			"category": "Category",
 			"list": "List",
 			"map": "Map",
-			"phenomenon": "Measured parameter",
+			"phenomenon": "Parameter",
 			"station": "Station"
 		},
 		"allPhenomena": "All measured parameters",

@@ -32,10 +32,13 @@ import { FavoriteComponent } from './views/favorite/favorite.component';
 import { HelpComponent } from './views/help/help.component';
 import { FooterComponent } from './views/main-navigation/footer/footer.component';
 import { HeaderComponent } from './views/main-navigation/header/header.component';
+import { SelectionCategoryComponent } from './views/selection-category/selection-category.component';
 import { SelectionListComponent } from './views/selection-list/selection-list.component';
 import { SelectionMapComponent } from './views/selection-map/selection-map.component';
 import { SelectionEntriesComponent } from './views/selection-menu/selection-entries/selection-entries.component';
 import { SelectionMenuComponent } from './views/selection-menu/selection-menu.component';
+import { SelectionParameterComponent } from './views/selection-parameter/selection-parameter.component';
+import { SelectionStationComponent } from './views/selection-station/selection-station.component';
 import { StartComponent } from './views/start/start.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -55,15 +58,18 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       AppComponent,
       DiagramComponent,
       FavoriteComponent,
+      FooterComponent,
+      HeaderComponent,
       HelpComponent,
       LegendEntryComponent,
-      HeaderComponent,
+      SelectionCategoryComponent,
       SelectionEntriesComponent,
       SelectionListComponent,
       SelectionMapComponent,
       SelectionMenuComponent,
+      SelectionParameterComponent,
+      SelectionStationComponent,
       StartComponent,
-      FooterComponent,
    ],
    imports: [
       HttpClientModule,
