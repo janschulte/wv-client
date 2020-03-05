@@ -54,7 +54,7 @@
 			"first-value": "First value",
 			"from": "From",
 			"last-value": "Last value",
-			"measure-parameter": "Measure Parameter",
+			"measure-parameter": "Measured Parameter",
 			"to": "To",
 			"unit": "Unit"
 		},
@@ -62,7 +62,7 @@
 	},
 	"facets": {
 		"category": "Category",
-		"phenomenon": "Phenomenon",
+		"phenomenon": "Measured Parameter",
 		"reset-all": "Reset search",
 		"search-placeholder": "Search",
 		"station": "Station",
@@ -137,8 +137,8 @@
 		"map-selection": {
 			"header": "Timeseries selection by map",
 			"text": {
-				"desktop": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected phenomenon. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table.",
-				"mobile": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected phenomenon. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table."
+				"desktop": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected measured parameter. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table.",
+				"mobile": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected measured parameter. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table."
 			}
 		},
 		"settings": {
@@ -193,7 +193,7 @@
 		"goBack": "back",
 		"headers": {
 			"category": "Category",
-			"phenomenon": "Phenomenon",
+			"phenomenon": "Measured Parameter",
 			"procedure": "Sensor",
 			"station": "Station"
 		},
@@ -204,10 +204,10 @@
 			"category": "Category",
 			"list": "List",
 			"map": "Map",
-			"phenomenon": "Phenomenon",
+			"phenomenon": "Measured parameter",
 			"station": "Station"
 		},
-		"allPhenomena": "All phenomenons",
+		"allPhenomena": "All measured parameters",
 		"diagram": "Diagram",
 		"favorite": "Favorites",
 		"help": "Help",
@@ -221,7 +221,7 @@
 		},
 		"loading": "Stations will be loaded",
 		"providerList": {
-			"phenomena": "Phenomenons",
+			"phenomena": "Measured parameters",
 			"provider": "Datenanbieter",
 			"source": "Provider",
 			"stations": "Stations",
@@ -238,7 +238,7 @@
 			"lastValue": "Last value:",
 			"loading": "Timeseries will be loaded...",
 			"remove": "Timeseries removed",
-			"showAll": "further phenomenons",
+			"showAll": "further measured parameters",
 			"showChart": "Open diagram view"
 		},
 		"stationLocation": {
@@ -295,9 +295,9 @@
 			"header": "Select timeseries by map"
 		},
 		"phenomenon": {
-			"button": "Show phenomenons and find timeseries",
-			"description": "The available phenomena (such as water level or precipitation) are listed, by mouse click you can select the category (such as raw data or validated data) and station of a phenomenon. At the end you can add the selected timeseries to the diagram.",
-			"header": "Select timeseries by phenomenon"
+			"button": "Show measured parameters and find timeseries",
+			"description": "The available measured parameters (such as water level or precipitation) are listed, by mouse click you can select the category (such as raw data or validated data) and station of a phenomenon. At the end you can add the selected timeseries to the diagram.",
+			"header": "Select timeseries by measured parameter"
 		},
 		"station": {
 			"button": "Show stations and find timeseries",
