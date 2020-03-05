@@ -77,9 +77,7 @@ export class DiagramComponent implements OnInit {
     this.legendActive = !this.layoutValidator.isMobile();
     this.hideOverview = this.layoutValidator.isMobile();
 
-    this.translateSrvc.onLangChange.subscribe(evt => {
-      this.diagramOptions.copyright.label = this.translateSrvc.instant('chart.annotation');
-    });
+    this.translateSrvc.onLangChange.subscribe(() => this.diagramOptions.copyright.label = this.translateSrvc.instant('chart.annotation'));
   }
 
   toggleLegend(active: boolean) {
