@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
 import { StateHandlerService } from '../../services/state-handler/state-handler.service';
 import { StationSelectionComponent } from './../../components/station-selection/station-selection.component';
-import { LayoutValidatorService } from './../../services/layout-validator/layout-validator.service';
+import { LayoutValidatorService, ScreenSize } from './../../services/layout-validator/layout-validator.service';
 import { KEY_STORAGE_CLUSTER_STATIONS } from './../../services/state-handler/state-handler.service';
 
 @Component({
@@ -51,7 +51,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.facetSearch.getResults().subscribe(ts => this.resultCount = ts.length));
     this.subscriptions.push(this.serviceSelectorSrvc.getLoading().subscribe(loading => this.loading = loading));
 
-    this.sideMenuActive = !this.layoutValidator.isMobile();
+    this.sideMenuActive = !this.layoutValidator.isMax(ScreenSize.mobileMax);
 
     this.baseMaps.set('OM', {
       label: 'OM',

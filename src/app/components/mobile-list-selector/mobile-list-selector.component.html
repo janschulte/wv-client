@@ -1,0 +1,40 @@
+<div #wrapperRef class="wrapper">
+  <div [ngClass]="{'disabled': param.isDisabled}" *ngFor="let param of parameters; let i = index; let last = last">
+    <div class="parameter-header-mobile-wrapper">
+      <div class="parameter-header-mobile"
+        [ngClass]="{'open': selectorId + '-' + i === activePanel, 'not-last': last !== i, 'disabled': param.isDisabled}"
+        (click)="param.isDisabled || toList(i);">
+        <div class="icon" [ngClass]="{'icon-category': param.type === 'category',
+          'icon-timeline-start': param.type === 'feature',
+          'icon-phenomenon': param.type === 'phenomenon',
+          'icon-sensor': param.type === 'procedure'}">
+        </div>
+        <div class="description">
+          <div class="mid">{{param.header| translate}}</div>
+          <div class="mid bold" *ngIf="param.headerAddition === undefined || last"
+            translate="listSelection.noSelection"></div>
+          <div class="mid bold" *ngIf="!last">{{param.headerAddition}}</div>
+        </div>
+        <div class="icon icon-arrow-right"></div>
+      </div>
+    </div>
+    <div class="parameter-list-mobile" *ngIf="selectorId + '-' + i === activePanel">
+      <div class="back" (click)="toParameter()">
+        <div class="icon icon-arrow-left"></div>
+        <div class="mid" translate="listSelection.goBack"></div>
+      </div>
+      <div *ngIf="!last">
+        <app-parameter-table [endpoint]="param.type" [filterList]="param.filterList"
+          (onItemSelected)="itemSelected($event, i)"></app-parameter-table>
+      </div>
+      <div *ngIf="last">
+        <app-dataset-table [endpoint]="param.type" [filterList]="param.filterList"
+          (onItemSelected)="itemSelected($event, i)"></app-dataset-table>
+        <div class="wv-button showChart" (click)="toDiagram.emit()">
+          <span class="icon icon-timeline"></span>
+          <span class="description" translate="map.station.showChart"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

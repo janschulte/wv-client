@@ -40,6 +40,7 @@ import { FavoriteListComponent } from './favorite/favorite-list/favorite-list.co
 import { ModalEditFavoriteComponent } from './favorite/modal-edit-favorite/modal-edit-favorite.component';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
+import { MobileListSelectorComponent } from './mobile-list-selector/mobile-list-selector.component';
 import { ModalDatasetoptionsEditorComponent } from './modal-datasetoptions-editor/modal-datasetoptions-editor.component';
 import { DiagramExportButtonComponent } from './modal-diagram-export/diagram-export-button/diagram-export-button.component';
 import { ModalDiagramExportComponent } from './modal-diagram-export/modal-diagram-export.component';
@@ -78,6 +79,7 @@ const COMPONENTS = [
   LayersControlComponent,
   LoadingOverlayComponent,
   LocateButtonComponent,
+  MobileListSelectorComponent,
   ModalDatasetoptionsEditorComponent,
   ModalDiagramExportComponent,
   ModalEditFavoriteComponent,

@@ -23,7 +23,7 @@
   </div>
   <div class="share-entry" (click)="showQrCode = !showQrCode">
     <span class="description" translate="legend.share.inQrCode"></span>
-    <div class="wv-button" ng-class="{'active': dataUrl}">
+    <div class="wv-button" [ngClass]="{'active': dataUrl}">
       <span class="icon icon-qrcode"></span>
     </div>
   </div>

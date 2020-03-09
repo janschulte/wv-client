@@ -1,0 +1,136 @@
+@import '../../../variables';
+
+:host {
+    overflow: hidden;
+
+    .wrapper {
+        width: 200%;
+        height: 100%;
+        position: absolute;
+        left: 0%;
+        padding: 10px 0px;
+        transition: left .5s ease;
+
+        .parameter-header-mobile-wrapper {
+            width: 50%;
+            padding: 0px 10px;
+
+            .parameter-header-mobile {
+                color: $white;
+                position: relative;
+                padding: 0px 15px;
+                height: 60px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                background-color: $slate-gray;
+                border-bottom: $geyser-gray 1px solid;
+                display: flex;
+                align-items: center;
+
+                &.disabled {
+                    opacity: 0.5;
+                    background-color: $slate-gray;
+                }
+
+                &.open {
+                    background-color: $royal-blue;
+                }
+
+                .icon {
+                    font-size: 30px;
+                    line-height: 30px;
+                }
+
+                .description {
+                    padding-left: 10px;
+                    flex: 1;
+                }
+
+                .icon-arrow-right {
+                    font-size: 20px;
+                }
+
+            }
+        }
+
+        .parameter-list-mobile {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            left: 50%;
+            padding: 10px;
+            overflow: auto;
+
+            .loading {
+                padding-top: 10px;
+                text-align: center;
+
+                .loader {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+
+            .parameter-item {
+                height: 50px;
+                line-height: 30px;
+                padding: 10px;
+                background-color: $snow-grey;
+                border-bottom: $geyser-gray 1px solid;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                .wv-label {
+                    float: right;
+                    margin: 3px;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                .icon {
+                    float: right;
+                    font-size: 27px;
+                    color: $slate-gray;
+
+                    &.active {
+                        color: $royal-blue;
+                    }
+                }
+            }
+
+            .back {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                color: $slate-gray;
+            }
+
+            .showChart {
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                width: 100%;
+                background-color: inherit;
+                color: $slate-gray;
+
+                .description {
+                    display: inline;
+                }
+            }
+
+            .ts-selection-notifier {
+                white-space: normal;
+
+                .icon {
+                    color: $white;
+                    float: none;
+                }
+            }
+        }
+    }
+}

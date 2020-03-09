@@ -2,27 +2,23 @@
   <span class="icon icon-map-options"></span>
 </div>
 <div class="menu" [hidden]="!toggled" (mouseleave)="toggled = false" click-anywhere-but-here="closeMenu()">
-  <div ng-controller="SwcBaseLayerCtrl">
-    <div class="layers-header mid bold">
-      <span translate="map.layers.baselayerHeader"></span>
-    </div>
-    <div class="layers-entry" *ngFor="let layer of baseMaps | keyvalue" (click)="switchBaseVisibility(layer.value)">
-      <input class="wv-radio" type="radio" [checked]="layer.value.visible">
-      <label class="wv-label mid">{{layer.value.label}}</label>
-    </div>
+  <div class="layers-header mid bold">
+    <span translate="map.layers.baselayerHeader"></span>
   </div>
-  <div ng-controller="SwcOverlayCtrl">
-    <div class="layers-header mid bold">
-      <span translate="map.layers.overlayHeader"></span>
-    </div>
-    <div class="layers-entry" *ngFor="let layer of overlayMaps | keyvalue"
-      (click)="switchOverlayVisibility(layer.value);">
-      <input class="wv-checkbox" type="checkbox" [checked]="layer.value.visible">
-      <label class="wv-label mid">{{layer.value.label}}</label>
-    </div>
-    <!-- <div class="layers-entry" (click)="toggleMarker()">
+  <div class="layers-entry" *ngFor="let layer of baseMaps | keyvalue" (click)="switchBaseVisibility(layer.value)">
+    <input class="wv-radio" type="radio" [checked]="layer.value.visible">
+    <label class="wv-label mid">{{layer.value.label}}</label>
+  </div>
+  <div class="layers-header mid bold">
+    <span translate="map.layers.overlayHeader"></span>
+  </div>
+  <div class="layers-entry" *ngFor="let layer of overlayMaps | keyvalue"
+    (click)="switchOverlayVisibility(layer.value);">
+    <input class="wv-checkbox" type="checkbox" [checked]="layer.value.visible">
+    <label class="wv-label mid">{{layer.value.label}}</label>
+  </div>
+  <!-- <div class="layers-entry" (click)="toggleMarker()">
       <input class="wv-checkbox" type="checkbox">
       <label class="wv-label mid">{{'stations' | translate}}</label>
     </div> -->
-  </div>
 </div>

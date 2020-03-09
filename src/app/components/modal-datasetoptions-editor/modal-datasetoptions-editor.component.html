@@ -8,7 +8,7 @@
     <div class="color-block">
       <div class="wv-button color-button" *ngFor="let color of colorList" [ngStyle]="{'background-color': color}"
         (click)="setColor(color)">
-        <span class="icon" ng-class="{'icon-check': options.color === color}"></span>
+        <span class="icon" [ngClass]="{'icon-check': options.color === color}"></span>
       </div>
     </div>
   </div>

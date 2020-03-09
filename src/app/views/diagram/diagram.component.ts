@@ -9,7 +9,7 @@ import { forkJoin } from 'rxjs';
 
 import { ModalSharePermalinkComponent } from '../../components/modal-share-permalink/modal-share-permalink.component';
 import { ToastService, ToastType } from '../../components/toast/toast-container/toast-container.service';
-import { LayoutValidatorService } from '../../services/layout-validator/layout-validator.service';
+import { LayoutValidatorService, ScreenSize } from '../../services/layout-validator/layout-validator.service';
 import { TimeseriesService } from '../../services/timeseries/timeseries.service';
 import {
   ModalDatasetoptionsEditorComponent,
@@ -74,8 +74,8 @@ export class DiagramComponent implements OnInit {
     }
     this.timespan = this.timeseriesService.timespan;
 
-    this.legendActive = !this.layoutValidator.isMobile();
-    this.hideOverview = this.layoutValidator.isMobile();
+    this.legendActive = !this.layoutValidator.isMax(ScreenSize.mobileMax);
+    this.hideOverview = this.layoutValidator.isMax(ScreenSize.mobileMax);
 
     this.translateSrvc.onLangChange.subscribe(() => this.diagramOptions.copyright.label = this.translateSrvc.instant('chart.annotation'));
   }
