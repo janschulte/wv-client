@@ -1,0 +1,26 @@
+<div class="parameter-table" [ngClass]="{'disabled': param.isDisabled}"
+  *ngFor="let param of parameters; let i = index; let last = last">
+  <div class="parameter-header" [ngClass]="{'open': selectorId + '-' + i === activePanel}">
+    <div class="icon"
+      [ngClass]="{'icon-category': param.type === 'category','icon-timeline-start': param.type === 'feature','icon-phenomenon': param.type === 'phenomenon','icon-sensor': param.type === 'procedure'}">
+    </div>
+    <div class="mid">{{param.header| translate}}</div>
+    <div class="mid bold" *ngIf="param.headerAddition === undefined" translate="listSelection.noSelection">
+    </div>
+    <div class="mid bold">{{param.headerAddition}}</div>
+  </div>
+  <div class="parameter-list" *ngIf="!param.isDisabled">
+    <div *ngIf="!last">
+      <app-parameter-table [endpoint]="param.type" [filterList]="param.filterList"
+        (onItemSelected)="itemSelected($event, i)"></app-parameter-table>
+    </div>
+    <div *ngIf="last">
+      <app-dataset-table [endpoint]="param.type" [filterList]="param.filterList"
+        (onItemSelected)="itemSelected($event, i)"></app-dataset-table>
+      <div class="wv-button showChart" (click)="toDiagram.emit()">
+        <span class="icon icon-timeline"></span>
+        <span class="description" translate="map.station.showChart"></span>
+      </div>
+    </div>
+  </div>
+</div>

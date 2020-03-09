@@ -1,0 +1,48 @@
+@import '../../../variables';
+
+:host {
+    .loading {
+        padding-top: 10px;
+        text-align: center;
+
+        .loader {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .parameter-item {
+        display: flex;
+        align-items: center;
+        border-bottom: $geyser-gray 1px solid;
+
+        .description {
+            flex: 1;
+            line-height: 30px;
+            padding: 10px;
+            background-color: $snow-grey;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            .wv-label {
+                float: right;
+                margin: 3px;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .icon {
+            padding-right: 10px;
+            font-size: 27px;
+            color: $slate-gray;
+
+            &.active {
+                color: $royal-blue;
+            }
+        }
+    }
+}

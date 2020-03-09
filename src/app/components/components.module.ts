@@ -5,6 +5,7 @@ import { HelgolandCoreModule } from '@helgoland/core';
 import { HelgolandDatasetDownloadModule } from '@helgoland/depiction';
 import { HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandMapControlModule, HelgolandMapViewModule } from '@helgoland/map';
+import { HelgolandSelectorModule } from '@helgoland/selector';
 import {
   NgbDatepickerModule,
   NgbDropdownModule,
@@ -22,8 +23,10 @@ import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
 import { LayersControlComponent } from './controls/layers-control/layers-control.component';
 import { LocateButtonComponent } from './controls/locate-button/locate-button.component';
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
+import { DatasetTableComponent } from './dataset-table/dataset-table.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbCustomTimepickerComponent } from './datepicker/ngb-custom-timepicker/ngb-custom-timepicker.component';
+import { DesktopListSelectorComponent } from './desktop-list-selector/desktop-list-selector.component';
 import { CurrentTimeButtonComponent } from './facets/current-time-button/current-time-button.component';
 import { FacetsComponent } from './facets/facets.component';
 import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
@@ -51,6 +54,7 @@ import {
   ModalShowPhenomenonLocationComponent,
 } from './modal-show-phenomenon-location/modal-show-phenomenon-location.component';
 import { ModalTimeSettingsComponent } from './modal-time-settings/modal-time-settings.component';
+import { ParameterTableComponent } from './parameter-table/parameter-table.component';
 import { ServiceSelectorButtonComponent } from './service-selector-button/service-selector-button.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { StationSelectionComponent } from './station-selection/station-selection.component';
@@ -61,7 +65,9 @@ import { ToastContainerComponent } from './toast/toast-container/toast-container
 
 const COMPONENTS = [
   CurrentTimeButtonComponent,
+  DatasetTableComponent,
   DatepickerComponent,
+  DesktopListSelectorComponent,
   DiagramExportButtonComponent,
   FacetsComponent,
   FavoriteExportButtonComponent,
@@ -84,6 +90,7 @@ const COMPONENTS = [
   ModalTimeSettingsComponent,
   NgbCustomTimepickerComponent,
   NoDataHintComponent,
+  ParameterTableComponent,
   ParametersListSelectionComponent,
   ServiceSelectorButtonComponent,
   SideMenuComponent,
@@ -120,6 +127,7 @@ const PIPES = [
     HelgolandCoreModule,
     HelgolandMapControlModule,
     HelgolandMapViewModule,
+    HelgolandSelectorModule,
     HelgolandDatasetDownloadModule,
     HelgolandFacetSearchModule
   ],

@@ -1,0 +1,11 @@
+<div class="loading" *ngIf="loading > 0">
+  <div class="loader dark"></div>
+  <span translate="map.station.loading"></span>
+</div>
+<div *ngFor="let item of items" (click)="onSelectItem(item)">
+  <div class="parameter-item">
+    <input class="wv-radio" type="radio" [checked]="item.selected" />
+    <label class="wv-label"></label>
+    <span class="big">{{item.label}}</span>
+  </div>
+</div>

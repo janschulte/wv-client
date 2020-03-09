@@ -1,1 +1,14 @@
+<div class="mobile-wrapper">
+  <app-header></app-header>
 
+  <div class="content">
+    <app-selection-menu></app-selection-menu>
+    <div class="selectionContent" *ngIf="selectedProviderList.length > 0">
+      <app-desktop-list-selector [parameters]="categoryParams" [selectorId]="'category'"
+        [providerList]="selectedProviderList" (onDatasetSelection)="onDatasetSelected($event)" (toDiagram)="toDiagram()">
+      </app-desktop-list-selector>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

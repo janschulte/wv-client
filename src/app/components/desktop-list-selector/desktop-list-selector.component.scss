@@ -1,0 +1,79 @@
+@import '../../../variables';
+
+$parameter-header-height: 60px;
+
+:host {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 20px;
+
+    .parameter-table {
+        position: relative;
+        width: 24%;
+        margin: 0 0.5%;
+        height: 100%;
+        background-color: $snow-grey;
+        display: inline-block;
+        vertical-align: top;
+
+        .parameter-header {
+            background-color: $slate-gray;
+            color: $white;
+            padding: 15px 15px;
+            height: $parameter-header-height;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            .icon {
+                float: left;
+                padding-right: 10px;
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+            &.open {
+                background-color: $royal-blue;
+            }
+        }
+
+        .parameter-list {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            top: $parameter-header-height;
+            overflow: auto;
+
+            .showChart {
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                background-color: inherit;
+                color: $slate-gray;
+            }
+
+            .ts-selection-notifier {
+                white-space: normal;
+
+                .icon {
+                    color: $white;
+                    float: none;
+                }
+            }
+        }
+
+        &.disabled {
+            opacity: 0.5;
+
+            .parameter-header {
+                background-color: $slate-gray;
+            }
+
+            .loading {
+                display: none;
+            }
+        }
+    }
+}
