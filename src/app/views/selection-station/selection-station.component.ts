@@ -5,6 +5,7 @@ import { ListSelectorParameter } from '@helgoland/selector';
 
 import { LayoutValidatorService, ScreenSize } from '../../services/layout-validator/layout-validator.service';
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-selection-station',
@@ -16,19 +17,19 @@ export class SelectionStationComponent implements OnInit {
   public stationParams: ListSelectorParameter[] = [
     {
       type: 'feature',
-      header: 'Station'
+      header: this.translateSrvc.instant('listSelection.headers.station')
     },
     {
       type: 'category',
-      header: 'Kategorie'
+      header: this.translateSrvc.instant('listSelection.headers.category')
     },
     {
       type: 'phenomenon',
-      header: 'Phänomen'
+      header: this.translateSrvc.instant('listSelection.headers.phenomenon')
     },
     {
       type: 'procedure',
-      header: 'Sensor'
+      header: this.translateSrvc.instant('listSelection.headers.procedure')
     }
   ];
 
@@ -38,6 +39,7 @@ export class SelectionStationComponent implements OnInit {
   constructor(
     public serviceSelectorSrvc: ServiceSelectorService,
     public router: Router,
+    private translateSrvc: TranslateService,
     public layoutValidator: LayoutValidatorService,
   ) { }
 

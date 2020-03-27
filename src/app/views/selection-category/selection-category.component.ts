@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Provider } from '@helgoland/core';
@@ -15,16 +16,16 @@ export class SelectionCategoryComponent implements OnInit {
 
   public categoryParams: ListSelectorParameter[] = [{
     type: 'category',
-    header: 'Kategorie'
+    header: this.translateSrvc.instant('listSelection.headers.category')
   }, {
     type: 'feature',
-    header: 'Station'
+    header: this.translateSrvc.instant('listSelection.headers.station')
   }, {
     type: 'phenomenon',
-    header: 'Phänomen'
+    header: this.translateSrvc.instant('listSelection.headers.phenomenon')
   }, {
     type: 'procedure',
-    header: 'Sensor'
+    header: this.translateSrvc.instant('listSelection.headers.procedure')
   }];
 
   public selectedProviderList: Provider[] = [];
@@ -33,6 +34,7 @@ export class SelectionCategoryComponent implements OnInit {
   constructor(
     public serviceSelectorSrvc: ServiceSelectorService,
     public router: Router,
+    private translateSrvc: TranslateService,
     public layoutValidator: LayoutValidatorService,
   ) { }
 
