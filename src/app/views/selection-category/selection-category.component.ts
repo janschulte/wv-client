@@ -47,10 +47,6 @@ export class SelectionCategoryComponent implements OnInit {
     });
   }
 
-  public onDatasetSelected(datasets: any[]) {
-    datasets.forEach((dataset) => console.log('Select Dataset: ' + dataset.label + ' with ID: ' + dataset.id));
-  }
-
   public toDiagram() {
     this.router.navigate(['/diagram']);
   }

@@ -5,13 +5,11 @@
     <app-selection-menu></app-selection-menu>
     <div class="selectionContent" *ngIf="selectedProviderList.length > 0">
       <app-desktop-list-selector *ngIf="!mobile" [parameters]="categoryParams" [selectorId]="'category'"
-        [providerList]="selectedProviderList" (onDatasetSelection)="onDatasetSelected($event)"
-        (toDiagram)="toDiagram()">
+        [providerList]="selectedProviderList" (toDiagram)="toDiagram()">
       </app-desktop-list-selector>
 
       <app-mobile-list-selector *ngIf="mobile" [parameters]="categoryParams" [selectorId]="'category'"
-        [providerList]="selectedProviderList" (onDatasetSelection)="onDatasetSelected($event)"
-        (toDiagram)="toDiagram()"></app-mobile-list-selector>
+        [providerList]="selectedProviderList" (toDiagram)="toDiagram()"></app-mobile-list-selector>
     </div>
   </div>
 
