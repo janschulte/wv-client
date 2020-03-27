@@ -1,16 +1,10 @@
-import { ToastService } from './../toast/toast-container/toast-container.service';
 import { Component } from '@angular/core';
-import {
-  DatasetType,
-  Filter,
-  HelgolandParameterFilter,
-  HelgolandServicesConnector,
-  HelgolandTimeseries,
-} from '@helgoland/core';
+import { DatasetType, HelgolandParameterFilter, HelgolandServicesConnector, HelgolandTimeseries } from '@helgoland/core';
 import { FilteredParameter, MultiServiceFilterSelectorComponent } from '@helgoland/selector';
 import { TranslateService } from '@ngx-translate/core';
 
 import { TimeseriesService } from './../../services/timeseries/timeseries.service';
+import { ToastService } from './../toast/toast-container/toast-container.service';
 
 export interface DatasetFilteredParameter extends FilteredParameter {
   dataset: HelgolandTimeseries;
@@ -45,23 +39,7 @@ export class DatasetTableComponent extends MultiServiceFilterSelectorComponent {
   }
 
   protected setItems(res: FilteredParameter[], prevfilter: HelgolandParameterFilter, url: string, service: string): void {
-    this.loading--;
     res.forEach((entry) => {
-      const filter: Filter = {
-        filter: prevfilter,
-        itemId: entry.id,
-        url,
-        service
-      };
-      const item = this.items.find((elem) => {
-        if (elem.label === entry.label) { return true; }
-      });
-      if (item) {
-        item.filterList.push(filter);
-      } else {
-        entry.filterList = [filter];
-        this.items.push(entry as DatasetFilteredParameter);
-      }
       prevfilter.type = DatasetType.Timeseries;
       prevfilter[this.endpoint] = entry.id;
       this.servicesConnector.getDatasets(url, {
@@ -69,11 +47,14 @@ export class DatasetTableComponent extends MultiServiceFilterSelectorComponent {
         expanded: true,
         type: DatasetType.Timeseries
       }).subscribe(ds => {
-        if (ds.length === 1) {
-          const dataset = ds[0];
-          (entry as DatasetFilteredParameter).dataset = ds[0];
-          entry.selected = this.timeseriesSrvc.hasDataset(dataset.internalId);
-        }
+        this.loading--;
+        ds.forEach(e => {
+          this.items.push({
+            dataset: e,
+            label: entry.label,
+            id: 'horst',
+          });
+        });
       });
     });
   }

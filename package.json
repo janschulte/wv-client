@@ -31,7 +31,7 @@
     "@helgoland/favorite": "1.0.0-beta.17",
     "@helgoland/map": "1.0.0-beta.17",
     "@helgoland/permalink": "1.0.0-beta.17",
-    "@helgoland/selector": "1.0.0-beta.17",
+    "@helgoland/selector": "file:../../helgoland-toolbox/helgoland-selector-1.0.0-beta.17.tgz",
     "@helgoland/time": "1.0.0-beta.17",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@ngx-translate/core": "^11.0.1",
