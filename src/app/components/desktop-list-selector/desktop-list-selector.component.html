@@ -11,7 +11,7 @@
   </div>
   <div class="parameter-list" *ngIf="!param.isDisabled">
     <div *ngIf="!last">
-      <app-parameter-table [endpoint]="param.type" [filterList]="param.filterList"
+      <app-parameter-table [endpoint]="param.type" [filterList]="param.filterList" [selected]="param.selected"
         (onItemSelected)="itemSelected($event, i)"></app-parameter-table>
     </div>
     <div *ngIf="last">
