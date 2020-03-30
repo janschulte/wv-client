@@ -10,7 +10,7 @@
     <app-favorite-list></app-favorite-list>
     <div class="favorite-controls" [ngClass]="{'no-favorites' : count === 0}">
       <app-favorite-import-button></app-favorite-import-button>
-      <div class="spacer"></div>
+      <div class="spacer" *ngIf="count > 0"></div>
       <app-favorite-export-button *ngIf="count > 0"></app-favorite-export-button>
     </div>
   </div>

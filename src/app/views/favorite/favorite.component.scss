@@ -32,6 +32,9 @@
         }
 
         @media screen and (max-width: $mobile-max-width) {
+
+            padding-bottom: 20px;
+
             .empty {
                 width: 90%;
 
@@ -41,11 +44,15 @@
 
                 .pic {
                     margin-top: 5%;
-                    margin-bottom: 5%;
+                    margin-bottom: 0px;
                     width: 100%;
                     max-width: 412px;
                     background-repeat: no-repeat;
                     background-size: contain;
+                }
+
+                h3 {
+                    font-size: 100%;
                 }
             }
         }
