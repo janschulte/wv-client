@@ -50,7 +50,7 @@ export class DiagramComponent implements OnInit {
     generalizeAllways: false,
     yaxis: true,
     copyright: {
-      label: '',
+      label: this.translateSrvc.instant('chart.annotation'),
       positionX: 'right',
       positionY: 'bottom'
     }
