@@ -144,6 +144,11 @@
                         fill: #d43f3a;
                         font-size: 12px;
                     }
+
+                    .d3 text.yaxisTextLabel {
+                        font-size: 12px;
+                        font-family: inherit;
+                    }
                 }
             }
 
