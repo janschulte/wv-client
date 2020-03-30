@@ -2,7 +2,11 @@
   <div class="loader dark"></div>
   <span translate="map.station.loading"></span>
 </div>
-<div *ngFor="let item of items" (click)="onSelectItem(item)">
+<div *ngIf="loading === 0" style="padding: 5px;">
+  <input type="search" class="form-control" placeholder="{{'facets.search-placeholder' | translate}}" [value]="textualFilter"
+    (input)="textualFilter = $event.target.value">
+</div>
+<div *ngFor="let item of items | matchFacetParameterLabel: textualFilter" (click)="onSelectItem(item)">
   <div class="parameter-item">
     <input class="wv-radio" type="radio" [checked]="item.selected" />
     <label class="wv-label"></label>
