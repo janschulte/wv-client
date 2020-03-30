@@ -3,10 +3,8 @@
   <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
 </div>
 <div class="modal-body">
-  <div style="width: 466px;">
-    <div style="height: 450px;">
-      <n52-geometry-map-viewer [customMarkerIcon]="customIcon" [geometry]="geometry" [zoomTo]="geometry"
-        [avoidZoomToGeometry]="false"></n52-geometry-map-viewer>
-    </div>
+  <div style="height: 450px; width: 100%;">
+    <n52-geometry-map-viewer [mapId]="mapId" [customMarkerIcon]="customIcon" [geometry]="geometry"
+      [mapOptions]="mapOptions"></n52-geometry-map-viewer>
   </div>
 </div>

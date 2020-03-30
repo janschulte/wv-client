@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { MapCache } from '@helgoland/map';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import * as L from 'leaflet';
 
@@ -7,9 +8,12 @@ import * as L from 'leaflet';
   templateUrl: './modal-show-phenomenon-location.component.html',
   styleUrls: ['./modal-show-phenomenon-location.component.scss']
 })
-export class ModalShowPhenomenonLocationComponent implements OnInit {
+export class ModalShowPhenomenonLocationComponent implements OnInit, AfterViewInit {
 
   @Input() public geometry: GeoJSON.GeoJsonObject;
+
+  public mapId = 'mapGeometryViewerModal';
+  public mapOptions: L.MapOptions = { maxZoom: 12 };
 
   public customIcon = L.icon({
     iconRetinaUrl: './assets/images/marker@2x.png',
@@ -21,6 +25,7 @@ export class ModalShowPhenomenonLocationComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
+    public mapCache: MapCache
   ) { }
 
   ngOnInit() {
@@ -29,6 +34,10 @@ export class ModalShowPhenomenonLocationComponent implements OnInit {
     } else {
       console.log(this.geometry);
     }
+  }
+
+  ngAfterViewInit(): void {
+    window.setTimeout(() => this.mapCache.getMap(this.mapId).invalidateSize(), 10);
   }
 
 }
