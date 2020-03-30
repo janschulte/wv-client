@@ -81,10 +81,14 @@
 
         .spacer {
             flex: 1;
+            position: relative;
 
             .provider {
-                margin-right: 30px;
-                max-width: 500px;
+                max-width: 400px;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                right: 0;
             }
         }
 
@@ -118,7 +122,6 @@
 
             &.provider {
                 border-right: solid 1px $geyser-gray;
-                width: 100%;
                 padding: 10px 5px;
 
                 .icon-provider {
@@ -166,21 +169,22 @@
     .selectionsMenu {
         $entry-width: 109px;
 
-        .entry {
-            width: $entry-width;
+        .desktop {
+            .entry {
+                width: $entry-width;
 
-            &.provider {
-                width: ($tablet-min-width - 4 * $entry-width + 3px) / 2;
-
-                .providerlabel {
-                    width: 70%;
+                &.provider {
+                    .providerlabel {
+                        width: 70%;
+                    }
                 }
+            }
+
+            .center {
+                width: 4*$entry-width + 5px;
             }
         }
 
-        .center {
-            width: 4*$entry-width + 5px;
-        }
     }
 }
 
