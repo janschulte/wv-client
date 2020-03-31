@@ -6,7 +6,7 @@
   <input type="search" class="form-control" placeholder="{{'facets.search-placeholder' | translate}}" [value]="textualFilter"
     (input)="textualFilter = $event.target.value">
 </div>
-<div *ngFor="let item of items | matchFacetParameterLabel: textualFilter" (click)="onSelectItem(item)">
+<div *ngFor="let item of items | matchLabel: textualFilter" (click)="onSelectItem(item)">
   <div class="parameter-item">
     <input class="wv-radio" type="radio" [checked]="item.selected" />
     <label class="wv-label"></label>

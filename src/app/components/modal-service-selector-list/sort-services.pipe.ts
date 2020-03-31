@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Service } from '@helgoland/core';
+import { HelgolandService } from '@helgoland/core';
 
 @Pipe({
   name: 'sortServices',
@@ -7,8 +7,8 @@ import { Service } from '@helgoland/core';
 })
 export class SortServicesPipe implements PipeTransform {
 
-  transform(services: Service[], ...args: any[]): any {
-    services.sort((prev: Service, next: Service) => {
+  transform(services: HelgolandService[], ...args: any[]): any {
+    services.sort((prev: HelgolandService, next: HelgolandService) => {
       if (prev.label < next.label) {
         return -1;
       } else {
