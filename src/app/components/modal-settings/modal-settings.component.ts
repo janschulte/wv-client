@@ -1,3 +1,4 @@
+import { FavoriteService } from '@helgoland/favorite';
 import { SettingsService, Settings, Language } from '@helgoland/core';
 import { TimeseriesService } from './../../services/timeseries/timeseries.service';
 import { Component, OnInit } from '@angular/core';
@@ -24,7 +25,8 @@ export class ModalSettingsComponent implements OnInit {
     public activeModal: NgbActiveModal,
     private timeseriesSrvc: TimeseriesService,
     private stateHandler: StateHandlerService,
-    private settings: SettingsService<Settings>
+    private settings: SettingsService<Settings>,
+    private favoritsSrvc: FavoriteService
   ) { }
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class ModalSettingsComponent implements OnInit {
     this.stateHandler.removeItem(KEY_STORAGE_CLUSTER_STATIONS);
     this.stateHandler.removeItem(KEY_STORAGE_VALUED_MARKER);
     this.timeseriesSrvc.removeAllDatasets();
+    this.favoritsSrvc.removeAllFavorites();
     this.activeModal.close();
   }
 
