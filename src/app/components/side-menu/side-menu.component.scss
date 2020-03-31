@@ -31,6 +31,10 @@
             &.active {
                 background-color: $royal-blue;
             }
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .side-menu-content {

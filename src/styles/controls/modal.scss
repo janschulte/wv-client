@@ -23,6 +23,12 @@ $radius: 8px;
                 text-align: center;
                 text-transform: uppercase;
             }
+
+            .close {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
 
         .modal-body {
