@@ -23,7 +23,8 @@ export class SelectionNavigationService {
 
   openSelection() {
     if (this.selectionMode()) {
-      this.router.navigate(['/start']);
+      // this.router.navigate(['/start']);
+      this.router.navigate(['/diagram']);
     } else {
       this.router.navigate([this.lastSelection]);
     }

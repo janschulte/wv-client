@@ -16,16 +16,16 @@ export class SelectionCategoryComponent implements OnInit {
 
   public categoryParams: ListSelectorParameter[] = [{
     type: 'category',
-    header: this.translateSrvc.instant('listSelection.headers.category')
+    header: 'listSelection.headers.category' // this.translateSrvc.instant('listSelection.headers.category')
   }, {
     type: 'feature',
-    header: this.translateSrvc.instant('listSelection.headers.station')
+    header: 'listSelection.headers.station' // this.translateSrvc.instant('listSelection.headers.station')
   }, {
     type: 'phenomenon',
-    header: this.translateSrvc.instant('listSelection.headers.phenomenon')
+    header: 'listSelection.headers.phenomenon' // this.translateSrvc.instant('listSelection.headers.phenomenon')
   }, {
     type: 'procedure',
-    header: this.translateSrvc.instant('listSelection.headers.procedure')
+    header: 'listSelection.headers.procedure' // this.translateSrvc.instant('listSelection.headers.procedure')
   }];
 
   public selectedProviderList: Provider[] = [];

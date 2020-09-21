@@ -10,6 +10,7 @@
     <span translate="map.station.loading"></span>
   </div>
   <div *ngFor="let timeseries of filteredTimeseries">
+    <!-- TODO: Translation-->
     <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
     <app-timeseries-item [timeseries]="timeseries"></app-timeseries-item>
   </div>

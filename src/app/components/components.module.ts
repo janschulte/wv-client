@@ -63,10 +63,12 @@ import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.compo
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 const COMPONENTS = [
   CurrentTimeButtonComponent,
   DatasetTableComponent,
+  DatePickerComponent,
   DatepickerComponent,
   DesktopListSelectorComponent,
   DiagramExportButtonComponent,

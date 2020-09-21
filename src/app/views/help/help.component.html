@@ -1,62 +1,68 @@
-<div class="help {{'code' | translate}}">
-  <h1 translate="help.header"></h1>
-  <div translate="help.intro"></div>
-  <div class="contents">
-    <span class="wv-button" (click)="scrollToElement(start)" translate="help.start.header"></span>
-    <span class="wv-button" (click)="scrollToElement(mapselection)" translate="help.map-selection.header"></span>
-    <span class="wv-button" (click)="scrollToElement(listselection)" translate="help.list-selection.header"></span>
-    <span class="wv-button" (click)="scrollToElement(diagram)" translate="help.diagram.header"></span>
-    <span class="wv-button" (click)="scrollToElement(legend)" translate="help.legend.header"></span>
-    <span class="wv-button" (click)="scrollToElement(favorties)" translate="help.favorites.header"></span>
-    <span class="wv-button" (click)="scrollToElement(settings)" translate="help.settings.header"></span>
+<app-header></app-header>
+
+<div class="content">
+
+  <div class="help {{'code' | translate}}">
+    <h1 translate="help.header"></h1>
+    <div translate="help.intro"></div>
+    <div class="contents">
+      <span class="wv-button" (click)="scrollToElement(start)" translate="help.start.header"></span>
+      <span class="wv-button" (click)="scrollToElement(mapselection)" translate="help.map-selection.header"></span>
+      <span class="wv-button" (click)="scrollToElement(listselection)" translate="help.list-selection.header"></span>
+      <span class="wv-button" (click)="scrollToElement(diagram)" translate="help.diagram.header"></span>
+      <span class="wv-button" (click)="scrollToElement(legend)" translate="help.legend.header"></span>
+      <span class="wv-button" (click)="scrollToElement(favorties)" translate="help.favorites.header"></span>
+      <span class="wv-button" (click)="scrollToElement(settings)" translate="help.settings.header"></span>
+    </div>
+    <div class="section" #start>
+      <h2 translate="help.start.header"></h2>
+      <div class="image mobile start-mobile"></div>
+      <div class="image desktop start-desktop"></div>
+      <div class="text mobile" translate="help.start.text.mobile"></div>
+      <div class="text desktop" translate="help.start.text.desktop"></div>
+    </div>
+    <div class="section" #mapselection>
+      <h2 translate="help.map-selection.header"></h2>
+      <div class="image mobile map-selection-mobile"></div>
+      <div class="image desktop map-selection-desktop"></div>
+      <div class="text mobile" translate="help.map-selection.text.mobile"></div>
+      <div class="text desktop" translate="help.map-selection.text.desktop"></div>
+    </div>
+    <div class="section" #listselection>
+      <h2 translate="help.list-selection.header"></h2>
+      <div class="image mobile list-selection-mobile"></div>
+      <div class="image desktop list-selection-desktop"></div>
+      <div class="text mobile" translate="help.list-selection.text.mobile"></div>
+      <div class="text desktop" translate="help.list-selection.text.desktop"></div>
+    </div>
+    <div class="section" #diagram>
+      <h2 translate="help.diagram.header"></h2>
+      <div class="image mobile diagram-mobile"></div>
+      <div class="image desktop diagram-desktop"></div>
+      <div class="text mobile" translate="help.diagram.text.mobile"></div>
+      <div class="text desktop" translate="help.diagram.text.desktop"></div>
+    </div>
+    <div class="section" #legend>
+      <h2 translate="help.legend.header"></h2>
+      <div class="image mobile legend-mobile"></div>
+      <div class="image desktop legend-desktop"></div>
+      <div class="text mobile" translate="help.legend.text.mobile"></div>
+      <div class="text desktop" translate="help.legend.text.desktop"></div>
+    </div>
+    <div class="section" #favorties>
+      <h2 translate="help.favorites.header"></h2>
+      <div class="image mobile favorites-mobile"></div>
+      <div class="image desktop favorites-desktop"></div>
+      <div class="text mobile" translate="help.favorites.text.mobile"></div>
+      <div class="text desktop" translate="help.favorites.text.desktop"></div>
+    </div>
+    <div class="section" #settings>
+      <h2 translate="help.settings.header"></h2>
+      <div class="image mobile settings-mobile"></div>
+      <div class="image desktop settings-desktop"></div>
+      <div class="text mobile" translate="help.settings.text.mobile"></div>
+      <div class="text desktop" translate="help.settings.text.desktop"></div>
+    </div>
   </div>
-  <div class="section" #start>
-    <h2 translate="help.start.header"></h2>
-    <div class="image mobile start-mobile"></div>
-    <div class="image desktop start-desktop"></div>
-    <div class="text mobile" translate="help.start.text.mobile"></div>
-    <div class="text desktop" translate="help.start.text.desktop"></div>
-  </div>
-  <div class="section" #mapselection>
-    <h2 translate="help.map-selection.header"></h2>
-    <div class="image mobile map-selection-mobile"></div>
-    <div class="image desktop map-selection-desktop"></div>
-    <div class="text mobile" translate="help.map-selection.text.mobile"></div>
-    <div class="text desktop" translate="help.map-selection.text.desktop"></div>
-  </div>
-  <div class="section" #listselection>
-    <h2 translate="help.list-selection.header"></h2>
-    <div class="image mobile list-selection-mobile"></div>
-    <div class="image desktop list-selection-desktop"></div>
-    <div class="text mobile" translate="help.list-selection.text.mobile"></div>
-    <div class="text desktop" translate="help.list-selection.text.desktop"></div>
-  </div>
-  <div class="section" #diagram>
-    <h2 translate="help.diagram.header"></h2>
-    <div class="image mobile diagram-mobile"></div>
-    <div class="image desktop diagram-desktop"></div>
-    <div class="text mobile" translate="help.diagram.text.mobile"></div>
-    <div class="text desktop" translate="help.diagram.text.desktop"></div>
-  </div>
-  <div class="section" #legend>
-    <h2 translate="help.legend.header"></h2>
-    <div class="image mobile legend-mobile"></div>
-    <div class="image desktop legend-desktop"></div>
-    <div class="text mobile" translate="help.legend.text.mobile"></div>
-    <div class="text desktop" translate="help.legend.text.desktop"></div>
-  </div>
-  <div class="section" #favorties>
-    <h2 translate="help.favorites.header"></h2>
-    <div class="image mobile favorites-mobile"></div>
-    <div class="image desktop favorites-desktop"></div>
-    <div class="text mobile" translate="help.favorites.text.mobile"></div>
-    <div class="text desktop" translate="help.favorites.text.desktop"></div>
-  </div>
-  <div class="section" #settings>
-    <h2 translate="help.settings.header"></h2>
-    <div class="image mobile settings-mobile"></div>
-    <div class="image desktop settings-desktop"></div>
-    <div class="text mobile" translate="help.settings.text.mobile"></div>
-    <div class="text desktop" translate="help.settings.text.desktop"></div>
-  </div>
+
 </div>

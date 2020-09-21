@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DatasetType, HelgolandServicesConnector, HelgolandTimeseries } from '@helgoland/core';
 import { DatasetByStationSelectorComponent, SelectableDataset } from '@helgoland/selector';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-station-selection',
@@ -19,9 +20,10 @@ export class StationSelectionComponent extends DatasetByStationSelectorComponent
   constructor(
     protected servicesConnector: HelgolandServicesConnector,
     public activeModal: NgbActiveModal,
-    private router: Router
+    private router: Router,
+    public translateSrvc: TranslateService
   ) {
-    super(servicesConnector);
+    super(servicesConnector, translateSrvc);
   }
 
   ngOnInit() {
