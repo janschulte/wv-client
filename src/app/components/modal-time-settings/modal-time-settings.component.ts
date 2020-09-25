@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Timespan } from '@helgoland/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
@@ -6,7 +6,8 @@ import moment from 'moment';
 @Component({
   selector: 'app-modal-time-settings',
   templateUrl: './modal-time-settings.component.html',
-  styleUrls: ['./modal-time-settings.component.scss']
+  styleUrls: ['./modal-time-settings.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModalTimeSettingsComponent implements OnInit {
 

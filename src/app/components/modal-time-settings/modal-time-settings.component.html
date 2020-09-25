@@ -36,19 +36,19 @@
   <div class="modal-inline-header" translate="timeSelection.custom.header"></div>
   <div class="modal-inline-block">
 
-    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true" activeIds="static-1">
+    <!-- <ngb-accordion style="width: 100%;" class="ngb-accordion-custom" [closeOthers]="true" activeIds="static-1"> -->
 
-      <ngb-panel id="static-1">
-        <ng-template ngbPanelTitle>
-          <span>{{'diagram-export.start' | translate}} {{start}} {{'diagram-export.end' | translate}} {{end}}</span>
-        </ng-template>
-        <ng-template class="mid description" ngbPanelContent>
+      <!-- <ngb-panel id="static-1"> -->
+        <!-- <ng-template ngbPanelTitle>
+          <span>{{'diagram-export.start' | translate}} {{start}} - {{'diagram-export.end' | translate}} {{end}}</span>
+        </ng-template> -->
+        <!-- <ng-template class="mid description" ngbPanelContent> -->
           <app-date-picker [timestamp]="timespan" (onDateSelected)="onTimepickerRangeSelected($event)">
           </app-date-picker>
-        </ng-template>
-      </ngb-panel>
+        <!-- </ng-template> -->
+      <!-- </ngb-panel> -->
 
-    </ngb-accordion>
+    <!-- </ngb-accordion> -->
 
     <div class="preset-button">
       <app-timespan-button label="{{'ok' | translate}}" [timespanFunc]="customTime"
