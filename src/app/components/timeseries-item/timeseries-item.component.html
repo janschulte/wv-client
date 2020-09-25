@@ -1,9 +1,9 @@
 <div class="ts-item" [ngClass]="{'selected': added}">
   <div>
-    <div class="big">{{timeseries.parameters.procedure.label}}</div>
+    <div class="big">{{timeseries.parameters.procedure.label | translate}}</div>
     <div class="mid">
       <span translate="map.station.category"></span>:
-      <span>{{timeseries.parameters.category.label}}</span>
+      <span>{{timeseries.parameters.category.label | translate}}</span>
     </div>
     <div class="mid" *ngIf="timeseries.lastValue">
       <span translate="map.station.lastValue"></span>

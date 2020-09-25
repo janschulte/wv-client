@@ -9,6 +9,9 @@
     border-radius: 3px;
     padding: 4px 8px;
 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &.active {
         background-color: $royal-blue;
     }

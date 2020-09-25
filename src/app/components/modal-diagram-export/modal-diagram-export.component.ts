@@ -31,6 +31,16 @@ export class ModalDiagramExportComponent implements OnInit {
   }
 
   /**
+   * Update timespan with selected range.
+   * @param $event current timespan
+   */
+  onTimepickerRangeSelected($event: Timespan) {
+    this.timespan = $event;
+    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
+    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
+  }
+
+  /**
    * Update timespan.
    * @param $event current date
    * @param fromDate indicate if from or to date was changed

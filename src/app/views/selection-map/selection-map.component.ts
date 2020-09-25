@@ -79,6 +79,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
   }
 
   public onSelectedTs(elem: { station: HelgolandPlatform, url: string }) {
+    // TODO: Translation
     const modalRef = this.modalService.open(StationSelectionComponent);
     (modalRef.componentInstance as StationSelectionComponent).station = elem.station;
     (modalRef.componentInstance as StationSelectionComponent).url = elem.url;
