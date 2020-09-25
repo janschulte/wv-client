@@ -16,7 +16,6 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { QRCodeModule } from 'angular2-qrcode';
-import { Ng5SliderModule } from 'ng5-slider';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
@@ -24,16 +23,15 @@ import { LayersControlComponent } from './controls/layers-control/layers-control
 import { LocateButtonComponent } from './controls/locate-button/locate-button.component';
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
 import { DatasetTableComponent } from './dataset-table/dataset-table.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbCustomTimepickerComponent } from './datepicker/ngb-custom-timepicker/ngb-custom-timepicker.component';
 import { DesktopListSelectorComponent } from './desktop-list-selector/desktop-list-selector.component';
 import { CurrentTimeButtonComponent } from './facets/current-time-button/current-time-button.component';
-import { FacetsComponent } from './facets/facets.component';
 import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
 import { ParametersListSelectionComponent } from './facets/parameters-list-selection/parameters-list-selection.component';
 import { WvResultListComponent } from './facets/result-list/result-list.component';
 import { TimeFacetComponent } from './facets/time-facet/time-facet.component';
-import { TimeSliderComponent } from './facets/time-slider/time-slider.component';
 import { FavoriteExportButtonComponent } from './favorite/favorite-export-button/favorite-export-button.component';
 import { FavoriteImportButtonComponent } from './favorite/favorite-import-button/favorite-import-button.component';
 import { FavoriteListComponent } from './favorite/favorite-list/favorite-list.component';
@@ -63,7 +61,6 @@ import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.compo
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
 
 const COMPONENTS = [
   CurrentTimeButtonComponent,
@@ -72,7 +69,7 @@ const COMPONENTS = [
   DatepickerComponent,
   DesktopListSelectorComponent,
   DiagramExportButtonComponent,
-  FacetsComponent,
+  // FacetsComponent,
   FavoriteExportButtonComponent,
   FavoriteImportButtonComponent,
   FavoriteListComponent,
@@ -100,7 +97,7 @@ const COMPONENTS = [
   SideMenuComponent,
   StationSelectionComponent,
   TimeFacetComponent,
-  TimeSliderComponent,
+  // TimeSliderComponent,
   TimeseriesItemComponent,
   TimespanShifterComponent,
   ToastContainerComponent,
@@ -127,7 +124,7 @@ const PIPES = [
     NgbDatepickerModule,
     NgbModule,
     NgbTimepickerModule,
-    Ng5SliderModule,
+    // Ng5SliderModule,
     HelgolandCoreModule,
     HelgolandMapControlModule,
     HelgolandMapViewModule,

@@ -33,7 +33,6 @@ import { HelpComponent } from './views/help/help.component';
 import { FooterComponent } from './views/main-navigation/footer/footer.component';
 import { HeaderComponent } from './views/main-navigation/header/header.component';
 import { SelectionCategoryComponent } from './views/selection-category/selection-category.component';
-import { SelectionListComponent } from './views/selection-list/selection-list.component';
 import { SelectionMapComponent } from './views/selection-map/selection-map.component';
 import { SelectionEntriesComponent } from './views/selection-menu/selection-entries/selection-entries.component';
 import { SelectionMenuComponent } from './views/selection-menu/selection-menu.component';
@@ -64,7 +63,7 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
       LegendEntryComponent,
       SelectionCategoryComponent,
       SelectionEntriesComponent,
-      SelectionListComponent,
+      // SelectionListComponent,
       SelectionMapComponent,
       SelectionMenuComponent,
       SelectionParameterComponent,
