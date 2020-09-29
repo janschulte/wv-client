@@ -1,3 +1,17 @@
+<ng-template #facetContent>
+  <div class="sidebar-wrapper">
+    <app-loading-overlay *ngIf="loading"></app-loading-overlay>
+    <div class="selection">
+      <app-parameters-list-selection [facetSearchService]="facetSearch" [type]="'phenomenon'"
+        [sort]="'ascAlphabet'">
+      </app-parameters-list-selection>
+    </div>
+    <div class="time-button">
+      <app-current-time-button [facetSearchService]="facetSearch"></app-current-time-button>
+    </div>
+  </div>
+</ng-template>
+
 <div class="mobile-wrapper" [ngClass]="{'sideMenuActive': sideMenuActive}">
   <app-header></app-header>
 
@@ -5,23 +19,12 @@
     (toggled)="updateSideMenu($event)"></app-side-menu>
 
   <div class="content">
-    <app-selection-menu></app-selection-menu>
+    <div class="selection-menu" [ngClass]="{'withSideMenu': sideMenuActive}">
+      <app-selection-menu></app-selection-menu>
+    </div>
     <div class="mapContent">
       <app-side-menu class="desktop-sidebar" [content]="facetContent" width=400 side=right [isActive]="sideMenuActive"
         (toggled)="updateSideMenu($event)"></app-side-menu>
-      <ng-template #facetContent>
-        <div class="sidebar-wrapper">
-          <app-loading-overlay *ngIf="loading"></app-loading-overlay>
-          <div class="selection">
-            <app-parameters-list-selection [facetSearchService]="facetSearch" [type]="'phenomenon'"
-              [sort]="'ascAlphabet'">
-            </app-parameters-list-selection>
-          </div>
-          <div class="time-button">
-            <app-current-time-button [facetSearchService]="facetSearch"></app-current-time-button>
-          </div>
-        </div>
-      </ng-template>
       <div class="map" [ngClass]="{'withSideMenu': sideMenuActive}">
         <n52-result-map [facetSearchService]="facetSearch" [aggregateToStations]="true" [cluster]="clusterStations"
           [selectSingleStation]="false" mapId="facet-search" [baseMaps]="baseMaps" [overlayMaps]="overlayMaps"

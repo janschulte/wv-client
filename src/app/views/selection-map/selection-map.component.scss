@@ -92,6 +92,10 @@ $mobile-sidebar-width: 300px;
             margin-left: -$mobile-sidebar-width;
         }
 
+        .selection-menu.withSideMenu {
+            margin-left: -$mobile-sidebar-width;
+        }
+
         .mobile-wrapper.sideMenuActive {
             margin-left: -$mobile-sidebar-width;
         }
