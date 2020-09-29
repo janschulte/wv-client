@@ -1,14 +1,12 @@
-<div class="language-chooser">
-  <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-    <button class="btn btn-outline-secondary mr-2" id="dropdownManual" ngbDropdownAnchor (click)="myDrop.open()">
-      <img src="images/blank.gif" class="flag flag-{{currentLang.code}}">
-      <span>{{currentLang.label}}</span>
+<div ngbDropdown placement="bottom-right">
+  <button class="btn btn-outline-secondary" ngbDropdownToggle>
+    <img src="images/blank.gif" class="flag flag-{{currentLang.code}}">
+    <span>{{currentLang.label}}</span>
+  </button>
+  <div ngbDropdownMenu>
+    <button ngbDropdownItem *ngFor="let lang of languageList" (click)="setLanguage(lang)">
+      <img src="images/blank.gif" class="flag flag-{{lang.code}}">
+      <span>{{lang.label}}</span>
     </button>
-    <div ngbDropdownMenu aria-labelledby="dropdownManual" class="dropdown-menu-right">
-      <button ngbDropdownItem class="dropdown-item" *ngFor="let lang of languageList" (click)="setLanguage(lang)">
-        <img src="images/blank.gif" class="flag flag-{{lang.code}}">
-        <span>{{lang.label}}</span>
-      </button>
-    </div>
   </div>
 </div>

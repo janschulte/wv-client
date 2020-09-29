@@ -1,10 +1,26 @@
 @import '../../../variables';
 
 .language-block {
-    height: 50px;
-    line-height: 50px-8px-8px;
-    background-color: $white;
     padding: 8px;
+    display: flex;
+    background-color: $white;
+    align-items: center;
+
+    :first-child {
+        flex: 1;
+    }
+}
+
+.timezone-block {
+    margin-top: 10px;
+    padding: 8px;
+    display: flex;
+    background-color: $white;
+    align-items: center;
+
+    :first-child {
+        flex: 1;
+    }
 }
 
 .toggle-block.reset {

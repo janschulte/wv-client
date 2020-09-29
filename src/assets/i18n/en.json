@@ -266,6 +266,7 @@
 			"reset": "Reset"
 		},
 		"chooseLanguage": "Select language",
+		"chooseTimezone": "Select timezone",
 		"clusterMarker": {
 			"description": "Info: While markers on the are close to each other, they will be grouped for a better overview.",
 			"header": "Group marker"

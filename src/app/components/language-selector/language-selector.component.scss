@@ -1,34 +1,5 @@
 @import '../../../variables';
 
-.language-chooser {
-    float: right;
-
-    .dropdown-toggle {
-        text-align: left;
-        width: 160px;
-
-        .icon {
-            float: right;
-            padding-top: 3px;
-        }
-    }
-
-    .menu-item {
-        padding: 5px;
-        line-height: 13px;
-
-        .flag {
-            float: left;
-            margin-right: 5px;
-        }
-
-        &:hover {
-            background-color: $geyser-gray;
-            cursor: pointer;
-        }
-    }
-}
-
 .flag {
     margin-bottom: 3px;
     margin-right: 8px;

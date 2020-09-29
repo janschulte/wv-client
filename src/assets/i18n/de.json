@@ -265,6 +265,7 @@
 			"reset": "Zurücksetzen"
 		},
 		"chooseLanguage": "Sprache wählen",
+		"chooseTimezone": "Zeitzone wählen",
 		"clusterMarker": {
 			"description": "Info: Befinden sich zwei oder mehrere Marker sehr nah beieinander, werden diese für eine bessere Übersichtlichkeit zusammengefasst.",
 			"header": "Marker gruppieren"

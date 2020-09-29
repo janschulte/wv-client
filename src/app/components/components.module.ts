@@ -60,6 +60,7 @@ import { StationSelectionComponent } from './station-selection/station-selection
 import { TimeseriesItemComponent } from './timeseries-item/timeseries-item.component';
 import { WvTimespanButtonComponent } from './timespan-button/timespan-button.component';
 import { TimespanShifterComponent } from './timespan-shifter/timespan-shifter.component';
+import { TimezoneSelectorComponent } from './timezone-selector/timezone-selector.component';
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
 
 const COMPONENTS = [
@@ -100,6 +101,7 @@ const COMPONENTS = [
   // TimeSliderComponent,
   TimeseriesItemComponent,
   TimespanShifterComponent,
+  TimezoneSelectorComponent,
   ToastContainerComponent,
   WvParameterFacetComponent,
   WvResultListComponent,

@@ -5,8 +5,12 @@
 <div class="modal-body">
   <div class="modal-inline-header" translate="settings.captions.general"></div>
   <div class="language-block">
-    <app-language-selector [languageList]="languageList"></app-language-selector>
     <div translate="settings.chooseLanguage"></div>
+    <app-language-selector [languageList]="languageList"></app-language-selector>
+  </div>
+  <div class="timezone-block">
+    <div translate="settings.chooseTimezone"></div>
+    <app-timezone-selector></app-timezone-selector>
   </div>
   <div class="modal-inline-header" translate="settings.captions.map"></div>
   <div class="modal-inline-block toggle-block" (click)="toggleMarkerCluster()">
