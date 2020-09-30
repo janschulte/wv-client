@@ -1,6 +1,6 @@
 <div ngbDropdown placement="bottom-right">
   <button class="btn btn-outline-secondary" ngbDropdownToggle>{{timezone.label}}</button>
   <div ngbDropdownMenu>
-    <button ngbDropdownItem *ngFor="let tz of timezones" (click)="changeTimezone(tz)">{{tz.label}}</button>
+    <button ngbDropdownItem *ngFor="let tz of timezoneHandler.timezones" (click)="changeTimezone(tz)">{{tz.label}}</button>
   </div>
 </div>
