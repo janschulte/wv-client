@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Time, Timespan } from '@helgoland/core';
 import { Favorite, FavoriteService, GroupFavorite, SingleFavorite } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import moment from 'moment';
 
 import { TimeseriesService } from '../../../services/timeseries/timeseries.service';
 import { ModalEditFavoriteComponent } from './../modal-edit-favorite/modal-edit-favorite.component';
@@ -18,6 +20,7 @@ export class FavoriteListComponent implements OnInit {
   constructor(
     private favoriteSrvc: FavoriteService,
     public timeseriesSrvc: TimeseriesService,
+    private timeSrvc: Time,
     private modalService: NgbModal
   ) { }
 
@@ -29,10 +32,20 @@ export class FavoriteListComponent implements OnInit {
   }
 
   public addSingleToChart(single: SingleFavorite) {
+    if (!this.timeseriesSrvc.hasDatasets()) {
+      const end = single.favorite.lastValue.timestamp;
+      const diff = moment.duration(3, 'months').asMilliseconds();
+      this.timeseriesSrvc.timespan = new Timespan(end - diff, end);
+    }
     this.timeseriesSrvc.addDataset(single.id, single.options);
   }
 
   public addGroupToChart(group: GroupFavorite) {
+    if (!this.timeseriesSrvc.hasDatasets()) {
+      const end = Math.max(...group.favorites.map(e => e.dataset.lastValue.timestamp));
+      const diff = moment.duration(3, 'months').asMilliseconds();
+      this.timeseriesSrvc.timespan = new Timespan(end - diff, end);
+    }
     group.favorites.forEach(e => this.timeseriesSrvc.addDataset(e.dataset.internalId, e.options));
   }
 
