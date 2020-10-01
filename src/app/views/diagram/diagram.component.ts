@@ -35,6 +35,9 @@ export class DiagramComponent implements OnInit {
   public highlightId: string;
   public timespan: Timespan;
 
+  public overviewLoading: boolean;
+  public chartLoading: boolean;
+
   public loadData: Set<string> = new Set();
 
   public favoriteGroupAdded: boolean;
@@ -165,15 +168,15 @@ export class DiagramComponent implements OnInit {
   }
 
   onGraphLoading(loading: boolean) {
-    // TODO implement
+    setTimeout(() => this.chartLoading = loading);
   }
 
   onOverviewLoading(loading: boolean) {
-    // TODO implement
+    setTimeout(() => this.overviewLoading = loading);
   }
 
   openTimeSettings() {
-    const modalRef = this.modalService.open(ModalTimeSettingsComponent, { windowClass: 'time-modal'});
+    const modalRef = this.modalService.open(ModalTimeSettingsComponent, { windowClass: 'time-modal' });
     (modalRef.componentInstance as ModalTimeSettingsComponent).timespan = this.timespan;
     modalRef.result.then((res: Timespan) => this.timespanChanged(res));
   }
