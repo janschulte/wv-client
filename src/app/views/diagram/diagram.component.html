@@ -84,6 +84,7 @@
           <h3 translate="chart.allHidden.description"></h3>
         </div> -->
         <div class="chart">
+          <app-loading-overlay *ngIf="overviewLoading"></app-loading-overlay>
           <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
             [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
             [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
@@ -92,7 +93,8 @@
             <n52-d3-y-axis-modifier></n52-d3-y-axis-modifier>
           </n52-d3-timeseries-graph>
         </div>
-        <div class="overviewChart" *ngIf="!hideOverview">
+        <div class="overviewChart">
+          <app-loading-overlay *ngIf="overviewLoading"></app-loading-overlay>
           <n52-d3-overview-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [rangefactor]="2"
             [datasetOptions]="timeseriesService.datasetOptions" [presenterOptions]="overviewOptions"
             [timeInterval]="timespan" (onTimespanChanged)="timespanChanged($event)"
