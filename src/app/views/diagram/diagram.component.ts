@@ -35,8 +35,8 @@ export class DiagramComponent implements OnInit {
   public highlightId: string;
   public timespan: Timespan;
 
-  public overviewLoading: boolean;
-  public chartLoading: boolean;
+  public overviewLoading = false;
+  public chartLoading = false;
 
   public loadData: Set<string> = new Set();
 

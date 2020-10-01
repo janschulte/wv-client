@@ -84,7 +84,7 @@
           <h3 translate="chart.allHidden.description"></h3>
         </div> -->
         <div class="chart">
-          <app-loading-overlay *ngIf="overviewLoading"></app-loading-overlay>
+          <app-loading-overlay *ngIf="chartLoading"></app-loading-overlay>
           <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
             [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
             [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
