@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Time, Timespan } from '@helgoland/core';
+import { Time } from '@helgoland/core';
 import { Favorite, FavoriteService, GroupFavorite, SingleFavorite } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import moment from 'moment';
@@ -34,8 +34,7 @@ export class FavoriteListComponent implements OnInit {
   public addSingleToChart(single: SingleFavorite) {
     if (!this.timeseriesSrvc.hasDatasets()) {
       const end = single.favorite.lastValue.timestamp;
-      const diff = moment.duration(3, 'months').asMilliseconds();
-      this.timeseriesSrvc.timespan = new Timespan(end - diff, end);
+      this.timeseriesSrvc.timespan = this.timeSrvc.createByDurationWithEnd(moment.duration(3, 'months'), end, 'day');
     }
     this.timeseriesSrvc.addDataset(single.id, single.options);
   }
@@ -43,8 +42,7 @@ export class FavoriteListComponent implements OnInit {
   public addGroupToChart(group: GroupFavorite) {
     if (!this.timeseriesSrvc.hasDatasets()) {
       const end = Math.max(...group.favorites.map(e => e.dataset.lastValue.timestamp));
-      const diff = moment.duration(3, 'months').asMilliseconds();
-      this.timeseriesSrvc.timespan = new Timespan(end - diff, end);
+      this.timeseriesSrvc.timespan = this.timeSrvc.createByDurationWithEnd(moment.duration(3, 'months'), end, 'day');
     }
     group.favorites.forEach(e => this.timeseriesSrvc.addDataset(e.dataset.internalId, e.options));
   }
