@@ -9,7 +9,7 @@
       <span class="big">{{item.label}}</span>
       <div *ngIf="item.dataset">
         <div class="small">{{item.dataset.parameters.phenomenon.label}} ({{item.dataset.uom}})</div>
-        <div class="small">{{item.dataset.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} h |
+        <div class="small">{{item.dataset.lastValue.timestamp | tzDate : 'L LT z'}} |
           {{item.dataset.lastValue.value}} {{item.dataset.uom}}</div>
       </div>
     </div>

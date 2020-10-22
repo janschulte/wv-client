@@ -10,7 +10,7 @@
       <span class="last-value"></span>
       <span>{{timeseries.lastValue.value}}</span>
       <span>{{timeseries.uom}}</span>
-      <span>| {{timeseries.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} h </span>
+      <span> | {{timeseries.lastValue.timestamp | tzDate : 'L LT z'}}</span>
     </div>
   </div>
   <div class="wv-button add" (click)="toggleTs()" [ngClass]="{'active': added}">

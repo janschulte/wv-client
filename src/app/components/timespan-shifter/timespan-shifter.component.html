@@ -5,7 +5,7 @@
   <span class="icon icon-arrow-left"></span>
 </div>
 <div class="wv-button calendar-dates" (click)="open()">
-  <span class="mid description">{{timespan.from | date : 'dd.MM.yy'}} - {{timespan.to | date : 'dd.MM.yy'}}</span>
+  <span class="mid description">{{timespan.from | tzDate : 'DD.MM.YY'}} - {{timespan.to | tzDate : 'DD.MM.YY'}}</span>
 </div>
 <div class="wv-button calendar-next" (click)="forward()">
   <span class="icon icon-arrow-right"></span>

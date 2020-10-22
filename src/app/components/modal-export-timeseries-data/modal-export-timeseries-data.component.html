@@ -17,11 +17,11 @@
     </tr>
     <tr>
       <td class="label">{{'export-timeseries-data.labels.first-value' | translate}}</td>
-      <td>{{dataset.firstValue.timestamp | date: 'medium'}}</td>
+      <td>{{dataset.firstValue.timestamp | tzDate : 'L LT z'}}</td>
     </tr>
     <tr>
       <td class="label">{{'export-timeseries-data.labels.last-value' | translate}}</td>
-      <td>{{dataset.lastValue.timestamp | date: 'medium'}}</td>
+      <td>{{dataset.lastValue.timestamp| tzDate : 'L LT z'}}</td>
     </tr>
   </table>
 

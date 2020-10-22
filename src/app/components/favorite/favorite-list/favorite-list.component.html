@@ -18,7 +18,7 @@
         <div class="favorite-block small">
           <div *ngIf="fav.dataset.lastValue">
             <span class="small bold" translate='favorite.lastValue'></span>:
-            {{fav.dataset.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} | {{fav.dataset.lastValue.value}}
+            {{fav.dataset.lastValue.timestamp | tzDate : 'L LT z'}} | {{fav.dataset.lastValue.value}}
             {{fav.dataset.uom}}
           </div>
           <div>
@@ -46,7 +46,7 @@
       <div class="favorite-block small">
         <div *ngIf="fav.favorite.lastValue">
           <span class="small bold" translate='favorite.lastValue'></span>:
-          {{fav.favorite.lastValue.timestamp| date: 'dd.MM.yy | HH:mm'}} |
+          {{fav.favorite.lastValue.timestamp | tzDate : 'L LT z'}} |
           {{fav.favorite.lastValue.value}} {{fav.favorite.uom}}
         </div>
         <div>
