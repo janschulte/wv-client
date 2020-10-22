@@ -66,6 +66,9 @@
                   "maximumWarning": "6kb"
                 }
               ]
+            },
+            "es5": {
+              "tsConfig": "./tsconfig-es5.app.json"
             }
           }
         },
@@ -77,6 +80,9 @@
           "configurations": {
             "production": {
               "browserTarget": "wv-client:build:production"
+            },
+            "es5": {
+              "browserTarget": "wv-client:build:es5"
             }
           }
         },

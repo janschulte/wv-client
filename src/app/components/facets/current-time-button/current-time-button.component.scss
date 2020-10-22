@@ -3,7 +3,7 @@
 :host {
     .toggle-block {
         border-top: solid 2px $geyser-gray;
-        background-color: unset;
+        background-color: $slate-gray;
 
         .toggle-header {
             color: $white;
