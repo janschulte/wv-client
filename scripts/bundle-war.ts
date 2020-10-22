@@ -43,7 +43,7 @@ fs.writeFile('./web.xml', xmlAsText, (errWrite: Error) => {
 
 function buildApplication() {
     console.log(`Build application ${appname}`);
-    execSync(`rimraf dist && npm run ng-high-memory -- build --prod --base-href=/${appname}/`, { stdio: [0, 1, 2] });
+    execSync(`rimraf dist && ng build --prod --base-href=/${appname}/`, { stdio: [0, 1, 2] });
 
     const out = `dist/${appname}.war`;
     const output = createWriteStream(out);
