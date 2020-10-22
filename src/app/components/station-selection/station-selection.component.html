@@ -22,7 +22,7 @@
       </div>
     </div>
     <div *ngIf="showAdditionalTs">
-      <div *ngFor="let timeseries of timeseriesList">
+      <div *ngFor="let timeseries of phenomenonMatchedList">
         <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
         <app-timeseries-item [timeseries]="timeseries"></app-timeseries-item>
       </div>
