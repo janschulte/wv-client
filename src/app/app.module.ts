@@ -7,6 +7,9 @@ import { HelgolandCachingModule } from '@helgoland/caching';
 import {
    DatasetApiInterface,
    DatasetApiV1ConnectorProvider,
+   DatasetApiV2ConnectorProvider,
+   DatasetApiV3ConnectorProvider,
+   DatasetStaConnectorProvider,
    HelgolandCoreModule,
    Settings,
    SettingsService,
@@ -97,6 +100,9 @@ export class ExtendedSettingsService extends SettingsService<Settings> {
    ],
    providers: [
       DatasetApiV1ConnectorProvider,
+      DatasetApiV2ConnectorProvider,
+      DatasetApiV3ConnectorProvider,
+      DatasetStaConnectorProvider,
       {
          provide: GeoSearch,
          useClass: NominatimGeoSearchService
