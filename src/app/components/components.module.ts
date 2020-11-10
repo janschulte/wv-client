@@ -24,8 +24,6 @@ import { LocateButtonComponent } from './controls/locate-button/locate-button.co
 import { ZoomButtonsComponent } from './controls/zoom-buttons/zoom-buttons.component';
 import { DatasetTableComponent } from './dataset-table/dataset-table.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
-import { NgbCustomTimepickerComponent } from './datepicker/ngb-custom-timepicker/ngb-custom-timepicker.component';
 import { DesktopListSelectorComponent } from './desktop-list-selector/desktop-list-selector.component';
 import { CurrentTimeButtonComponent } from './facets/current-time-button/current-time-button.component';
 import { WvParameterFacetComponent } from './facets/parameter-facet/parameter-facet.component';
@@ -67,7 +65,6 @@ const COMPONENTS = [
   CurrentTimeButtonComponent,
   DatasetTableComponent,
   DatePickerComponent,
-  DatepickerComponent,
   DesktopListSelectorComponent,
   DiagramExportButtonComponent,
   // FacetsComponent,
@@ -90,7 +87,6 @@ const COMPONENTS = [
   ModalSharePermalinkComponent,
   ModalShowPhenomenonLocationComponent,
   ModalTimeSettingsComponent,
-  NgbCustomTimepickerComponent,
   NoDataHintComponent,
   ParameterTableComponent,
   ParametersListSelectionComponent,

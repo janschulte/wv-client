@@ -19,25 +19,54 @@
 			"week-short": "W"
 		},
 		"loading": "Timeseries will be loaded",
-		"monthNames": {
-			"apr": "Apr",
-			"aug": "Aug",
-			"dec": "Dec",
-			"feb": "Feb",
-			"jan": "Jan",
-			"jul": "Jul",
-			"jun": "Jun",
-			"mar": "Mar",
-			"may": "May",
-			"nov": "Nov",
-			"oct": "Oct",
-			"sep": "Sep"
-		},
 		"reachedMaxTimeperiod": "The maximum selectable time period is exceeded and was adjusted."
 	},
 	"code": "en",
 	"controls": {
 		"cancel": "Cancel"
+	},
+	"date": {
+		"month": {
+			"full": {
+				"apr": "April",
+				"aug": "August",
+				"dec": "December",
+				"feb": "February",
+				"jan": "January",
+				"jul": "July",
+				"jun": "June",
+				"mar": "March",
+				"may": "May",
+				"nov": "November",
+				"oct": "October",
+				"sep": "Septembre"
+			},
+			"short": {
+				"apr": "Apr",
+				"aug": "Aug",
+				"dec": "Dec",
+				"feb": "Feb",
+				"jan": "Jan",
+				"jul": "Jul",
+				"jun": "Jun",
+				"mar": "Mar",
+				"may": "May",
+				"nov": "Nov",
+				"oct": "Oct",
+				"sep": "Sep"
+			}
+		},
+		"weekday": {
+			"short": {
+				"fri": "Fri",
+				"mon": "Mon",
+				"sun": "Sun",
+				"sut": "Sut",
+				"thu": "Thu",
+				"tue": "Tur",
+				"wed": "Wed"
+			}
+		}
 	},
 	"diagram-export": {
 		"end": "End",

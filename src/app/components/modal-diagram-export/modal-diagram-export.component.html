@@ -16,7 +16,7 @@
 
       <ngb-panel id="static-1">
         <ng-template ngbPanelTitle>
-          <span>{{'diagram-export.start' | translate}} {{start}} {{'diagram-export.end' | translate}} {{end}}</span>
+          <span>{{'diagram-export.start' | translate}} {{start}} - {{'diagram-export.end' | translate}} {{end}}</span>
         </ng-template>
         <ng-template class="mid description" ngbPanelContent>
           <app-date-picker [timestamp]="timespan" (onDateSelected)="onTimepickerRangeSelected($event)">
