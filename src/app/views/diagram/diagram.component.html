@@ -88,8 +88,7 @@
           <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
             [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
             [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
-            (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)"
-            (dataLoaded)="loadData = $event" #diagram>
+            (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)" #diagram>
             <n52-d3-y-axis-modifier></n52-d3-y-axis-modifier>
           </n52-d3-timeseries-graph>
         </div>

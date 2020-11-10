@@ -116,10 +116,6 @@ export class DiagramComponent implements OnInit {
     this.timeseriesService.updateDatasetOptions(options, id);
   }
 
-  dataLoaded(loaded) {
-    debugger;
-  }
-
   openModalExportImage() {
     this.modalService.open(ModalDiagramExportComponent);
   }
@@ -154,7 +150,7 @@ export class DiagramComponent implements OnInit {
 
   onHighlighted(id: string) {
     // reset old one
-    if (this.highlightId) {
+    if (this.highlightId && this.timeseriesService.datasetOptions.get(this.highlightId)) {
       this.timeseriesService.datasetOptions.get(this.highlightId).lineWidth = 1;
     }
     this.highlightId = id;
