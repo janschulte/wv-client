@@ -52,7 +52,8 @@ export class DatasetTableComponent extends MultiServiceFilterSelectorComponent {
           this.items.push({
             dataset: e,
             label: entry.label,
-            id: 'horst',
+            selected: this.timeseriesSrvc.hasDataset(e.internalId),
+            id: e.internalId,
           });
         });
       });
