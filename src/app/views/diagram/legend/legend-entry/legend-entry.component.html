@@ -33,8 +33,8 @@
       </div>
       <span>
         <span class="small bold" translate="legend.entry.firstValue"></span>
-        <span class="small"> {{dataset.firstValue.timestamp | tzDate : 'L LT z'}} | {{dataset.firstValue.value}}
-          {{uom}}</span>
+        <span class="small">{{dataset.firstValue.timestamp | tzDate : 'L LT z'}}</span>
+        <span class="small" *ngIf="dataset.firstValue.value !== null"> | {{dataset.firstValue.value}} {{uom}}</span>
       </span>
     </div>
     <div *ngIf="dataset.lastValue" class="jumpToValue" (click)="jumpToLastTimeStamp(); $event.stopPropagation()">
@@ -43,8 +43,8 @@
       </div>
       <span>
         <span class="small bold" translate="legend.entry.lastValue"></span>
-        <span class="small"> {{dataset.lastValue.timestamp | tzDate : 'L LT z'}} | {{dataset.lastValue.value}}
-          {{uom}}</span>
+        <span class="small"> {{dataset.lastValue.timestamp | tzDate : 'L LT z'}}</span>
+        <span class="small" *ngIf="dataset.lastValue.value !== null"> | {{dataset.lastValue.value}} {{uom}}</span>
       </span>
     </div>
     <div class="referenceValues">

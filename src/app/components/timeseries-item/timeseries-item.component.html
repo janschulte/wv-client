@@ -8,9 +8,8 @@
     <div class="mid" *ngIf="timeseries.lastValue">
       <span translate="map.station.lastValue"></span>
       <span class="last-value"></span>
-      <span>{{timeseries.lastValue.value}}</span>
-      <span>{{timeseries.uom}}</span>
-      <span> | {{timeseries.lastValue.timestamp | tzDate : 'L LT z'}}</span>
+      <span *ngIf="timeseries.lastValue.value !== null"> {{timeseries.lastValue.value}} {{timeseries.uom}} |</span>
+      <span> {{timeseries.lastValue.timestamp | tzDate : 'L LT z'}}</span>
     </div>
   </div>
   <div class="wv-button add" (click)="toggleTs()" [ngClass]="{'active': added}">

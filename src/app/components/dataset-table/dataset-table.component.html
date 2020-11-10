@@ -9,8 +9,12 @@
       <span class="big">{{item.label}}</span>
       <div *ngIf="item.dataset">
         <div class="small">{{item.dataset.parameters.phenomenon.label}} ({{item.dataset.uom}})</div>
-        <div class="small">{{item.dataset.lastValue.timestamp | tzDate : 'L LT z'}} |
-          {{item.dataset.lastValue.value}} {{item.dataset.uom}}</div>
+        <div class="small" *ngIf="item.dataset.lastValue">
+          <span>{{item.dataset.lastValue.timestamp | tzDate : 'L LT z'}}</span>
+          <span *ngIf="item.dataset.lastValue.value !== null">
+            | {{item.dataset.lastValue.value}} {{item.dataset.uom}}
+          </span>
+        </div>
       </div>
     </div>
     <div class="icon icon-timeline-add" [ngClass]="{'active': item.selected}"></div>
