@@ -20,8 +20,6 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
   public dataset: IDataset;
 
   public timespan: Timespan;
-  public start: string;
-  public end: string;
   public disabled = false;
   public loading = false;
 
@@ -32,8 +30,6 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
 
   ngOnInit() {
     this.timespan = new Timespan(this.timeseriesService.timespan.from, this.timeseriesService.timespan.to);
-    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
-    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
 
   }
 
@@ -43,8 +39,6 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
    */
   onTimepickerRangeSelected($event: Timespan) {
     this.timespan = $event;
-    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
-    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
   /**
@@ -64,8 +58,6 @@ export class ModalExportTimeseriesDataComponent implements OnInit {
       to = moment($event).unix() * 1000;
     }
     this.timespan = new Timespan(Math.min(from, to), Math.max(from, to));
-    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
-    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
   public onCSVDownload() {

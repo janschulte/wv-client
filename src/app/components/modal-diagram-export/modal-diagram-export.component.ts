@@ -14,8 +14,6 @@ export class ModalDiagramExportComponent implements OnInit {
   public timespan: Timespan;
 
   public title = 'Diagram Export';
-  public start: string;
-  public end: string;
   public showFirstLastDate = true;
   public showLegend = true;
 
@@ -26,8 +24,6 @@ export class ModalDiagramExportComponent implements OnInit {
 
   ngOnInit() {
     this.timespan = new Timespan(this.timeseriesService.timespan.from, this.timeseriesService.timespan.to);
-    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
-    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
   /**
@@ -36,8 +32,6 @@ export class ModalDiagramExportComponent implements OnInit {
    */
   onTimepickerRangeSelected($event: Timespan) {
     this.timespan = $event;
-    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
-    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
   /**
@@ -57,8 +51,6 @@ export class ModalDiagramExportComponent implements OnInit {
       to = moment($event).unix() * 1000;
     }
     this.timespan = new Timespan(Math.min(from, to), Math.max(from, to));
-    this.start = moment(this.timespan.from).format('DD.MM.YYYY HH:mm');
-    this.end = moment(this.timespan.to).format('DD.MM.YYYY HH:mm');
   }
 
 }
