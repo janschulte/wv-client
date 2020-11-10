@@ -77,17 +77,6 @@ $radius: 8px;
     }
 }
 
-// .loop($counter) when ($counter < 106) {
-//     .loop(($counter + 1));    // next iteration
-//     @media screen and (max-height: ($counter * 10px)) {
-//         .modal-body {
-//             max-height: ($counter * 10px - 170px);
-//         }
-//         @media (max-width: $mobile-max-width) {
-//             .modal-body {
-//                 max-height: ($counter * 10px - 130px);
-//             }   
-//         }
-//     }
-// }
-// .loop(20);
+.fit-modal .modal-content {
+    width: fit-content;
+}

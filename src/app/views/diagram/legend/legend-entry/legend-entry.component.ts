@@ -58,7 +58,7 @@ export class LegendEntryComponent extends TimeseriesEntryComponent {
   }
 
   public openDataExport() {
-    const modalRef = this.modalService.open(ModalExportTimeseriesDataComponent);
+    const modalRef = this.modalService.open(ModalExportTimeseriesDataComponent, { windowClass: 'fit-modal' });
     (modalRef.componentInstance as ModalExportTimeseriesDataComponent).internalId = this.dataset.internalId;
   }
 

@@ -117,7 +117,7 @@ export class DiagramComponent implements OnInit {
   }
 
   openModalExportImage() {
-    this.modalService.open(ModalDiagramExportComponent);
+    this.modalService.open(ModalDiagramExportComponent, { windowClass: 'fit-modal' });
   }
 
   editOption(options: DatasetOptions) {
@@ -172,7 +172,7 @@ export class DiagramComponent implements OnInit {
   }
 
   openTimeSettings() {
-    const modalRef = this.modalService.open(ModalTimeSettingsComponent, { windowClass: 'time-modal' });
+    const modalRef = this.modalService.open(ModalTimeSettingsComponent, { windowClass: 'fit-modal' });
     (modalRef.componentInstance as ModalTimeSettingsComponent).timespan = this.timespan;
     modalRef.result.then((res: Timespan) => this.timespanChanged(res));
   }
