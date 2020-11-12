@@ -66,7 +66,20 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   }
 
   protected handleBarRenderingHints(barHints: BarRenderingHints, options: DatasetOptions) {
-    super.handleBarRenderingHints(barHints, options);
+    options.type = 'bar';
+    if (barHints && barHints.properties.width) {
+      options.lineWidth = Math.round(parseFloat(barHints.properties.width));
+    }
+    if (barHints && barHints.properties.interval) {
+      if (barHints.properties.interval === 'byDay') {
+        options.barPeriod = 'P1D';
+        options.barStartOf = 'day';
+      }
+      if (barHints.properties.interval === 'byHour') {
+        options.barPeriod = 'PT1H';
+        options.barStartOf = 'hour';
+      }
+    }
     options.yAxisRange = { min: 0 };
   }
 
