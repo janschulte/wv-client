@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HelgolandPlatform, HelgolandTimeseries } from '@helgoland/core';
+import { HelgolandPlatform, HelgolandTimeseries, SettingsService } from '@helgoland/core';
 import { FacetSearchService } from '@helgoland/facet-search';
-import { LayerOptions } from '@helgoland/map';
+import { LayerCreator, LayerOptions } from '@helgoland/map';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { tileLayer } from 'leaflet';
 import { Subscription } from 'rxjs';
 
+import { WvSettings } from '../../models/wv-settings';
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
 import { StateHandlerService } from '../../services/state-handler/state-handler.service';
 import { StationSelectionComponent } from './../../components/station-selection/station-selection.component';
@@ -42,7 +42,8 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     private stateHandler: StateHandlerService,
     private modalService: NgbModal,
     public serviceSelectorSrvc: ServiceSelectorService,
-    private layoutValidator: LayoutValidatorService
+    private layoutValidator: LayoutValidatorService,
+    private settings: SettingsService<WvSettings>
   ) { }
 
   ngOnInit() {
@@ -53,25 +54,11 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
 
     this.sideMenuActive = !this.layoutValidator.isMax(ScreenSize.mobileMax);
 
-    this.baseMaps.set('OM', {
-      label: 'OM',
-      visible: true,
-      layer: tileLayer('https://maps.omniscale.net/v2/fluggs-d9227d46/style.default/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-      })
-    });
+    this.settings.getSettings().baseLayers
+      .forEach(conf => this.baseMaps.set(conf.label, new LayerCreator().createLayerOptions(conf)));
 
-    this.overlayMaps.set('wv-area',
-      {
-        label: 'Wupperverbandsgebiet',
-        visible: true,
-        layer: tileLayer.wms('http://fluggs.wupperverband.de/WMS_WV_Oberflaechengewaesser_EZG?', {
-          layers: '0',
-          format: 'image/png',
-          transparent: true
-        })
-      }
-    );
+    this.settings.getSettings().overlayLayers
+      .forEach(conf => this.overlayMaps.set(conf.label, new LayerCreator().createLayerOptions(conf)));
   }
 
   ngOnDestroy(): void {

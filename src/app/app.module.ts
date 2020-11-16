@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HelgolandCachingModule } from '@helgoland/caching';
@@ -11,7 +11,6 @@ import {
    DatasetApiV3ConnectorProvider,
    DatasetStaConnectorProvider,
    HelgolandCoreModule,
-   Settings,
    SettingsService,
    SplittedDataDatasetApiInterface,
 } from '@helgoland/core';
@@ -24,11 +23,11 @@ import { HelgolandSelectorModule } from '@helgoland/selector';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { settings } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { ErrorInterceptor } from './interceptors/error-interceptor/error-interceptor.service';
+import { ExtendedSettingsService } from './models/wv-settings';
 import { DiagramComponent } from './views/diagram/diagram.component';
 import { LegendEntryComponent } from './views/diagram/legend/legend-entry/legend-entry.component';
 import { FavoriteComponent } from './views/favorite/favorite.component';
@@ -45,14 +44,6 @@ import { StartComponent } from './views/start/start.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
-
-@Injectable()
-export class ExtendedSettingsService extends SettingsService<Settings> {
-   constructor() {
-      super();
-      this.setSettings(settings);
-   }
 }
 
 @NgModule({

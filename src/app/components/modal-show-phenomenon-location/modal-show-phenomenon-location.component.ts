@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { MapCache } from '@helgoland/map';
+import { SettingsService } from '@helgoland/core';
+import { LayerCreator, LayerMap, LayerOptions, MapCache } from '@helgoland/map';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import * as L from 'leaflet';
+
+import { WvSettings } from '../../models/wv-settings';
 
 @Component({
   selector: 'app-modal-show-phenomenon-location',
@@ -15,6 +18,8 @@ export class ModalShowPhenomenonLocationComponent implements OnInit, AfterViewIn
   public mapId = 'mapGeometryViewerModal';
   public mapOptions: L.MapOptions = { maxZoom: 12 };
 
+  public baseMaps: LayerMap = new Map<string, LayerOptions>();
+
   public customIcon = L.icon({
     iconRetinaUrl: './assets/images/marker@2x.png',
     iconUrl: './assets/images/marker.png',
@@ -25,10 +30,16 @@ export class ModalShowPhenomenonLocationComponent implements OnInit, AfterViewIn
 
   constructor(
     public activeModal: NgbActiveModal,
-    public mapCache: MapCache
+    public mapCache: MapCache,
+    private settingsService: SettingsService<WvSettings>
   ) { }
 
   ngOnInit() {
+    this.settingsService.getSettings().baseLayers
+      .forEach(conf => this.baseMaps.set(conf.label, new LayerCreator().createLayerOptions(conf)));
+    this.settingsService.getSettings().overlayLayers
+      .forEach(conf => this.baseMaps.set(conf.label, new LayerCreator().createLayerOptions(conf)));
+
     if (!this.geometry) {
       console.log('no geometry provided');
     } else {
