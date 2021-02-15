@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Time } from '@helgoland/core';
 import { Favorite, FavoriteService, GroupFavorite, SingleFavorite } from '@helgoland/favorite';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +21,7 @@ export class FavoriteListComponent implements OnInit {
   constructor(
     private favoriteSrvc: FavoriteService,
     public timeseriesSrvc: TimeseriesService,
+    private router: Router,
     private timeSrvc: Time,
     private modalService: NgbModal
   ) { }
@@ -37,6 +39,7 @@ export class FavoriteListComponent implements OnInit {
       this.timeseriesSrvc.timespan = this.timeSrvc.createByDurationWithEnd(moment.duration(3, 'months'), end, 'day');
     }
     this.timeseriesSrvc.addDataset(single.id, single.options);
+    this.router.navigate(['/diagram']);
   }
 
   public addGroupToChart(group: GroupFavorite) {
@@ -45,6 +48,7 @@ export class FavoriteListComponent implements OnInit {
       this.timeseriesSrvc.timespan = this.timeSrvc.createByDurationWithEnd(moment.duration(3, 'months'), end, 'day');
     }
     group.favorites.forEach(e => this.timeseriesSrvc.addDataset(e.dataset.internalId, e.options));
+    this.router.navigate(['/diagram']);
   }
 
   public edit(favorite: Favorite) {
