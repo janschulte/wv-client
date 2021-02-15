@@ -59,8 +59,8 @@
 			"short": {
 				"fri": "Fr",
 				"mon": "Mo",
+				"sat": "Sa",
 				"sun": "So",
-				"sut": "Sa",
 				"thu": "Do",
 				"tue": "Die",
 				"wed": "Mi"

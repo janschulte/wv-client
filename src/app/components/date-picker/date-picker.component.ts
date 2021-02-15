@@ -19,7 +19,7 @@ export class DatePickerI18n extends NgbDatepickerI18n {
       case 3: return this.translate.instant('date.weekday.short.wed');
       case 4: return this.translate.instant('date.weekday.short.thu');
       case 5: return this.translate.instant('date.weekday.short.fri');
-      case 6: return this.translate.instant('date.weekday.short.sut');
+      case 6: return this.translate.instant('date.weekday.short.sat');
       case 7: return this.translate.instant('date.weekday.short.sun');
     }
   }

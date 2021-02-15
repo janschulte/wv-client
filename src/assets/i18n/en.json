@@ -60,10 +60,10 @@
 			"short": {
 				"fri": "Fri",
 				"mon": "Mon",
+				"sat": "Sat",
 				"sun": "Sun",
-				"sut": "Sut",
 				"thu": "Thu",
-				"tue": "Tur",
+				"tue": "Tue",
 				"wed": "Wed"
 			}
 		}
