@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Provider } from '@helgoland/core';
 import { ListSelectorParameter } from '@helgoland/selector';
-import { TranslateService } from '@ngx-translate/core';
 
 import { LayoutValidatorService, ScreenSize } from '../../services/layout-validator/layout-validator.service';
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
@@ -17,19 +16,19 @@ export class SelectionParameterComponent implements OnInit {
   public phenomenonParams: ListSelectorParameter[] = [
     {
       type: 'phenomenon',
-      header: 'listSelection.headers.phenomenon' // this.translateSrvc.instant('listSelection.headers.phenomenon')
+      header: 'listSelection.headers.phenomenon'
     },
     {
       type: 'category',
-      header: 'listSelection.headers.category' // this.translateSrvc.instant('listSelection.headers.category')
+      header: 'listSelection.headers.category'
     },
     {
       type: 'feature',
-      header: 'listSelection.headers.station' // this.translateSrvc.instant('listSelection.headers.station')
+      header: 'listSelection.headers.station'
     },
     {
       type: 'procedure',
-      header: 'listSelection.headers.procedure' // this.translateSrvc.instant('listSelection.headers.procedure')
+      header: 'listSelection.headers.procedure'
     }
   ];
 
@@ -39,7 +38,6 @@ export class SelectionParameterComponent implements OnInit {
   constructor(
     public serviceSelectorSrvc: ServiceSelectorService,
     public router: Router,
-    private translateSrvc: TranslateService,
     public layoutValidator: LayoutValidatorService,
   ) { }
 

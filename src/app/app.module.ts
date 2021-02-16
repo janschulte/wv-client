@@ -57,7 +57,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       LegendEntryComponent,
       SelectionCategoryComponent,
       SelectionEntriesComponent,
-      // SelectionListComponent,
       SelectionMapComponent,
       SelectionMenuComponent,
       SelectionParameterComponent,
