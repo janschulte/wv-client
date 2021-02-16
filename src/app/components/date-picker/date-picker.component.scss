@@ -46,4 +46,17 @@ app-date-picker {
             color: white;
         }
     }
+
+    // adjustments on smaller screens
+    @media screen and (max-width: 544px) {
+        display: flex;
+
+        ngb-datepicker {
+            margin: auto;
+
+            .ngb-dp-content {
+                display: block;
+            }
+        }
+    }
 }

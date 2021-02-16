@@ -98,6 +98,7 @@
             width: $entry-width;
             float: left;
             text-align: center;
+            overflow: hidden;
 
             span {
                 vertical-align: middle;
@@ -114,6 +115,7 @@
 
             .icon {
                 font-size: 26px;
+                display: inline;
             }
 
             +.entry {
