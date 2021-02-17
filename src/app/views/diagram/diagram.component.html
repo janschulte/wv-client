@@ -59,12 +59,6 @@
             <span class="icon"
               [ngClass]="{'icon-hide-y-axis':diagramOptions.yaxis, 'icon-show-y-axis':!diagramOptions.yaxis}"></span>
           </div>
-          <!-- <div class="wv-button graph-view" [ngClass]="{'selected':!isToggled}" (click)="toggle()">
-            <span class="icon icon-graph-view"></span>
-          </div>
-          <div class="wv-button table-view" [ngClass]="{'selected':isToggled}" (click)="toggle()">
-            <span class="icon icon-table-view"></span>
-          </div> -->
           <app-timespan-shifter class="time-shifter" [timespan]="timespan" (onTimespanChange)="timespanChanged($event)"
             (onOpenTimeSettings)="openTimeSettings()"></app-timespan-shifter>
           <app-timespan-button class="time-button one-day" label="1 {{'chart.hotkeys.day' | translate}}"
@@ -79,10 +73,6 @@
             <span class="mid description">{{'export' | translate}}</span>
           </div>
         </div>
-        <!-- <div class="empty hidden-series" ng-if="!hasVisibleTimeseries()">
-          <h1 translate="chart.allHidden.header"></h1>
-          <h3 translate="chart.allHidden.description"></h3>
-        </div> -->
         <div class="chart">
           <app-loading-overlay *ngIf="chartLoading"></app-loading-overlay>
           <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
@@ -100,11 +90,7 @@
             (onContentLoading)="onOverviewLoading($event)">
           </n52-d3-overview-timeseries-graph>
         </div>
-        <!-- <div class="tableView" ng-if="isToggled">
-          <div ng-include="'templates/table/table.html'"></div>
-        </div> -->
       </div>
-      <!-- <div ng-include="'templates/views/diagram/no-data-warning.html'" /> -->
     </div>
   </div>
 

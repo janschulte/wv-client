@@ -69,7 +69,12 @@ export class DiagramComponent implements OnInit {
     private translateSrvc: TranslateService,
     private diagramPermalinkSrvc: DiagramPermalinkService,
     private layoutValidator: LayoutValidatorService
-  ) { }
+  ) {
+    // https://stackoverflow.com/questions/50792027/touchmove-event-not-firing-on-google-chrome-for-android
+    document.body.addEventListener("touchstart", function (e) { }, false);
+    // document.body.addEventListener("touchend", function (e) { }, false);
+    // document.body.addEventListener("touchmove", function (e) { }, false);
+  }
 
   ngOnInit() {
     if (!this.diagramPermalinkSrvc.canValidatePermalink()) {
