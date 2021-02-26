@@ -50,6 +50,7 @@ export class DiagramComponent implements OnInit {
   public diagramOptions: D3PlotOptions = {
     showTimeLabel: false,
     showReferenceValues: true,
+    requestBeforeAfterValues: true,
     generalizeAllways: false,
     yaxis: true,
     timeRangeLabel: {
