@@ -44,6 +44,7 @@ export class DiagramComponent implements OnInit {
 
   public overviewOptions: D3PlotOptions = {
     overview: true,
+    requestBeforeAfterValues: true,
     showTimeLabel: false
   };
 
