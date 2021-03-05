@@ -10,6 +10,7 @@ import {
   Time,
   Timespan,
 } from '@helgoland/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { WvSettings } from '../../models/wv-settings';
 
@@ -31,9 +32,10 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
     protected timeSrvc: Time,
     protected servicesConnector: HelgolandServicesConnector,
     private settings: SettingsService<WvSettings>,
-    private color: ColorService
+    private color: ColorService,
+    protected translateSrvc: TranslateService
   ) {
-    super(servicesConnector);
+    super(servicesConnector, translateSrvc);
     this.initFromState();
   }
 
