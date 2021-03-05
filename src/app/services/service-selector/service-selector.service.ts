@@ -19,8 +19,8 @@ export class ServiceSelectorService {
   ) {
     const defService = this.settings.getSettings().defaultService;
     if (defService) {
-      this.servicesConnector.getServices(defService.apiUrl, { service: defService.serviceId }).subscribe(
-        service => this.fetchDatasets(service[0]),
+      this.servicesConnector.getService(defService.serviceId, defService.apiUrl).subscribe(
+        service => this.fetchDatasets(service),
         e => console.error(e)
       );
     } else {
