@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatasetType, HelgolandParameterFilter, Provider } from '@helgoland/core';
-import { ListSelectorParameter } from '@helgoland/selector';
+import { ListSelectorParameter, MultiServiceFilterEndpoint } from '@helgoland/selector';
 
 import { LayoutValidatorService, ScreenSize } from '../../services/layout-validator/layout-validator.service';
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
@@ -15,19 +15,19 @@ export class SelectionStationComponent implements OnInit {
 
   public stationParams: ListSelectorParameter[] = [
     {
-      type: 'feature',
+      type: MultiServiceFilterEndpoint.feature,
       header: 'listSelection.headers.station'
     },
     {
-      type: 'category',
+      type: MultiServiceFilterEndpoint.category,
       header: 'listSelection.headers.category'
     },
     {
-      type: 'phenomenon',
+      type: MultiServiceFilterEndpoint.phenomenon,
       header: 'listSelection.headers.phenomenon'
     },
     {
-      type: 'procedure',
+      type: MultiServiceFilterEndpoint.procedure,
       header: 'listSelection.headers.procedure'
     }
   ];
