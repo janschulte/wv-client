@@ -61,118 +61,117 @@
 
     &.de {
         .diagram-mobile {
-            background-image: url($image-path+'help/de/diagram-mobile.png');
-            background-image: url($image-path+'zeitreihen-leer.png');
+            background-image: url('~src/assets/images/help/diagram-mobile-de.jpg');
         }
 
         .diagram-desktop {
-            background-image: url($image-path+'help/de/diagram-desktop.png');
+            background-image: url('~src/assets/images/help/diagram-desktop-de.jpg');
         }
 
         .favorites-mobile {
-            background-image: url($image-path+'help/de/favorites-mobile.png');
+            background-image: url('~src/assets/images/help/favorites-mobile-de.jpg');
         }
 
         .favorites-desktop {
-            background-image: url($image-path+'help/de/favorites-desktop.png');
+            background-image: url('~src/assets/images/help/favorites-desktop-de.jpg');
         }
 
         .legend-mobile {
-            background-image: url($image-path+'help/de/legend-mobile.png');
+            background-image: url('~src/assets/images/help/legend-mobile-de.jpg');
         }
 
         .legend-desktop {
-            background-image: url($image-path+'help/de/legend-desktop.png');
+            background-image: url('~src/assets/images/help/legend-desktop-de.jpg');
         }
 
         .list-selection-mobile {
-            background-image: url($image-path+'help/de/list-selection-mobile.png');
+            background-image: url('~src/assets/images/help/list-selection-mobile-de.jpg');
         }
 
         .list-selection-desktop {
-            background-image: url($image-path+'help/de/list-selection-desktop.png');
+            background-image: url('~src/assets/images/help/list-selection-desktop-de.jpg');
         }
 
         .map-selection-mobile {
-            background-image: url($image-path+'help/de/map-selection-mobile.png');
+            background-image: url('~src/assets/images/help/map-selection-mobile-de.jpg');
         }
 
         .map-selection-desktop {
-            background-image: url($image-path+'help/de/map-selection-desktop.png');
+            background-image: url('~src/assets/images/help/map-selection-desktop-de.jpg');
         }
 
         .settings-mobile {
-            background-image: url($image-path+'help/de/settings-mobile.png');
+            background-image: url('~src/assets/images/help/settings-mobile-de.jpg');
         }
 
         .settings-desktop {
-            background-image: url($image-path+'help/de/settings-desktop.png');
+            background-image: url('~src/assets/images/help/settings-desktop-de.jpg');
         }
 
         .start-mobile {
-            background-image: url($image-path+'help/de/start-mobile.png');
+            background-image: url('~src/assets/images/help/start-mobile-de.jpg');
         }
 
         .start-desktop {
-            background-image: url($image-path+'help/de/start-desktop.png');
+            background-image: url('~src/assets/images/help/start-desktop-de.jpg');
         }
     }
 
     &.en {
         .diagram-mobile {
-            background-image: url($image-path+'help/en/diagram-mobile.png');
+            background-image: url('~src/assets/images/help/diagram-mobile-en.jpg');
         }
 
         .diagram-desktop {
-            background-image: url($image-path+'help/en/diagram-desktop.png');
+            background-image: url('~src/assets/images/help/diagram-desktop-en.jpg');
         }
 
         .favorites-mobile {
-            background-image: url($image-path+'help/en/favorites-mobile.png');
+            background-image: url('~src/assets/images/help/favorites-mobile-en.jpg');
         }
 
         .favorites-desktop {
-            background-image: url($image-path+'help/en/favorites-desktop.png');
+            background-image: url('~src/assets/images/help/favorites-desktop-en.jpg');
         }
 
         .legend-mobile {
-            background-image: url($image-path+'help/en/legend-mobile.png');
+            background-image: url('~src/assets/images/help/legend-mobile-en.jpg');
         }
 
         .legend-desktop {
-            background-image: url($image-path+'help/en/legend-desktop.png');
+            background-image: url('~src/assets/images/help/legend-desktop-en.jpg');
         }
 
         .list-selection-mobile {
-            background-image: url($image-path+'help/en/list-selection-mobile.png');
+            background-image: url('~src/assets/images/help/list-selection-mobile-en.jpg');
         }
 
         .list-selection-desktop {
-            background-image: url($image-path+'help/en/list-selection-desktop.png');
+            background-image: url('~src/assets/images/help/list-selection-desktop-en.jpg');
         }
 
         .map-selection-mobile {
-            background-image: url($image-path+'help/en/map-selection-mobile.png');
+            background-image: url('~src/assets/images/help/map-selection-mobile-en.jpg');
         }
 
         .map-selection-desktop {
-            background-image: url($image-path+'help/en/map-selection-desktop.png');
+            background-image: url('~src/assets/images/help/map-selection-desktop-en.jpg');
         }
 
         .settings-mobile {
-            background-image: url($image-path+'help/en/settings-mobile.png');
+            background-image: url('~src/assets/images/help/settings-mobile-en.jpg');
         }
 
         .settings-desktop {
-            background-image: url($image-path+'help/en/settings-desktop.png');
+            background-image: url('~src/assets/images/help/settings-desktop-en.jpg');
         }
 
         .start-mobile {
-            background-image: url($image-path+'help/en/start-mobile.png');
+            background-image: url('~src/assets/images/help/start-mobile-en.jpg');
         }
 
         .start-desktop {
-            background-image: url($image-path+'help/en/start-desktop.png');
+            background-image: url('~src/assets/images/help/start-desktop-en.jpg');
         }
     }
 }
