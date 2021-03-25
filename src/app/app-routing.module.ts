@@ -19,7 +19,8 @@ const routes: Route[] = [
   { path: 'selection-map', component: SelectionMapComponent },
   { path: 'selection-category', component: SelectionCategoryComponent },
   { path: 'selection-station', component: SelectionStationComponent },
-  { path: 'selection-parameter', component: SelectionParameterComponent }
+  { path: 'selection-parameter', component: SelectionParameterComponent },
+  { path: '**', component: StartComponent },
 ];
 
 @NgModule({
