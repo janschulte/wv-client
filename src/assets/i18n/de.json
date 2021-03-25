@@ -77,7 +77,7 @@
 	"export": "Diagramm exportieren",
 	"export-timeseries-data": {
 		"csv-export-button": "CSV",
-		"header": "Datasatz Download",
+		"header": "Datensatz Download",
 		"labels": {
 			"first-value": "Erster Wert",
 			"from": "Von",
@@ -125,7 +125,7 @@
 		"lastValue": "Letzter Wert",
 		"provider": "Quelle",
 		"single": {
-			"add": "Einer neuer Favorit mit dem Name '{{label}}' ist abgelegt worden.",
+			"add": "Ein neuer Favorit mit dem Name '{{label}}' ist abgelegt worden.",
 			"notSupported": "Der Datenanbieter des Favoriten '{{label}}' wird nicht unterstützt und kann deswegen nicht eingeladen werden.",
 			"remove": "Der Favorit ist entfernt worden."
 		}
@@ -326,7 +326,7 @@
 		"phenomenon": {
 			"button": "Messparameter wählen und Zeitreihen finden",
 			"description": "Die verfügbaren Messparameter (wie z.B. Wasserstand oder Niederschlag) werden als Liste angezeigt, mittels Mausklicks können Sie die Kategorien (wie z.B. Rohdaten oder validierte Daten) eines Messwerts wählen sowie die Stationen sehen, an denen der gewählte Messparameter ermittelt wird und sich die entsprechenden Ganglinien anzeigen lassen.",
-			"header": "Zeitreihen über ein Messparameter auswählen"
+			"header": "Zeitreihen über einen Messparameter auswählen"
 		},
 		"station": {
 			"button": "Station wählen und Zeitreihen finden",
