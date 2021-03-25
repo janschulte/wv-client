@@ -11,8 +11,7 @@
         </div>
         <div class="description">
           <div class="mid">{{param.header| translate}}</div>
-          <div class="mid bold" *ngIf="param.headerAddition === undefined || last"
-            translate="listSelection.noSelection"></div>
+          <div class="mid bold" *ngIf="param.headerAddition === undefined" translate="listSelection.noSelection"></div>
           <div class="mid bold" *ngIf="!last">{{param.headerAddition}}</div>
         </div>
         <div class="icon icon-arrow-right"></div>
@@ -24,7 +23,7 @@
         <div class="mid" translate="listSelection.goBack"></div>
       </div>
       <div *ngIf="!last">
-        <app-parameter-table [endpoint]="param.type" [filterList]="param.filterList"
+        <app-parameter-table [endpoint]="param.type" [filterList]="param.filterList" [selected]="param.selected"
           (onItemSelected)="itemSelected($event, i)"></app-parameter-table>
       </div>
       <div *ngIf="last">
