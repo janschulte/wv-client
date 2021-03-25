@@ -68,30 +68,4 @@
             }
         }
     }
-
-    .ts-selection-notifier {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 165px;
-        height: 90px;
-        padding: 5px;
-        background-color: $slate-gray;
-        border-radius: 10px;
-        text-align: center;
-        color: $white;
-
-        .icon {
-            margin-top: 8px;
-            margin-bottom: 6px;
-            font-size: 25px;
-        }
-
-        &.add {
-            background-color: $lime-green;
-        }
-    }
 }

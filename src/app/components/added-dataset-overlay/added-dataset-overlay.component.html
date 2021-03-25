@@ -1,0 +1,5 @@
+<div class="notifier-wrapper" *ngIf="visible" [ngClass]="{'add': presentation?.added}">
+  <div class="icon icon-check" [ngClass]="{'icon-check': presentation?.added, 'icon-uncheck': !presentation?.added}"></div>
+  <div class="mid bold" *ngIf="presentation?.added">{{'dataset-notifier.added' | translate}}</div>
+  <div class="mid bold" *ngIf="!presentation?.added">{{'dataset-notifier.removed' | translate}}</div>
+</div>

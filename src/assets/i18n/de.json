@@ -24,6 +24,10 @@
 	"controls": {
 		"cancel": "Abbrechen"
 	},
+	"dataset-notifier": {
+		"added": "Zeitreihe erfolgreich hinzugefügt",
+		"removed": "Zeitreihe entfernt"
+	},
 	"date": {
 		"month": {
 			"full": {

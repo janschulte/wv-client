@@ -2,6 +2,9 @@
   <div class="loader dark"></div>
   <span translate="map.station.loading"></span>
 </div>
+
+<app-added-dataset-overlay [presentation]="added"></app-added-dataset-overlay>
+
 <div *ngFor="let item of items" (click)="onSelectItem(item)">
   <div class="parameter-item">
     <div class="description">
@@ -17,6 +20,6 @@
         </div>
       </div>
     </div>
-    <div class="icon icon-timeline-add" [ngClass]="{'active': item.selected}"></div>
+    <div class="icon" [ngClass]="{'active icon-timeline-checked': item.selected, 'icon-timeline-add': !item.selected}"></div>
   </div>
 </div>

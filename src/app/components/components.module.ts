@@ -18,6 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ClipboardModule } from 'ngx-clipboard';
 
+import { AddedDatasetOverlayComponent } from './added-dataset-overlay/added-dataset-overlay.component';
 import { GeoSearchComponent } from './controls/geo-search/geo-search.component';
 import { LayersControlComponent } from './controls/layers-control/layers-control.component';
 import { LocateButtonComponent } from './controls/locate-button/locate-button.component';
@@ -62,6 +63,7 @@ import { TimezoneSelectorComponent } from './timezone-selector/timezone-selector
 import { ToastContainerComponent } from './toast/toast-container/toast-container.component';
 
 const COMPONENTS = [
+  AddedDatasetOverlayComponent,
   CurrentTimeButtonComponent,
   DatasetTableComponent,
   DatePickerComponent,

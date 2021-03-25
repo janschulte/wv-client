@@ -5,6 +5,7 @@
   <div class="close icon icon-cancel" (click)="activeModal.dismiss()"></div>
 </div>
 <div class="modal-body">
+  <app-added-dataset-overlay [presentation]="added"></app-added-dataset-overlay>
   <div class="loading" *ngIf="counter">
     <div class="loader dark"></div>
     <span translate="map.station.loading"></span>
@@ -12,7 +13,7 @@
   <div *ngFor="let timeseries of filteredTimeseries">
     <!-- TODO: Translation-->
     <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
-    <app-timeseries-item [timeseries]="timeseries"></app-timeseries-item>
+    <app-timeseries-item [timeseries]="timeseries" (onTimeseriesSelect)="datasetSelected($event)"></app-timeseries-item>
   </div>
   <div>
     <div class="show-all big" *ngIf="additionalTsCount > 0" (click)="showAdditionalTs = !showAdditionalTs">
@@ -24,7 +25,7 @@
     <div *ngIf="showAdditionalTs">
       <div *ngFor="let timeseries of phenomenonMatchedList">
         <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
-        <app-timeseries-item [timeseries]="timeseries"></app-timeseries-item>
+        <app-timeseries-item [timeseries]="timeseries" (onTimeseriesSelect)="datasetSelected($event)"></app-timeseries-item>
       </div>
     </div>
   </div>

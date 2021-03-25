@@ -25,6 +25,10 @@
 	"controls": {
 		"cancel": "Cancel"
 	},
+	"dataset-notifier": {
+		"added": "Timeseries successfully added",
+		"removed": "Timeseries removed"
+	},
 	"date": {
 		"month": {
 			"full": {

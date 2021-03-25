@@ -4,6 +4,7 @@ import { FilteredParameter, MultiServiceFilterSelectorComponent } from '@helgola
 import { TranslateService } from '@ngx-translate/core';
 
 import { TimeseriesService } from './../../services/timeseries/timeseries.service';
+import { AddedDatasetPresentation } from './../added-dataset-overlay/added-dataset-overlay.component';
 import { ToastService } from './../toast/toast-container/toast-container.service';
 
 export interface DatasetFilteredParameter extends FilteredParameter {
@@ -19,6 +20,8 @@ export class DatasetTableComponent extends MultiServiceFilterSelectorComponent {
 
   public items: DatasetFilteredParameter[];
 
+  public added: AddedDatasetPresentation;
+
   constructor(
     protected servicesConnector: HelgolandServicesConnector,
     protected translate: TranslateService,
@@ -30,9 +33,11 @@ export class DatasetTableComponent extends MultiServiceFilterSelectorComponent {
 
   public onSelectItem(item: DatasetFilteredParameter) {
     if (item.selected) {
+      this.added = new AddedDatasetPresentation(false);
       this.timeseriesSrvc.removeDataset(item.dataset.internalId);
       item.selected = false;
     } else {
+      this.added = new AddedDatasetPresentation(true);
       this.timeseriesSrvc.addDataset(item.dataset.internalId);
       item.selected = true;
     }

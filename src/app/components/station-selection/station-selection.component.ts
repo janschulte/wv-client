@@ -1,3 +1,4 @@
+import { AddedDatasetPresentation } from './../added-dataset-overlay/added-dataset-overlay.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatasetType, HelgolandServicesConnector, HelgolandTimeseries } from '@helgoland/core';
@@ -16,6 +17,8 @@ export class StationSelectionComponent extends DatasetByStationSelectorComponent
 
   public additionalTsCount: number;
   public showAdditionalTs = false;
+
+  public added: AddedDatasetPresentation;
 
   constructor(
     protected servicesConnector: HelgolandServicesConnector,
@@ -50,6 +53,10 @@ export class StationSelectionComponent extends DatasetByStationSelectorComponent
           });
         });
     }
+  }
+
+  public datasetSelected(selected: boolean) {
+    this.added = new AddedDatasetPresentation(selected, 100000);
   }
 
   public navigateToDiagram() {
