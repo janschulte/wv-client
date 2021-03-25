@@ -6,7 +6,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class SelectionNavigationService {
 
-  private lastSelection = '/selection-parameter';
+  private lastSelection = '/selection-category';
 
   constructor(
     private router: Router
