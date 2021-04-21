@@ -55,7 +55,7 @@ export class DiagramComponent implements OnInit {
     generalizeAllways: false,
     yaxis: true,
     timeRangeLabel: {
-      show: true
+      show: false
     },
     copyright: {
       label: this.translateSrvc.instant('chart.annotation'),
