@@ -14,7 +14,7 @@ import {
    SettingsService,
    SplittedDataDatasetApiInterface,
 } from '@helgoland/core';
-import { HelgolandD3Module } from '@helgoland/d3';
+import { D3DataGeneralizer, HelgolandD3Module, D3DataNoneGeneralizer } from '@helgoland/d3';
 import { HelgolandDatasetlistModule } from '@helgoland/depiction';
 import { FacetSearchConfig, HelgolandFacetSearchModule } from '@helgoland/facet-search';
 import { HelgolandFavoriteModule } from '@helgoland/favorite';
@@ -113,6 +113,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       {
          provide: FacetSearchConfig,
          useValue: { showZeroValues: true } as FacetSearchConfig
+      },
+      {
+         provide: D3DataGeneralizer,
+         useClass: D3DataNoneGeneralizer
       }
    ],
    bootstrap: [
