@@ -25,30 +25,19 @@
       <app-timespan-button label="{{'timeselection.preset.last3Months' | translate}}" [timespanFunc]="last3Months"
         (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
     </div>
+    <div class="preset-button">
+      <app-timespan-button label="{{'timeselection.preset.lastYear' | translate}}" [timespanFunc]="lastYear"
+        (onTimespanSelected)="activeModal.close($event)"></app-timespan-button>
+    </div>
   </div>
-  <!-- <div class="modal-inline-header" translate="timeSelection.custom.header"></div>
-  <div class="modal-inline-block">
-    <div ng-include="'templates/time/custom-time-range-selection.html'" />
-  </div> -->
 </div>
 
 <div class="modal-body time">
   <div class="modal-inline-header" translate="timeSelection.custom.header"></div>
   <div class="modal-inline-block">
 
-    <!-- <ngb-accordion style="width: 100%;" class="ngb-accordion-custom" [closeOthers]="true" activeIds="static-1"> -->
-
-      <!-- <ngb-panel id="static-1"> -->
-        <!-- <ng-template ngbPanelTitle>
-          <span>{{'diagram-export.start' | translate}} {{start}} - {{'diagram-export.end' | translate}} {{end}}</span>
-        </ng-template> -->
-        <!-- <ng-template class="mid description" ngbPanelContent> -->
-          <app-date-picker [timestamp]="timespan" (onDateSelected)="onTimepickerRangeSelected($event)">
-          </app-date-picker>
-        <!-- </ng-template> -->
-      <!-- </ngb-panel> -->
-
-    <!-- </ngb-accordion> -->
+    <app-date-picker [timestamp]="timespan" (onDateSelected)="onTimepickerRangeSelected($event)">
+    </app-date-picker>
 
     <div class="preset-button">
       <app-timespan-button label="{{'ok' | translate}}" [timespanFunc]="customTime"

@@ -317,7 +317,8 @@
 			"last3Months": "past 3 months",
 			"last6hours": "past 6h",
 			"lastMonth": "past month",
-			"lastWeek": "past week"
+			"lastWeek": "past week",
+			"lastYear": "past year"
 		}
 	}
 }

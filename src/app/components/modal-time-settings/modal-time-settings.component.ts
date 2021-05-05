@@ -54,6 +54,10 @@ export class ModalTimeSettingsComponent implements OnInit {
     return this.timespan;
   }
 
+  lastYear = (): Timespan => {
+    return this.calcTimespan(moment.duration(1, 'year'));
+  }
+  
   /**
    * Update timespan with selected range.
    * @param $event current timespan
