@@ -5,7 +5,12 @@ import { ListSelectorParameter, MultiServiceFilterEndpoint } from '@helgoland/se
 
 import { ServiceSelectorService } from '../../services/service-selector/service-selector.service';
 import { LayoutValidatorService, ScreenSize } from './../../services/layout-validator/layout-validator.service';
+import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 
+marker('listSelection.headers.category');
+marker('listSelection.headers.station');
+marker('listSelection.headers.phenomenon');
+marker('listSelection.headers.procedure');
 @Component({
   selector: 'app-selection-category',
   templateUrl: './selection-category.component.html',

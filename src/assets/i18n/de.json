@@ -1,24 +1,17 @@
 {
 	"chart": {
-		"allHidden": {
-			"description": "Zeitreihen können über die Legende auf der rechten Seite durch das Icon <span class='icon icon-visibility'></span> wieder sichtbar geschaltet werden.",
-			"header": "Alle Zeitreihen sind deaktiviert"
-		},
 		"annotation": "Daten ohne Gewähr",
 		"empty": {
 			"description": "Klicken Sie einfach auf das “+” und wählen die Option, über die Sie Zeitreihen finden möchten",
 			"header": "Es wurden bisher keine Zeitreihen geladen"
 		},
-		"hasNoData": "Außerhalb des Datenbereichs",
 		"hotkeys": {
 			"day": "Tag",
 			"day-short": "T",
 			"month": "Monat",
 			"week": "Woche",
 			"week-short": "W"
-		},
-		"loading": "Zeitreihen werden geladen",
-		"reachedMaxTimeperiod": "Der maximal auswählbare Zeitraum wurde überschritten und wurde angepasst."
+		}
 	},
 	"code": "de",
 	"controls": {
@@ -84,10 +77,8 @@
 		"header": "Datensatz Download",
 		"labels": {
 			"first-value": "Erster Wert",
-			"from": "Von",
 			"last-value": "Letzter Wert",
 			"measure-parameter": "Messparameter",
-			"to": "Bis",
 			"unit": "Einheit"
 		},
 		"xls-export-button": "Excel"
@@ -108,33 +99,15 @@
 			"description": "Klicken Sie in der Diagrammansicht auf das Sternsymbol in den Details einer Zeitreihe, um sie als Favorit hinzuzufügen.<br>Über den Importieren Button können vorher exportierte Favoriten wieder eingeladen werden.",
 			"header": "Es wurden bisher keine Favoriten gesammelt"
 		},
-		"export": {
-			"header": "Exportiere Favortien",
-			"text": "Hier können Sie ihre Favoriten exportieren. Einfach das JSON aus dem Textfeld kopieren und speichern, um es später wieder zu importieren:"
-		},
 		"exportFavorites": "Exportieren",
 		"group": {
-			"add": "'{{label}}' ist in den Favoriten erstellt worden.",
-			"noTimeseries": "Derzeit sind keine Zeitreihen ausgewählt."
-		},
-		"import": {
-			"header": "Importiere Favoriten",
-			"noValidJson": "Die JSON Datei ist nicht valide.",
-			"override": "Wollen Sie die aktuellen Favoriten überschreiben?",
-			"text": "Hier können Sie ihre Favoriten importieren. Einfach das JSON in das Textfeld einfügen:",
-			"wrongFile": "Die Datei kann nicht gelesen werden."
+			"add": "'{{label}}' ist in den Favoriten erstellt worden."
 		},
 		"importFavorites": "Importieren",
 		"label": "Zeitreihensammlung",
 		"lastValue": "Letzter Wert",
-		"provider": "Quelle",
-		"single": {
-			"add": "Ein neuer Favorit mit dem Name '{{label}}' ist abgelegt worden.",
-			"notSupported": "Der Datenanbieter des Favoriten '{{label}}' wird nicht unterstützt und kann deswegen nicht eingeladen werden.",
-			"remove": "Der Favorit ist entfernt worden."
-		}
+		"provider": "Quelle"
 	},
-	"fullName": "Deutsch",
 	"help": {
 		"diagram": {
 			"header": "Diagramm-Ansicht",
@@ -194,17 +167,9 @@
 		"text": "<p>Der <a href='http://www.wupperverband.de/' target='_blank'>Wupperverband</a> ist für diese Website verantwortlich.</p><p>Untere Lichtenplatzer Str. 100<br>42289 Wuppertal, Deutschland</p><p><a href='mailto:info@wupperverband.de'>info@wupperverband.de</a></p>Diese Webanwendung basiert auf Open Source Software. Zur <a href='https://github.com/52North/helgoland-toolbox' target='_blank'>GitHub</a>-Seite dieses Projektes."
 	},
 	"legend": {
-		"deleteAll": {
-			"confirm": "Ja",
-			"deny": "Nein",
-			"header": "Alle Zeitreihen löschen",
-			"question": "Sollen alle Zeitreihen entfernt werden?"
-		},
 		"entry": {
 			"firstValue": "Erster Wert:",
-			"jumpToLastValue": "Zur letzten Messung springen",
 			"lastValue": "Letzter Wert:",
-			"noDataWarning": "Keine Daten im ausgewählten Zeitraum verfügbar",
 			"procedure": "Messintervall:",
 			"provider": "Quelle:"
 		},
@@ -234,7 +199,6 @@
 	"main": {
 		"addTimeseriesNavigation": {
 			"category": "Kategorie",
-			"list": "Liste",
 			"map": "Karte",
 			"phenomenon": "Messparameter",
 			"station": "Station"
@@ -251,10 +215,8 @@
 			"baselayerHeader": "Basiskarten",
 			"overlayHeader": "Overlay"
 		},
-		"loading": "Stationen werden geladen",
 		"providerList": {
 			"phenomena": "Messparameter",
-			"provider": "Datenanbieter",
 			"source": "Quelle",
 			"stations": "Stationen",
 			"timeseries": "Zeitreihen"
@@ -264,29 +226,16 @@
 		},
 		"show-phenomenon-location": "Position der Messstation",
 		"station": {
-			"add": "Zeitreihe erfolgreich hinzugefügt",
-			"addMulti": "Zeitreihen erfolgreich hinzugefügt",
 			"category": "Kategorie",
 			"lastValue": "letzter Messwert:",
 			"loading": "Zeitreihen werden geladen...",
-			"remove": "Zeitreihe entfernt",
 			"showAll": "weitere Messparameter hier",
 			"showChart": "zur Diagrammansicht"
-		},
-		"stationLocation": {
-			"jumpBackToChart": "zurück zum Diagramm",
-			"provider": "Datenanbieter",
-			"station": "Station",
-			"timeseries": "Zeitreihe"
 		}
 	},
 	"ok": "OK",
 	"originalValues": {
-		"active": "Originalwerten werden zur Dargestellung genutzt",
-		"areDeactivated": "Die Anzeige mit Originalwerten wurde deaktiviert, da der Zeitraum über einem Monat liegt.",
-		"header": "Originalwerte",
-		"notActive": "Generalisierte Daten werden zur Darstellung genutzt",
-		"notAllowed": "Zur Anzeige der Originalwerte den Zeitraum bitte auf einen Monat begrenzen."
+		"header": "Originalwerte"
 	},
 	"service-selector-list": {
 		"header": "Datenanbieter"
@@ -307,9 +256,6 @@
 		"lastValueMarker": {
 			"description": "Achtung: Dies kann bei einigen Providern zu langen Abfragen führen.",
 			"header": "Marker mit Wert der letzten Messung"
-		},
-		"permalink": {
-			"clipboardInfo": "Bitte kopiere den folgenden Link selbstständig in die Zwischenablage:"
 		},
 		"reset": {
 			"description": "Achtung: Ihre gesammelten Zeitreihen und Favoriten werden dabei unwiderruflich gelöscht.",
@@ -341,28 +287,16 @@
 	"stations": "",
 	"styleChange": {
 		"alignmentHeader": "Ausrichtung",
-		"barChartInterval": {
-			"day": "Tag",
-			"hour": "Stunde",
-			"month": "Monat",
-			"week": "Woche"
-		},
 		"colorHeader": "Farbwahl",
-		"currentColor": "Derzeitige Farbe",
 		"groupedAxis": {
 			"description": "Gruppiert oder löst ein gemessenes Messparameter (Wasserstand, Luftfeuchte, Ph-Wert, ...), mit gleicher Einheit, auf eine oder mehrere Y-Achsen.",
 			"header": "Gruppierte Achse"
 		},
 		"header": "Zeitreihen Einstellungen",
-		"selectBarInterval": "Wähle Balkeninterval",
-		"selectColor": "Wähle neue Farbe",
 		"zeroScaled": {
 			"description": "Setzt oder löst einen festen, nullbasierten Ursprung einer Achsenskala.",
 			"header": "Nullbasierte y-Achse"
 		}
-	},
-	"table": {
-		"time": "Zeit"
 	},
 	"time-facet": {
 		"from": "Von",
@@ -372,29 +306,10 @@
 	},
 	"timeSelection": {
 		"custom": {
-			"end": "Ende",
-			"header": "Freidefiniert",
-			"start": "Start",
-			"time": "Uhrzeit"
+			"header": "Freidefiniert"
 		},
 		"header": "Zeitraum",
-		"presets": {
-			"lastHour": "letzte Stunde",
-			"lastMonth": "letzten Monat",
-			"lastWeek": "letzte Woche",
-			"lastYear": "letztes Jahr",
-			"thisMonth": "diesen Monat",
-			"thisWeek": "diese Woche",
-			"thisYear": "dieses Jahr",
-			"today": "heute",
-			"todayYesterday": "heute & gestern",
-			"yesterday": "gestern"
-		},
-		"presetsHeader": "Vordefiniert",
-		"warning": {
-			"maxTimeRange": "Der ausgewählte Zeitraum darf nicht größer als ein Jahr sein",
-			"startBeforeEnd": "Der Startzeitpunkt darf nicht größer als der Endzeitpunkt sein"
-		}
+		"presetsHeader": "Vordefiniert"
 	},
 	"timeselection": {
 		"preset": {

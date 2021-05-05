@@ -1,25 +1,17 @@
 {
 	"chart": {
-		"allHidden": {
-			"description": "The timeseries can be switch visible again in the legend by the icon <span class='icon icon-visibility'></span>  on the right site.",
-			"header": "All timeseries are hidden"
-		},
 		"annotation": "Data without warranty!",
-		"copyright": "",
 		"empty": {
 			"description": "Click the “+”-button and select an option to select timeseries",
 			"header": "Currently no timeseries are loaded"
 		},
-		"hasNoData": "Outside the data range",
 		"hotkeys": {
 			"day": "Day",
 			"day-short": "D",
 			"month": "Month",
 			"week": "Week",
 			"week-short": "W"
-		},
-		"loading": "Timeseries will be loaded",
-		"reachedMaxTimeperiod": "The maximum selectable time period is exceeded and was adjusted."
+		}
 	},
 	"code": "en",
 	"controls": {
@@ -85,10 +77,8 @@
 		"header": "Download dataset",
 		"labels": {
 			"first-value": "First value",
-			"from": "From",
 			"last-value": "Last value",
 			"measure-parameter": "Measured Parameter",
-			"to": "To",
 			"unit": "Unit"
 		},
 		"xls-export-button": "Excel"
@@ -109,33 +99,15 @@
 			"description": "To add a timeseries as a favorite, navigate to the diagram view and select the star symbol found in the timeseries details.<br> With the import Button you can reload previously exported favorites.",
 			"header": "No favorites have been added to the list"
 		},
-		"export": {
-			"header": "Export favorites",
-			"text": "Here you can export your favorites. Just copy the JSON out of this textbox and save it in a file to import it later:"
-		},
 		"exportFavorites": "export",
 		"group": {
-			"add": "'{{label}}' is created as favorite.",
-			"noTimeseries": "Currently no timeseries are selected."
-		},
-		"import": {
-			"header": "Import favorites",
-			"noValidJson": "The JSON file is not valid!",
-			"override": "Do you want to override your current favorites?",
-			"text": "Here you can import your exported favorites. Just paste the JSON in this text field:",
-			"wrongFile": "Could not read the file"
+			"add": "'{{label}}' is created as favorite."
 		},
 		"importFavorites": "import",
 		"label": "Timeseries collection",
 		"lastValue": "Last value",
-		"provider": "Provider",
-		"single": {
-			"add": "A new favorite '{{label}}' has been added to the list.",
-			"notSupported": "The provider of the favorite '{{0}}' isn't supported and can't be loaded.",
-			"remove": "The favorite has been removed."
-		}
+		"provider": "Provider"
 	},
-	"fullName": "English",
 	"help": {
 		"diagram": {
 			"header": "Chart view",
@@ -195,17 +167,9 @@
 		"text": "<p>The <a href='http://www.wupperverband.de/' target='_blank'>Wupperverband</a> is responsible for this website.</p><p>Untere Lichtenplatzer Str. 100<br>42289 Wuppertal, Germany</p><p><a href='mailto:info@wupperverband.de'>info@wupperverband.de</a></p>This web application is based on open source software. Find this project at <a href='https://github.com/52North/sensorweb-client-core' target='_blank'>GitHub</a>"
 	},
 	"legend": {
-		"deleteAll": {
-			"confirm": "Yes",
-			"deny": "No",
-			"header": "Remove all timeseries",
-			"question": "Should all timeseries be removed?"
-		},
 		"entry": {
 			"firstValue": "First value:",
-			"jumpToLastValue": "jump to last measurement",
 			"lastValue": "Last value:",
-			"noDataWarning": "No data available to the selected time frame",
 			"procedure": "Measurement interval:",
 			"provider": "Provider:"
 		},
@@ -235,7 +199,6 @@
 	"main": {
 		"addTimeseriesNavigation": {
 			"category": "Category",
-			"list": "List",
 			"map": "Map",
 			"phenomenon": "Parameter",
 			"station": "Station"
@@ -252,10 +215,8 @@
 			"baselayerHeader": "Base layer",
 			"overlayHeader": "Overlay layer"
 		},
-		"loading": "Stations will be loaded",
 		"providerList": {
 			"phenomena": "Measured parameters",
-			"provider": "Datenanbieter",
 			"source": "Provider",
 			"stations": "Stations",
 			"timeseries": "Timeseries"
@@ -265,29 +226,16 @@
 		},
 		"show-phenomenon-location": "Position of the Station",
 		"station": {
-			"add": "Timeseries successfully added",
-			"addMulti": "Timeseries successfully added",
 			"category": "Category",
 			"lastValue": "Last value:",
 			"loading": "Timeseries will be loaded...",
-			"remove": "Timeseries removed",
 			"showAll": "further measured parameters",
 			"showChart": "Open diagram view"
-		},
-		"stationLocation": {
-			"jumpBackToChart": "back to chart",
-			"provider": "Provider",
-			"station": "Station",
-			"timeseries": "Timeseries"
 		}
 	},
 	"ok": "OK",
 	"originalValues": {
-		"active": "Original values are used to display the data",
-		"areDeactivated": "The display of the original values is deactivated, because the selected time period is greater than a month.",
-		"header": "original values",
-		"notActive": "Generalized values are used to display the data",
-		"notAllowed": "To display original values limit the time period to less than a month."
+		"header": "original values"
 	},
 	"service-selector-list": {
 		"header": "Dataprovider"
@@ -308,9 +256,6 @@
 		"lastValueMarker": {
 			"description": "Attention: some data provider are very slow.",
 			"header": "Marker with last value information"
-		},
-		"permalink": {
-			"clipboardInfo": "Please copy the following link by yourself to clipboard:"
 		},
 		"reset": {
 			"description": "Attention: Your selected timeseries and favorites will be deleted permanently.",
@@ -343,20 +288,15 @@
 	"styleChange": {
 		"alignmentHeader": "Alignment",
 		"colorHeader": "Color selection",
-		"currentColor": "Current color",
 		"groupedAxis": {
 			"description": "Cluster or release a measured phenomenon (water level, humidity, pH-value, ...), with the same unit, to one or more y-axis.",
 			"header": "grouped axis"
 		},
 		"header": "Timeseries settings",
-		"selectColor": "Select new color",
 		"zeroScaled": {
 			"description": "Sets or release a fixed, zero based axis scale.",
 			"header": "zero scaled Y-axis"
 		}
-	},
-	"table": {
-		"time": "Time"
 	},
 	"time-facet": {
 		"from": "From",
@@ -366,29 +306,10 @@
 	},
 	"timeSelection": {
 		"custom": {
-			"end": "End",
-			"header": "Custom",
-			"start": "Start",
-			"time": "Time"
+			"header": "Custom"
 		},
 		"header": "Time range",
-		"presets": {
-			"lastHour": "last hour",
-			"lastMonth": "last month",
-			"lastWeek": "last week",
-			"lastYear": "last year",
-			"thisMonth": "this month",
-			"thisWeek": "this week",
-			"thisYear": "this year",
-			"today": "today",
-			"todayYesterday": "today & yesterday",
-			"yesterday": "yesterday"
-		},
-		"presetsHeader": "Presets",
-		"warning": {
-			"maxTimeRange": "The time range can not be greater then one year",
-			"startBeforeEnd": "The start date can not be greater then the end date"
-		}
+		"presetsHeader": "Presets"
 	},
 	"timeselection": {
 		"preset": {
