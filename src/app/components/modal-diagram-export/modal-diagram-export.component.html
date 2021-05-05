@@ -12,11 +12,13 @@
   </div>
 
   <div class="input-group mb-3">
-    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true" activeIds="static-1">
+    <ngb-accordion style="width: 100%; padding: 0.2rem;" class="ngb-accordion-custom" [closeOthers]="true"
+      activeIds="static-1">
 
       <ngb-panel id="static-1">
         <ng-template ngbPanelTitle>
-          <span>{{'diagram-export.start' | translate}}: {{timespan.from | tzDate }} - {{'diagram-export.end' | translate}}: {{timespan.to | tzDate }}</span>
+          <span>{{'diagram-export.start' | translate}}: {{timespan.from | tzDate }} -
+            {{'diagram-export.end' | translate}}: {{timespan.to | tzDate }}</span>
         </ng-template>
         <ng-template class="mid description" ngbPanelContent>
           <app-date-picker [timestamp]="timespan" (onDateSelected)="onTimepickerRangeSelected($event)">
@@ -33,7 +35,7 @@
 
   <div class="footer">
     <app-diagram-export-button [title]="title" [timespan]="timespan" [datasetIds]="timeseriesService.datasetIds"
-      [datasetOptions]="timeseriesService.datasetOptions" [showLegend]="showLegend"
+      [datasetOptions]="timeseriesService.datasetOptions" [showLegend]="showLegend" [height]="600" [width]="1200"
       [showFirstLastDate]="showFirstLastDate"></app-diagram-export-button>
     <div class="spacer"></div>
     <div class="wv-button" (click)="activeModal.dismiss()">
