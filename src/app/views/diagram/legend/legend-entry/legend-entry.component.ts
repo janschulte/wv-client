@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import {
   ColorService,
   DatasetOptions,
@@ -18,6 +19,9 @@ import { DiagramPermalinkService } from '../../diagram-permalink.service';
 import {
   ModalExportTimeseriesDataComponent,
 } from './../../../../components/modal-export-timeseries-data/modal-export-timeseries-data.component';
+
+marker('favorite.single.remove');
+marker('favorite.single.add');
 
 @Component({
   selector: 'app-legend-entry',

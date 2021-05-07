@@ -106,7 +106,11 @@
 		"importFavorites": "Importieren",
 		"label": "Zeitreihensammlung",
 		"lastValue": "Letzter Wert",
-		"provider": "Quelle"
+		"provider": "Quelle",
+		"single": {
+			"add": "Einer neuer Favorit mit dem Name '{{label}}' ist abgelegt worden.",
+			"remove": "Der Favorit ist entfernt worden."
+		}
 	},
 	"help": {
 		"diagram": {

@@ -106,7 +106,11 @@
 		"importFavorites": "import",
 		"label": "Timeseries collection",
 		"lastValue": "Last value",
-		"provider": "Provider"
+		"provider": "Provider",
+		"single": {
+			"add": "A new favorite '{{label}}' has been added to the list.",
+			"remove": "The favorite has been removed."
+		}
 	},
 	"help": {
 		"diagram": {
