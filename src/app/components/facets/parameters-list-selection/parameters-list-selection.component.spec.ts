@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ParametersListSelectionComponent } from './parameters-list-selection.component';
 
@@ -6,7 +6,7 @@ describe('ParametersListSelectionComponent', () => {
   let component: ParametersListSelectionComponent;
   let fixture: ComponentFixture<ParametersListSelectionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ParametersListSelectionComponent ]
     })

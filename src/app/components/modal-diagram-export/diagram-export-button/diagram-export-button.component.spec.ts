@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DiagramExportButtonComponent } from './diagram-export-button.component';
 
@@ -6,7 +6,7 @@ describe('DiagramExportButtonComponent', () => {
   let component: DiagramExportButtonComponent;
   let fixture: ComponentFixture<DiagramExportButtonComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DiagramExportButtonComponent ]
     })

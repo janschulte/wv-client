@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ModalEditFavoriteComponent } from './modal-edit-favorite.component';
 
@@ -6,7 +6,7 @@ describe('ModalEditFavoriteComponent', () => {
   let component: ModalEditFavoriteComponent;
   let fixture: ComponentFixture<ModalEditFavoriteComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ModalEditFavoriteComponent ]
     })

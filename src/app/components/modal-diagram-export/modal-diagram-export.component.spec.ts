@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ModalDiagramExportComponent } from './modal-diagram-export.component';
 
@@ -6,7 +6,7 @@ describe('ModalDiagramExportComponent', () => {
   let component: ModalDiagramExportComponent;
   let fixture: ComponentFixture<ModalDiagramExportComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ModalDiagramExportComponent ]
     })

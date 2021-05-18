@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TimespanShifterComponent } from './timespan-shifter.component';
 
@@ -6,7 +6,7 @@ describe('TimespanShifterComponent', () => {
   let component: TimespanShifterComponent;
   let fixture: ComponentFixture<TimespanShifterComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TimespanShifterComponent ]
     })

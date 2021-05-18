@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ModalSharePermalinkComponent } from './modal-share-permalink.component';
 
@@ -6,7 +6,7 @@ describe('ModalSharePermalinkComponent', () => {
   let component: ModalSharePermalinkComponent;
   let fixture: ComponentFixture<ModalSharePermalinkComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ModalSharePermalinkComponent ]
     })

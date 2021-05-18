@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WvParameterFacetComponent } from './parameter-facet.component';
 
@@ -6,7 +6,7 @@ describe('ParameterFacetComponent', () => {
   let component: WvParameterFacetComponent;
   let fixture: ComponentFixture<WvParameterFacetComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ WvParameterFacetComponent ]
     })

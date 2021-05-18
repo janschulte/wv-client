@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DesktopListSelectorComponent } from './desktop-list-selector.component';
 
@@ -6,7 +6,7 @@ describe('ListSelectorComponent', () => {
   let component: DesktopListSelectorComponent;
   let fixture: ComponentFixture<DesktopListSelectorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DesktopListSelectorComponent ]
     })

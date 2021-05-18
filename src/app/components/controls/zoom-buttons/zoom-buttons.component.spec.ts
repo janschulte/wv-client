@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ZoomButtonsComponent } from './zoom-buttons.component';
 
@@ -6,7 +6,7 @@ describe('ZoomButtonsComponent', () => {
   let component: ZoomButtonsComponent;
   let fixture: ComponentFixture<ZoomButtonsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ZoomButtonsComponent ]
     })

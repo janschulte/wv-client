@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ModalServiceSelectorListComponent } from './modal-service-selector-list.component';
 
@@ -6,7 +6,7 @@ describe('ModalServiceSelectorListComponent', () => {
   let component: ModalServiceSelectorListComponent;
   let fixture: ComponentFixture<ModalServiceSelectorListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ModalServiceSelectorListComponent ]
     })
