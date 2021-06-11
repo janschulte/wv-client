@@ -1,6 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HelgolandPlatform, HelgolandTimeseries, SettingsService } from '@helgoland/core';
-import { FacetSearchService } from '@helgoland/facet-search';
+import {
+  DatasetFilter,
+  DatasetType,
+  HelgolandServicesConnector,
+  HelgolandTimeseries,
+  SettingsService,
+} from '@helgoland/core';
+import { FacetSearchElement, FacetSearchElementFeature, FacetSearchService, ParameterFacetType } from '@helgoland/facet-search';
 import { LayerCreator, LayerOptions } from '@helgoland/map';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
@@ -40,6 +46,7 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
   constructor(
     public facetSearch: FacetSearchService,
     private stateHandler: StateHandlerService,
+    private servicesConn: HelgolandServicesConnector,
     private modalService: NgbModal,
     public serviceSelectorSrvc: ServiceSelectorService,
     private layoutValidator: LayoutValidatorService,
@@ -65,13 +72,26 @@ export class SelectionMapComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(s => s.unsubscribe());
   }
 
-  public onSelectedTs(elem: { station: HelgolandPlatform, url: string }) {
-    // TODO: Translation
-    const modalRef = this.modalService.open(StationSelectionComponent);
-    (modalRef.componentInstance as StationSelectionComponent).station = elem.station;
-    (modalRef.componentInstance as StationSelectionComponent).url = elem.url;
-    (modalRef.componentInstance as StationSelectionComponent).filteredTimeseries =
-      this.facetSearch.getFilteredResults().filter(e => e.url === elem.url && e.platform.id === elem.station.id);
+  public onSelectedEntry(entry: FacetSearchElement) {
+  }
+
+  public onSelectedFeature(elem: { feature: FacetSearchElementFeature, url: string }) {
+    const url = elem.url;
+    const filter: DatasetFilter = {
+      type: DatasetType.Timeseries,
+      expanded: true,
+      feature: elem.feature.id
+    }
+    const phenomenon = this.facetSearch.getSelectedParameter(ParameterFacetType.phenomenon);
+    if (phenomenon) { filter.phenomenon = phenomenon.id; }
+    this.servicesConn.getDatasets(url, { ...filter, type: DatasetType.Timeseries }).subscribe(res => {
+      if (res.length) {
+        const modalRef = this.modalService.open(StationSelectionComponent);
+        (modalRef.componentInstance as StationSelectionComponent).station = res[0].platform;
+        (modalRef.componentInstance as StationSelectionComponent).url = elem.url;
+        (modalRef.componentInstance as StationSelectionComponent).filteredTimeseries = res
+      }
+    });
   }
 
   public updateSideMenu(active: boolean) {

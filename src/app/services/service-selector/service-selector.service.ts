@@ -1,7 +1,19 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { DatasetType, HelgolandService, HelgolandServicesConnector, Settings, SettingsService } from '@helgoland/core';
-import { FacetSearchService } from '@helgoland/facet-search';
+import {
+  ApiV3DatasetTypes,
+  ApiV3InterfaceService,
+  ApiV3ObservationTypes,
+  ApiV3ParameterFilter,
+  ApiV3ValueTypes,
+  DatasetType,
+  HelgolandService,
+  HelgolandServicesConnector,
+  SettingsService,
+} from '@helgoland/core';
+import { convertFromApiV3Dataset, convertToFacetEntry, FacetSearchService } from '@helgoland/facet-search';
 import { Observable, ReplaySubject } from 'rxjs';
+
+import { WvSettings } from '../../models/wv-settings';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +27,8 @@ export class ServiceSelectorService {
   constructor(
     private facetSearch: FacetSearchService,
     private servicesConnector: HelgolandServicesConnector,
-    private settings: SettingsService<Settings>
+    private apiv3: ApiV3InterfaceService,
+    private settings: SettingsService<WvSettings>
   ) {
     const defService = this.settings.getSettings().defaultService;
     if (defService) {
@@ -43,14 +56,36 @@ export class ServiceSelectorService {
   private fetchDatasets(service: HelgolandService) {
     this.loading.next(true);
     this.selectedService.next(service);
-    this.servicesConnector.getDatasets(service.apiUrl, { type: DatasetType.Timeseries, expanded: true, service: service.id }).subscribe(
-      res => {
-        this.facetSearch.resetAllFacets();
-        this.facetSearch.setTimeseries(res);
-      },
-      error => console.error(error),
-      () => this.loading.next(false)
-    );
+    const serviceConf = this.settings.getSettings().datasetApis.find(e => e.url === service.apiUrl);
+    if (serviceConf.supportDatasetSelect) {
+      const filter: ApiV3ParameterFilter = {
+        expanded: true,
+        datasetTypes: [ApiV3DatasetTypes.Timeseries],
+        observationTypes: [ApiV3ObservationTypes.Simple],
+        valueTypes: [ApiV3ValueTypes.Quantity, ApiV3ValueTypes.Count],
+        services: [service.id],
+        select: ['feature', 'parameters/phenomenon', 'firstValue', 'lastValue']
+      };
+      this.apiv3.getDatasets(service.apiUrl, filter).subscribe(
+        res => {
+          this.facetSearch.resetAllFacets();
+          this.facetSearch.setEntries(res.map(e => convertFromApiV3Dataset(e, service.apiUrl)));
+          this.loading.next(false);
+        }, error => {
+          console.error(error);
+          this.loading.next(false);
+        }
+      )
+    } else {
+      this.servicesConnector.getDatasets(service.apiUrl, { type: DatasetType.Timeseries, expanded: true, service: service.id }).subscribe(
+        res => {
+          this.facetSearch.resetAllFacets();
+          this.facetSearch.setEntries(res.map(e => convertToFacetEntry(e)));
+        },
+        error => console.error(error),
+        () => this.loading.next(false)
+      );
+    }
   }
 
 }
