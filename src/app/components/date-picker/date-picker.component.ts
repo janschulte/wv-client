@@ -1,3 +1,4 @@
+import { TranslationWidth } from '@angular/common';
 import { Component, EventEmitter, Injectable, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Timespan } from '@helgoland/core';
 import { NgbDate, NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -57,6 +58,9 @@ export class DatePickerI18n extends NgbDatepickerI18n {
   }
   getDayAriaLabel(date: NgbDateStruct): string {
     return `${date.day}-${date.month}-${date.year}`;
+  }
+  getWeekdayLabel(weekday: number, width?: TranslationWidth): string {
+    return this.getWeekdayShortName(weekday);
   }
 
 }
