@@ -116,8 +116,8 @@
 		"diagram": {
 			"header": "Diagramm-Ansicht",
 			"text": {
-				"desktop": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Außerdem können die Messdaten alternativ auch in einer Tabelle dargestellt werden.",
-				"mobile": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Außerdem können die Messdaten alternativ auch in einer Tabelle dargestellt werden."
+				"desktop": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Über die Buttons + und - an den Y-Achsen kann der angezeigte Wertebereich vergrößert bzw. verkleinert werden. Mit den Pfeilen kann der Wertebereich verschoben werden. Über das X geht es zurück zum Ausgangsbereich. Die Funktion \"Diagramm exportieren\" stellt ein PNG der derzeit ausgewählten Zeitreihen bereit.",
+				"mobile": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Über die Buttons + und - an den Y-Achsen kann der angezeigte Wertebereich vergrößert bzw. verkleinert werden. Mit den Pfeilen kann der Wertebereich verschoben werden. Über das X geht es zurück zum Ausgangsbereich."
 			}
 		},
 		"favorites": {
@@ -132,7 +132,7 @@
 		"legend": {
 			"header": "Legenden-Ansicht",
 			"text": {
-				"desktop": "In der Legende werden alle ausgewählten Zeitreihen aufgelistet. Neben einigen Zusatzinformationen zur Zeitreihe, kann die Zeitreihe hier vom Nutzer temporär ausgeblendet werden oder das Styling wird angepasst. Des weiteren kann die Zeitreihe zu den Favoriten hinzugefügt werden und aus der Legende und damit aus der Diagramm-Anzeige entfernt werden.",
+				"desktop": "In der Legende werden alle ausgewählten Zeitreihen aufgelistet. Neben einigen Zusatzinformationen zur Zeitreihe, kann die Zeitreihe hier vom Nutzer temporär ausgeblendet werden oder das Styling wird angepasst. Des weiteren kann die Zeitreihe zu den Favoriten hinzugefügt werden und aus der Legende und damit aus der Diagramm-Anzeige entfernt werden. Auch ein Export der Zeitreihendaten in eine CSV oder Excel-Datei ist möglich.",
 				"mobile": "In der Legende werden alle ausgewählten Zeitreihen aufgelistet. Neben einigen Zusatzinformationen zur Zeitreihe, kann die Zeitreihe hier vom Nutzer temporär ausgeblendet werden oder das Styling wird angepasst. Des weiteren kann die Zeitreihe zu den Favoriten hinzugefügt werden und aus der Legende und damit aus der Diagramm-Anzeige entfernt werden."
 			}
 		},
@@ -146,15 +146,15 @@
 		"map-selection": {
 			"header": "Zeitreihenauswahl über die Karte",
 			"text": {
-				"desktop": "Bei der Zeitreihenauswahl über die Karte werden die Messstationen auf der Karte angezeigt. Die Anzeige der Stationen kann über einen Filter für einzelne Beobachtungsgrößen eingerenzt werden. Bei der Auswahl einer Station werden die dort verfügbaren Zeitreihen zur Auswahl angezeigt.",
+				"desktop": "Bei der Zeitreihenauswahl über die Karte werden die Messstationen auf der Karte angezeigt. Die Anzeige der Stationen kann über einen Filter für einzelne Beobachtungsgrößen eingerenzt werden. Bei der Auswahl einer Station werden die dort verfügbaren Zeitreihen zur Auswahl angezeigt. Über \"nur Messreihen mit aktuellen Werten\" können nur Stationen angezeigt werden, die in den letzten 4 Wochen Messungen durchgeführt haben.",
 				"mobile": "Bei der Zeitreihenauswahl über die Karte werden die Messstationen auf der Karte angezeigt. Die Anzeige der Stationen kann über einen Filter für einzelne Beobachtungsgrößen eingerenzt werden. Bei der Auswahl einer Station werden die dort verfügbaren Zeitreihen zur Auswahl angezeigt."
 			}
 		},
 		"settings": {
 			"header": "Einstellungen",
 			"text": {
-				"desktop": "Neben der Sprache können hier weitere Einstellungen ausgewählt werden.",
-				"mobile": "Neben der Sprache können hier weitere Einstellungen ausgewählt werden."
+				"desktop": "Neben der Sprache und einer Auswahl der Zeitzone können hier weitere Einstellungen ausgewählt werden.",
+				"mobile": "Neben der Sprache und einer Auswahl der Zeitzone können hier weitere Einstellungen ausgewählt werden."
 			}
 		},
 		"start": {

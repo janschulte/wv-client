@@ -116,8 +116,8 @@
 		"diagram": {
 			"header": "Chart view",
 			"text": {
-				"desktop": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame, or the data values can be displayed in a table.",
-				"mobile": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame, or the data values can be displayed in a table."
+				"desktop": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame. With the buttons + and - on the y axis the value range can be zoomed. The arrows can move the value range and with the X button the y axis changed to the origin vlaue range. \"Diagram export\" provides a PNG for your selected time series and time frame.",
+				"mobile": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame. With the buttons + and - on the y axis the value range can be zoomed. The arrows can move the value range and with the X button the y axis changed to the origin vlaue range."
 			}
 		},
 		"favorites": {
@@ -132,7 +132,7 @@
 		"legend": {
 			"header": "Legend",
 			"text": {
-				"desktop": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend.",
+				"desktop": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend. And an export of the timeseries data as CSV or Excel file is possible.",
 				"mobile": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend."
 			}
 		},
@@ -146,15 +146,15 @@
 		"map-selection": {
 			"header": "Timeseries selection by map",
 			"text": {
-				"desktop": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected measured parameter. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table.",
+				"desktop": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected measured parameter. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table. With \"only timeseries with current values\" only station are visible with has measurements in the last 4 weeks.",
 				"mobile": "All stations which offer timeseries are displayed on the map. The stations can be filtered based on a user selected measured parameter. When a station is selected, all timeseries including their measured phenomena are displayed in a list. The user can then select those timeseries which shall be displayed ad diagram or table."
 			}
 		},
 		"settings": {
 			"header": "Settings menu",
 			"text": {
-				"desktop": "Besides the language there are some further settings, which can be adjusted in this menu.",
-				"mobile": "Besides the language there are some further settings, which can be adjusted in this menu."
+				"desktop": "Besides the language and a selection of a time zone there are some further settings, which can be adjusted in this menu.",
+				"mobile": "Besides the language and a selection of a time zone there are some further settings, which can be adjusted in this menu."
 			}
 		},
 		"start": {
