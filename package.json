@@ -1,6 +1,6 @@
 {
   "name": "wv-client",
-  "version": "2.1.0-rc.1",
+  "version": "2.1.0-rc.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
