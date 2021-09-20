@@ -113,10 +113,22 @@
 		}
 	},
 	"help": {
+		"data-export": {
+			"header": "Datensatz download",
+			"text": {
+				"desktop": "Über die Legende lassen sich für jeden Zeitreiheneintrag nach Auswahl eines Zeitraums die Daten runterladen."
+			}
+		},
+		"diagram-export": {
+			"header": "Diagram exportieren",
+			"text": {
+				"desktop": "Über die Funktion \"Diagramm exportieren\" lässt sich nach Angabe eines Titels und Zeitraums ein Diagram der ausgewählten Zeitreihen als PNG erstellen."
+			}
+		},
 		"diagram": {
 			"header": "Diagramm-Ansicht",
 			"text": {
-				"desktop": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Über die Buttons + und - an den Y-Achsen kann der angezeigte Wertebereich vergrößert bzw. verkleinert werden. Mit den Pfeilen kann der Wertebereich verschoben werden. Über das X geht es zurück zum Ausgangsbereich. Die Funktion \"Diagramm exportieren\" stellt ein PNG der derzeit ausgewählten Zeitreihen bereit.",
+				"desktop": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Über die Buttons + und - an den Y-Achsen kann der angezeigte Wertebereich vergrößert bzw. verkleinert werden. Mit den Pfeilen kann der Wertebereich verschoben werden. Über das X geht es zurück zum Ausgangsbereich.",
 				"mobile": "In der Diagramm-Ansicht werden die Daten zu allen ausgewählten Zeitreihen für einen bestimmten Zeitraum angezeigt. Der Zeitraum kann verändert werden. Über die Buttons + und - an den Y-Achsen kann der angezeigte Wertebereich vergrößert bzw. verkleinert werden. Mit den Pfeilen kann der Wertebereich verschoben werden. Über das X geht es zurück zum Ausgangsbereich."
 			}
 		},
@@ -132,7 +144,7 @@
 		"legend": {
 			"header": "Legenden-Ansicht",
 			"text": {
-				"desktop": "In der Legende werden alle ausgewählten Zeitreihen aufgelistet. Neben einigen Zusatzinformationen zur Zeitreihe, kann die Zeitreihe hier vom Nutzer temporär ausgeblendet werden oder das Styling wird angepasst. Des weiteren kann die Zeitreihe zu den Favoriten hinzugefügt werden und aus der Legende und damit aus der Diagramm-Anzeige entfernt werden. Auch ein Export der Zeitreihendaten in eine CSV oder Excel-Datei ist möglich.",
+				"desktop": "In der Legende werden alle ausgewählten Zeitreihen aufgelistet. Neben einigen Zusatzinformationen zur Zeitreihe, kann die Zeitreihe hier vom Nutzer temporär ausgeblendet werden oder das Styling wird angepasst. Des weiteren kann die Zeitreihe zu den Favoriten hinzugefügt werden und aus der Legende und damit aus der Diagramm-Anzeige entfernt werden.",
 				"mobile": "In der Legende werden alle ausgewählten Zeitreihen aufgelistet. Neben einigen Zusatzinformationen zur Zeitreihe, kann die Zeitreihe hier vom Nutzer temporär ausgeblendet werden oder das Styling wird angepasst. Des weiteren kann die Zeitreihe zu den Favoriten hinzugefügt werden und aus der Legende und damit aus der Diagramm-Anzeige entfernt werden."
 			}
 		},

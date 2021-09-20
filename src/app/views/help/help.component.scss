@@ -45,16 +45,14 @@
 
     @media screen and (min-width: $tablet-min-width) {
 
-        .image.mobile,
-        .text.mobile {
+        .mobile {
             display: none;
         }
     }
 
     @media screen and (max-width: $mobile-max-width) {
 
-        .image.desktop,
-        .text.desktop {
+        .desktop {
             display: none;
         }
     }
@@ -115,6 +113,14 @@
         .start-desktop {
             background-image: url('~src/assets/images/help/start-desktop-de.jpg');
         }
+
+        .diagram-export-desktop {
+            background-image: url('~src/assets/images/help/diagram-export-de.png');
+        }
+
+        .data-export-desktop {
+            background-image: url('~src/assets/images/help/data-export-de.png');
+        }
     }
 
     &.en {
@@ -172,6 +178,14 @@
 
         .start-desktop {
             background-image: url('~src/assets/images/help/start-desktop-en.jpg');
+        }
+
+        .diagram-export-desktop {
+            background-image: url('~src/assets/images/help/diagram-export-en.png');
+        }
+
+        .data-export-desktop {
+            background-image: url('~src/assets/images/help/data-export-en.png');
         }
     }
 }

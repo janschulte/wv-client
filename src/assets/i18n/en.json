@@ -35,7 +35,7 @@
 				"may": "May",
 				"nov": "November",
 				"oct": "October",
-				"sep": "Septembre"
+				"sep": "September"
 			},
 			"short": {
 				"apr": "Apr",
@@ -113,10 +113,22 @@
 		}
 	},
 	"help": {
+		"data-export": {
+			"header": "Download dataset",
+			"text": {
+				"desktop": "In the legend the user can export data for a timeseries. The dataset can be restricted by a given timeframe"
+			}
+		},
+		"diagram-export": {
+			"header": "Export diagram",
+			"text": {
+				"desktop": "The function \"export diagram\" provides the user an exported diagram as PNG file. The user can set a diagram title and the timeframe."
+			}
+		},
 		"diagram": {
 			"header": "Chart view",
 			"text": {
-				"desktop": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame. With the buttons + and - on the y axis the value range can be zoomed. The arrows can move the value range and with the X button the y axis changed to the origin vlaue range. \"Diagram export\" provides a PNG for your selected time series and time frame.",
+				"desktop": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame. With the buttons + and - on the y axis the value range can be zoomed. The arrows can move the value range and with the X button the y axis changed to the origin vlaue range.",
 				"mobile": "The chart view visualizes the data of all selected timeseries in within a certain time frame. The user can change the time frame. With the buttons + and - on the y axis the value range can be zoomed. The arrows can move the value range and with the X button the y axis changed to the origin vlaue range."
 			}
 		},
@@ -132,7 +144,7 @@
 		"legend": {
 			"header": "Legend",
 			"text": {
-				"desktop": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend. And an export of the timeseries data as CSV or Excel file is possible.",
+				"desktop": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend.",
 				"mobile": "The legend lists all selected timeseries. Besides additional information about the timeseries, the user can temporarlly hide the time series or change the styling of the timeseries. Additionally the timeseries can be added to the favorites or removed from the legend."
 			}
 		},
