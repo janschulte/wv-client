@@ -24,20 +24,20 @@ input[type=radio].wv-toggle + label.wv-label {
     font-weight: normal;
     vertical-align:middle;
     cursor:pointer;
-    background-image: url($image-path+'off.png');
+    background-image: url('~src/assets/images/off.png');
     @media only screen and (-webkit-min-device-pixel-ration: 1.5),
         only screen and (min-resolution: 1.5dppx),
         only screen and (min-resolution: 144dpi) {
-        background-image: url($image-path+'off@2x.png');
+        background-image: url('~src/assets/images/off@2x.png');
     }
 }
 
 input[type=radio].wv-toggle:checked + label.wv-label {
-    background-image: url($image-path+'on.png');
+    background-image: url('~src/assets/images/on.png');
     @media only screen and (-webkit-min-device-pixel-ration: 1.5),
         only screen and (min-resolution: 1.5dppx),
         only screen and (min-resolution: 144dpi) {
-        background-image: url($image-path+'on@2x.png');
+        background-image: url('~src/assets/images/on@2x.png');
     }
 }
 

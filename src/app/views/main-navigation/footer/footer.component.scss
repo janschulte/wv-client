@@ -14,10 +14,10 @@
         width: 69px;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url($image-path+'s-button-open@3x.png');
+        background-image: url('~src/assets/images/s-button-open@3x.png');
 
         &.active {
-            background-image: url($image-path+'s-button-close@3x.png');
+            background-image: url('~src/assets/images/s-button-close@3x.png');
         }
     }
 

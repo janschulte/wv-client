@@ -167,10 +167,10 @@ h3 {
     width: 84px;
     height: 82px;
     background-size: contain;
-    background-image: url($image-path+'button-open.png');
+    background-image: url('~src/assets/images/button-open.png');
 
     &.active {
-        background-image: url($image-path+'button-close.png');
+        background-image: url('~src/assets/images/button-close.png');
     }
 
     &:hover {
@@ -180,10 +180,10 @@ h3 {
     @media only screen and (-webkit-min-device-pixel-ration: 1.5),
     only screen and (min-resolution: 1.5dppx),
     only screen and (min-resolution: 144dpi) {
-        background-image: url($image-path+'button-open@2x.png');
+        background-image: url('~src/assets/images/button-open@2x.png');
 
         &.active {
-            background-image: url($image-path+'button-close@2x.png');
+            background-image: url('~src/assets/images/button-close@2x.png');
         }
     }
 }

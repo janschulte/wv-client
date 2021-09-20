@@ -21,7 +21,7 @@
             float: left;
             width: 142px;
             height: 44px;
-            background-image: url($image-path+'Logo.png');
+            background-image: url('~src/assets/images/Logo.png');
             background-repeat: no-repeat;
             background-size: contain;
             margin-top: 7px;
@@ -34,7 +34,7 @@
             @media only screen and (-webkit-min-device-pixel-ration: 1.5),
             only screen and (min-resolution: 1.5dppx),
             only screen and (min-resolution: 144dpi) {
-                background-image: url($image-path+'Logo@2x.png');
+                background-image: url('~src/assets/images/Logo@2x.png');
             }
         }
 

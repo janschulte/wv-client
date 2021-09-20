@@ -24,20 +24,20 @@ input[type=radio].wv-radio + label.wv-label {
     font-weight: normal;
     vertical-align:middle;
     cursor:pointer;
-    background-image: url($image-path+'radio-button.png');
+    background-image: url('~src/assets/images/radio-button.png');
     @media only screen and (-webkit-min-device-pixel-ration: 1.5),
         only screen and (min-resolution: 1.5dppx),
         only screen and (min-resolution: 144dpi) {
-        background-image: url($image-path+'radio-button@2x.png');
+        background-image: url('~src/assets/images/radio-button@2x.png');
     }
 }
 
 input[type=radio].wv-radio:checked + label.wv-label {
-    background-image: url($image-path+'radio-button-selected.png');
+    background-image: url('~src/assets/images/radio-button-selected.png');
     @media only screen and (-webkit-min-device-pixel-ration: 1.5),
         only screen and (min-resolution: 1.5dppx),
         only screen and (min-resolution: 144dpi) {
-        background-image: url($image-path+'radio-button-selected@2x.png');
+        background-image: url('~src/assets/images/radio-button-selected@2x.png');
     }
 }
 

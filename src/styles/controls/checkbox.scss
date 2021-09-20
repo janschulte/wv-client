@@ -14,7 +14,7 @@ input[type=checkbox].wv-checkbox {
 }
 
 input[type=checkbox].wv-checkbox + label.wv-label {
-    background-image: url($image-path+'checkbox.png');
+    background-image: url('~src/assets/images/checkbox.png');
     padding-left:25px;
     height:20px; 
     display:inline-block;
@@ -27,7 +27,7 @@ input[type=checkbox].wv-checkbox + label.wv-label {
 }
 
 input[type=checkbox].wv-checkbox:checked + label.wv-label {
-    background-image: url($image-path+'checkbox-checked.png');
+    background-image: url('~src/assets/images/checkbox-checked.png');
 }
 
 label.wv-label {

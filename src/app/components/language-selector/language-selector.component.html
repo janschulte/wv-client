@@ -1,11 +1,11 @@
 <div ngbDropdown placement="bottom-right">
   <button class="btn btn-outline-secondary" ngbDropdownToggle>
-    <img src="images/blank.gif" class="flag flag-{{currentLang.code}}">
+    <img class="flag flag-{{currentLang.code}}">
     <span>{{currentLang.label}}</span>
   </button>
   <div ngbDropdownMenu>
     <button ngbDropdownItem *ngFor="let lang of languageList" (click)="setLanguage(lang)">
-      <img src="images/blank.gif" class="flag flag-{{lang.code}}">
+      <img class="flag flag-{{lang.code}}">
       <span>{{lang.label}}</span>
     </button>
   </div>
