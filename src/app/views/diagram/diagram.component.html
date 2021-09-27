@@ -74,16 +74,17 @@
           </div>
         </div>
         <div class="chart">
-          <app-loading-overlay *ngIf="chartLoading"></app-loading-overlay>
+          <!-- <app-loading-overlay *ngIf="chartLoading"></app-loading-overlay> -->
           <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
             [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
             [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
-            (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)" #diagram>
+            (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)"
+            (dataLoaded)="setLoadedIds($event)" #diagram>
             <n52-d3-y-axis-modifier></n52-d3-y-axis-modifier>
           </n52-d3-timeseries-graph>
         </div>
         <div class="overviewChart">
-          <app-loading-overlay *ngIf="overviewLoading"></app-loading-overlay>
+          <!-- <app-loading-overlay *ngIf="overviewLoading"></app-loading-overlay> -->
           <n52-d3-overview-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [rangefactor]="2"
             [datasetOptions]="timeseriesService.datasetOptions" [presenterOptions]="overviewOptions"
             [timeInterval]="timespan" (onTimespanChanged)="timespanChanged($event)"

@@ -209,4 +209,8 @@ export class DiagramComponent implements OnInit {
     return this.time.centerTimespanWithDuration(this.timespan, moment.duration(30, 'day'));
   }
 
+  setLoadedIds(loadedIds: Set<string>) {
+    this.loadData = loadedIds;
+  }
+
 }
