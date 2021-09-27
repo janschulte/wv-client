@@ -2,9 +2,16 @@
 
 :host {
     .ts-item {
+        display: flex;
         padding: 8px 10px;
         position: relative;
         background-color: $white;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         .add {
             float: right;
@@ -24,11 +31,14 @@
             margin-right: 10px;
         }
 
-        .wv-button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            margin-top: -19px;
+        .icon {
+            padding-right: 10px;
+            font-size: 27px;
+            color: $slate-gray;
+
+            &.active {
+                color: $lime-green;
+            }
         }
 
         @media screen and (max-width: $mobile-max-width) {

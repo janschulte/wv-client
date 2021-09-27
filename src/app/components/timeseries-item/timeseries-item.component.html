@@ -1,4 +1,4 @@
-<div class="ts-item" [ngClass]="{'selected': added}">
+<div class="ts-item" [ngClass]="{'selected': added}" (click)="toggleTs()">
   <div>
     <div class="big">{{timeseries.parameters.procedure.label | translate}}</div>
     <div class="mid">
@@ -12,8 +12,5 @@
       <span> {{timeseries.lastValue.timestamp | tzDate : 'L LT z'}}</span>
     </div>
   </div>
-  <div class="wv-button add" (click)="toggleTs()" [ngClass]="{'active': added}">
-    <span class="icon icon-timeline-add"
-      [ngClass]="{'icon-timeline-checked':added, 'icon-timeline-add':!added}"></span>
-  </div>
+  <div class="icon" [ngClass]="{'active icon-timeline-checked': added, 'icon-timeline-add': !added}"></div>
 </div>

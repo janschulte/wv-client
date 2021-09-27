@@ -25,16 +25,13 @@
     <div *ngIf="showAdditionalTs">
       <div *ngFor="let timeseries of phenomenonMatchedList">
         <div class="ts-header mid">{{timeseries.parameters.phenomenon.label}}</div>
-        <app-timeseries-item [timeseries]="timeseries" (onTimeseriesSelect)="datasetSelected($event)"></app-timeseries-item>
+        <app-timeseries-item [timeseries]="timeseries" (onTimeseriesSelect)="datasetSelected($event)">
+        </app-timeseries-item>
       </div>
     </div>
   </div>
 </div>
 <div class="modal-footer station-footer">
-  <!--<div class="wv-button addAll"
-         (click)="addAllTs()">
-        <span class="icon icon-timeline-show"></span>
-    </div>-->
   <div class="wv-button showChart" (click)="navigateToDiagram()">
     <span class="icon icon-timeline"></span>
     <span class="description" translate="map.station.showChart"></span>

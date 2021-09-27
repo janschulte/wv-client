@@ -56,7 +56,7 @@ export class StationSelectionComponent extends DatasetByStationSelectorComponent
   }
 
   public datasetSelected(selected: boolean) {
-    this.added = new AddedDatasetPresentation(selected, 100000);
+    this.added = new AddedDatasetPresentation(selected);
   }
 
   public navigateToDiagram() {
