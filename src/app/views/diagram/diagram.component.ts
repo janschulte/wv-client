@@ -33,7 +33,6 @@ export class DiagramComponent implements OnInit {
 
   public selectedIds: string[] = [];
   public highlightId: string;
-  public timespan: Timespan;
 
   public overviewLoading = false;
   public chartLoading = false;
@@ -85,7 +84,6 @@ export class DiagramComponent implements OnInit {
     if (!this.diagramPermalinkSrvc.canValidatePermalink()) {
       this.timeseriesService.initFromState();
     }
-    this.timespan = this.timeseriesService.timespan;
 
     this.legendActive = !this.layoutValidator.isMax(ScreenSize.mobileMax);
     this.hideOverview = this.layoutValidator.isMax(ScreenSize.mobileMax);
@@ -183,30 +181,28 @@ export class DiagramComponent implements OnInit {
 
   openTimeSettings() {
     const modalRef = this.modalService.open(ModalTimeSettingsComponent, { windowClass: 'fit-modal' });
-    (modalRef.componentInstance as ModalTimeSettingsComponent).timespan = this.timespan;
+    (modalRef.componentInstance as ModalTimeSettingsComponent).timespan = this.timeseriesService.timespan;
     modalRef.result.then((res: Timespan) => this.timespanChanged(res));
   }
 
   centerTime(date: Date) {
-    this.timespan = this.time.centerTimespan(this.timespan, date);
-    this.timeseriesService.timespan = this.timespan;
+    this.timeseriesService.timespan = this.time.centerTimespan(this.timeseriesService.timespan, date);
   }
 
   timespanChanged(timespan: Timespan) {
-    this.timespan = timespan;
-    this.timeseriesService.timespan = this.timespan;
+    this.timeseriesService.timespan = timespan;
   }
 
   oneDay = (): Timespan => {
-    return this.time.centerTimespanWithDuration(this.timespan, moment.duration(1, 'day'));
+    return this.time.centerTimespanWithDuration(this.timeseriesService.timespan, moment.duration(1, 'day'));
   }
 
   oneWeek = (): Timespan => {
-    return this.time.centerTimespanWithDuration(this.timespan, moment.duration(7, 'day'));
+    return this.time.centerTimespanWithDuration(this.timeseriesService.timespan, moment.duration(7, 'day'));
   }
 
   oneMonth = (): Timespan => {
-    return this.time.centerTimespanWithDuration(this.timespan, moment.duration(30, 'day'));
+    return this.time.centerTimespanWithDuration(this.timeseriesService.timespan, moment.duration(30, 'day'));
   }
 
   setLoadedIds(loadedIds: Set<string>) {

@@ -18,7 +18,7 @@
           <div class="legend-body">
             <div class="legend-entry" *ngFor="let id of timeseriesService.datasetIds">
               <app-legend-entry [datasetId]="id" [selected]="isSelected(id)" [highlight]="id === highlightId"
-                [datasetOptions]="timeseriesService.datasetOptions.get(id)" [timeInterval]="timespan"
+                [datasetOptions]="timeseriesService.datasetOptions.get(id)" [timeInterval]="timeseriesService.timespan"
                 (onDeleteDataset)="timeseriesService.removeDataset(id)" (onSelectDataset)="selectDataset($event, id)"
                 (onUpdateOptions)="updateOptions($event, id)" (onEditOptions)="editOption($event)"
                 (onShowGeometry)="showGeometry($event)" (onSelectDate)="centerTime($event)"
@@ -59,7 +59,7 @@
             <span class="icon"
               [ngClass]="{'icon-hide-y-axis':diagramOptions.yaxis, 'icon-show-y-axis':!diagramOptions.yaxis}"></span>
           </div>
-          <app-timespan-shifter class="time-shifter" [timespan]="timespan" (onTimespanChange)="timespanChanged($event)"
+          <app-timespan-shifter class="time-shifter" [timespan]="timeseriesService.timespan" (onTimespanChange)="timespanChanged($event)"
             (onOpenTimeSettings)="openTimeSettings()"></app-timespan-shifter>
           <app-timespan-button class="time-button one-day" label="1 {{'chart.hotkeys.day' | translate}}"
             shortlabel="1{{'chart.hotkeys.day-short' | translate}}" [timespanFunc]="oneDay"
@@ -76,7 +76,7 @@
         <div class="chart">
           <!-- <app-loading-overlay *ngIf="chartLoading"></app-loading-overlay> -->
           <n52-d3-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [selectedDatasetIds]="selectedIds"
-            [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timespan"
+            [datasetOptions]="timeseriesService.datasetOptions" [timeInterval]="timeseriesService.timespan"
             [presenterOptions]="diagramOptions" (onTimespanChanged)="timespanChanged($event)"
             (onDatasetSelected)="setSelected($event)" (onContentLoading)="onGraphLoading($event)"
             (dataLoaded)="setLoadedIds($event)" #diagram>
@@ -87,7 +87,7 @@
           <!-- <app-loading-overlay *ngIf="overviewLoading"></app-loading-overlay> -->
           <n52-d3-overview-timeseries-graph [datasetIds]="timeseriesService.datasetIds" [rangefactor]="2"
             [datasetOptions]="timeseriesService.datasetOptions" [presenterOptions]="overviewOptions"
-            [timeInterval]="timespan" (onTimespanChanged)="timespanChanged($event)"
+            [timeInterval]="timeseriesService.timespan" (onTimespanChanged)="timespanChanged($event)"
             (onContentLoading)="onOverviewLoading($event)">
           </n52-d3-overview-timeseries-graph>
         </div>
