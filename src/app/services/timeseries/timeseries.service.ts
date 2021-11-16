@@ -24,7 +24,7 @@ const GENERALIZE_CACHE_PARAM = 'generalize';
 })
 export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptions> {
 
-  private _timespan: Timespan;
+  private _timespan: Timespan = this.timeSrvc.initTimespan();
   private _generalize = true;
 
   constructor(
@@ -40,7 +40,7 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
   }
 
   get timespan(): Timespan {
-    return this._timespan || this.timeSrvc.initTimespan();
+    return this._timespan;
   }
 
   set timespan(timespan: Timespan) {
