@@ -33,7 +33,7 @@
       </div>
       <span>
         <span class="small bold" translate="legend.entry.firstValue"></span>
-        <span class="small">{{dataset.firstValue.timestamp | tzDate : 'L LT z'}}</span>
+        <span class="small"> {{dataset.firstValue.timestamp | tzDate : 'L LT z'}}</span>
         <span class="small" *ngIf="dataset.firstValue.value !== null"> | {{dataset.firstValue.value}} {{uom}}</span>
       </span>
     </div>
