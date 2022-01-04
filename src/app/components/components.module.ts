@@ -112,28 +112,27 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ClipboardModule,
-    FormsModule,
-    TranslateModule,
-    QRCodeModule,
-    NgbModalModule,
-    NgbToastModule,
-    NgbDropdownModule,
-    NgbDatepickerModule,
-    NgbModule,
-    NgbTimepickerModule,
-    // Ng5SliderModule,
-    HelgolandCoreModule,
-    HelgolandMapControlModule,
-    HelgolandMapViewModule,
-    HelgolandSelectorModule,
-    HelgolandDatasetDownloadModule,
-    HelgolandFacetSearchModule
-  ],
-  entryComponents: [COMPONENTS],
-  exports: [COMPONENTS],
-  declarations: [COMPONENTS, PIPES],
+    imports: [
+        CommonModule,
+        ClipboardModule,
+        FormsModule,
+        TranslateModule,
+        QRCodeModule,
+        NgbModalModule,
+        NgbToastModule,
+        NgbDropdownModule,
+        NgbDatepickerModule,
+        NgbModule,
+        NgbTimepickerModule,
+        // Ng5SliderModule,
+        HelgolandCoreModule,
+        HelgolandMapControlModule,
+        HelgolandMapViewModule,
+        HelgolandSelectorModule,
+        HelgolandDatasetDownloadModule,
+        HelgolandFacetSearchModule
+    ],
+    exports: [COMPONENTS],
+    declarations: [COMPONENTS, PIPES]
 })
 export class ComponentsModule { }
