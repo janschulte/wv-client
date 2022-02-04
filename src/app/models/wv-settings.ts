@@ -13,6 +13,16 @@ export interface WvSettings extends Settings {
     baseLayers: LayerConfiguration[];
     overlayLayers: LayerConfiguration[];
     datasetApis: ExtendedDatasetApi[];
+    noGeneralization: {
+        phenomenonIds: string[];
+    };
+    barChartPeriodMapping: {
+        procedure: {
+            id: string;
+            barPeriod: string;
+            barStartOf: string;
+        }[]
+    }
 }
 
 @Injectable()

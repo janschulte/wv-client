@@ -55,5 +55,19 @@
       "transparent": true
     }
   }],
-  "saveState": false
+  "noGeneralization": {
+    "phenomenonIds": ["4"]
+  },
+  "barChartPeriodMapping": {
+    "procedure": [{
+      "id": "285",
+      "barPeriod": "PT15M",
+      "barStartOf": "hour"
+    }, {
+      "id": "1963",
+      "barPeriod": "PT5M",
+      "barStartOf": "hour"
+    }]
+  },
+  "saveState": true
 }

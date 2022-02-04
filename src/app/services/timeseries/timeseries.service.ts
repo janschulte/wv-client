@@ -4,6 +4,8 @@ import {
   ColorService,
   DatasetOptions,
   HelgolandServicesConnector,
+  HelgolandTimeseries,
+  LineRenderingHints,
   LocalStorage,
   RenderingHintsDatasetService,
   SettingsService,
@@ -65,6 +67,49 @@ export class TimeseriesService extends RenderingHintsDatasetService<DatasetOptio
     const options = new DatasetOptions(internalId, this.color.getColor());
     options.generalize = this._generalize;
     return options;
+  }
+
+  protected createOptionsOfRenderingHints(timeseries: HelgolandTimeseries): DatasetOptions {
+    const options = this.createStyles(timeseries.internalId) as DatasetOptions;
+    this.adjustGeneralization(timeseries, options);
+    if (timeseries.renderingHints) {
+      if (timeseries.renderingHints.properties && timeseries.renderingHints.properties.color) {
+        options.color = timeseries.renderingHints.properties.color;
+      }
+      switch (timeseries.renderingHints.chartType) {
+        case 'line':
+          this.handleLineRenderingHints(timeseries.renderingHints as LineRenderingHints, options);
+          break;
+        case 'bar':
+          this.handleBarRenderingHints(timeseries.renderingHints as BarRenderingHints, options);
+          this.adjustBarPeriod(timeseries, options);
+          break;
+        default:
+          break;
+      }
+    }
+    return options;
+  }
+
+  adjustBarPeriod(timeseries: HelgolandTimeseries, options: DatasetOptions) {
+    console.log(options.barPeriod);
+    const barChartMapping = this.settings.getSettings().barChartPeriodMapping?.procedure;
+    if (barChartMapping) {
+      const mapping = barChartMapping.find(e => e.id === timeseries.parameters.procedure.id);
+      if (mapping) {
+        options.barPeriod = mapping.barPeriod;
+        options.barStartOf = mapping.barStartOf;
+      }
+    }
+  }
+
+  adjustGeneralization(timeseries: HelgolandTimeseries, options: DatasetOptions) {
+    const noGenForPhen = this.settings.getSettings().noGeneralization?.phenomenonIds
+    if (noGenForPhen) {
+      if (noGenForPhen.indexOf(timeseries.parameters.phenomenon.id) >= 0) {
+        options.generalize = false;
+      }
+    }
   }
 
   protected handleBarRenderingHints(barHints: BarRenderingHints, options: DatasetOptions) {
