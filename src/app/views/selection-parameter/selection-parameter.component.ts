@@ -16,19 +16,23 @@ export class SelectionParameterComponent implements OnInit {
   public phenomenonParams: ListSelectorParameter[] = [
     {
       type: MultiServiceFilterEndpoint.phenomenon,
-      header: 'listSelection.headers.phenomenon'
+      header: 'listSelection.headers.phenomenon',
+      filterList: []
     },
     {
       type: MultiServiceFilterEndpoint.category,
-      header: 'listSelection.headers.category'
+      header: 'listSelection.headers.category',
+      filterList: []
     },
     {
       type: MultiServiceFilterEndpoint.feature,
-      header: 'listSelection.headers.station'
+      header: 'listSelection.headers.station',
+      filterList: []
     },
     {
       type: MultiServiceFilterEndpoint.procedure,
-      header: 'listSelection.headers.procedure'
+      header: 'listSelection.headers.procedure',
+      filterList: []
     }
   ];
 

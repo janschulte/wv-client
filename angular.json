@@ -126,6 +126,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "wv-client"
+    }
+  }
 }

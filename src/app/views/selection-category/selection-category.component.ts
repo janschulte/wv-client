@@ -20,16 +20,20 @@ export class SelectionCategoryComponent implements OnInit {
 
   public categoryParams: ListSelectorParameter[] = [{
     type: MultiServiceFilterEndpoint.category,
-    header: 'listSelection.headers.category'
+    header: 'listSelection.headers.category',
+    filterList: []
   }, {
     type: MultiServiceFilterEndpoint.feature,
-    header: 'listSelection.headers.station'
+    header: 'listSelection.headers.station',
+    filterList: []
   }, {
     type: MultiServiceFilterEndpoint.phenomenon,
-    header: 'listSelection.headers.phenomenon'
+    header: 'listSelection.headers.phenomenon',
+    filterList: []
   }, {
     type: MultiServiceFilterEndpoint.procedure,
-    header: 'listSelection.headers.procedure'
+    header: 'listSelection.headers.procedure',
+    filterList: []
   }];
 
   public selectedProviderList: Provider[] = [];
